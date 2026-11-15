@@ -1,0 +1,16 @@
+{
+ "source": "googleapis/genai-toolbox",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "a313b10c4188a33d3a6ed982e9397813bb3a26a0",
+   "scanned_at": "2026-11-15T02:10:45+00:00",
+   "level": "caution",
+   "score": 29,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 2127,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

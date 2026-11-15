@@ -1,0 +1,16 @@
+{
+ "source": "beehiveinnovations/zen-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "7afc7c1cc96e23992c8f105f960132c657883bb1",
+   "scanned_at": "2026-11-15T02:09:17+00:00",
+   "level": "caution",
+   "score": 9,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 362,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "source": "haris-musa/excel-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "8d3a51a0a5f99624c43cffacc622bab49e1e32da",
+   "scanned_at": "2026-11-15T02:11:24+00:00",
+   "level": "caution",
+   "score": 5,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 422,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

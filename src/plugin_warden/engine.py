@@ -8,6 +8,7 @@ import os
 import re
 import shlex
 from collections import defaultdict
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -47,6 +48,54 @@ class _Lines:
         start = self.starts[n - 1]
         end = self.starts[n] - 1 if n < len(self.starts) else len(self.text)
         return self.text[start:end]
+
+
+# Many rules read "X, then anything up to the end of the line, then Y". On a minified bundle the
+# whole file is one line, so every X rescans the rest of the file: quadratic, minutes per file.
+# Files with very long lines are therefore matched in overlapping windows, which bounds that reach.
+LONG_LINE = 4000
+WINDOW = 2000
+OVERLAP = 300
+
+
+def _has_long_line(text: str) -> bool:
+    if len(text) <= LONG_LINE:
+        return False
+    start = 0
+    while start < len(text):
+        end = text.find("\n", start)
+        if end == -1:
+            end = len(text)
+        if end - start > LONG_LINE:
+            return True
+        start = end + 1
+    return False
+
+
+def _scan_view(text: str) -> str:
+    """The text rules are matched against. For a minified file, statement ends become line ends,
+    so "the rest of the line" means "the rest of the statement". The copy has the same length,
+    so every match offset still points at the same place in the real file."""
+    return text.replace(";", "\n") if _has_long_line(text) else text
+
+
+def _windows(text: str) -> list[int] | None:
+    """Window start offsets for text that still has very long lines, or None when it has none."""
+    return list(range(0, len(text), WINDOW - OVERLAP)) if _has_long_line(text) else None
+
+
+def _matches(pattern: re.Pattern[str], text: str, windows: list[int] | None) -> Iterator[re.Match[str]]:
+    """Matches in file order. With windows, each match is found inside a bounded slice and
+    a match already seen in the previous window's overlap is skipped."""
+    if windows is None:
+        yield from pattern.finditer(text)
+        return
+    last = -1
+    for start in windows:
+        for m in pattern.finditer(text, start, min(len(text), start + WINDOW)):
+            if m.start() > last:
+                last = m.start()
+                yield m
 
 
 def _clip(s: str, n: int = 240) -> str:
@@ -127,19 +176,25 @@ class Scanner:
         for info in self._text_files():
             text = info.text
             lines: _Lines | None = None
+            scan = _scan_view(text)
+            windows = _windows(scan) if scan is not text else None
+            scan_lines: _Lines | None = None
             # Extensionless files count as shell only when they are executable or something runs them.
             kind = "shell" if info.kind == "other" and (info.executable or info.rel in self.inv.triggers or text.startswith("#!")) else info.kind
             for rule in R.LINE_RULES:
                 if kind not in rule.kinds or (info.kind == "other" and kind == "other"):
                     continue
-                if not rule.pattern.search(text):
+                if windows is None and not rule.pattern.search(scan):
                     continue
                 lines = lines or _Lines(text)
+                if scan is not text:
+                    scan_lines = scan_lines or _Lines(scan)
                 hits: list[int] = []
                 first_snip = ""
-                for m in rule.pattern.finditer(text):
+                for m in _matches(rule.pattern, scan, windows):
                     ln = lines.lineno(m.start())
-                    line_text = lines.line(ln)
+                    # In a minified file the "line" a rule reasons about is the statement, not the whole file.
+                    line_text = lines.line(ln) if scan_lines is None else scan_lines.line(scan_lines.lineno(m.start()))
                     if rule.exclude and rule.exclude.search(line_text):
                         continue
                     if info.is_code and _is_comment(line_text, info.kind):

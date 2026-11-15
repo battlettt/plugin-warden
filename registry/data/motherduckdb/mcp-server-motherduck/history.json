@@ -1,0 +1,16 @@
+{
+ "source": "motherduckdb/mcp-server-motherduck",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "181ad176d09993b10d6aa6073810a30fe12623db",
+   "scanned_at": "2026-11-15T02:08:23+00:00",
+   "level": "low",
+   "score": 0,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 47,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

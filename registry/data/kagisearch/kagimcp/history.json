@@ -1,0 +1,16 @@
+{
+ "source": "kagisearch/kagimcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "4dc1dc97ca8dead8458c7025e4fcc36d2e3d6ec4",
+   "scanned_at": "2026-11-15T02:11:21+00:00",
+   "level": "low",
+   "score": 2,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 37,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

@@ -1,0 +1,738 @@
+{
+ "target": {
+  "display": "anthropics/skills",
+  "raw": "anthropics/skills",
+  "kind": "github",
+  "url": "https://github.com/anthropics/skills",
+  "ref": null,
+  "subdir": null,
+  "commit": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T01:35:09+00:00",
+ "plugins": [
+  {
+   "name": "document-skills",
+   "path": ".",
+   "source": "marketplace",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "package": 2,
+  "skill": 20
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "document-skills",
+   "path": ".",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "source": "marketplace"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "academy-guide",
+   "path": "skills/academy-guide/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "> Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product \u2014 it recommends matching courses, tutorials, and use cases from Claude Academy (academy"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "algorithmic-art",
+   "path": "skills/algorithmic-art/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "brand-guidelines",
+   "path": "skills/brand-guidelines/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "canvas-design",
+   "path": "skills/canvas-design/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create ori"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "claude-api",
+   "path": "skills/claude-api/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "|- Reference for the Claude API / Anthropic SDK \u2014 model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER \u2014 read BEFORE opening the target file;"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "discernment-nudge",
+   "path": "skills/discernment-nudge/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "> After you give a substantive answer or draft that the user may act on \u2014 advice or recommendations, drafted artifacts such as goals, plans, pitches, proposals, or emails, estimates or projections, an"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "doc-coauthoring",
+   "path": "skills/doc-coauthoring/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This wor"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "docx",
+   "path": "skills/docx/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document',"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "frontend-design",
+   "path": "skills/frontend-design/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defau"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "internal-comms",
+   "path": "skills/internal-comms/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal com"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "mcp-builder",
+   "path": "skills/mcp-builder/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate externa"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pdf",
+   "path": "skills/pdf/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rota"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pptx",
+   "path": "skills/pptx/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this skill any time a .pptx or .potx file is involved in any way \u2014 as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting t"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "skill-creator",
+   "path": "skills/skill-creator/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "slack-gif-creator",
+   "path": "skills/slack-gif-creator/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a G"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "theme-factory",
+   "path": "skills/theme-factory/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact t"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "web-artifacts-builder",
+   "path": "skills/web-artifacts-builder/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state manag"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "webapp-testing",
+   "path": "skills/webapp-testing/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser l"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "xlsx",
+   "path": "skills/xlsx/SKILL.md",
+   "plugin": "document-skills",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "template-skill",
+   "path": "template/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Replace with description of the skill and when Claude should use it."
+   }
+  },
+  {
+   "kind": "package",
+   "name": "skills/mcp-builder/scripts/requirements.txt",
+   "path": "skills/mcp-builder/scripts/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "skills/slack-gif-creator/requirements.txt",
+   "path": "skills/slack-gif-creator/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "anthropic-agent-skills",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "document-skills",
+      "description": "Collection of document processing suite including Excel, Word, PowerPoint, and PDF capabilities",
+      "source": "./",
+      "strict": false,
+      "skills": [
+       "./skills/xlsx",
+       "./skills/docx",
+       "./skills/pptx",
+       "./skills/pdf"
+      ]
+     },
+     {
+      "name": "example-skills",
+      "description": "Collection of example skills demonstrating various capabilities including skill creation, MCP building, visual design, algorithmic art, internal communications, web testing, artifact building, Slack GIFs, and theme styling",
+      "source": "./",
+      "strict": false,
+      "skills": [
+       "./skills/algorithmic-art",
+       "./skills/brand-guidelines",
+       "./skills/canvas-design",
+       "./skills/doc-coauthoring",
+       "./skills/frontend-design",
+       "./skills/internal-comms",
+       "./skills/mcp-builder",
+       "./skills/skill-creator",
+       "./skills/slack-gif-creator",
+       "./skills/theme-factory",
+       "./skills/web-artifacts-builder",
+       "./skills/webapp-testing"
+      ]
+     },
+     {
+      "name": "claude-api",
+      "description": "Claude API and SDK documentation skill for building LLM-powered applications",
+      "source": "./",
+      "strict": false,
+      "skills": [
+       "./skills/claude-api"
+      ]
+     },
+     {
+      "name": "academy-guide",
+      "description": "Recommends relevant Claude Academy courses, tutorials, and use cases when users ask how to use Claude",
+      "source": "./",
+      "strict": false,
+      "skills": [
+       "./skills/academy-guide"
+      ]
+     },
+     {
+      "name": "discernment-nudge",
+      "description": "Appends two or three short follow-up questions after a substantive answer to help users check key facts, probe the reasoning, and notice missing context",
+      "source": "./",
+      "strict": false,
+      "skills": [
+       "./skills/discernment-nudge"
+      ]
+     }
+    ],
+    "owner": {
+     "name": "Keith Lazuka",
+     "email": "klazuka@anthropic.com"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 448,
+  "bytes": 12089547,
+  "by_kind": {
+   "binary": 56,
+   "config": 1,
+   "js": 4,
+   "markdown": 138,
+   "other": 174,
+   "python": 73,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 24
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1cdc2c33024200b3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "MARKETPLACE-IMPERSONATION",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "impersonation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:89725e6a0cb58391",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ce07d490aa4121c6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2c695d8e92ae07b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:46a1946d2425d5a7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4fcdf0ac6a02c58b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-GATEKEEPER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f5be612a6da7a076",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:053a25da3a6ff795",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:07da339e410a5ce2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5459cb229cff8a07",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-OVERRIDE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:46a7472cdb360c66",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f095b4ddf3cc425c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dee1e9dc16999dcd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9d85c175ca81d0d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ef656ed4d581caff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.anthropic.com": [
+    "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "ANTHROPIC_API_KEY": [
+    "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py"
+   ],
+   "ANTHROPIC_AUTH_TOKEN": [
+    "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 1,
+  "destructive": 0,
+  "privilege": 1,
+  "obfuscation": 0,
+  "prompt-injection": 8,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 1,
+  "impersonation": 1,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 194641,
+  "forks": 22902,
+  "open_issues": 1542,
+  "contributors": "16",
+  "created_at": "2025-09-22T15:53:31Z",
+  "pushed_at": "2026-11-14T21:52:49Z",
+  "license": null,
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Public repository for Agent Skills",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.1.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 34,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 2,
+   "low": 9,
+   "info": 3
+  },
+  "active": 15,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "protect-claude-config",
+  "disable-plugin",
+  "lock-permission-mode",
+  "sandbox-bash",
+  "review-context-injection",
+  "review-before-run",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

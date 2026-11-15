@@ -1,0 +1,16 @@
+{
+ "source": "anthropics/claude-code",
+ "kind": "marketplace",
+ "scans": [
+  {
+   "commit": "5b21b619fff91e684cc954380119a4bff6822b42",
+   "scanned_at": "2026-11-15T01:33:16+00:00",
+   "level": "caution",
+   "score": 20,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 1545,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

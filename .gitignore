@@ -16,3 +16,8 @@ wheels/
 warden-reports/
 .pytest_cache/
 .ruff_cache/
+
+# Built site, evidence packs, local tooling
+site/
+warden-evidence/
+.claude/

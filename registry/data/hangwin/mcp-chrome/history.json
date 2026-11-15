@@ -1,0 +1,16 @@
+{
+ "source": "hangwin/mcp-chrome",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "f48e71751e00bc09725c7e173423cff4f2ccd12a",
+   "scanned_at": "2026-11-15T02:08:54+00:00",
+   "level": "review",
+   "score": 60,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 663,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

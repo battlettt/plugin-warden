@@ -1,0 +1,16 @@
+{
+ "source": "voltagent/awesome-claude-code-subagents",
+ "kind": "marketplace",
+ "scans": [
+  {
+   "commit": "ed74d115b7fb7026a22a4f816a8e3250f425e3b4",
+   "scanned_at": "2026-11-15T01:59:46+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 201,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

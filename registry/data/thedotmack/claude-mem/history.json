@@ -1,0 +1,16 @@
+{
+ "source": "thedotmack/claude-mem",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "0c488b54e761d7f6f4091b3a6e1958712f13b19d",
+   "scanned_at": "2026-11-15T01:50:09+00:00",
+   "level": "block",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 21,
+   "files": 3656,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

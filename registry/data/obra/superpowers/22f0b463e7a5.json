@@ -1,0 +1,813 @@
+{
+ "target": {
+  "display": "obra/superpowers",
+  "raw": "obra/superpowers",
+  "kind": "github",
+  "url": "https://github.com/obra/superpowers",
+  "ref": null,
+  "subdir": null,
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-07T21:35:47+00:00",
+ "plugins": [
+  {
+   "name": "superpowers",
+   "path": ".",
+   "source": "manifest",
+   "version": "7.0.2",
+   "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques"
+  }
+ ],
+ "component_counts": {
+  "hook": 1,
+  "manifest": 1,
+  "marketplace": 1,
+  "package": 2,
+  "skill": 15
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "superpowers",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "7.0.2",
+    "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+    "author": {
+     "name": "Jesse Vincent",
+     "email": "jesse@fsck.com"
+    },
+    "repository": "https://github.com/obra/superpowers",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.0]",
+   "path": "hooks/hooks.json",
+   "plugin": "superpowers",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup|clear|compact",
+    "type": "command",
+    "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/run-hook.cmd\" session-start",
+    "async": false,
+    "shell": "bash"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "brainstorming",
+   "path": "skills/brainstorming/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "\"You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "diagnosing-superpowers",
+   "path": "skills/diagnosing-superpowers/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when a superpowers session went wrong and your human partner wants to know why \u2014 repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, \"it took too long\", \"why is it so e"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "dispatching-parallel-agents",
+   "path": "skills/dispatching-parallel-agents/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "executing-plans",
+   "path": "skills/executing-plans/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when executing an implementation plan in the current session as the implementer yourself \u2014 your human partner chose inline execution, or no subagent tool is available"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "finishing-a-development-branch",
+   "path": "skills/finishing-a-development-branch/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "receiving-code-review",
+   "path": "skills/receiving-code-review/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "requesting-code-review",
+   "path": "skills/requesting-code-review/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "subagent-driven-development",
+   "path": "skills/subagent-driven-development/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when executing implementation plans with independent tasks in the current session"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "systematic-debugging",
+   "path": "skills/systematic-debugging/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "test-driven-development",
+   "path": "skills/test-driven-development/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when implementing any feature or bugfix, before writing implementation code"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "using-git-worktrees",
+   "path": "skills/using-git-worktrees/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "using-superpowers",
+   "path": "skills/using-superpowers/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "verification-before-completion",
+   "path": "skills/verification-before-completion/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "writing-plans",
+   "path": "skills/writing-plans/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when you have a spec or requirements for a multi-step task, before touching code"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "writing-skills",
+   "path": "skills/writing-skills/SKILL.md",
+   "plugin": "superpowers",
+   "trigger": "",
+   "details": {
+    "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "superpowers",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "brainstorm-server-tests",
+   "path": "tests/brainstorm-server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node ws-protocol.test.js && node helper.test.js && node browser-launcher.test.js && node auth.test.js && node branding.test.js && node server.test.js && node lifecycle.test.js && bash start-server.test.sh && bash stop-server.test.sh"
+    },
+    "dependencies": {
+     "ws": "^8.21.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "superpowers-dev",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "superpowers",
+      "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+      "version": "7.0.2",
+      "source": "./",
+      "author": {
+       "name": "Jesse Vincent",
+       "email": "jesse@fsck.com"
+      }
+     }
+    ],
+    "owner": {
+     "name": "Jesse Vincent",
+     "email": "jesse@fsck.com"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 236,
+  "bytes": 1600920,
+  "by_kind": {
+   "binary": 2,
+   "config": 21,
+   "js": 19,
+   "markdown": 112,
+   "other": 15,
+   "python": 6,
+   "shell": 61
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 20
+ },
+ "findings": [
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Hook script injects text into Claude's context",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "hooks/session-start",
+   "line": 81,
+   "snippet": "fp:79034e0c226fa837",
+   "message": "Injected context steers Claude in every session. Read what the hook adds and make sure you agree with it. Also on lines 84, 87.",
+   "fix": "Keep injected text factual and visible to the user.",
+   "precautions": [
+    "review-context-injection",
+    "disable-hooks"
+   ],
+   "context": [
+    "runs automatically",
+    "hook SessionStart (startup|clear|compact)"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "confirmed",
+   "agent_severity": "low",
+   "rationale": "hooks/session-start:25-49,81 reads the bundled skills/using-superpowers/SKILL.md and emits it as SessionStart additionalContext wrapped in <EXTREMELY_IMPORTANT>. No network, no env/secret reads, no writes. The injected text (SKILL.md:10-16) pushes Claude hard to invoke skills but defers to user instructions (SKILL.md:65). This is the plugin's stated purpose; it does change Claude's behaviour in every session.",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Edits Claude Code settings or memory files",
+   "severity": "low",
+   "category": "config-tampering",
+   "path": "tests/explicit-skill-requests/run-haiku-test.sh",
+   "line": 27,
+   "snippet": "fp:3366518ccf9b5d8f",
+   "message": "A plugin that rewrites your settings can grant itself permissions, add hooks, or change the instructions Claude follows in every project.",
+   "fix": "Ask the user to make the change, or show the snippet to paste.",
+   "precautions": [
+    "protect-claude-config",
+    "disable-plugin"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "tests/explicit-skill-requests/run-haiku-test.sh:26-27 copies ~/.claude/CLAUDE.md into a temporary test project's .claude dir; it reads, not modifies, the user's config, and it is a developer test script that is never run by the plugin.",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Turns off Claude Code permission prompts",
+   "severity": "low",
+   "category": "permissions",
+   "path": "tests/claude-code/test-subagent-driven-development-integration.sh",
+   "line": 167,
+   "snippet": "fp:aa1756bb0293015d",
+   "message": "With prompts off, every tool call (shell commands, file writes, network) runs without asking you.",
+   "fix": "Remove the flag; let the user choose their own permission mode.",
+   "precautions": [
+    "lock-permission-mode"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "false_positive",
+   "agent_severity": "info",
+   "rationale": "tests/claude-code/test-subagent-driven-development-integration.sh:167 uses --permission-mode bypassPermissions for a maintainer integration test in a temp project. Not invoked by any hook or skill; only runs if a developer executes it manually.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Turns off Claude Code permission prompts",
+   "severity": "low",
+   "category": "permissions",
+   "path": "tests/explicit-skill-requests/run-extended-multiturn-test.sh",
+   "line": 28,
+   "snippet": "fp:464bde8898348cf2",
+   "message": "With prompts off, every tool call (shell commands, file writes, network) runs without asking you. Also on lines 39, 50, 61, 73.",
+   "fix": "Remove the flag; let the user choose their own permission mode.",
+   "precautions": [
+    "lock-permission-mode"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "false_positive",
+   "agent_severity": "info",
+   "rationale": "tests/explicit-skill-requests/run-extended-multiturn-test.sh:28 passes --dangerously-skip-permissions to a nested claude invocation in a developer test script; not wired into any hook or skill.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Turns off Claude Code permission prompts",
+   "severity": "low",
+   "category": "permissions",
+   "path": "tests/explicit-skill-requests/run-haiku-test.sh",
+   "line": 57,
+   "snippet": "fp:a9f75fd7922483f5",
+   "message": "With prompts off, every tool call (shell commands, file writes, network) runs without asking you. Also on lines 69, 81, 93, 106.",
+   "fix": "Remove the flag; let the user choose their own permission mode.",
+   "precautions": [
+    "lock-permission-mode"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "false_positive",
+   "agent_severity": "info",
+   "rationale": "tests/explicit-skill-requests/run-haiku-test.sh:57 is a developer test harness using --dangerously-skip-permissions; never run by the installed plugin.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Turns off Claude Code permission prompts",
+   "severity": "low",
+   "category": "permissions",
+   "path": "tests/explicit-skill-requests/run-multiturn-test.sh",
+   "line": 51,
+   "snippet": "fp:19523a90690a96e5",
+   "message": "With prompts off, every tool call (shell commands, file writes, network) runs without asking you. Also on lines 65, 79.",
+   "fix": "Remove the flag; let the user choose their own permission mode.",
+   "precautions": [
+    "lock-permission-mode"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "false_positive",
+   "agent_severity": "info",
+   "rationale": "tests/explicit-skill-requests/run-multiturn-test.sh:51 is a developer test harness; not referenced by hooks or skills.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Turns off Claude Code permission prompts",
+   "severity": "low",
+   "category": "permissions",
+   "path": "tests/explicit-skill-requests/run-test.sh",
+   "line": 73,
+   "snippet": "fp:ad60fb0d7426ffe0",
+   "message": "With prompts off, every tool call (shell commands, file writes, network) runs without asking you.",
+   "fix": "Remove the flag; let the user choose their own permission mode.",
+   "precautions": [
+    "lock-permission-mode"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "false_positive",
+   "agent_severity": "info",
+   "rationale": "tests/explicit-skill-requests/run-test.sh:73 is a developer test harness; not referenced by hooks or skills.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-HIDDEN-COMMENT",
+   "title": "Hidden HTML comment with instructions",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": ".github/PULL_REQUEST_TEMPLATE.md",
+   "line": 88,
+   "snippet": "fp:ce049222abd119cd",
+   "message": "HTML comments are invisible when Markdown is rendered on GitHub, but Claude still reads them.",
+   "fix": "Move the text out of the comment so reviewers can see it.",
+   "precautions": [
+    "review-context-injection"
+   ],
+   "context": [
+    "documentation (not loaded by Claude Code)"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": ".github/PULL_REQUEST_TEMPLATE.md:88 is a standard HTML comment guiding PR authors (asks for a session transcript); GitHub template, not loaded into Claude's context, no instructions to an AI.",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Claims priority over your own instructions",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "skills/using-superpowers/SKILL.md",
+   "line": 13,
+   "snippet": "fp:cf5048e980ac02bc",
+   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict. Also on lines 15.",
+   "fix": "Soften the wording, or state that user instructions take precedence.",
+   "precautions": [
+    "review-context-injection"
+   ],
+   "context": [
+    "loaded by Claude Code as a skill"
+   ],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-009",
+   "verdict": "confirmed",
+   "agent_severity": null,
+   "rationale": "skills/using-superpowers/SKILL.md:11-15 uses absolute language ('YOU DO NOT HAVE A CHOICE', 'not negotiable') and this file is auto-injected each session by hooks/session-start. However it only mandates invoking the plugin's own skills and explicitly says user instructions take precedence (SKILL.md:65). Behaviour-steering, not an override of safety or user control.",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Claims priority over your own instructions",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "RELEASE-NOTES.md",
+   "line": 1236,
+   "snippet": "fp:4035832fc9172a52",
+   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
+   "fix": "Soften the wording, or state that user instructions take precedence.",
+   "precautions": [
+    "review-context-injection"
+   ],
+   "context": [
+    "documentation (not loaded by Claude Code)"
+   ],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-010",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "RELEASE-NOTES.md:1236 is changelog prose, not loaded into Claude's context by any hook or skill.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Claims priority over your own instructions",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "docs/porting-to-a-new-harness.md",
+   "line": 90,
+   "snippet": "fp:05e1aad49f8adfaa",
+   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
+   "fix": "Soften the wording, or state that user instructions take precedence.",
+   "precautions": [
+    "review-context-injection"
+   ],
+   "context": [
+    "documentation (not loaded by Claude Code)"
+   ],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-011",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "docs/porting-to-a-new-harness.md:90 is developer documentation about porting; not loaded by hooks or skills.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Claims priority over your own instructions",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "skills/writing-skills/references/persuasion-principles.md",
+   "line": 16,
+   "snippet": "fp:1f3e7cab96cab461",
+   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
+   "fix": "Soften the wording, or state that user instructions take precedence.",
+   "precautions": [
+    "review-context-injection"
+   ],
+   "context": [
+    "documentation (not loaded by Claude Code)"
+   ],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "skills/writing-skills/references/persuasion-principles.md:16 is reference material describing persuasion techniques for skill authors; only read when the writing-skills skill is used, and it describes rather than issues override instructions.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Hook script injects text into Claude's context",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "tests/hooks/test-session-start.sh",
+   "line": 81,
+   "snippet": "fp:07f9d5d27078a82c",
+   "message": "Injected context steers Claude in every session. Read what the hook adds and make sure you agree with it. Also on lines 91, 99, 100, 107, 108, 113, 183 \u2026.",
+   "fix": "Keep injected text factual and visible to the user.",
+   "precautions": [
+    "review-context-injection",
+    "disable-hooks"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "tests/hooks/test-session-start.sh:81 is a test of the session-start hook output; not executed by the plugin.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "GITLEAKS-generic-api-key",
+   "title": "Gitleaks: Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+   "severity": "info",
+   "category": "secrets",
+   "path": "tests/brainstorm-server/ws-protocol.test.js",
+   "line": 53,
+   "snippet": "fp:3686f132f0e97381",
+   "message": "Gitleaks matched a credential pattern. Secrets in public repositories should be treated as leaked.",
+   "fix": "Remove the secret from the code and history, then rotate it.",
+   "precautions": [
+    "rotate-secret"
+   ],
+   "context": [
+    "test, example, docs or CI file"
+   ],
+   "source": "gitleaks",
+   "confidence": "medium",
+   "id": "F-014",
+   "verdict": "false_positive",
+   "agent_severity": null,
+   "rationale": "tests/brainstorm-server/ws-protocol.test.js:53 'dGhlIHNhbXBsZSBub25jZQ==' is the public RFC 6455 example Sec-WebSocket-Key ('the sample nonce'), not a credential.",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "AGENT-NETWORK",
+   "title": "Visual companion loads vendor-hosted logo with version param (opt-out usage telemetry)",
+   "severity": "low",
+   "category": "network",
+   "path": "skills/brainstorming/scripts/server.cjs",
+   "line": 249,
+   "snippet": "fp:ffcbba8595d361fb",
+   "message": "When the user opts into the brainstorming visual companion, every served page includes an <img> pointing at https://primeradiant.com/brand/superpowers-visual-brainstorming-logo.png?v=<version> (server.cjs:106, 247-249). The user's browser fetches it, revealing their IP, the plugin version and usage timing to Prime Radiant. It is disclosed in README.md:398-400 and disabled by SUPERPOWERS_DISABLE_TELEMETRY, DISABLE_TELEMETRY or CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC (server.cjs:107-112). referrerpolicy=no-referrer is set, so no project data goes with it. It does not run from the hook.",
+   "fix": "Set SUPERPOWERS_DISABLE_TELEMETRY=1 in your environment if you don't want the beacon.",
+   "precautions": [
+    "review-before-run"
+   ],
+   "context": [],
+   "source": "agent",
+   "confidence": "medium",
+   "id": "A-001",
+   "verdict": "confirmed",
+   "agent_severity": null,
+   "rationale": "Found by the agent while reading the code.",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "AGENT-NETWORK",
+   "title": "Brainstorm server can bind to non-loopback hosts and runs BRAINSTORM_OPEN_CMD through a shell",
+   "severity": "info",
+   "category": "network",
+   "path": "skills/brainstorming/scripts/server.cjs",
+   "line": 540,
+   "snippet": "fp:0f2d598e00f3e503",
+   "message": "The optional visual companion starts a local HTTP/WebSocket server (start-server.sh:187, detached with nohup, idle timeout 4h). It defaults to 127.0.0.1 and requires a 256-bit random session key (server.cjs:124-126, 341-353). start-server.sh --host 0.0.0.0 would expose it on the network, still behind the key. BRAINSTORM_OPEN_CMD is passed to a shell, but only the user/operator controls it. The server only serves HTML files from its own content dir and checks for symlinks and hard links (server.cjs:304-317). Low risk. Noted so users know a background process can exist after a brainstorming session.",
+   "fix": "Keep the default loopback bind. Run skills/brainstorming/scripts/stop-server.sh after use, or let the idle or owner-exit watchdog stop it.",
+   "precautions": [
+    "review-before-run"
+   ],
+   "context": [],
+   "source": "agent",
+   "confidence": "medium",
+   "id": "A-002",
+   "verdict": "confirmed",
+   "agent_severity": null,
+   "rationale": "Found by the agent while reading the code.",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "SessionStart (startup|clear|compact)",
+    "what": "\"${CLAUDE_PLUGIN_ROOT}/hooks/run-hook.cmd\" session-start",
+    "type": "command hook",
+    "plugin": "superpowers",
+    "file": "hooks/hooks.json"
+   }
+  ],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {
+   "Cookies": [
+    "skills/brainstorming/scripts/server.cjs"
+   ]
+  },
+  "env_vars": {
+   "BRAINSTORM_TOKEN_FILE": [
+    "skills/brainstorming/scripts/server.cjs"
+   ],
+   "BRAINSTORM_TOKEN": [
+    "skills/brainstorming/scripts/server.cjs"
+   ],
+   "TEST_PATTERN": [
+    "skills/systematic-debugging/find-polluter.sh"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": [
+   "SessionStart hook in hooks/hooks.json",
+   "hooks/session-start writes additionalContext"
+  ]
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 1,
+  "persistence": 0,
+  "config-tampering": 1,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 7,
+  "permissions": 5,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 314063,
+  "forks": 27938,
+  "open_issues": 342,
+  "contributors": "37",
+  "created_at": "2025-10-09T19:45:18Z",
+  "pushed_at": "2026-11-03T23:24:58Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "An agentic skills framework & software development methodology that works.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {
+  "gitleaks": "ran (1 hits)",
+  "osv-scanner": "ran (0 advisories)",
+  "semgrep": "ran (0 hits)"
+ },
+ "agent": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "summary": "Superpowers (obra/superpowers v7.0.2) is a library of 15 Markdown skills (TDD, debugging, planning, code review, git worktrees, brainstorming, and others) plus one SessionStart hook.\n\n**What runs automatically**\nThe only automatic code is the SessionStart hook (hooks/hooks.json \u2192 hooks/run-hook.cmd \u2192 hooks/session-start). It reads the bundled skills/using-superpowers/SKILL.md using bash builtins only, escapes it as JSON and prints it as additionalContext. It makes no network calls, reads no secrets or environment data beyond platform-detection variables, writes no files, and does not update itself. The injected text tells Claude, in very forceful language, to check for and invoke skills before responding (SKILL.md:10-16). It also says user instructions and CLAUDE.md take precedence (SKILL.md:65). This is the plugin's stated purpose, but it does change Claude's behaviour in every session. I confirmed F-001 and F-009 at low severity.\n\n**What runs only when a skill is used**\n- **Brainstorming visual companion (optional):** starts a local Node HTTP/WebSocket server (start-server.sh, server.cjs). It binds to 127.0.0.1 by default, requires a random 256-bit key, and stores its session files in /tmp or <project>/.superpowers with owner-only permissions. It keeps running in the background until it has been idle for 4 hours or its owner process exits.\n- **Logo telemetry:** pages served by the companion load a logo from primeradiant.com with the plugin version in the URL. This is disclosed in README.md:398-400 and turned off by SUPERPOWERS_DISABLE_TELEMETRY, DISABLE_TELEMETRY or CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC (A-001).\n- **diagnosing-superpowers skill:** reads local session transcripts and can file GitHub issues with gh or curl. Its own instructions require the user to approve the exact issue text and any export bundle first (SKILL.md:55-66, 101-103).\n\n**What I dismissed**\n- **Permission bypasses (F-003 to F-007) and the CLAUDE.md copy (F-002):** all are in maintainer test scripts under tests/ that the plugin never runs.\n- **\"API key\" from Gitleaks (F-014):** the public RFC 6455 sample WebSocket key.\n- **F-008, F-010 to F-013:** the hidden HTML comment and the \"priority\" matches are in a PR template, documentation and a test file, none of which is loaded into Claude's context.\n\nI found no credential access, no exfiltration, no downloaded code, and no writes to ~/.claude or shell profiles.",
+  "top_risks": [
+   "The SessionStart hook injects forceful 'MUST use skills' instructions into every session, which changes how Claude behaves (hooks/session-start:49, skills/using-superpowers/SKILL.md:10-16).",
+   "The optional brainstorming visual companion loads a logo from primeradiant.com with the plugin version (opt-out usage ping; server.cjs:106,249).",
+   "The visual companion leaves a background Node server running for up to 4 hours of idle time. The --host option can expose it beyond localhost, though it stays behind a random key.",
+   "The diagnosing-superpowers skill reads local session transcripts and can post GitHub issues, but only after the user approves."
+  ],
+  "recommendation": "install",
+  "completed": true,
+  "reviewed": 14,
+  "new_findings": 2,
+  "rejected_tool_calls": 0,
+  "tool_calls": {
+   "get_overview": 1,
+   "list_findings": 1,
+   "Read": 9,
+   "Grep": 3,
+   "Glob": 1,
+   "get_finding": 3,
+   "record_verdicts": 1,
+   "report_new_finding": 4,
+   "submit_assessment": 1
+  },
+  "turns": 25,
+  "cost_usd": 0.4749,
+  "duration_s": 67.1,
+  "stop": "completed",
+  "auth_source": "ANTHROPIC_API_KEY",
+  "session_id": "c6b2f3e0-5850-42cf-9e66-4b08686ec58c",
+  "usage": {
+   "input_tokens": 26,
+   "output_tokens": 7629,
+   "cache_read_input_tokens": 424073,
+   "cache_creation_input_tokens": 47480
+  },
+  "errors": []
+ },
+ "tool_version": "0.1.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 3,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 3,
+   "info": 1
+  },
+  "active": 4,
+  "dismissed": 12,
+  "injection_guard": false,
+  "reasons": [
+   "F-001 Hook script injects text into Claude's context",
+   "F-009 Claims priority over your own instructions",
+   "A-001 Visual companion loads vendor-hosted logo with version param (opt-out usage telemetry)"
+  ]
+ },
+ "recommended_precautions": [
+  "review-context-injection",
+  "disable-hooks",
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

@@ -1,0 +1,16 @@
+{
+ "source": "e2b-dev/mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "dba87432cacaa7a5af1326d72e37e2d770628a0b",
+   "scanned_at": "2026-11-15T02:10:43+00:00",
+   "level": "low",
+   "score": 2,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 30,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

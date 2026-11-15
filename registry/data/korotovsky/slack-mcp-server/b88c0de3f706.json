@@ -1,0 +1,293 @@
+{
+ "target": {
+  "display": "korotovsky/slack-mcp-server",
+  "raw": "korotovsky/slack-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/korotovsky/slack-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "b88c0de3f706f4f07337c9eda7133c736d1c9524",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:08:44+00:00",
+ "plugins": [
+  {
+   "name": "korotovsky__slack-mcp-server@b88c0de3f706",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 7
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "korotovsky__slack-mcp-server@b88c0de3f706",
+   "path": ".",
+   "plugin": "korotovsky__slack-mcp-server@b88c0de3f706",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server",
+   "path": "npm/slack-mcp-server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "slack-mcp-server-darwin-amd64": "1.1.0",
+     "slack-mcp-server-darwin-arm64": "1.1.0",
+     "slack-mcp-server-linux-amd64": "1.1.0",
+     "slack-mcp-server-linux-arm64": "1.1.0",
+     "slack-mcp-server-windows-amd64": "1.1.0",
+     "slack-mcp-server-windows-arm64": "1.1.0"
+    },
+    "devDependencies": {},
+    "bin": {
+     "slack-mcp-server": "bin/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-darwin-amd64",
+   "path": "npm/slack-mcp-server-darwin-amd64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-darwin-arm64",
+   "path": "npm/slack-mcp-server-darwin-arm64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-linux-amd64",
+   "path": "npm/slack-mcp-server-linux-amd64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-linux-arm64",
+   "path": "npm/slack-mcp-server-linux-arm64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-windows-amd64",
+   "path": "npm/slack-mcp-server-windows-amd64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "slack-mcp-server-windows-arm64",
+   "path": "npm/slack-mcp-server-windows-arm64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 80,
+  "bytes": 3643614,
+  "by_kind": {
+   "binary": 3,
+   "code": 43,
+   "config": 18,
+   "js": 1,
+   "markdown": 6,
+   "other": 9
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 8
+ },
+ "findings": [
+  {
+   "rule_id": "EXFIL-KNOWN-SINK",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e7ca1532af9a4e63",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:688f2bf7455f6e11",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {
+   "Cookies": [
+    "pkg/provider/api.go",
+    "pkg/provider/edge/edge.go"
+   ],
+   "cookies": [
+    "pkg/provider/edge/edge.go",
+    "pkg/transport/transport.go"
+   ]
+  },
+  "env_vars": {
+   "SLACK_MCP_XOXC_TOKEN": [
+    "npm/slack-mcp-server/bin/index.js"
+   ],
+   "SLACK_MCP_XOXD_TOKEN": [
+    "npm/slack-mcp-server/bin/index.js"
+   ],
+   "SLACK_MCP_XOXP_TOKEN": [
+    "npm/slack-mcp-server/bin/index.js"
+   ],
+   "SLACK_MCP_XOXB_TOKEN": [
+    "npm/slack-mcp-server/bin/index.js"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 1,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 1899,
+  "forks": 393,
+  "open_issues": 96,
+  "contributors": "52",
+  "created_at": "2025-04-12T11:31:34Z",
+  "pushed_at": "2026-07-16T17:14:22Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "The most powerful MCP Slack Server with no permission requirements, Apps support, GovSlack, DMs, Group DMs and smart history fetch logic.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 2,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 2,
+   "info": 0
+  },
+  "active": 2,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "deny-network-bash",
+  "dependency-audit"
+ ],
+ "settings_snippet": {}
+}

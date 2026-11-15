@@ -1,0 +1,1981 @@
+{
+ "target": {
+  "display": "mongodb-js/mongodb-mcp-server",
+  "raw": "mongodb-js/mongodb-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/mongodb-js/mongodb-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "e607a7cec36a681a17fe3428cd2219e4c64b91bb",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:06:26+00:00",
+ "plugins": [
+  {
+   "name": "mongodb-js__mongodb-mcp-server@e607a7cec36a",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 26,
+  "skill": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "mongodb-js__mongodb-mcp-server@e607a7cec36a",
+   "path": ".",
+   "plugin": "mongodb-js__mongodb-mcp-server@e607a7cec36a",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "mongodb-mcp-v3-migration",
+   "path": "skills/mongodb-mcp-v3-migration/SKILL.md",
+   "plugin": "mongodb-js__mongodb-mcp-server@e607a7cec36a",
+   "trigger": "",
+   "details": {
+    "description": "> Migrates external consumer code from the mongodb-mcp-server v1/v2 single-package API to the v3 scoped-package structure. In v3, mongodb-mcp-server is a binary-only package (npx / MCPB); library embe"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "mongodb-mcp-server-monorepo",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "pnpm --filter mongodb-mcp-server start",
+     "start:stdio": "pnpm --filter mongodb-mcp-server start:stdio",
+     "start:setup": "pnpm --filter mongodb-mcp-server start:setup",
+     "prepare": "husky",
+     "build:update-package-version": "pnpm --filter @mongodb-js/mcp-scripts update:package-version",
+     "prebuild:mcpb": "pnpm run build",
+     "build:mcpb": "pnpm --filter mongodb-mcp-server build:mcpb",
+     "build": "pnpm --filter \"./packages/*\" --filter \"!./packages/*-tests\" --filter \"!./packages/test-utils\" -r run build",
+     "inspect": "pnpm --filter mongodb-mcp-server inspect",
+     "prettier": "prettier",
+     "check": "concurrently \"pnpm run check:types\" \"pnpm run check:style\" \"pnpm run check:api\"",
+     "check:types": "pnpm run -r --parallel check",
+     "check:style": "concurrently \"pnpm run check:lint\" \"pnpm run check:format\" \"pnpm run check:dependencies\"",
+     "check:api": "pnpm run -r --parallel check:api",
+     "check:lint": "eslint .",
+     "check:dependencies": "knip --no-config-hints",
+     "check:format": "prettier -c .",
+     "update:api": "pnpm run build && pnpm run -r --parallel update:api",
+     "fix": "pnpm run fix:lint && pnpm run reformat",
+     "fix:lint": "eslint . --fix",
+     "reformat": "prettier --write .",
+     "generate": "pnpm run generate:api && pnpm run generate:arguments && pnpm run generate:ui",
+     "generate:ui": "pnpm --filter @mongodb-js/mcp-scripts generate:ui",
+     "generate:api": "pnpm --filter @mongodb-js/mcp-scripts generate:api",
+     "generate:arguments": "pnpm --filter @mongodb-js/mcp-scripts generate",
+     "generate:release-notes": "pnpm --filter @mongodb-js/mcp-scripts generate:release-notes",
+     "test": "vitest --project eslint-rules --project unit --project ui --coverage --run",
+     "test:unit": "vitest --project unit --coverage --run",
+     "test:integration": "vitest --project integration --coverage --run",
+     "test:atlas": "vitest --project integration-atlas --coverage --run",
+     "test:atlas-local": "vitest --project integration-atlas-local --coverage --run",
+     "test:accuracy": "pnpm --filter @mongodb-js/mcp-accuracy-tests test",
+     "test:e2e-tests": "vitest --project e2e-tests --run --no-coverage",
+     "test:browser": "pnpm --filter @mongodb-js/mcp-browser-tests test",
+     "test:long-running-tests": "vitest --project long-running-tests --coverage",
+     "test:local": "vitest --project unit --project integration --project ui --coverage --run",
+     "prevalidate:mcpb": "pnpm run build",
+     "validate:mcpb": "pnpm --filter mongodb-mcp-server validate:mcpb",
+     "atlas:cleanup": "vitest --project atlas-cleanup",
+     "eval:db-start": "pnpm --filter @mongodb-js/mcp-eval-tests eval:db-start",
+     "eval:db-stop": "pnpm --filter @mongodb-js/mcp-eval-tests eval:db-stop",
+     "eval:run": "pnpm --filter @mongodb-js/mcp-eval-tests eval:run",
+     "eval:debug": "pnpm --filter @mongodb-js/mcp-eval-tests eval:debug",
+     "eval:ci:run": "pnpm --filter @mongodb-js/mcp-eval-tests eval:ci:run",
+     "eval:generate-schemas": "pnpm --filter @mongodb-js/mcp-eval-tests eval:generate-schemas",
+     "eval:bundle": "pnpm --filter @mongodb-js/mcp-eval-tests eval:bundle",
+     "eval:serve": "pnpm --filter @mongodb-js/mcp-eval-tests eval:serve",
+     "eval:push": "pnpm --filter @mongodb-js/mcp-eval-tests eval:push",
+     "create-dependency-sbom-lists": "pnpm --filter @mongodb-js/mcp-scripts run create-dependency-sbom-lists",
+     "update-third-party-notices": "mongodb-sbom-tools generate-3rd-party-notices --product=\"MongoDB MCP Server\" --dependencies=.sbom/dependencies-prod.json --config=licenses.json > THIRD_PARTY_NOTICES.md"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@eslint/js": "^10.0.1",
+     "@mongodb-js/sbom-tools": "^0.10.23",
+     "@types/node": "^25.6.0",
+     "@typescript-eslint/parser": "^8.70.0",
+     "@vitest/coverage-v8": "^4.1.11",
+     "@vitest/eslint-plugin": "^1.6.24",
+     "concurrently": "^10.0.6",
+     "eslint": "^10.9.1",
+     "eslint-config-prettier": "^10.1.8",
+     "eslint-plugin-prettier": "^5.5.6",
+     "globals": "^17.6.0",
+     "husky": "^9.1.7",
+     "knip": "^6.41.0",
+     "prettier": "^3.8.3",
+     "typescript": "^5.9.2",
+     "typescript-eslint": "^8.67.0",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-accuracy-tests",
+   "path": "packages/accuracy-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "sh ./runAccuracyTests.sh",
+     "update-status": "tsx ./src/updateAccuracyRunStatus.ts",
+     "generate-summary": "tsx ./src/generateTestSummary.ts",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "tsx": "^4.23.12",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11",
+     "uuid": "^14.0.0",
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "mongodb": "^7.1.1",
+     "@mongodb-js/mcp-integration-tests": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas": "workspace:*",
+     "mongodb-mcp-server": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mcp-tools-assistant": "workspace:*",
+     "@mongodb-js/mcp-test-utils": "workspace:*",
+     "@ai-sdk/google": "^3.0.131",
+     "@ai-sdk/azure": "^3.0.137",
+     "@ai-sdk/openai": "^3.0.126",
+     "@ai-sdk/mcp": "^1.0.93",
+     "@ai-sdk/anthropic": "^3.0.129",
+     "ai": "^6.0.304",
+     "proper-lockfile": "^4.1.2",
+     "@types/proper-lockfile": "^4.1.4",
+     "simple-git": "^4.0.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-atlas-api-client",
+   "path": "packages/atlas-api-client/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "oauth4webapi": "^3.8.5",
+     "openapi-fetch": "^0.17.0"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-atlas-telemetry",
+   "path": "packages/atlas-telemetry/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "lru-cache": "^11.5.3"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-browser-tests",
+   "path": "packages/browser-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check": "tsc --noEmit --project tsconfig.json",
+     "test": "vitest run --coverage",
+     "test:watch": "vitest watch",
+     "install:browser": "pnpm exec playwright install chromium"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@types/node": "^25.6.0",
+     "@vitest/browser": "^4.1.11",
+     "@vitest/browser-playwright": "^4.1.11",
+     "buffer": "^6.0.3",
+     "crypto-browserify": "^3.12.1",
+     "evp_bytestokey": "^1.0.3",
+     "path-browserify": "^1.0.1",
+     "os-browserify": "^0.3.0",
+     "playwright": "^1.63.0",
+     "readable-stream": "^4.7.0",
+     "typescript": "^5.9.2",
+     "util": "^0.12.5",
+     "vite": "^8.3.4",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-cli",
+   "path": "packages/cli/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/core": "^2.3.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/mcp-fetch": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-http-runners": "workspace:*",
+     "@mongodb-js/mcp-logging": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas-local": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "bson": "^7.2.0",
+     "@mongosh/arg-parser": "^5.0.2",
+     "mongodb-log-writer": "^2.5.7",
+     "ts-levenshtein": "^1.0.7",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/atlas-local": "^1.3.1",
+     "@types/node": "^25.6.0",
+     "@types/yargs-parser": "^21.0.3",
+     "yargs-parser": "^20.2.4",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-core",
+   "path": "packages/core/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "check:api": "api-extractor run --config api-extractor.json",
+     "update:api": "api-extractor run --local --config api-extractor.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mcp-ui/server": "^6.1.0",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mongodb-redact": "^1.4.19",
+     "bson": "^7.2.0",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@microsoft/api-extractor": "^7.59.0",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-e2e-tests",
+   "path": "packages/e2e-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@mongodb-js/harness-tester": "workspace:*",
+     "@mongodb-js/mcp-test-utils": "workspace:*",
+     "@types/node": "^25.6.0",
+     "mongodb": "^7.1.1",
+     "mongodb-mcp-server": "workspace:*",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.5"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-eval-tests",
+   "path": "packages/eval-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check": "tsc --noEmit --project tsconfig.json",
+     "build:deps": "pnpm --filter \"@mongodb-js/mcp-eval-tests^...\" run build",
+     "eval:db-start": "sh scripts/evalDb.sh start",
+     "eval:db-stop": "sh scripts/evalDb.sh stop",
+     "eval:run": "pnpm run build:deps && node_modules/@braintrust/bt/bin/bt eval src/mongodb.eval.ts",
+     "eval:debug": "pnpm run build:deps && tsx src/mongodb.eval.ts",
+     "eval:ci:run": "pnpm run build:deps && BRAINTRUST_API_KEY_OVERRIDE=$BRAINTRUST_API_KEY tsx src/scripts/reportCi.ts -- node_modules/@braintrust/bt/bin/bt eval --jsonl src/mongodb.eval.ts",
+     "eval:generate-schemas": "tsx src/scripts/generateSchemas.ts",
+     "eval:bundle": "pnpm run build:deps && tsx src/scripts/bundleEval.ts",
+     "eval:serve": "pnpm run build:deps && BRAINTRUST_API_KEY_OVERRIDE=$BRAINTRUST_API_KEY node_modules/@braintrust/bt/bin/bt eval --dev src/mongodb.eval.ts",
+     "eval:push": "pnpm run eval:bundle && braintrust push dist/mongodb.eval.cjs --if-exists replace"
+    },
+    "dependencies": {
+     "@ai-sdk/mcp": "^2.0.54",
+     "@ai-sdk/openai": "^4.0.71",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "ai": "^7.0.107",
+     "braintrust": "^3.37.2",
+     "bson": "^7.2.0",
+     "mongodb": "^7.1.1",
+     "mongodb-mcp-server": "workspace:*",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@braintrust/api": "^0.5.0",
+     "@braintrust/bt": "^0.22.1",
+     "@types/node": "^25.6.0",
+     "esbuild": "^0.28.2",
+     "tsx": "^4.23.12",
+     "typescript": "^5.9.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-fetch",
+   "path": "packages/fetch/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/devtools-proxy-support": "^0.7.19",
+     "node-fetch": "^3.3.2"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/harness-tester",
+   "path": "packages/harness-tester/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@microsoft/tui-test": "0.1.0-beta.2",
+     "vitest": "^4.1.5"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-http-runners",
+   "path": "packages/http-runners/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/node": "^2.1.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "express": "^5.3.0"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@types/express": "^5.0.3",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11",
+     "zod": "^4.4.3"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-integration-tests",
+   "path": "packages/integration-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11",
+     "@vitest/coverage-v8": "^4.1.11",
+     "express": "^5.3.0",
+     "@types/express": "^5.0.0",
+     "@types/semver": "^7.7.0",
+     "mongodb-mcp-server": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mcp-test-utils": "workspace:*",
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas": "workspace:*",
+     "@mongodb-js/mcp-setup": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas-local": "workspace:*",
+     "@mongodb-js/mcp-tools-assistant": "workspace:*",
+     "@mongodb-js/mcp-http-runners": "workspace:*",
+     "@mongodb-js/devtools-proxy-support": "^0.7.19",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@mongodb-js/mcp-ui": "workspace:*",
+     "@ai-sdk/mcp": "^2.0.54",
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongosh/service-provider-node-driver": "^5.0.2",
+     "mongodb": "^7.1.1",
+     "@mongodb-js/mongodb-schema": "^12.8.12",
+     "node-machine-id": "1.1.12",
+     "bson": "^7.2.0",
+     "zod": "^4.4.2",
+     "@mongodb-js/oidc-mock-provider": "^0.13.7",
+     "duplexpair": "^1.0.2",
+     "yaml": "^2.8.1",
+     "semver": "^7.7.4"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-logging",
+   "path": "packages/logging/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-core": "workspace:*"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@modelcontextprotocol/core": "^2.3.1",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-metrics",
+   "path": "packages/metrics/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "prom-client": "^15.1.3"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "mongodb-atlas-mcp-remote",
+   "path": "packages/mongodb-atlas-mcp-remote/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "compile": "tsc --project tsconfig.build.json",
+     "build": "pnpm compile",
+     "check": "tsc --noEmit --project tsconfig.check.json",
+     "pretest": "pnpm compile",
+     "test": "vitest --run",
+     "build:update-package-version": "node scripts/updatePackageVersion.ts"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/devtools-proxy-support": "^0.7.19",
+     "@mongodb-js/mongodb-redact": "^1.4.19",
+     "mongodb-log-writer": "^2.5.13"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": {
+     "mongodb-atlas-mcp-remote": "./dist/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "mongodb-mcp-server",
+   "path": "packages/mongodb-mcp-server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node dist/index.js --transport http --loggers 'stderr, mcp'",
+     "start:stdio": "node dist/index.js --transport stdio --loggers 'stderr, mcp'",
+     "start:setup": "pnpm run build && node dist/index.js setup",
+     "build:esm": "tsc --project tsconfig.esm.json",
+     "build:cjs": "tsc --project tsconfig.cjs.json",
+     "build": "concurrently \"pnpm run build:esm\" \"pnpm run build:cjs\" && pnpm run build:universal-package",
+     "build:universal-package": "tsx scripts/createUniversalPackage.ts",
+     "inspect": "pnpm run build && pnpm dlx @modelcontextprotocol/inspector@2.14.0 -- node dist/esm/index.js",
+     "check:api-report": "concurrently \"api-extractor run --config api-extractor.json\" \"api-extractor run --config api-extractor/api-extractor-web.json\" \"api-extractor run --config api-extractor/api-extractor-tools.json\"",
+     "check:api": "pnpm run check:api-report || (printf \"\\nPublic API check failed. If you intended to change the public API, run:\\n\\n  pnpm run update:api\\n\" && exit 1)",
+     "update:api": "concurrently \"api-extractor run --local --config api-extractor.json\" \"api-extractor run --local --config api-extractor/api-extractor-web.json\" \"api-extractor run --local --config api-extractor/api-extractor-tools.json\"",
+     "build:mcpb": "tsx scripts/createMcpb.ts",
+     "validate:mcpb": "tsx scripts/createMcpb.ts --validate-only",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/node": "^2.1.1",
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-http-runners": "workspace:*",
+     "@mongodb-js/mcp-logging": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-setup": "workspace:*",
+     "@mongodb-js/mcp-tools-assistant": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas-local": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mcp-ui": "workspace:*",
+     "@mongosh/service-provider-node-driver": "^5.0.2",
+     "@mongodb-js/atlas-local": "^1.3.1",
+     "kerberos": "^7.0.0"
+    },
+    "devDependencies": {
+     "@anthropic-ai/mcpb": "2.1.2",
+     "@microsoft/api-extractor": "^7.59.0",
+     "@types/node": "^25.6.0",
+     "concurrently": "^10.0.6",
+     "openapi-typescript-helpers": "^0.1.0",
+     "ts-levenshtein": "^1.0.7",
+     "tsx": "^4.23.12",
+     "type-fest": "^5.10.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": {
+     "mongodb-mcp-server": "dist/esm/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-scripts",
+   "path": "packages/scripts/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "generate": "tsx src/index.ts",
+     "generate:arguments": "tsx src/generateArguments.ts",
+     "generate:ui": "tsx src/generateUI.ts",
+     "update:package-version": "tsx src/updatePackageVersion.ts",
+     "build:universal-package": "tsx src/createUniversalPackage.ts",
+     "generate:api": "./generate.sh",
+     "generate:release-notes": "node src/generate-release-notes.ts",
+     "filter:openapi": "tsx src/filter.ts",
+     "apply:openapi": "tsx src/apply.ts",
+     "create-dependency-sbom-lists": "tsx src/sbomReport/index.ts",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@mongodb-js/mcp-ui": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mcp-logging": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas": "workspace:*",
+     "mongodb-mcp-server": "workspace:*",
+     "@types/node": "^25.6.0",
+     "tsx": "^4.23.12",
+     "typescript": "^5.9.2",
+     "vite": "^8.3.4",
+     "openapi-types": "^12.1.3",
+     "@redocly/cli": "^2.46.1",
+     "openapi-typescript": "^7.13.0",
+     "zod": "^4.4.2",
+     "@mongosh/arg-parser": "^5.0.2",
+     "@ai-sdk/anthropic": "^3.0.129",
+     "ai": "^6.0.304",
+     "semver": "^7.7.4",
+     "@types/semver": "^7.7.0",
+     "simple-git": "^4.0.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-setup",
+   "path": "packages/setup/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@inquirer/prompts": "^8.0.2",
+     "@inquirer/select": "^5.1.3",
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-fetch": "workspace:*",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-tools-atlas-local": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongosh/service-provider-node-driver": "^5.0.2",
+     "chalk": "^5.6.2",
+     "jsonc-parser": "^3.3.1",
+     "semver": "^7.7.4"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@types/node": "^25.6.0",
+     "@types/semver": "^7.7.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-test-utils",
+   "path": "packages/test-utils/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mongodb-runner": "^8.4.1",
+     "mongodb": "^7.1.1",
+     "testcontainers": "^12.2.0",
+     "mongodb-connection-string-url": "^7.0.2",
+     "vitest": "^4.1.11"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@types/node": "^25.6.0",
+     "@testing-library/jest-dom": "^7.0.1",
+     "typescript": "^5.9.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-tools-assistant",
+   "path": "packages/tools-assistant/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-fetch": "workspace:*",
+     "yaml": "^2.8.1",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-tools-atlas",
+   "path": "packages/tools-atlas/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/mcp-atlas-api-client": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-metrics": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "mongodb-connection-string-url": "^7.0.2",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11",
+     "@mongodb-js/mcp-test-utils": "workspace:*",
+     "@mongodb-js/mcp-ui": "workspace:*",
+     "@mongodb-js/mcp-cli": "workspace:*",
+     "@modelcontextprotocol/server": "^2.3.1"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-tools-atlas-local",
+   "path": "packages/tools-atlas-local/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/atlas-local": "^1.3.1",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-tools-mongodb",
+   "path": "packages/tools-mongodb/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@mongodb-js/device-id": "^0.4.18",
+     "@mongodb-js/mcp-atlas-telemetry": "workspace:*",
+     "@mongodb-js/mcp-core": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@mongodb-js/mongodb-build-info": "^1.9.19",
+     "@mongosh/arg-parser": "^5.0.2",
+     "@mongosh/service-provider-node-driver": "^5.0.2",
+     "bson": "^7.2.0",
+     "@mongodb-js/hadron-document": "^8.12.3",
+     "mongodb": "^7.1.1",
+     "mongodb-connection-string-url": "^7.0.2",
+     "@mongodb-js/mongodb-schema": "^12.8.12",
+     "node-machine-id": "1.1.12",
+     "zod": "^4.4.2"
+    },
+    "devDependencies": {
+     "@mongodb-js/mcp-test-utils": "workspace:*",
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-types",
+   "path": "packages/types/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.json"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@mongodb-js/mongodb-redact": "^1.4.19"
+    },
+    "devDependencies": {
+     "@types/node": "^25.6.0",
+     "typescript": "^5.9.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mongodb-js/mcp-ui",
+   "path": "packages/ui/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc --build tsconfig.build.json",
+     "check:api": "api-extractor run --config api-extractor.json",
+     "update:api": "api-extractor run --local --config api-extractor.json",
+     "test": "vitest --run",
+     "check": "tsc --noEmit --project tsconfig.check.json"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@lg-mcp/embeddable-uis": "^0.1.0",
+     "@lg-mcp/hooks": "^0.2.0",
+     "@microsoft/api-extractor": "^7.59.0",
+     "@mongodb-js/mcp-tools-mongodb": "workspace:*",
+     "@mongodb-js/mcp-types": "workspace:*",
+     "@testing-library/jest-dom": "^7.0.1",
+     "@testing-library/react": "^16.3.2",
+     "@types/node": "^25.6.0",
+     "@types/react": "^19.2.0",
+     "@types/react-dom": "^19.2.3",
+     "@vitejs/plugin-react": "^6.1.1",
+     "happy-dom": "^20.9.0",
+     "react": "^18.3.0",
+     "react-dom": "^18.3.0",
+     "tsx": "^4.23.12",
+     "typescript": "^5.9.2",
+     "vite": "^8.3.4",
+     "vite-plugin-node-polyfills": "^0.26.0",
+     "vite-plugin-singlefile": "^2.3.2",
+     "vitest": "^4.1.11"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 815,
+  "bytes": 8539143,
+  "by_kind": {
+   "binary": 1,
+   "config": 136,
+   "js": 630,
+   "markdown": 24,
+   "other": 18,
+   "shell": 6
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 28
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:68141c1157e8fed1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "EXFIL-KNOWN-SINK",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cb475bd22f1f9eca",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:48a98fda083e9ba1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:55968636e9892a20",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6d7bcce06fdb2dc4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLAUDE-AUTH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:26ebfe3f0ee19476",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-PRIVATE-KEY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:266800c2d461523f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-PRIVATE-KEY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:25818af9ab2f33b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:830b84bcef89fc98",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:91487af9a16ea43c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5ffd7a6fc1d7b164",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:270285ac1a478e06",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:52f9346497fa99db",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6ed0203fb5ae1604",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b8ae8f50cb010897",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d875312e6f3c7cc5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f2dd6cc7aefb4a29",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a0ac343a7ff8f8b7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ceca45b299c8b70d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:512e1c448f3ad1de",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:82e3a65d564c78b1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2ec1b859cdf98fbd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3488c743a5d784e8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a94d3ad569ef7d2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:15bea16e920601db",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b96d3df6327f196c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ea4a0c9a9e0ef7fd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d3d431c48db94822",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:63cf4d67d81298a1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ec344c87d12c37aa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c2e5540739cfd0b9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7289c59b8fb94fb3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "OBF-DYNAMIC-EXEC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2b5481d5bb6929ca",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "low",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "OBF-DYNAMIC-EXEC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:011a767cbda222b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "low",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "OBF-DYNAMIC-EXEC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:46c31d59da8cce3b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "low",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5b27ea118653331c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c11ea62da884cbb3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9a9ef86ad9c470e0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:724feaf349fe8b94",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:72fe4215de4f401d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "d2va9gm4j17fy9.cloudfront.net": [
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ],
+   "github.com": [
+    "packages/scripts/generate.sh",
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ],
+   "html.spec.whatwg.org": [
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ],
+   "reactjs.org": [
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ],
+   "testing-library.com": [
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ],
+   "testing-playground.com": [
+    "packages/ui/src/lib/tools/list-databases.ts"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "packages/atlas-api-client/src/apiClient.ts"
+   ],
+   ".claude.json": [
+    "packages/harness-tester/src/harness/claude/claudeConfig.ts",
+    "packages/setup/src/aiTool.ts"
+   ]
+  },
+  "env_vars": {
+   "MDB_MCP_API_CLIENT_SECRET": [
+    "packages/accuracy-tests/runAccuracyTests.sh",
+    "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+    "packages/integration-tests/src/tools/atlas/streamsGlobalSetup.ts",
+    "packages/mongodb-atlas-mcp-remote/src/config.ts"
+   ],
+   "MDB_API_CLIENT_SECRET": [
+    "packages/accuracy-tests/src/sdk/describeAccuracyTests.ts"
+   ],
+   "MDB_OPEN_AI_API_KEY": [
+    "packages/accuracy-tests/src/sdk/models.ts"
+   ],
+   "MDB_AZURE_OPEN_AI_API_KEY": [
+    "packages/accuracy-tests/src/sdk/models.ts"
+   ],
+   "MDB_GEMINI_API_KEY": [
+    "packages/accuracy-tests/src/sdk/models.ts"
+   ],
+   "MDB_GROVE_API_KEY": [
+    "packages/accuracy-tests/src/sdk/models.ts"
+   ],
+   "AGENT_E2E_ATLAS_CLIENT_SECRET": [
+    "packages/e2e-tests/src/utils/useAtlasApiAgent.ts"
+   ],
+   "AGENT_E2E_MCP_CLIENT_SECRET": [
+    "packages/e2e-tests/src/utils/useRemoteAtlasMcpAgent.ts"
+   ],
+   "VOYAGE_API_KEY": [
+    "packages/eval-tests/scripts/evalDb.sh"
+   ],
+   "BRAINTRUST_API_KEY_OVERRIDE": [
+    "packages/eval-tests/src/lib/shared.ts",
+    "packages/eval-tests/src/scripts/reportCi.ts"
+   ],
+   "BRAINTRUST_API_KEY": [
+    "packages/eval-tests/src/lib/shared.ts",
+    "packages/eval-tests/src/scripts/reportCi.ts"
+   ],
+   "REPORT_PATH": [
+    "packages/eval-tests/src/scripts/reportCi.ts"
+   ],
+   "GROVE_API_KEY": [
+    "packages/harness-tester/src/harness/claude/claudeConfig.ts",
+    "packages/harness-tester/src/harness/claude/claudeHarness.ts",
+    "packages/harness-tester/src/harness/codex/codexHarness.ts",
+    "packages/scripts/src/generate-release-notes.ts"
+   ],
+   "MONGOT_PASSWORD": [
+    "packages/test-utils/src/mongot-community-setup/init-mongo.sh"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 1,
+  "network": 3,
+  "credentials": 1,
+  "secrets": 4,
+  "persistence": 1,
+  "config-tampering": 1,
+  "destructive": 0,
+  "privilege": 2,
+  "obfuscation": 4,
+  "prompt-injection": 1,
+  "permissions": 1,
+  "supply-chain": 21,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 1161,
+  "forks": 299,
+  "open_issues": 41,
+  "contributors": "54",
+  "created_at": "2025-04-04T14:10:44Z",
+  "pushed_at": "2026-11-13T23:11:32Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 35,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 5,
+   "low": 24,
+   "info": 11
+  },
+  "active": 40,
+  "dismissed": 0,
+  "injection_guard": true,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "protect-claude-config",
+  "disable-plugin",
+  "deny-network-bash",
+  "review-context-injection",
+  "lock-permission-mode",
+  "check-persistence",
+  "deny-secret-reads",
+  "rotate-secret",
+  "review-before-run",
+  "pin-mcp-version",
+  "pin-commit",
+  "dependency-audit",
+  "sandbox-bash",
+  "disable-hooks"
+ ],
+ "settings_snippet": {}
+}

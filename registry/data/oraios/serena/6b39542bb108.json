@@ -1,0 +1,597 @@
+{
+ "target": {
+  "display": "oraios/serena",
+  "raw": "oraios/serena",
+  "kind": "github",
+  "url": "https://github.com/oraios/serena",
+  "ref": null,
+  "subdir": null,
+  "commit": "6b39542bb108ce77901072deac699d770b302d52",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:01:58+00:00",
+ "plugins": [
+  {
+   "name": "oraios__serena@6b39542bb108",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 6
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "oraios__serena@6b39542bb108",
+   "path": ".",
+   "plugin": "oraios__serena@6b39542bb108",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "serena-angular-test-repo",
+   "path": "test/resources/repos/angular/test_repo/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "@angular/common": "^21.0.0",
+     "@angular/compiler": "^21.0.0",
+     "@angular/core": "^21.0.0",
+     "@angular/platform-browser": "^21.0.0",
+     "rxjs": "~7.8.0",
+     "tslib": "^2.6.0",
+     "zone.js": "~0.15.0"
+    },
+    "devDependencies": {
+     "typescript": "~5.9.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "astro-test-repo",
+   "path": "test/resources/repos/astro/test_repo/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "astro": "^5.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "test-repo",
+   "path": "test/resources/repos/svelte/test_repo/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite dev",
+     "build": "vite build",
+     "preview": "vite preview",
+     "prepare": "svelte-kit sync || echo ''",
+     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@sveltejs/adapter-auto": "^7.0.1",
+     "@sveltejs/kit": "^2.57.0",
+     "@sveltejs/vite-plugin-svelte": "^7.0.0",
+     "@types/node": "^25.6.1",
+     "svelte": "^5.55.2",
+     "svelte-check": "^4.4.6",
+     "typescript": "^6.0.2",
+     "vite": "^8.0.7"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "test/resources/repos/toml/test_repo/pyproject.toml",
+   "path": "test/resources/repos/toml/test_repo/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "vue-calculator-test-fixture",
+   "path": "test/resources/repos/vue/test_repo/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "vue": "^3.4.0",
+     "pinia": "^2.1.0"
+    },
+    "devDependencies": {
+     "@vue/language-server": "^2.0.0",
+     "typescript": "~5.5.4"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 1201,
+  "bytes": 9244450,
+  "by_kind": {
+   "binary": 22,
+   "code": 55,
+   "config": 113,
+   "js": 42,
+   "markdown": 67,
+   "other": 359,
+   "python": 530,
+   "shell": 13
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 7
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:515e809fd2ea2d75",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2802c9d50a8b024d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8be6fbd80d1d801f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:53194aebba65c15a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:354810200cfe748f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:01d48e984a57aec8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:00fedaa3f18abdb6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4f4c61cc027bfeff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9b686d0acefb7bd2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:14390ffc61d1b484",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5996757694e5ff59",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6fd69642eaee3600",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e905916a9a463c51",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:be3043960927cb08",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f5b9b891402ec0ea",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "127.0.0.1": [
+    "src/serena/dashboard/dashboard_tray_manager.py"
+   ],
+   "api.github.com": [
+    "src/solidlsp/language_servers/pascal_server.py"
+   ],
+   "dot.net": [
+    "src/serena/util/dotnet.py"
+   ],
+   "dotnet.microsoft.com": [
+    "src/serena/util/dotnet.py"
+   ],
+   "github.com": [
+    "src/solidlsp/language_servers/lean4_language_server.py",
+    "src/solidlsp/language_servers/pascal_server.py"
+   ],
+   "microsoft.github.io": [
+    "src/solidlsp/ls_utils.py"
+   ],
+   "open-vsx.org": [
+    "src/solidlsp/language_servers/haxe_language_server.py"
+   ],
+   "oraios-software.de": [
+    "src/serena/agent.py",
+    "src/serena/dashboard/dashboard_api.py"
+   ],
+   "pypi.org": [
+    "src/serena/util/pypi.py"
+   ],
+   "raw.githubusercontent.com": [
+    "src/solidlsp/language_servers/lean4_language_server.py"
+   ],
+   "stackoverflow.com": [
+    "src/solidlsp/ls_utils.py"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "AL_EXTENSION_PATH": [
+    "src/solidlsp/language_servers/al_language_server.py"
+   ],
+   "INTELEPHENSE_LICENSE_KEY": [
+    "src/solidlsp/language_servers/intelephense.py"
+   ],
+   "MATLAB_EXTENSION_PATH": [
+    "src/solidlsp/language_servers/matlab_language_server.py"
+   ],
+   "GITHUB_TOKEN": [
+    "src/solidlsp/language_servers/pascal_server.py"
+   ],
+   "TERRAFORM_CLI_PATH": [
+    "src/solidlsp/language_servers/terraform_ls.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 1,
+  "credentials": 1,
+  "secrets": 0,
+  "persistence": 2,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 3,
+  "obfuscation": 0,
+  "prompt-injection": 2,
+  "permissions": 0,
+  "supply-chain": 5,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 31381,
+  "forks": 2142,
+  "open_issues": 159,
+  "contributors": "100+",
+  "created_at": "2025-03-23T22:35:24Z",
+  "pushed_at": "2026-11-14T13:40:52Z",
+  "license": "NOASSERTION",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "A powerful MCP toolkit for coding, providing semantic retrieval and editing capabilities  - the IDE for your agent",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 15,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 10,
+   "info": 4
+  },
+  "active": 15,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-commit",
+  "deny-secret-reads",
+  "sandbox-bash",
+  "check-persistence",
+  "disable-plugin",
+  "pin-mcp-version",
+  "dependency-audit",
+  "review-context-injection",
+  "disable-hooks"
+ ],
+ "settings_snippet": {}
+}

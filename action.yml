@@ -1,0 +1,65 @@
+name: Plugin Warden policy check
+description: Fail a pull request that enables a Claude Code plugin or MCP server your policy does not allow.
+author: battlettt
+branding:
+  icon: shield
+  color: orange
+
+inputs:
+  project:
+    description: Folder that holds .claude/settings.json and .mcp.json
+    default: "."
+  policy:
+    description: Path to the policy file. Default looks for warden-policy.toml.
+    default: ""
+  sarif:
+    description: Where to write SARIF for code scanning
+    default: warden.sarif
+  upload-sarif:
+    description: Upload the SARIF file to GitHub code scanning
+    default: "true"
+  scanners:
+    description: Extra scanners to run, comma separated (gitleaks,osv-scanner,semgrep). They must be on PATH.
+    default: ""
+  version:
+    description: Plugin Warden git ref to run
+    default: v0.2.0
+
+outputs:
+  result:
+    description: "passed or failed"
+    value: ${{ steps.check.outputs.result }}
+
+runs:
+  using: composite
+  steps:
+    - uses: astral-sh/setup-uv@v6
+    - id: check
+      shell: bash
+      env:
+        WARDEN_PROJECT: ${{ inputs.project }}
+        WARDEN_POLICY: ${{ inputs.policy }}
+        WARDEN_SARIF: ${{ inputs.sarif }}
+        WARDEN_SCANNERS: ${{ inputs.scanners }}
+        WARDEN_REF: ${{ inputs.version }}
+      run: |
+        args=(check "$WARDEN_PROJECT" --sarif "$WARDEN_SARIF")
+        if [ -n "$WARDEN_POLICY" ]; then args+=(--policy "$WARDEN_POLICY"); fi
+        if [ -n "$WARDEN_SCANNERS" ]; then args+=(--scanners "$WARDEN_SCANNERS"); fi
+        set +e
+        uvx --from "git+https://github.com/battlettt/plugin-warden@${WARDEN_REF}" warden "${args[@]}"
+        code=$?
+        set -e
+        if [ "$code" -eq 0 ]; then echo "result=passed" >> "$GITHUB_OUTPUT"; else echo "result=failed" >> "$GITHUB_OUTPUT"; fi
+        echo "code=$code" >> "$GITHUB_OUTPUT"
+    - if: always() && inputs.upload-sarif == 'true' && hashFiles(inputs.sarif) != ''
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.sarif }}
+        category: plugin-warden
+      continue-on-error: true
+    - if: steps.check.outputs.code != '0'
+      shell: bash
+      env:
+        WARDEN_CODE: ${{ steps.check.outputs.code }}
+      run: exit "$WARDEN_CODE"

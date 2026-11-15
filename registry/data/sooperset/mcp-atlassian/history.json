@@ -1,0 +1,16 @@
+{
+ "source": "sooperset/mcp-atlassian",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "821d4026823c9d83ce86b931d51077bb69d32348",
+   "scanned_at": "2026-11-15T02:08:28+00:00",
+   "level": "caution",
+   "score": 22,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 432,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

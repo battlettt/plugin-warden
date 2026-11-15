@@ -1,0 +1,496 @@
+{
+ "target": {
+  "display": "exa-labs/exa-mcp-server",
+  "raw": "exa-labs/exa-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/exa-labs/exa-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "93c0d5e1fecfc1ec9bf70fa9f3633962a1f2fa8a",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:07:21+00:00",
+ "plugins": [
+  {
+   "name": "exa",
+   "path": ".",
+   "source": "manifest",
+   "version": "3.4.3",
+   "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills."
+  },
+  {
+   "name": "exa",
+   "path": "plugins/exa",
+   "source": "manifest",
+   "version": "3.4.3",
+   "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills."
+  }
+ ],
+ "component_counts": {
+  "manifest": 2,
+  "marketplace": 1,
+  "mcp_server": 2,
+  "package": 1,
+  "skill": 4
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "exa",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "3.4.3",
+    "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills.",
+    "author": {
+     "name": "Exa",
+     "email": "hello@exa.ai"
+    },
+    "repository": "https://github.com/exa-labs/exa-mcp-server"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "exa",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "headers": {
+     "x-exa-source": "<redacted>"
+    }
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Exa Agent",
+   "path": "skills/exa-agent/SKILL.md",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "description": "\"Use Exa Agent for multi-step web research, list-building, enrichment, structured output, run continuation, and coverage validation. Exa Agent can access additional data providers: fiber, financial_da"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "search",
+   "path": "skills/search/SKILL.md",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "description": "\"Deep research powered by Exa. Use for lead generation, literature reviews, deep dives, competitive analysis, or any query where one search falls short, including phrases like 'research this', 'find e"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "exa",
+   "path": "plugins/exa/.claude-plugin/plugin.json",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "3.4.3",
+    "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills.",
+    "author": {
+     "name": "Exa",
+     "email": "hello@exa.ai"
+    },
+    "repository": "https://github.com/exa-labs/exa-mcp-server",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "exa",
+   "path": "plugins/exa/.claude-plugin/plugin.json",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "headers": {
+     "x-exa-source": "<redacted>"
+    }
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Exa Agent",
+   "path": "plugins/exa/skills/exa-agent/SKILL.md",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "description": "\"Use Exa Agent for multi-step web research, list-building, enrichment, structured output, run continuation, and coverage validation. Exa Agent can access additional data providers: fiber, financial_da"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "search",
+   "path": "plugins/exa/skills/search/SKILL.md",
+   "plugin": "exa",
+   "trigger": "",
+   "details": {
+    "description": "\"Deep research powered by Exa. Use for lead generation, literature reviews, deep dives, competitive analysis, or any query where one search falls short, including phrases like 'research this', 'find e"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "exa-mcp-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "npm run build:stdio",
+     "build:runtime": "tsc",
+     "build:stdio": "esbuild src/stdio-cli.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/stdio.cjs --banner:js=\"#!/usr/bin/env node\" && chmod +x dist/stdio.cjs",
+     "build:vercel": "npm install typescript && ./node_modules/.bin/tsc",
+     "setup": "npm ci",
+     "start": "npm run dev",
+     "start:runtime": "node dist/src/runtime-server.js",
+     "typecheck": "tsc --noEmit -p tsconfig.test.json",
+     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+     "test": "vitest run",
+     "test:watch": "vitest",
+     "test:coverage": "vitest run --coverage",
+     "ci": "npm run format:check && npm run typecheck && npm run test",
+     "prepare": "npm run build:stdio",
+     "watch": "./node_modules/.bin/tsc --watch",
+     "dev": "tsx src/stdio-cli.ts",
+     "dev:vercel": "vercel dev",
+     "inspector": "npx @modelcontextprotocol/inspector dist/stdio.cjs",
+     "prepublishOnly": "npm run build:stdio"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/sdk": "^1.12.1",
+     "agnost": "^0.2.0",
+     "exa-js": "^2.16.0",
+     "jose": "^6.2.2",
+     "mcp-handler": "^1.0.4",
+     "zod": "^3.22.4"
+    },
+    "devDependencies": {
+     "@types/node": "^20.11.24",
+     "@upstash/ratelimit": "^2.0.8",
+     "@upstash/redis": "^1.36.1",
+     "@vitest/coverage-v8": "4.1.5",
+     "esbuild": "^0.25.12",
+     "prettier": "3.8.1",
+     "tsx": "^4.7.0",
+     "typescript": "^5.9.3",
+     "vercel": "^37.0.0",
+     "vitest": "4.1.5"
+    },
+    "bin": {
+     "exa-mcp-server": "dist/stdio.cjs"
+    }
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "exa",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "exa",
+      "source": "./plugins/exa",
+      "description": "Connect AI agents to Exa for web search, content fetching, and multi-step research.",
+      "version": "3.4.3",
+      "author": {
+       "name": "Exa",
+       "email": "hello@exa.ai"
+      },
+      "homepage": "https://docs.exa.ai/reference/exa-mcp",
+      "repository": "https://github.com/exa-labs/exa-mcp-server",
+      "license": "MIT",
+      "keywords": [
+       "mcp",
+       "exa",
+       "search",
+       "web-search",
+       "agent",
+       "research"
+      ],
+      "category": "productivity",
+      "mcpServers": {
+       "exa": {
+        "type": "http",
+        "url": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+        "headers": {
+         "x-exa-source": "claude-code-plugin"
+        }
+       }
+      }
+     }
+    ],
+    "owner": {
+     "name": "Exa",
+     "email": "hello@exa.ai"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 110,
+  "bytes": 726250,
+  "by_kind": {
+   "binary": 1,
+   "config": 18,
+   "js": 56,
+   "markdown": 27,
+   "other": 8
+  },
+  "vendored_files": 0,
+  "plugins": 2,
+  "components": 10
+ },
+ "findings": [
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:982dab496f978931",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e969bf4c281f0ac3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95e65fa651408841",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e2614d6b3edbc8bc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4ba6712b437f2375",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "type": "MCP server",
+    "plugin": "exa",
+    "file": ".claude-plugin/plugin.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "type": "MCP server",
+    "plugin": "exa",
+    "file": "plugins/exa/.claude-plugin/plugin.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "exa",
+    "kind": "MCP server",
+    "launch": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "file": ".claude-plugin/plugin.json"
+   },
+   {
+    "name": "exa",
+    "kind": "MCP server",
+    "launch": "https://mcp.exa.ai/mcp?client=claude-code-plugin",
+    "file": "plugins/exa/.claude-plugin/plugin.json"
+   }
+  ],
+  "hosts": {
+   "mcp.exa.ai": [
+    ".claude-plugin/plugin.json",
+    "plugins/exa/.claude-plugin/plugin.json"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "api/mcp.ts"
+   ]
+  },
+  "env_vars": {
+   "KV_REST_API_TOKEN": [
+    "api/mcp.ts"
+   ],
+   "UPSTASH_REDIS_REST_TOKEN": [
+    "api/mcp.ts"
+   ],
+   "EXA_API_KEY": [
+    "api/mcp.ts",
+    "src/runtime-server.ts",
+    "src/tools/config.ts"
+   ],
+   "EXA_API_KEY_BYPASS": [
+    "api/mcp.ts"
+   ],
+   "OAUTH_USER_AGENTS": [
+    "api/mcp.ts"
+   ],
+   "OAUTH_ISSUER": [
+    "api/well-known-oauth-protected-resource.ts",
+    "src/utils/auth.ts"
+   ],
+   "OPENAI_APPS_CHALLENGE_TOKEN": [
+    "api/well-known-openai-apps-challenge.ts"
+   ],
+   "EXA_API_KEYS_URL": [
+    "src/utils/agentErrorHandler.ts",
+    "src/utils/errorHandler.ts"
+   ],
+   "OAUTH_AUDIENCE": [
+    "src/utils/auth.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 2,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 5234,
+  "forks": 414,
+  "open_issues": 8,
+  "contributors": "32",
+  "created_at": "2024-11-27T23:38:35Z",
+  "pushed_at": "2026-11-05T23:18:45Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Exa MCP for web search and web crawling!",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 13,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 2,
+   "low": 3,
+   "info": 0
+  },
+  "active": 5,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "lock-permission-mode",
+  "deny-mcp-server",
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

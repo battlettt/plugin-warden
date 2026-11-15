@@ -1,0 +1,16 @@
+{
+ "source": "brave/brave-search-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "e7da0f1973051fe0fc4e351acf6a3e0a190fc2d2",
+   "scanned_at": "2026-11-15T02:11:19+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 77,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

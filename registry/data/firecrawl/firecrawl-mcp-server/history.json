@@ -1,0 +1,16 @@
+{
+ "source": "firecrawl/firecrawl-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "a3d0fbe920d800c257f118a487b87773ff5c1320",
+   "scanned_at": "2026-11-15T02:07:26+00:00",
+   "level": "low",
+   "score": 2,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 134,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

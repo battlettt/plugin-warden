@@ -1,0 +1,459 @@
+{
+ "target": {
+  "display": "supabase-community/supabase-mcp",
+  "raw": "supabase-community/supabase-mcp",
+  "kind": "github",
+  "url": "https://github.com/supabase-community/supabase-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "9092ab9055509fcdfbedcb75edf02d9412feed37",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:05:13+00:00",
+ "plugins": [
+  {
+   "name": "supabase-community__supabase-mcp@9092ab905550",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 4
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "supabase-community__supabase-mcp@9092ab905550",
+   "path": ".",
+   "plugin": "supabase-community__supabase-mcp@9092ab905550",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "package.json",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "pnpm --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest build",
+     "test": "pnpm --parallel --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest test",
+     "test:coverage": "pnpm --filter @supabase/mcp-server-supabase test:coverage",
+     "test:packed-platform-consumer": "node scripts/test-packed-platform-consumer.mjs",
+     "format": "biome check --write .",
+     "format:check": "biome check .",
+     "dev:http": "node scripts/dev-http.mjs"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@biomejs/biome": "1.9.4",
+     "pkg-pr-new": "^0.0.68",
+     "supabase": "^2.1.1"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@supabase/mcp-server-postgrest",
+   "path": "packages/mcp-server-postgrest/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsup --clean",
+     "dev": "tsup --watch",
+     "typecheck": "tsc --noEmit",
+     "prebuild": "pnpm typecheck",
+     "prepublishOnly": "pnpm build",
+     "test": "vitest"
+    },
+    "dependencies": {
+     "@supabase/mcp-utils": "workspace:^",
+     "@supabase/sql-to-rest": "^0.1.8"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/server": "catalog:",
+     "@supabase/auth-js": "^2.67.3",
+     "@total-typescript/tsconfig": "^1.0.4",
+     "@types/node": "^22.8.6",
+     "prettier": "^3.3.3",
+     "tsup": "^8.3.5",
+     "tsx": "^4.19.2",
+     "typescript": "^5.6.3",
+     "vitest": "^2.1.9",
+     "zod": "catalog:"
+    },
+    "bin": {
+     "mcp-server-postgrest": "./dist/stdio.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@supabase/mcp-server-supabase",
+   "path": "packages/mcp-server-supabase/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsup --clean",
+     "dev": "tsup --watch",
+     "typecheck": "tsc --noEmit",
+     "prebuild": "pnpm typecheck",
+     "prepublishOnly": "pnpm build",
+     "registry:update": "tsx scripts/registry/update-version.ts && biome format --write server.json",
+     "registry:login": "scripts/registry/login.sh",
+     "registry:publish": "mcp-publisher publish",
+     "test": "vitest",
+     "test:unit": "vitest --project unit",
+     "test:e2e": "vitest --project e2e",
+     "test:integration": "vitest --project integration",
+     "test:coverage": "vitest --coverage",
+     "generate:management-api-types": "node scripts/generate-management-api-types.mjs"
+    },
+    "dependencies": {
+     "@mjackson/multipart-parser": "^0.10.1",
+     "@modelcontextprotocol/node": "catalog:",
+     "@supabase/mcp-utils": "workspace:^",
+     "common-tags": "^1.8.2",
+     "gqlmin": "^0.3.1",
+     "graphql": "^16.11.0",
+     "openapi-fetch": "^0.13.5"
+    },
+    "devDependencies": {
+     "@ai-sdk/anthropic": "catalog:",
+     "@ai-sdk/mcp": "catalog:",
+     "@electric-sql/pglite": "^0.2.17",
+     "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/server": "catalog:",
+     "@total-typescript/tsconfig": "^1.0.4",
+     "@types/common-tags": "^1.8.4",
+     "@types/node": "^22.8.6",
+     "@vitest/coverage-v8": "^2.1.9",
+     "ai": "catalog:",
+     "date-fns": "^4.1.0",
+     "dotenv": "^16.5.0",
+     "msw": "^2.7.3",
+     "nanoid": "^5.1.5",
+     "openapi-typescript": "^7.5.0",
+     "openapi-typescript-helpers": "^0.0.15",
+     "prettier": "^3.3.3",
+     "tsup": "^8.3.5",
+     "tsx": "^4.19.2",
+     "typescript": "^5.6.3",
+     "vite": "^5.4.19",
+     "vitest": "^2.1.9",
+     "zod": "catalog:"
+    },
+    "bin": {
+     "mcp-server-supabase": "./dist/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@supabase/mcp-utils",
+   "path": "packages/mcp-utils/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsup --clean",
+     "dev": "tsup --watch",
+     "typecheck": "tsc --noEmit",
+     "prebuild": "pnpm typecheck",
+     "test": "vitest",
+     "test:coverage": "vitest --coverage",
+     "prepublishOnly": "pnpm build"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/server": "catalog:",
+     "@total-typescript/tsconfig": "^1.0.4",
+     "@types/node": "^22.8.6",
+     "prettier": "^3.3.3",
+     "tsup": "^8.3.5",
+     "typescript": "^5.6.3",
+     "vitest": "^2.1.9",
+     "zod": "catalog:"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 172,
+  "bytes": 2220707,
+  "by_kind": {
+   "config": 24,
+   "js": 124,
+   "markdown": 11,
+   "other": 12,
+   "shell": 1
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 5
+ },
+ "findings": [
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7c2aa281b6f85028",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a6fd67d5ead35203",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5f69f254c90fb981",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c9af87b8e5aef9d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:98f8463c4be68957",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c4db1b24a2a7a5a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a32897204acab7c3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "127.0.0.1": [
+    "packages/mcp-server-supabase/src/transports/local-http-entry.ts"
+   ],
+   "actixlblmrqglneypada.supabase.co": [
+    "packages/mcp-server-supabase/src/platform/feedback.ts"
+   ],
+   "api.supabase.com": [
+    "packages/mcp-server-supabase/src/transports/local-http-entry.ts"
+   ],
+   "api.supabase.green": [
+    "packages/mcp-server-supabase/src/transports/local-http-entry.ts"
+   ],
+   "github.com": [
+    "packages/mcp-server-supabase/src/platform/feedback.ts"
+   ],
+   "supabase.com": [
+    "packages/mcp-server-supabase/src/transports/local-http-entry.ts"
+   ],
+   "xguihxuzqibwxjnimxev.supabase.co": [
+    "packages/mcp-server-supabase/src/platform/feedback.ts"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "DOMAIN_VERIFICATION_KEY": [
+    "packages/mcp-server-supabase/scripts/registry/login.sh"
+   ],
+   "PRIVATE_KEY_PATH": [
+    "packages/mcp-server-supabase/scripts/registry/login.sh"
+   ],
+   "PRIVATE_KEY_HEX": [
+    "packages/mcp-server-supabase/scripts/registry/login.sh"
+   ],
+   "SUPABASE_ACCESS_TOKEN": [
+    "packages/mcp-server-supabase/src/cli.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 2,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 3,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 3014,
+  "forks": 433,
+  "open_issues": 129,
+  "contributors": "37",
+  "created_at": "2024-12-20T23:52:42Z",
+  "pushed_at": "2026-11-14T06:13:35Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Connect Supabase to your AI assistants",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 9,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 4,
+   "info": 2
+  },
+  "active": 7,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "rotate-secret",
+  "dependency-audit",
+  "pin-mcp-version",
+  "pin-commit",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

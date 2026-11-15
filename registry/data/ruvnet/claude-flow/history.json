@@ -1,0 +1,16 @@
+{
+ "source": "ruvnet/claude-flow",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "3a1479883b55b7f786ef0bf3141478e4dfb9444f",
+   "scanned_at": "2026-11-15T01:56:46+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 36,
+   "files": 8699,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

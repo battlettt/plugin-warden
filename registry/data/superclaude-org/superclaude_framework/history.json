@@ -1,0 +1,16 @@
+{
+ "source": "superclaude-org/superclaude_framework",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
+   "scanned_at": "2026-11-15T01:59:40+00:00",
+   "level": "review",
+   "score": 35,
+   "reviewed": false,
+   "auto_runs": 7,
+   "files": 410,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

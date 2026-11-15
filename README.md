@@ -9,6 +9,17 @@ warden scan obra/superpowers
 warden chat warden-reports/obra-superpowers-<commit>/
 ```
 
+For a team, the same engine enforces a policy, watches for updates and produces audit evidence:
+
+```
+warden init          # starter policy and CI workflow
+warden check         # fail a pull request that enables a plugin nobody approved
+warden watch         # did an approved plugin change upstream, and did it gain reach?
+warden evidence      # audit pack: policy, decisions, scans, hashed manifest
+```
+
+There is also a [public registry](#the-public-registry) of well-known plugin and MCP server repositories, built from the same scans.
+
 ## Why this exists
 
 Installing a plugin means running someone else's code with your full user access. Hooks fire on session start and on every tool call, MCP and LSP servers start as background processes, monitors run continuously, and skills and agents are instructions Claude follows. Claude Code's permission rules and Bash sandbox only govern Claude's own tools: **hooks, MCP servers, LSP servers, monitors and status-line commands run outside them.** A plugin that looks like a formatter can read `~/.ssh`, phone home on every prompt, or tell Claude to approve its own tool calls, and nothing in the install flow shows you that.
@@ -148,6 +159,13 @@ uv run warden harden warden-reports/<report-folder>/
 
 # List every check
 uv run warden rules
+
+# Team commands (see "For teams" below)
+uv run warden init
+uv run warden check
+uv run warden watch
+uv run warden evidence
+uv run warden diff warden-reports/<old>/ warden-reports/<new>/
 ```
 
 Useful flags for `scan`:
@@ -162,6 +180,87 @@ Useful flags for `scan`:
 | `--open` | Open the HTML report |
 | `--no-external`, `--scanners gitleaks,semgrep` | Choose which external scanners run |
 | `--marketplace NAME` | Use the real plugin id in generated settings |
+
+## For teams
+
+Everything in this section runs in your own repository and CI. There is no Plugin Warden server. Full guide: [docs/teams.md](docs/teams.md). Policy reference: [docs/policy.md](docs/policy.md).
+
+### Policy
+
+One TOML file in git says which plugins your team may enable.
+
+```toml
+[policy]
+mode = "allowlist"            # or "threshold"
+max_verdict = "caution"
+require_pinned = true
+deny_categories = ["remote-code", "exfiltration", "persistence", "config-tampering"]
+
+[[allow]]
+source = "obra/superpowers"
+commit = "22f0b463e7a5"
+approved_by = "Dana Li"
+approved_at = 2026-11-14
+reason = "Read hooks and skills at this commit"
+```
+
+A pinned approval that matches the scanned commit is a person's sign-off on exactly that code, so it stands in for the thresholds. When upstream moves, the approval stops matching and the check fails with `COMMIT-DRIFT` until someone looks at the diff. Exceptions accept one rule for one plugin and must carry a reason and an end date. Deny always wins.
+
+```bash
+warden approve obra/superpowers --by "Dana Li" --reason "Read hooks and skills at this commit"
+warden policy validate
+warden policy explain warden-reports/<report-folder>/
+```
+
+`warden approve` reads the remote's current commit, appends the entry, and re-parses the whole file before writing, so a bad entry never lands on disk.
+
+### CI gate
+
+`warden check` reads `enabledPlugins` and `extraKnownMarketplaces` from the project's `.claude/settings.json`, resolves each plugin to its repository, scans it, and evaluates the policy. When a marketplace holds many plugins, only the enabled plugin's folder is judged. It also scans the project's own `.mcp.json` and settings hooks against the thresholds. Anything it cannot resolve or fetch fails closed.
+
+```yaml
+- uses: actions/checkout@v4
+- uses: battlettt/plugin-warden@v0.2.0
+```
+
+Exit code 0 when everything is allowed, 1 when something is not, 2 when the policy is invalid. `--sarif` writes SARIF 2.1.0, so on GitHub a failure appears on the settings line that enabled the plugin. `--markdown` writes a summary for a pull request comment.
+
+### Watching updates
+
+`warden watch` asks each approved repository for its current commit (`git ls-remote`, no clone). If it moved, it scans the approved commit and the new one and compares them. Findings are matched by rule, file and code, not by line number, so code that only moved is not reported as new.
+
+| Level | Raised when |
+|---|---|
+| alert | A new hook, monitor or server, a new high or critical finding, or a worse verdict |
+| notice | New network hosts, new credential-like environment variables, or new lower-severity findings |
+| none | Nothing the scanner tracks changed |
+
+`warden diff old/ new/` does the same comparison for any two reports. `WARDEN_WEBHOOK_URL` sends the result to an https Slack-compatible webhook. The workflow from `warden init` opens a GitHub issue on an alert.
+
+### Evidence packs
+
+`warden evidence` writes a folder and a zip: the policy as enforced, the decision for every enabled plugin, the scan behind each decision, a readable summary, and `manifest.json` with the SHA-256 of every file. With `WARDEN_EVIDENCE_KEY` set the manifest is signed with HMAC-SHA256. Local paths are scrubbed, since a pack is handed to outsiders. `warden evidence --verify <folder>` reports any file that changed, went missing or was added.
+
+The summary lists where teams commonly map this (SOC 2 CC9.2, CC8.1 and CC7.1; ISO/IEC 27001:2022 A.5.19, A.5.21 and A.8.19). That mapping is yours to make with your auditor. Plugin Warden does not certify compliance.
+
+## The public registry
+
+`registry/targets.toml` lists 63 well-known Claude Code plugin, skill and MCP server repositories. `warden registry scan` scans them and keeps each one's history in `registry/data/`. `warden registry build` turns that into a static site: a landing page, a searchable registry, one page per repository, docs, pricing, status badges and a JSON API. The site makes no third-party requests.
+
+First full run, 2026-11-14, static checks only (no API cost): 62 of 63 repositories scanned (one fetch timed out), 55,205 files read. Across them the scanner found 164 components that run on their own in 21 repositories, 64 background processes in 18, and 359 distinct network hosts named in code. It produced 3,022 rule matches that are waiting for review and are therefore not published. One entry, obra/superpowers, carries a completed agent review and a verdict. wshobson/agents was reviewed at `4bde316` and has since moved to `9c61ab2`, so its entry is back to "not yet reviewed", with a note that the update added no new automatic entry points.
+
+Two rules decide what the registry publishes, and both exist to be fair to the people whose code is listed. Full text: [docs/disclosure.md](docs/disclosure.md).
+
+1. **A static-only scan gets no verdict and shows no findings.** Rule matches are leads. On the four repositories above the agent dismissed 86 of 131. So without a completed agent review an entry shows what the code does (what runs on its own, which processes start, which hosts appear) and a count of matches waiting for review.
+2. **Confirmed high and critical findings wait for the maintainer.** They are withheld until a disclosure is on record (`warden registry disclose`) and 30 days have passed, or a fix has shipped.
+
+```bash
+uv run warden registry scan --only-changed      # rescan only repositories whose upstream commit moved
+uv run warden registry import report.json --source owner/repo   # add an agent-reviewed report
+uv run warden registry build --out site         # build the static site
+```
+
+`.github/workflows/registry.yml` does this nightly and deploys to GitHub Pages once Pages is switched on for the repository (Settings, Pages, Source: GitHub Actions).
 
 ## How it works
 
@@ -216,7 +315,7 @@ uvx ruff check src tests examples
 
 The deliberately malicious demo plugin is generated at test time (`tests/conftest.py`, or `examples/build_demo.py`) so its fake credentials never sit in the repository.
 
-75 tests: 73 offline (about 1 second) and 2 live. The offline suite covers target parsing and unsafe-URL rejection, inventory and trigger tracing, every rule family, context levels, scoring and the injection guard, HTML escaping (XSS), secret redaction, settings generation, the agent's tool validation and path guard (symlink escapes, `..` and `~`), the API-key-only environment, a scripted end-to-end triage run, the chat, and the CLI. The live tests run the real agent and chat against the demo plugin.
+126 tests: 124 offline (about 5 seconds) and 2 live. The offline suite covers target parsing and unsafe-URL rejection, inventory and trigger tracing, every rule family, context levels, scoring and the injection guard, HTML escaping (XSS), secret redaction, settings generation, the agent's tool validation and path guard (symlink escapes, `..` and `~`), the API-key-only environment, a scripted end-to-end triage run, the chat, and the CLI. For the team features it covers policy parsing and every violation code, pinned approvals, exceptions and their expiry, marketplace resolution, fail-closed behaviour, SARIF locations, report diffing (including code that only moved), the update watch, evidence pack signing, tamper detection and path scrubbing, the registry's publication rules, and the site (every page built, repository text escaped, no third-party resources). The live tests run the real agent and chat against the demo plugin.
 
 ## License
 

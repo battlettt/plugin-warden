@@ -1,0 +1,4906 @@
+{
+ "target": {
+  "display": "voltagent/awesome-claude-code-subagents",
+  "raw": "voltagent/awesome-claude-code-subagents",
+  "kind": "github",
+  "url": "https://github.com/voltagent/awesome-claude-code-subagents",
+  "ref": null,
+  "subdir": null,
+  "commit": "ed74d115b7fb7026a22a4f816a8e3250f425e3b4",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T01:59:46+00:00",
+ "plugins": [
+  {
+   "name": "voltagent-core-dev",
+   "path": "categories/01-core-development",
+   "source": "manifest",
+   "version": "1.0.4",
+   "description": "Essential development subagents for everyday coding tasks - backend, frontend, fullstack, mobile, and API design"
+  },
+  {
+   "name": "voltagent-lang",
+   "path": "categories/02-language-specialists",
+   "source": "manifest",
+   "version": "1.0.4",
+   "description": "Language-specific expert agents with deep framework knowledge - Python, TypeScript, Go, Rust, Java, and more"
+  },
+  {
+   "name": "voltagent-infra",
+   "path": "categories/03-infrastructure",
+   "source": "manifest",
+   "version": "1.0.1",
+   "description": "DevOps, cloud, and deployment specialists - Kubernetes, Terraform, AWS, Azure, GCP, and SRE"
+  },
+  {
+   "name": "voltagent-qa-sec",
+   "path": "categories/04-quality-security",
+   "source": "manifest",
+   "version": "1.1.3",
+   "description": "Testing, security, and code quality experts - code review, penetration testing, QA automation, and UI flow validation"
+  },
+  {
+   "name": "voltagent-data-ai",
+   "path": "categories/05-data-ai",
+   "source": "manifest",
+   "version": "1.0.2",
+   "description": "Data engineering, ML, and AI specialists - data pipelines, machine learning, LLM architecture"
+  },
+  {
+   "name": "voltagent-dev-exp",
+   "path": "categories/06-developer-experience",
+   "source": "manifest",
+   "version": "1.0.3",
+   "description": "Tooling and developer productivity experts - CLI tools, documentation, README generation, and DX optimization"
+  },
+  {
+   "name": "voltagent-domains",
+   "path": "categories/07-specialized-domains",
+   "source": "manifest",
+   "version": "1.0.5",
+   "description": "Domain-specific technology experts - blockchain, fintech, gaming, IoT, payments, X/Twitter APIs"
+  },
+  {
+   "name": "voltagent-biz",
+   "path": "categories/08-business-product",
+   "source": "manifest",
+   "version": "1.0.6",
+   "description": "Product, legal, and business specialists - product strategy, licensing, project management, UX research"
+  },
+  {
+   "name": "voltagent-meta",
+   "path": "categories/09-meta-orchestration",
+   "source": "manifest",
+   "version": "1.0.5",
+   "description": "Agent coordination and meta-programming - multi-agent orchestration, workflow automation, and safe refactor governance. Works best with other voltagent plugins installed."
+  },
+  {
+   "name": "voltagent-research",
+   "path": "categories/10-research-analysis",
+   "source": "manifest",
+   "version": "1.0.5",
+   "description": "Research, search, and analysis specialists - market research, competitive analysis, trend forecasting, and idea validation"
+  }
+ ],
+ "component_counts": {
+  "agent": 164,
+  "manifest": 10,
+  "marketplace": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "voltagent-core-dev",
+   "path": "categories/01-core-development/.claude-plugin/plugin.json",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.4",
+    "description": "Essential development subagents for everyday coding tasks - backend, frontend, fullstack, mobile, and API design",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "api-designer",
+   "path": "categories/01-core-development/api-designer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing new APIs, creating API specifications, or refactoring existing API architecture for scalability and developer experience. Invoke when you need REST/GraphQL endpoint desi",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "auth-integration-engineer",
+   "path": "categories/01-core-development/auth-integration-engineer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when implementing authentication and authorization \u2014 OAuth 2.1/OIDC flows, SAML enterprise SSO, session and token management, multi-tenant permission models, or MFA and passwordless lo",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "backend-developer",
+   "path": "categories/01-core-development/backend-developer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building server-side APIs, microservices, and backend systems that require robust architecture, scalability planning, and production-ready implementation.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "design-bridge",
+   "path": "categories/01-core-development/design-bridge.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to translate a DESIGN.md from the VoltAgent/awesome-design-md repository into polished Claude Code instructions for building user interfaces that faithfully match the cho",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "electron-pro",
+   "path": "categories/01-core-development/electron-pro.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building Electron desktop applications that require native OS integration, cross-platform distribution, security hardening, and performance optimization. Use electron-pro for comp",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "frontend-developer",
+   "path": "categories/01-core-development/frontend-developer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building complete frontend applications across React, Vue, and Angular frameworks requiring multi-framework expertise and full-stack integration.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "fullstack-developer",
+   "path": "categories/01-core-development/fullstack-developer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build complete features spanning database, API, and frontend layers together as a cohesive unit.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "graphql-architect",
+   "path": "categories/01-core-development/graphql-architect.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing or evolving GraphQL schemas across microservices, implementing federation architectures, or optimizing query performance in distributed graphs.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "microservices-architect",
+   "path": "categories/01-core-development/microservices-architect.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing distributed system architecture, decomposing monolithic applications into independent microservices, or establishing communication patterns between services at scale.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "mobile-developer",
+   "path": "categories/01-core-development/mobile-developer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building cross-platform mobile applications requiring native performance optimization, platform-specific features, and offline-first architecture. Use for React Native and Flutter",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ui-designer",
+   "path": "categories/01-core-development/ui-designer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing visual interfaces, creating design systems, building component libraries, or refining user-facing aesthetics requiring expert visual design, interaction patterns, and ac",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "webhook-engineer",
+   "path": "categories/01-core-development/webhook-engineer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when consuming or delivering webhooks \u2014 signature verification, idempotent handlers, retry and backoff policies, event ordering, dead-letter queues, or designing an outbound webhook sy",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "websocket-engineer",
+   "path": "categories/01-core-development/websocket-engineer.md",
+   "plugin": "voltagent-core-dev",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when implementing real-time bidirectional communication features using WebSockets, Socket.IO, or similar technologies at scale.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-lang",
+   "path": "categories/02-language-specialists/.claude-plugin/plugin.json",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.4",
+    "description": "Language-specific expert agents with deep framework knowledge - Python, TypeScript, Go, Rust, Java, and more",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "angular-architect",
+   "path": "categories/02-language-specialists/angular-architect.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when architecting enterprise Angular 15+ applications with complex state management, optimizing RxJS patterns, designing micro-frontend systems, or solving performance and scalability challenges ",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "cpp-pro",
+   "path": "categories/02-language-specialists/cpp-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building high-performance C++ systems requiring modern C++20/23 features, template metaprogramming, or zero-overhead abstractions for systems programming, embedded systems, or per",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "csharp-developer",
+   "path": "categories/02-language-specialists/csharp-developer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building ASP.NET Core web APIs, cloud-native .NET solutions, or modern C# applications requiring async patterns, dependency injection, Entity Framework optimization, and clean arc",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "django-developer",
+   "path": "categories/02-language-specialists/django-developer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Django 4+ web applications, REST APIs, or modernizing existing Django projects with async views and enterprise patterns.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "dotnet-core-expert",
+   "path": "categories/02-language-specialists/dotnet-core-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building .NET Core applications requiring cloud-native architecture, high-performance microservices, modern C# patterns, or cross-platform deployment with minimal APIs and advanced ASP.NET C",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "dotnet-framework-4.8-expert",
+   "path": "categories/02-language-specialists/dotnet-framework-4.8-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when working on legacy .NET Framework 4.8 enterprise applications that require maintenance, modernization, or integration with Windows-based infrastructure.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "elixir-expert",
+   "path": "categories/02-language-specialists/elixir-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build fault-tolerant, concurrent systems leveraging OTP patterns, GenServer architectures, and Phoenix framework for real-time applications.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "expo-react-native-expert",
+   "path": "categories/02-language-specialists/expo-react-native-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building mobile applications with Expo and React Native that require native module integration, navigation setup, performant animations, push notifications, OTA updates, or App Store/Play St",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "fastapi-developer",
+   "path": "categories/02-language-specialists/fastapi-developer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building modern async Python APIs with FastAPI, implementing Pydantic v2 validation, dependency injection patterns, or deploying high-performance ASGI applications.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "flutter-expert",
+   "path": "categories/02-language-specialists/flutter-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building cross-platform mobile applications with Flutter 3+ that require custom UI implementation, complex state management, native platform integrations, or performance optimization across ",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "golang-pro",
+   "path": "categories/02-language-specialists/golang-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Go applications requiring concurrent programming, high-performance systems, microservices, or cloud-native architectures where idiomatic patterns, error handling excellence, and eff",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "java-architect",
+   "path": "categories/02-language-specialists/java-architect.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing enterprise Java architectures, migrating Spring Boot applications, or establishing microservices patterns for scalable cloud-native systems.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "javascript-pro",
+   "path": "categories/02-language-specialists/javascript-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build, optimize, or refactor modern JavaScript code for browser, Node.js, or full-stack applications requiring ES2023+ features, async patterns, or performance-critica",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "kotlin-specialist",
+   "path": "categories/02-language-specialists/kotlin-specialist.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Kotlin applications requiring advanced coroutine patterns, multiplatform code sharing, or Android/server-side development with functional programming principles.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "laravel-specialist",
+   "path": "categories/02-language-specialists/laravel-specialist.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Laravel 10+ applications, architecting Eloquent models with complex relationships, implementing queue systems for async processing, or optimizing API performance.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "nextjs-developer",
+   "path": "categories/02-language-specialists/nextjs-developer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building production Next.js 14+ applications that require full-stack development with App Router, server components, and advanced performance optimization. Invoke when you need to",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "node-specialist",
+   "path": "categories/02-language-specialists/node-specialist.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build, optimize, or debug Node.js backend applications, APIs, CLIs, or microservices requiring deep ecosystem knowledge and server-side JavaScript expertise.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "php-pro",
+   "path": "categories/02-language-specialists/php-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when working with PHP 8.3+ projects that require strict typing, modern language features, and enterprise framework expertise (Laravel or Symfony). Use when building scalable applicatio",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "powershell-5.1-expert",
+   "path": "categories/02-language-specialists/powershell-5.1-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when automating Windows infrastructure tasks requiring PowerShell 5.1 scripts with RSAT modules for Active Directory, DNS, DHCP, GPO management, or when building safe, enterprise-grade automation",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "powershell-7-expert",
+   "path": "categories/02-language-specialists/powershell-7-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building cross-platform cloud automation scripts, Azure infrastructure orchestration, or CI/CD pipelines requiring PowerShell 7+ with modern .NET interop, idempotent operations, and enterpri",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "python-pro",
+   "path": "categories/02-language-specialists/python-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build type-safe, production-ready Python code for web APIs, system utilities, or complex applications requiring modern async patterns and extensive type coverage.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "rails-expert",
+   "path": "categories/02-language-specialists/rails-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building or modernizing Rails applications requiring API development, Hotwire reactivity, real-time features, background job processing, deployment automation, or Rails-idiomatic patterns fo",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "react-specialist",
+   "path": "categories/02-language-specialists/react-specialist.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when optimizing existing React applications for performance, implementing advanced React 18+ features, or solving complex state management and architectural challenges within React codebases.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "rust-engineer",
+   "path": "categories/02-language-specialists/rust-engineer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Rust systems where memory safety, ownership patterns, zero-cost abstractions, and performance optimization are critical for systems programming, embedded development, async applicat",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "spring-boot-engineer",
+   "path": "categories/02-language-specialists/spring-boot-engineer.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building enterprise Spring Boot 3+ applications requiring microservices architecture, cloud-native deployment, or reactive programming patterns.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "sql-pro",
+   "path": "categories/02-language-specialists/sql-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to optimize complex SQL queries, design efficient database schemas, or solve performance issues across PostgreSQL, MySQL, SQL Server, and Oracle requiring advanced query ",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "swift-expert",
+   "path": "categories/02-language-specialists/swift-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building native iOS, macOS, or server-side Swift applications requiring advanced concurrency patterns, protocol-oriented architecture, and Swift-specific optimizations. Invoke for",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "symfony-specialist",
+   "path": "categories/02-language-specialists/symfony-specialist.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building Symfony 6+/7+/8+ applications, architecting Doctrine ORM entities with complex relationships, implementing Messenger component for async processing, or optimizing API Platform perfo",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "typescript-pro",
+   "path": "categories/02-language-specialists/typescript-pro.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when implementing TypeScript code requiring advanced type system patterns, complex generics, type-level programming, or end-to-end type safety across full-stack applications.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "vue-expert",
+   "path": "categories/02-language-specialists/vue-expert.md",
+   "plugin": "voltagent-lang",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building Vue 3 applications that require Composition API mastery, reactivity optimization, or Nuxt 3 development with enterprise-scale performance concerns.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-infra",
+   "path": "categories/03-infrastructure/.claude-plugin/plugin.json",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.1",
+    "description": "DevOps, cloud, and deployment specialists - Kubernetes, Terraform, AWS, Azure, GCP, and SRE",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "azure-infra-engineer",
+   "path": "categories/03-infrastructure/azure-infra-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing, deploying, or managing Azure infrastructure with focus on network architecture, Entra ID integration, PowerShell automation, and Bicep IaC.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "cloud-architect",
+   "path": "categories/03-infrastructure/cloud-architect.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design, evaluate, or optimize cloud infrastructure architecture at scale. Invoke when designing multi-cloud strategies, planning cloud migrations, implementing disaste",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "database-administrator",
+   "path": "categories/03-infrastructure/database-administrator.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when optimizing database performance, implementing high-availability architectures, setting up disaster recovery, or managing database infrastructure for production systems.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "docker-expert",
+   "path": "categories/03-infrastructure/docker-expert.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build, optimize, or secure Docker container images and orchestration for production environments.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "deployment-engineer",
+   "path": "categories/03-infrastructure/deployment-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing, building, or optimizing CI/CD pipelines and deployment automation strategies.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "devops-engineer",
+   "path": "categories/03-infrastructure/devops-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building or optimizing infrastructure automation, CI/CD pipelines, containerization strategies, and deployment workflows to accelerate software delivery while maintaining reliabil",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "devops-incident-responder",
+   "path": "categories/03-infrastructure/devops-incident-responder.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when actively responding to production incidents, diagnosing critical service failures, or conducting incident postmortems to implement permanent fixes and preventative measures.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "incident-responder",
+   "path": "categories/03-infrastructure/incident-responder.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when an active security breach, service outage, or operational incident requires immediate response, evidence preservation, and coordinated recovery.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "kubernetes-specialist",
+   "path": "categories/03-infrastructure/kubernetes-specialist.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design, deploy, configure, or troubleshoot Kubernetes clusters and workloads in production environments.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "network-engineer",
+   "path": "categories/03-infrastructure/network-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when designing, optimizing, or troubleshooting cloud and hybrid network infrastructures, or when addressing network security, performance, or reliability challenges.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "platform-engineer",
+   "path": "categories/03-infrastructure/platform-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building or improving internal developer platforms (IDPs), designing self-service infrastructure, or optimizing developer workflows to reduce friction and accelerate delivery. The platform-e",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "security-engineer",
+   "path": "categories/03-infrastructure/security-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when implementing comprehensive security solutions across infrastructure, building automated security controls into CI/CD pipelines, or establishing compliance and vulnerability manage",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "sre-engineer",
+   "path": "categories/03-infrastructure/sre-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to establish or improve system reliability through SLO definition, error budget management, and automation. Invoke when implementing SLI/SLO frameworks, reducing operatio",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "terraform-engineer",
+   "path": "categories/03-infrastructure/terraform-engineer.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building, refactoring, or scaling infrastructure as code using Terraform with focus on multi-cloud deployments, module architecture, and enterprise-grade state management.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "terragrunt-expert",
+   "path": "categories/03-infrastructure/terragrunt-expert.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "Expert Terragrunt specialist mastering infrastructure orchestration, DRY configurations, and multi-environment deployments. Masters stacks, units, dependency management, and scalable IaC patterns with",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "windows-infra-admin",
+   "path": "categories/03-infrastructure/windows-infra-admin.md",
+   "plugin": "voltagent-infra",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when managing Windows Server infrastructure, Active Directory, DNS, DHCP, and Group Policy configurations, especially for enterprise-scale deployments requiring safe automation and compliance val",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-qa-sec",
+   "path": "categories/04-quality-security/.claude-plugin/plugin.json",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.1.3",
+    "description": "Testing, security, and code quality experts - code review, penetration testing, QA automation, and UI flow validation",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "accessibility-tester",
+   "path": "categories/04-quality-security/accessibility-tester.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need comprehensive accessibility testing, WCAG compliance verification, or assessment of assistive technology support.\"",
+    "tools": "Read, Grep, Glob, Bash",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ad-security-reviewer",
+   "path": "categories/04-quality-security/ad-security-reviewer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to audit Active Directory security posture, evaluate privilege escalation risks, review identity delegation patterns, or assess authentication protocol hardening.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ai-writing-auditor",
+   "path": "categories/04-quality-security/ai-writing-auditor.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to audit content for AI writing patterns and rewrite text to remove them.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "architect-reviewer",
+   "path": "categories/04-quality-security/architect-reviewer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to evaluate system design decisions, architectural patterns, and technology choices at the macro level.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "chaos-engineer",
+   "path": "categories/04-quality-security/chaos-engineer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design and execute controlled failure experiments, validate system resilience before incidents occur, or conduct game day exercises to test your team's incident respon",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "code-reviewer",
+   "path": "categories/04-quality-security/code-reviewer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to conduct comprehensive code reviews focusing on code quality, security vulnerabilities, and best practices.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "compliance-auditor",
+   "path": "categories/04-quality-security/compliance-auditor.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to achieve regulatory compliance, implement compliance controls, or prepare for audits across frameworks like GDPR, HIPAA, PCI DSS, SOC 2, and ISO standards.\"",
+    "tools": "Read, Grep, Glob",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "debugger",
+   "path": "categories/04-quality-security/debugger.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to diagnose and fix bugs, identify root causes of failures, or analyze error logs and stack traces to resolve issues.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "error-detective",
+   "path": "categories/04-quality-security/error-detective.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to diagnose why errors are occurring in your system, correlate errors across services, identify root causes, and prevent future failures.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "gdpr-ccpa-compliance",
+   "path": "categories/04-quality-security/gdpr-ccpa-compliance.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user needs to understand GDPR or CCPA compliance, review data practices, or assess privacy requirements. Triggers on: 'GDPR', 'CCPA', 'privacy compliance', 'data privacy', 'right to dele",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "penetration-tester",
+   "path": "categories/04-quality-security/penetration-tester.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to conduct authorized security penetration tests to identify real vulnerabilities through active exploitation and validation. Use penetration-tester for offensive securit",
+    "tools": "Read, Grep, Glob, Bash",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "performance-engineer",
+   "path": "categories/04-quality-security/performance-engineer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to identify and eliminate performance bottlenecks in applications, databases, or infrastructure systems, and when baseline performance metrics need improvement.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ponder-auditor",
+   "path": "categories/04-quality-security/ponder-auditor.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need a convergent, multi-pass codebase, UI, architecture, or security audit with 100% surface coverage, adversarial false-positive retraction (Skeptic), user-empathy severity ",
+    "tools": "Read, Grep, Glob, Bash",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "powershell-security-hardening",
+   "path": "categories/04-quality-security/powershell-security-hardening.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to harden PowerShell automation, secure remoting configuration, enforce least-privilege design, or align scripts with enterprise security baselines and compliance framewo",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "qa-expert",
+   "path": "categories/04-quality-security/qa-expert.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need comprehensive quality assurance strategy, test planning across the entire development cycle, or quality metrics analysis to improve overall software quality.\"",
+    "tools": "Read, Grep, Glob, Bash",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "security-auditor",
+   "path": "categories/04-quality-security/security-auditor.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when conducting comprehensive security audits, compliance assessments, or risk evaluations across systems, infrastructure, and processes. Invoke when you need systematic vulnerability ",
+    "tools": "Read, Grep, Glob",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "surgeon-reviewer",
+   "path": "categories/04-quality-security/surgeon-reviewer.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need a ruthlessly prioritized code review that reports only real problems \u2014 bugs, money-losing logic, maintenance traps \u2014 ranked by blast radius, with zero style opinions and ",
+    "tools": "Read, Grep, Glob, Bash",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "test-automator",
+   "path": "categories/04-quality-security/test-automator.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build, implement, or enhance automated test frameworks, create test scripts, or integrate testing into CI/CD pipelines.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ui-ux-tester",
+   "path": "categories/04-quality-security/ui-ux-tester.md",
+   "plugin": "voltagent-qa-sec",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need exhaustive UI and UX functionality testing driven by documented user flows, with browser or desktop interaction tooling and structured defect reporting.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebSearch, chrome-mcp, computer-use",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-data-ai",
+   "path": "categories/05-data-ai/.claude-plugin/plugin.json",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.2",
+    "description": "Data engineering, ML, and AI specialists - data pipelines, machine learning, LLM architecture",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ai-engineer",
+   "path": "categories/05-data-ai/ai-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when architecting, implementing, or optimizing end-to-end AI systems\u2014from model selection and training pipelines to production deployment and monitoring.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "data-analyst",
+   "path": "categories/05-data-ai/data-analyst.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to extract insights from business data, create dashboards and reports, or perform statistical analysis to support decision-making.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "data-engineer",
+   "path": "categories/05-data-ai/data-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design, build, or optimize data pipelines, ETL/ELT processes, and data infrastructure. Invoke when designing data platforms, implementing pipeline orchestration, handl",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "data-scientist",
+   "path": "categories/05-data-ai/data-scientist.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to analyze data patterns, build predictive models, or extract statistical insights from datasets. Invoke this agent for exploratory analysis, hypothesis testing, machine ",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "database-optimizer",
+   "path": "categories/05-data-ai/database-optimizer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to analyze slow queries, optimize database performance across multiple systems, or implement indexing strategies to improve query execution.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "llm-architect",
+   "path": "categories/05-data-ai/llm-architect.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing LLM systems for production, implementing fine-tuning or RAG architectures, optimizing inference serving infrastructure, or managing multi-model deployments.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "machine-learning-engineer",
+   "path": "categories/05-data-ai/machine-learning-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to deploy, optimize, or serve machine learning models at scale in production environments.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ml-engineer",
+   "path": "categories/05-data-ai/ml-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building production ML systems requiring model training pipelines, model serving infrastructure, performance optimization, and automated retraining.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "mlops-engineer",
+   "path": "categories/05-data-ai/mlops-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design and implement ML infrastructure, set up CI/CD for machine learning models, establish model versioning systems, or optimize ML platforms for reliability and auto",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "nlp-engineer",
+   "path": "categories/05-data-ai/nlp-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building production NLP systems, implementing text processing pipelines, developing language models, or solving domain-specific NLP tasks like named entity recognition, sentiment analysis, o",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "postgres-pro",
+   "path": "categories/05-data-ai/postgres-pro.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to optimize PostgreSQL performance, design high-availability replication, or troubleshoot database issues at scale. Invoke this agent for query optimization, configuration tuning, r",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "prompt-engineer",
+   "path": "categories/05-data-ai/prompt-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design, optimize, test, or evaluate prompts for large language models in production systems.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "reinforcement-learning-engineer",
+   "path": "categories/05-data-ai/reinforcement-learning-engineer.md",
+   "plugin": "voltagent-data-ai",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing RL environments, training agents with reward optimization, implementing policy gradient methods, or deploying decision-making systems for robotics, gaming, and autonomous operation",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-dev-exp",
+   "path": "categories/06-developer-experience/.claude-plugin/plugin.json",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.3",
+    "description": "Tooling and developer productivity experts - CLI tools, documentation, README generation, and DX optimization",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "build-engineer",
+   "path": "categories/06-developer-experience/build-engineer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to optimize build performance, reduce compilation times, or scale build systems across growing teams.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "cli-developer",
+   "path": "categories/06-developer-experience/cli-developer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building command-line tools and terminal applications that require intuitive command design, cross-platform compatibility, and optimized developer experience.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "dependency-manager",
+   "path": "categories/06-developer-experience/dependency-manager.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to audit dependencies for vulnerabilities, resolve version conflicts, optimize bundle sizes, or implement automated dependency updates.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "documentation-engineer",
+   "path": "categories/06-developer-experience/documentation-engineer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to create, architect, or overhaul comprehensive documentation systems including API docs, tutorials, guides, and developer-friendly content that keeps pace with code chan",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "dx-optimizer",
+   "path": "categories/06-developer-experience/dx-optimizer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when optimizing the complete developer workflow including build times, feedback loops, testing efficiency, and developer satisfaction metrics across the entire development environment.",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "git-workflow-manager",
+   "path": "categories/06-developer-experience/git-workflow-manager.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to design, establish, or optimize Git workflows, branching strategies, and merge management for a project or team.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "legacy-modernizer",
+   "path": "categories/06-developer-experience/legacy-modernizer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when modernizing legacy systems that need incremental migration strategies, technical debt reduction, and risk mitigation while maintaining business continuity.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "mcp-developer",
+   "path": "categories/06-developer-experience/mcp-developer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build, debug, or optimize Model Context Protocol (MCP) servers and clients that connect AI systems to external tools and data sources.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "powershell-module-architect",
+   "path": "categories/06-developer-experience/powershell-module-architect.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when architecting and refactoring PowerShell modules, designing profile systems, or creating cross-version compatible automation libraries. Invoke it for module design reviews, profile",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "powershell-ui-architect",
+   "path": "categories/06-developer-experience/powershell-ui-architect.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing or building desktop graphical interfaces (WinForms, WPF, Metro-style dashboards) or terminal user interfaces (TUIs) for PowerShell automation tools that need clean separation betwe",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "readme-generator",
+   "path": "categories/06-developer-experience/readme-generator.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need a maintainer-ready README built from exact repository reality, with deep codebase scanning, zero hallucination, and optional git commit/push only when explicitly requeste",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "refactoring-specialist",
+   "path": "categories/06-developer-experience/refactoring-specialist.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to transform poorly structured, complex, or duplicated code into clean, maintainable systems while preserving all existing behavior.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "slack-expert",
+   "path": "categories/06-developer-experience/slack-expert.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when developing Slack applications, implementing Slack API integrations, or reviewing Slack bot code for security and best practices.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "tooling-engineer",
+   "path": "categories/06-developer-experience/tooling-engineer.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to build or enhance developer tools including CLIs, code generators, build tools, and IDE extensions.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "visual-asset-generator",
+   "path": "categories/06-developer-experience/visual-asset-generator.md",
+   "plugin": "voltagent-dev-exp",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to generate production-ready visual assets for a project \u2014 app icons, favicons, OG images, logos, wordmarks, or social media images. Invokes the prompt-to-asset MCP serve",
+    "tools": "Read, Write, Bash, mcp__prompt-to-asset",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-domains",
+   "path": "categories/07-specialized-domains/.claude-plugin/plugin.json",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.5",
+    "description": "Domain-specific technology experts - blockchain, fintech, gaming, IoT, payments, X/Twitter APIs",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "api-documenter",
+   "path": "categories/07-specialized-domains/api-documenter.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when creating or improving API documentation, writing OpenAPI specifications, building interactive documentation portals, or generating code examples for APIs.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "blockchain-developer",
+   "path": "categories/07-specialized-domains/blockchain-developer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building smart contracts, DApps, and blockchain protocols that require expertise in Solidity, gas optimization, security auditing, and Web3 integration.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "email-deliverability-engineer",
+   "path": "categories/07-specialized-domains/email-deliverability-engineer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when configuring email authentication, integrating transactional or marketing email providers, diagnosing deliverability problems, or building compliant sending infrastructure.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "embedded-systems",
+   "path": "categories/07-specialized-domains/embedded-systems.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when developing firmware for resource-constrained microcontrollers, implementing RTOS-based applications, or optimizing real-time systems where hardware constraints, latency guarantees, and relia",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "fintech-engineer",
+   "path": "categories/07-specialized-domains/fintech-engineer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when building payment systems, financial integrations, or compliance-heavy financial applications that require secure transaction processing, regulatory adherence, and high transaction accuracy.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "game-developer",
+   "path": "categories/07-specialized-domains/game-developer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when implementing game systems, optimizing graphics rendering, building multiplayer networking, or developing gameplay mechanics for games targeting specific platforms.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "healthcare-admin",
+   "path": "categories/07-specialized-domains/healthcare-admin.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when working on healthcare administration tasks including revenue cycle management, HIPAA/compliance auditing, medical coding (ICD-10, CPT, DRGs), CMS cost reports, payer contract analysis, quali",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "hipaa-compliance",
+   "path": "categories/07-specialized-domains/hipaa-compliance.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user is building a healthcare product and needs to understand HIPAA compliance. Triggers on: 'HIPAA', 'protected health information', 'PHI', 'healthcare compliance', 'covered entity', 'b",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "iot-engineer",
+   "path": "categories/07-specialized-domains/iot-engineer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when designing and deploying IoT solutions requiring expertise in device management, edge computing, cloud integration, and handling challenges like massive device scale, complex connectivity sce",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "m365-admin",
+   "path": "categories/07-specialized-domains/m365-admin.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when automating Microsoft 365 administrative tasks including Exchange Online mailbox provisioning, Teams collaboration management, SharePoint site configuration, license lifecycle management, and",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "mobile-app-developer",
+   "path": "categories/07-specialized-domains/mobile-app-developer.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when developing iOS and Android mobile applications with focus on native or cross-platform implementation, performance optimization, and platform-specific user experience.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "payment-integration",
+   "path": "categories/07-specialized-domains/payment-integration.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when implementing payment systems, integrating payment gateways, or handling financial transactions that require PCI compliance, fraud prevention, and secure transaction processing.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "quant-analyst",
+   "path": "categories/07-specialized-domains/quant-analyst.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to develop quantitative trading strategies, build financial models with rigorous mathematical foundations, or conduct advanced risk analytics for derivatives and portfoli",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "risk-manager",
+   "path": "categories/07-specialized-domains/risk-manager.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to identify, quantify, and mitigate enterprise-level risks across financial, operational, regulatory, and strategic domains. Invoke this agent when you need to assess ris",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "seo-specialist",
+   "path": "categories/07-specialized-domains/seo-specialist.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need comprehensive SEO optimization encompassing technical audits, keyword strategy, content optimization, and search rankings improvement.\"",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "x-api-integration",
+   "path": "categories/07-specialized-domains/x-api-integration.md",
+   "plugin": "voltagent-domains",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when building X/Twitter data products, integrating X API alternatives, designing tweet search workflows, or documenting social data API usage.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-biz",
+   "path": "categories/08-business-product/.claude-plugin/plugin.json",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.6",
+    "description": "Product, legal, and business specialists - product strategy, licensing, project management, UX research",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "assumption-mapping",
+   "path": "categories/08-business-product/assumption-mapping.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user needs to identify and prioritize risky assumptions in a product idea, feature, or strategy. Triggers on: 'assumptions', 'what could go wrong', 'validate', 'riskiest assumption', 'de",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "backlog-grooming",
+   "path": "categories/08-business-product/backlog-grooming.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user needs to groom, refine, or clean up a product backlog. Triggers on: 'groom backlog', 'backlog refinement', 'backlog grooming', 'clean up backlog', 'refine stories', 'sprint refineme",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "business-analyst",
+   "path": "categories/08-business-product/business-analyst.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when analyzing business processes, gathering requirements from stakeholders, or identifying process improvement opportunities to drive operational efficiency and measurable business value.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "content-marketer",
+   "path": "categories/08-business-product/content-marketer.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to develop comprehensive content strategies, create SEO-optimized marketing content, or execute multi-channel content campaigns to drive engagement and conversions. Invok",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "content-quality-editor",
+   "path": "categories/08-business-product/content-quality-editor.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent before publishing any AI-generated content \u2014 blog posts, READMEs, release notes, commit messages, PR descriptions, documentation, or social posts. Strips AI writing patterns using unsl",
+    "tools": "Read, Write, Edit, Bash",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "customer-success-manager",
+   "path": "categories/08-business-product/customer-success-manager.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to assess customer health, develop retention strategies, identify upsell opportunities, or maximize customer lifetime value. Invoke this agent for account health analysis",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "growth-loops",
+   "path": "categories/08-business-product/growth-loops.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user wants to design a growth loop, understand PLG mechanics, or build sustainable acquisition. Triggers on: 'growth loop', 'flywheel', 'viral loop', 'PLG growth', 'product-led growth', ",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "landing-page-copywriter",
+   "path": "categories/08-business-product/landing-page-copywriter.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when writing or optimizing landing page copy, hero sections, CTAs, or conversion-focused funnel content for a specific audience and offer.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "legal-advisor",
+   "path": "categories/08-business-product/legal-advisor.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to draft contracts, review compliance requirements, develop IP protection strategies, or assess legal risks for technology businesses.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "license-engineer",
+   "path": "categories/08-business-product/license-engineer.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when architecting, implementing, or optimizing end-to-end legal licensing systems\u2014from OSI standard selection and dependency compliance pipelines to proprietary deployment and risk mon",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "product-manager",
+   "path": "categories/08-business-product/product-manager.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to make product strategy decisions, prioritize features, or define roadmap plans based on user needs and business goals.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "project-manager",
+   "path": "categories/08-business-product/project-manager.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to establish project plans, track execution progress, manage risks, control budget/schedule, and coordinate stakeholders across complex initiatives.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "sales-engineer",
+   "path": "categories/08-business-product/sales-engineer.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to conduct technical pre-sales activities including solution architecture, proof-of-concept development, and technical demonstrations for complex sales deals.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "scrum-master",
+   "path": "categories/08-business-product/scrum-master.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when teams need facilitation, process optimization, velocity improvement, or agile ceremony management\u2014especially for sprint planning, retrospectives, impediment removal, and scaling agile practi",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "technical-writer",
+   "path": "categories/08-business-product/technical-writer.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to create, improve, or maintain technical documentation including API references, user guides, SDK documentation, and getting-started guides.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "telegram-ads-analyst",
+   "path": "categories/08-business-product/telegram-ads-analyst.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user wants to advertise in Telegram channels, vet a channel before buying a post, check whether a channel's audience is real, or price a Telegram ad. Triggers on: 'Telegram ads', 'Telegr",
+    "tools": "Read, Write, Edit, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ux-microcopy-reviewer",
+   "path": "categories/08-business-product/ux-microcopy-reviewer.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent after changing user-facing interface text (buttons, error messages, empty states, form labels, confirmations, toasts) to review it for clarity, consistency and accessibility before it ",
+    "tools": "Read, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ux-researcher",
+   "path": "categories/08-business-product/ux-researcher.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to conduct user research, analyze user behavior, or generate actionable insights to validate design decisions and uncover user needs. Invoke when you need usability testi",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "wordpress-master",
+   "path": "categories/08-business-product/wordpress-master.md",
+   "plugin": "voltagent-biz",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to architect, optimize, or troubleshoot WordPress implementations ranging from custom theme/plugin development to enterprise-scale multisite platforms. Invoke this agent ",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-meta",
+   "path": "categories/09-meta-orchestration/.claude-plugin/plugin.json",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.5",
+    "description": "Agent coordination and meta-programming - multi-agent orchestration, workflow automation, and safe refactor governance. Works best with other voltagent plugins installed.",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "agent-installer",
+   "path": "categories/09-meta-orchestration/agent-installer.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when the user wants to discover, browse, or install Claude Code agents from the awesome-claude-code-subagents repository.\"",
+    "tools": "Bash, WebFetch, Read, Write, Glob",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "agent-organizer",
+   "path": "categories/09-meta-orchestration/agent-organizer.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to break a complex task into subtasks, match each to the capabilities of available subagents, and write a concrete team/workflow plan as Markdown.\"",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "codebase-orchestrator",
+   "path": "categories/09-meta-orchestration/codebase-orchestrator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need repository-wide refactor governance with explicit approval loops, weighted risk prioritization, diff previews, and deterministic fallback strategies.\"",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep, WebFetch, airis-mcp-gateway, context-manager, error-coordinator, pied-piper, subagent-catalog:search, subagent-catalog:fetch",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "context-manager",
+   "path": "categories/09-meta-orchestration/context-manager.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use to organize the shared context and state that a multi-agent workflow keeps in files \u2014 deciding directory/file structure, naming conventions, what goes where, and how agents read and update it.\"",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "error-coordinator",
+   "path": "categories/09-meta-orchestration/error-coordinator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to mine error logs and agent output for recurring failure and cascade patterns, then document grounded recovery and cascade-prevention strategies (as Markdown specs) that other agen",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "it-ops-orchestrator",
+   "path": "categories/09-meta-orchestration/it-ops-orchestrator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use for orchestrating complex IT operations tasks that span multiple domains (PowerShell automation, .NET development, infrastructure management, Azure, M365) by intelligently routing work to special",
+    "tools": "Read, Write, Edit, Bash, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "knowledge-synthesizer",
+   "path": "categories/09-meta-orchestration/knowledge-synthesizer.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to mine recurring patterns from agent logs, session transcripts, and workflow history, then write grounded, evidence-cited findings that other agents or humans can act on.\"",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "memory-curator",
+   "path": "categories/09-meta-orchestration/memory-curator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use to maintain an agent's long-term memory across sessions \u2014 deciding what is worth saving, recalling relevant context before acting, recording corrections without erasing history, and pruning what ",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "multi-agent-coordinator",
+   "path": "categories/09-meta-orchestration/multi-agent-coordinator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to plan how multiple concurrent subagents should communicate, sequence their work, share state through files, and handle failures \u2014 written up as a coordination plan or convention i",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "performance-monitor",
+   "path": "categories/09-meta-orchestration/performance-monitor.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to analyze existing metric, log, and output files to spot performance patterns and anomalies, then write a grounded, evidence-cited observability plan (what to measure, thresholds, ",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "task-distributor",
+   "path": "categories/09-meta-orchestration/task-distributor.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to design and document a task-distribution strategy across multiple agents or workers \u2014 how to split work, order queues, respect priorities and deadlines, and balance load \u2014 written",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "haiku"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "workflow-orchestrator",
+   "path": "categories/09-meta-orchestration/workflow-orchestrator.md",
+   "plugin": "voltagent-meta",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to design workflow and state-machine definitions \u2014 states, transitions, error handling, and compensation/rollback logic \u2014 and write them as specs or config that other agents or a ru",
+    "tools": "Read, Write, Edit, Glob, Grep",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "voltagent-research",
+   "path": "categories/10-research-analysis/.claude-plugin/plugin.json",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.5",
+    "description": "Research, search, and analysis specialists - market research, competitive analysis, trend forecasting, and idea validation",
+    "author": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    },
+    "repository": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ab-test-analysis",
+   "path": "categories/10-research-analysis/ab-test-analysis.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user wants to analyze A/B test results, interpret p-values, determine statistical significance, or make a ship/no-ship decision. Triggers on: 'analyze A/B test', 'p-value', 'statistical ",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "cohort-analysis",
+   "path": "categories/10-research-analysis/cohort-analysis.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user wants to analyze retention, cohort behavior, engagement trends, or understand how different user groups perform over time. Triggers on: 'cohort analysis', 'retention analysis', 'use",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "competitive-analyst",
+   "path": "categories/10-research-analysis/competitive-analyst.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to analyze direct and indirect competitors, benchmark against market leaders, or develop strategies to strengthen competitive positioning and market advantage.\"",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "data-researcher",
+   "path": "categories/10-research-analysis/data-researcher.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to discover, collect, and validate data from multiple sources to fuel analysis and decision-making. Invoke this agent for identifying data sources, gathering raw datasets",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "first-principles-thinking",
+   "path": "categories/10-research-analysis/first-principles-thinking.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when the user wants to challenge assumptions, break down a complex problem from scratch, or approach something with first principles reasoning. Triggers on: 'first principles', 'challenge assumpt",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "market-researcher",
+   "path": "categories/10-research-analysis/market-researcher.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need to analyze markets, understand consumer behavior, assess competitive landscapes, and size opportunities to inform business strategy and market entry decisions.\"",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "project-idea-validator",
+   "path": "categories/10-research-analysis/project-idea-validator.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need an idea pressure-tested with brutal honesty, competitor teardown, market validation, and clear go/no-go guidance before building.\"",
+    "tools": "Read, Write, Edit, Glob, Grep, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "research-analyst",
+   "path": "categories/10-research-analysis/research-analyst.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this agent when you need comprehensive research across multiple sources with synthesis of findings into actionable insights, trend identification, and detailed reporting.\"",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "scientific-literature-researcher",
+   "path": "categories/10-research-analysis/scientific-literature-researcher.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to search scientific literature and retrieve structured experimental data from published studies. Invoke this agent when the task requires evidence-grounded answers from full-text r",
+    "tools": "Read, WebFetch, WebSearch, mcp__bgpt__search_papers",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "search-specialist",
+   "path": "categories/10-research-analysis/search-specialist.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when you need to find specific information across multiple sources using advanced search strategies, query optimization, and targeted information retrieval. Invoke this agent when the priority is",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "trend-analyst",
+   "path": "categories/10-research-analysis/trend-analyst.md",
+   "plugin": "voltagent-research",
+   "trigger": "",
+   "details": {
+    "description": "\"Use when analyzing emerging patterns, predicting industry shifts, or developing future scenarios to inform strategic planning and competitive positioning.\"",
+    "tools": "Read, Grep, Glob, WebFetch, WebSearch",
+    "model": "sonnet"
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "voltagent-subagents",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "voltagent-core-dev",
+      "source": "./categories/01-core-development",
+      "description": "Essential development subagents for everyday coding tasks - backend, frontend, fullstack, mobile, and API design",
+      "version": "1.0.4",
+      "category": "development",
+      "keywords": [
+       "backend",
+       "frontend",
+       "fullstack",
+       "mobile",
+       "api",
+       "microservices",
+       "auth",
+       "webhooks"
+      ]
+     },
+     {
+      "name": "voltagent-lang",
+      "source": "./categories/02-language-specialists",
+      "description": "Language-specific expert agents with deep framework knowledge - Python, TypeScript, Go, Rust, Java, and more",
+      "version": "1.0.4",
+      "category": "development",
+      "keywords": [
+       "python",
+       "typescript",
+       "golang",
+       "rust",
+       "java",
+       "react",
+       "vue",
+       "angular",
+       "expo",
+       "react-native",
+       "node"
+      ]
+     },
+     {
+      "name": "voltagent-infra",
+      "source": "./categories/03-infrastructure",
+      "description": "DevOps, cloud, and deployment specialists - Kubernetes, Terraform, AWS, Azure, GCP, and SRE",
+      "version": "1.0.1",
+      "category": "infrastructure",
+      "keywords": [
+       "devops",
+       "docker",
+       "kubernetes",
+       "terraform",
+       "aws",
+       "azure",
+       "gcp",
+       "sre",
+       "cloud"
+      ]
+     },
+     {
+      "name": "voltagent-qa-sec",
+      "source": "./categories/04-quality-security",
+      "description": "Testing, security, and code quality experts - code review, penetration testing, QA automation",
+      "version": "1.1.3",
+      "category": "quality",
+      "keywords": [
+       "testing",
+       "security",
+       "code-review",
+       "qa",
+       "penetration-testing",
+       "compliance",
+       "ui-testing",
+       "ux-testing"
+      ]
+     },
+     {
+      "name": "voltagent-data-ai",
+      "source": "./categories/05-data-ai",
+      "description": "Data engineering, ML, and AI specialists - data pipelines, machine learning, LLM architecture",
+      "version": "1.0.2",
+      "category": "data",
+      "keywords": [
+       "data-engineering",
+       "machine-learning",
+       "ai",
+       "llm",
+       "mlops",
+       "nlp"
+      ]
+     },
+     {
+      "name": "voltagent-dev-exp",
+      "source": "./categories/06-developer-experience",
+      "description": "Tooling and developer productivity experts - CLI tools, documentation, README generation, and DX optimization",
+      "version": "1.0.3",
+      "category": "tooling",
+      "keywords": [
+       "developer-experience",
+       "cli",
+       "documentation",
+       "readme",
+       "tooling",
+       "build",
+       "dx"
+      ]
+     },
+     {
+      "name": "voltagent-domains",
+      "source": "./categories/07-specialized-domains",
+      "description": "Domain-specific technology experts - blockchain, fintech, gaming, IoT, payments, X/Twitter APIs",
+      "version": "1.0.5",
+      "category": "specialized",
+      "keywords": [
+       "blockchain",
+       "fintech",
+       "gaming",
+       "iot",
+       "payments",
+       "embedded",
+       "twitter",
+       "x-api"
+      ]
+     },
+     {
+      "name": "voltagent-biz",
+      "source": "./categories/08-business-product",
+      "description": "Product, legal, and business specialists - product strategy, licensing, project management, UX research",
+      "version": "1.0.6",
+      "category": "business",
+      "keywords": [
+       "product-management",
+       "business-analysis",
+       "legal",
+       "licensing",
+       "ux",
+       "scrum",
+       "project-management"
+      ]
+     },
+     {
+      "name": "voltagent-meta",
+      "source": "./categories/09-meta-orchestration",
+      "description": "Agent coordination and meta-programming - multi-agent orchestration, workflow automation, and safe refactor governance. Works best with other voltagent plugins installed.",
+      "version": "1.0.5",
+      "category": "orchestration",
+      "keywords": [
+       "multi-agent",
+       "orchestration",
+       "workflow",
+       "coordination",
+       "meta",
+       "refactor",
+       "codebase-governance"
+      ]
+     },
+     {
+      "name": "voltagent-research",
+      "source": "./categories/10-research-analysis",
+      "description": "Research, search, and analysis specialists - market research, competitive analysis, trend forecasting, and idea validation",
+      "version": "1.0.5",
+      "category": "research",
+      "keywords": [
+       "research",
+       "analysis",
+       "market-research",
+       "competitive-analysis",
+       "trends",
+       "idea-validation",
+       "product-strategy"
+      ]
+     }
+    ],
+    "owner": {
+     "name": "VoltAgent Community",
+     "url": "https://github.com/VoltAgent"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 201,
+  "bytes": 1247362,
+  "by_kind": {
+   "config": 13,
+   "markdown": 184,
+   "other": 2,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 10,
+  "components": 175
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f0ae51e3bf6aa9e8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:422b979ae1395807",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:673973d214d8de24",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:130b643fa183efd4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:918ca2fe53285e99",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc3e63974bda914f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5707e768e0e48e3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0caf48266394a2ff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:af4d957eab63627a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bbe076ab80e5c552",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dfb45f9956186b06",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1d69a55a528050c2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c20055b06045194",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b90007701155106e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:89cb2d93bca0874a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:24d367701ee769ab",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7d288faab1a8e5c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8e8abe2f1d931569",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:beba28afcaa937b3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2d552e7403bb7225",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:92da99727ce4d321",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:93ce5e86d8fff974",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f0570ede108f3061",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:42550e93ec43c467",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ca981c6e54ed9df8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:39e53e1835bb3f30",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3c183c3fe143459b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:20cae33d6b6101a9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f16a50c9534bb570",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3f2f531676ee8be7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:90052751e1280bd3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:76b4837e408696b2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a138dd802b85efbf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fb6e4716eb86d7f9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1c5d3f5e6b79aae9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:94305bffc4a27360",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5f11c22460aa546c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cf4589c589ff7517",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c6ed90f92d4d1ce7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3c64e81491556b14",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b3cd4964225ba779",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eacd5164b16eca6b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0749f5c33b6dce51",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c41e84c793e1f1ec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-044",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:47606047ba169601",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-045",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4676a085c3db885b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-046",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8f6a2abb36973b0e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-047",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2bf462591dfed04d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-048",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8ce5cfb09b24c7f0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-049",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f62ca841f6cac737",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-050",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1b5af1880ff828e3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-051",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8912322cee753094",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-052",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7ddd830ff607537e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-053",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ae62dc01dda55cdd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-054",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ec36145dd7c0a303",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-055",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bb82a1c329ae318d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-056",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fd51245addfa5606",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-057",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4a1337dfe8c3a7ef",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-058",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b6d56351d534a2f5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-059",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6f1ab3284d5354af",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-060",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ca105136176504b4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-061",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8f7a2346e089f5e4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-062",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e9e7fe69720d8596",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-063",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:06889944d5fa92d2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-064",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8e6a4fdb73061b5f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-065",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:09e672e21251919a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-066",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9924efc5985403f7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-067",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c1b09c50d568801",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-068",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2f751c175f6cbd60",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-069",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2659fc5c079d89fe",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-070",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7278294a67ca8e96",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-071",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:589f1b1ed60b6898",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-072",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5f7d97f18e5ccb1b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-073",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:62b149dc1048e854",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-074",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3e7204c817d3ef15",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-075",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e4110dc58bd7aa01",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-076",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3660a1f4133b402a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-077",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9f52c70dc9b68979",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-078",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:47a96870aa5f6e85",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-079",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:59e75794d2f56919",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-080",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c0bec1894a90415",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-081",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:555e542a2987034d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-082",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9f7fbaf4d282093",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-083",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f3f5382a38a79247",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-084",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:10ff4ff405225186",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-085",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:24da82d7a59e1bfe",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-086",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8d93c4d2eab6e4bb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-087",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7c056a8b1f053432",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-088",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4fa3d7eddd5c1894",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-089",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:caee27a11a5403d9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-090",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bb83d851921673b5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-091",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b863b3ecbb76b4d9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-092",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d11f98f606c22e2a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-093",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b15baa698077f22d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-094",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:632528f8be10f0bd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-095",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b77f12f10d39b93a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-096",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a5f09d4e96b860e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-097",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1790772e35a00916",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-098",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:03e25dabbd02dfc9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-099",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ec9cd1d7690b1615",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-100",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:277b58afd0422e25",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-101",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:900cafafa516ab89",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-102",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b773994f048b8677",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-103",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1cb4d6b904dff9e1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-104",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:746414d145942025",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-105",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7b87ff30514592da",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-106",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:04b1918c1514bf1b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-107",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:05d5a5ef9baaa3cb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-108",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7a1066fe51f7d51f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-109",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:938cbc2ef8181889",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-110",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bf06bb1fcb4f8403",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-111",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ccdf79f170348d48",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-112",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c48b5007b4c411df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-113",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e2451ca5c1cf16a1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-114",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:638b9b470ecc72d1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-115",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:29fa0ab7eb75b0fb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-116",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f1efa70c24369cc1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-117",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ea275a7b69fd88f8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-118",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:82dec426f1d17e0d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-119",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:63bfb7f3171c8da4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-120",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.github.com": [
+    "install-agents.sh"
+   ],
+   "raw.githubusercontent.com": [
+    "install-agents.sh",
+    "tools/subagent-catalog/config.sh"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 119,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 26553,
+  "forks": 3035,
+  "open_issues": 5,
+  "contributors": "42",
+  "created_at": "2025-07-30T12:31:51Z",
+  "pushed_at": "2026-11-02T06:50:02Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "A collection of 100+ specialized Claude Code subagents covering a wide range of development use cases",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 100,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 119,
+   "low": 0,
+   "info": 0
+  },
+  "active": 120,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-commit",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

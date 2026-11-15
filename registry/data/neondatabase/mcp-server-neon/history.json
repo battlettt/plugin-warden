@@ -1,0 +1,16 @@
+{
+ "source": "neondatabase/mcp-server-neon",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "02e906f908d04998931e5f3180b382a5e9f5c7fd",
+   "scanned_at": "2026-11-15T02:08:13+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 359,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

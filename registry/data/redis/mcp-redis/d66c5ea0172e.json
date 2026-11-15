@@ -1,0 +1,170 @@
+{
+ "target": {
+  "display": "redis/mcp-redis",
+  "raw": "redis/mcp-redis",
+  "kind": "github",
+  "url": "https://github.com/redis/mcp-redis",
+  "ref": null,
+  "subdir": null,
+  "commit": "d66c5ea0172e0991a98c0f13c0f880246c93b2a5",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:08:11+00:00",
+ "plugins": [
+  {
+   "name": "redis__mcp-redis@d66c5ea0172e",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "redis__mcp-redis@d66c5ea0172e",
+   "path": ".",
+   "plugin": "redis__mcp-redis@d66c5ea0172e",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 60,
+  "bytes": 955286,
+  "by_kind": {
+   "config": 8,
+   "markdown": 2,
+   "other": 6,
+   "python": 44
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a3a9f983b508616",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "REDIS_SSL_CA_PATH": [
+    "src/common/config.py"
+   ],
+   "REDIS_SSL_KEYFILE": [
+    "src/common/config.py"
+   ],
+   "REDIS_ENTRAID_AUTH_FLOW": [
+    "src/common/config.py"
+   ],
+   "REDIS_ENTRAID_CLIENT_SECRET": [
+    "src/common/config.py"
+   ],
+   "REDIS_ENTRAID_TOKEN_EXPIRATION_REFRESH_RATIO": [
+    "src/common/config.py"
+   ],
+   "REDIS_ENTRAID_TOKEN_REQUEST_EXECUTION_TIMEOUT_MS": [
+    "src/common/config.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 1,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 642,
+  "forks": 125,
+  "open_issues": 15,
+  "contributors": "26",
+  "created_at": "2025-04-02T08:42:13Z",
+  "pushed_at": "2026-11-11T12:00:08Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "The official Redis MCP Server is a natural language interface designed for agentic applications to manage and search data in Redis efficiently",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 0,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 0,
+   "info": 1
+  },
+  "active": 1,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "deny-secret-reads",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

@@ -1,0 +1,16 @@
+{
+ "source": "obra/superpowers",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+   "scanned_at": "2026-11-07T21:35:47+00:00",
+   "level": "low",
+   "score": 3,
+   "reviewed": true,
+   "auto_runs": 1,
+   "files": 236,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "source": "davila7/claude-code-templates",
+ "kind": "marketplace",
+ "scans": [
+  {
+   "commit": "acc46db2dc32b83caf78365ca4c2062ce918e25f",
+   "scanned_at": "2026-11-15T01:54:44+00:00",
+   "level": "block",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 2,
+   "files": 10077,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "source": "apify/apify-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "6b95029a50460c086ecc4f0035625b27884ebd7b",
+   "scanned_at": "2026-11-15T02:10:28+00:00",
+   "level": "caution",
+   "score": 20,
+   "reviewed": false,
+   "auto_runs": 3,
+   "files": 474,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

@@ -14,11 +14,13 @@ from pathlib import Path
 from claude_agent_sdk import ClaudeSDKError
 from rich.console import Console
 from rich.markdown import Markdown
+from rich.markup import escape
 from rich.panel import Panel
 from rich.table import Table
 
-from . import __version__, hardening, render, rules
+from . import __version__, cli_org, hardening, render, rules
 from .acquire import TargetError
+from .policy import PolicyError
 from .report import Report
 from .scan import static_scan
 
@@ -358,6 +360,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     rl = sub.add_parser("rules", help="list every check")
     rl.set_defaults(func=cmd_rules)
+    cli_org.register(sub)
     return parser
 
 
@@ -366,6 +369,9 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         return int(args.func(args) or 0)
+    except PolicyError as exc:
+        err.print(f"[red]Policy error:[/] {escape(str(exc))}")
+        return 2
     except KeyboardInterrupt:
         err.print("[yellow]Interrupted.[/]")
         return 130

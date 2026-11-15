@@ -1,0 +1,16 @@
+{
+ "source": "ahujasid/blender-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "8f40787fbde8e6d8fe51c5a3553e5635fff40d2b",
+   "scanned_at": "2026-11-15T02:08:47+00:00",
+   "level": "caution",
+   "score": 25,
+   "reviewed": false,
+   "auto_runs": 1,
+   "files": 89,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

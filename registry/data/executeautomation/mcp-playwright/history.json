@@ -1,0 +1,16 @@
+{
+ "source": "executeautomation/mcp-playwright",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "2349c2891e7c499c8c07b7d78c7f3fb4c797a1da",
+   "scanned_at": "2026-11-15T02:07:41+00:00",
+   "level": "low",
+   "score": 2,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 139,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

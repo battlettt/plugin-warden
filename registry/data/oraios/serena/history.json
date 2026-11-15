@@ -1,0 +1,16 @@
+{
+ "source": "oraios/serena",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "6b39542bb108ce77901072deac699d770b302d52",
+   "scanned_at": "2026-11-15T02:01:58+00:00",
+   "level": "caution",
+   "score": 15,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 1201,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

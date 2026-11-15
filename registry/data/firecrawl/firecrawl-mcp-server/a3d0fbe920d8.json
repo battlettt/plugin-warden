@@ -1,0 +1,580 @@
+{
+ "target": {
+  "display": "firecrawl/firecrawl-mcp-server",
+  "raw": "firecrawl/firecrawl-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "a3d0fbe920d800c257f118a487b87773ff5c1320",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:07:26+00:00",
+ "plugins": [
+  {
+   "name": "firecrawl__firecrawl-mcp-server@a3d0fbe920d8",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 2
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "firecrawl__firecrawl-mcp-server@a3d0fbe920d8",
+   "path": ".",
+   "plugin": "firecrawl__firecrawl-mcp-server@a3d0fbe920d8",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "firecrawl-mcp",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "rm -rf dist && tsup && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+     "test": "npm run build && node --test --test-concurrency=1 tests/*.test.mjs",
+     "start": "node dist/index.js",
+     "start:cloud": "CLOUD_SERVICE=true node dist/index.js",
+     "lint": "eslint src/**/*.ts",
+     "lint:fix": "eslint src/**/*.ts --fix",
+     "format": "prettier --write .",
+     "prepare": "npm run build",
+     "publish-prod": "npm run build && npm publish",
+     "publish-beta": "npm run build && npm publish --tag beta"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "2.3.1",
+     "firecrawl": "4.51.0",
+     "hono": "^4.12.27",
+     "xsschema": "^0.4.4",
+     "zod": "^4.2.1"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "2.3.1",
+     "@modelcontextprotocol/sdk": "1.32.1",
+     "@types/node": "^24.3.1",
+     "@typescript-eslint/eslint-plugin": "8.48.1",
+     "@typescript-eslint/parser": "8.48.1",
+     "eslint": "8.57.1",
+     "eslint-config-prettier": "10.1.8",
+     "tsup": "^8.5.0",
+     "typescript": "^5.9.2"
+    },
+    "bin": {
+     "firecrawl-mcp": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "firecrawl-mcp-embed-fixture",
+   "path": "tests/fixtures/embed/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 134,
+  "bytes": 4695464,
+  "by_kind": {
+   "binary": 3,
+   "config": 26,
+   "js": 93,
+   "markdown": 5,
+   "other": 5,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eb4bcd57770c2f61",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5a999320db6e671",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:74d06932cffc96c1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3019b072631e9114",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ea7da1b8c9542e1c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:36dab371e2dcce3a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dcdef1ed6a09594a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8b427f11eb232628",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:61978087fd2d882b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a4120d2e5dff8adb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5486a505d02904d0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c61a7ca537cf250e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dac50612c648edf0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5486a505d02904d0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3eafec3b13a5602d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dac50612c648edf0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dac50612c648edf0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "127.0.0.1": [
+    "scripts/surface-common.mjs"
+   ],
+   "api.firecrawl.dev": [
+    "src/monitor.ts",
+    "src/server.ts"
+   ],
+   "client.example": [
+    "scripts/http-surface-diff.mjs"
+   ],
+   "docs.firecrawl.dev": [
+    "src/research.ts",
+    "src/server.ts"
+   ],
+   "firecrawl.dev": [
+    "scripts/surface-common.mjs"
+   ],
+   "status.example": [
+    "scripts/surface-common.mjs"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "src/server.ts"
+   ]
+  },
+  "env_vars": {
+   "API_KEY": [
+    "scripts/http-surface-diff.mjs"
+   ],
+   "FIRECRAWL_API_KEY": [
+    "src/index.ts",
+    "src/service/profiles.ts"
+   ],
+   "JOB_PATH": [
+    "src/tasks.ts"
+   ],
+   "FIRECRAWL_OAUTH_INTROSPECT_SECRET": [
+    "src/service/auth.ts"
+   ],
+   "FIRECRAWL_OAUTH_INTROSPECT_CACHE_TTL_MS": [
+    "src/service/auth.ts"
+   ],
+   "FIRECRAWL_OAUTH_ISSUER": [
+    "src/service/profiles.ts"
+   ],
+   "FIRECRAWL_OAUTH_TOKEN": [
+    "src/service/profiles.ts"
+   ],
+   "MCP_OAUTH_ACCEPT_LEGACY_V2_MCP_AUD": [
+    "src/service/profiles.ts"
+   ],
+   "FIRECRAWL_MCP_SEARCH_OAUTH_ONLY": [
+    "src/service/profiles.ts"
+   ],
+   "MCP_DELEGATED_CREDENTIAL_SECRET": [
+    "src/service/session-credential.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 3,
+  "credentials": 0,
+  "secrets": 12,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 1,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 7821,
+  "forks": 933,
+  "open_issues": 192,
+  "contributors": "36",
+  "created_at": "2024-12-06T07:50:27Z",
+  "pushed_at": "2026-11-14T12:12:20Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Official Firecrawl MCP server, the context API for AI agents: search, scrape, and interact with the web, plus parse, crawl, map, Agent and Monitor, from any MCP client.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 2,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 2,
+   "info": 15
+  },
+  "active": 17,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "review-before-run",
+  "sandbox-bash",
+  "deny-network-bash",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

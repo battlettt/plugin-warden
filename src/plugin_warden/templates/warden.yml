@@ -1,0 +1,82 @@
+# Plugin Warden for teams. Written by `warden init`.
+#   - On every pull request: fail if the project enables a plugin the policy does not allow.
+#   - Every night: check whether an approved plugin changed upstream, and whether the change gave it more reach.
+#   - On the first of each month: build an audit evidence pack and keep it as an artifact.
+name: plugin-warden
+
+on:
+  pull_request:
+    paths:
+      - ".claude/**"
+      - ".mcp.json"
+      - "warden-policy.toml"
+      - ".github/workflows/warden.yml"
+  push:
+    branches: [main]
+    paths:
+      - ".claude/**"
+      - ".mcp.json"
+      - "warden-policy.toml"
+  schedule:
+    - cron: "17 6 * * *"   # nightly watch
+    - cron: "41 6 1 * *"   # monthly evidence pack
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  issues: write
+
+env:
+  WARDEN: uvx --from git+https://github.com/battlettt/plugin-warden@v0.2.0 warden
+
+jobs:
+  gate:
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Policy check
+        run: $WARDEN check . --sarif warden.sarif --markdown warden-check.md
+      - name: Upload to code scanning
+        if: always() && hashFiles('warden.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: warden.sarif
+          category: plugin-warden
+        continue-on-error: true   # code scanning needs GitHub Advanced Security on private repos
+
+  watch:
+    if: github.event.schedule == '17 6 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Check approved plugins for upstream changes
+        id: watch
+        env:
+          WARDEN_WEBHOOK_URL: ${{ secrets.WARDEN_WEBHOOK_URL }}
+        run: $WARDEN watch --markdown warden-watch.md --json warden-watch.json --fail-on-alert
+        continue-on-error: true
+      - name: Open an issue when an approved plugin gained reach
+        if: steps.watch.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Plugin Warden: an approved plugin changed and needs review" --body-file warden-watch.md
+
+  evidence:
+    if: github.event.schedule == '41 6 1 * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Build evidence pack
+        env:
+          WARDEN_EVIDENCE_KEY: ${{ secrets.WARDEN_EVIDENCE_KEY }}
+        run: $WARDEN evidence . --out warden-evidence/pack
+      - uses: actions/upload-artifact@v4
+        with:
+          name: warden-evidence-${{ github.run_id }}
+          path: warden-evidence/
+          retention-days: 400

@@ -1,0 +1,213 @@
+{
+ "target": {
+  "display": "browserbase/mcp-server-browserbase",
+  "raw": "browserbase/mcp-server-browserbase",
+  "kind": "github",
+  "url": "https://github.com/browserbase/mcp-server-browserbase",
+  "ref": null,
+  "subdir": null,
+  "commit": "3e6f53461949037d5e65dd425da3ceb1263f11d6",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:07:31+00:00",
+ "plugins": [
+  {
+   "name": "browserbase__mcp-server-browserbase@3e6f53461949",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "browserbase__mcp-server-browserbase@3e6f53461949",
+   "path": ".",
+   "plugin": "browserbase__mcp-server-browserbase@3e6f53461949",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@browserbasehq/mcp",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "test": "vitest run",
+     "prepare": "husky && pnpm build",
+     "watch": "tsc --watch",
+     "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+     "evals": "tsx evals/run-evals.ts run --config evals/mcp-eval-basic.config.json && tsx evals/run-evals.ts run --config evals/mcp-eval-minimal.config.json && tsx evals/run-evals.ts run --config evals/mcp-eval.config.json",
+     "lint": "eslint . --ext .ts",
+     "format": "prettier --write .",
+     "clean": "rm -rf dist",
+     "prepublishOnly": "pnpm clean && pnpm build",
+     "pre-commit": "pnpm lint-staged",
+     "changeset": "changeset",
+     "version:packages": "changeset version",
+     "release": "changeset publish"
+    },
+    "dependencies": {
+     "@browserbasehq/sdk": "^2.6.0",
+     "@browserbasehq/stagehand": "^3.3.0",
+     "@modelcontextprotocol/sdk": "^1.13.1",
+     "commander": "^14.0.0",
+     "dotenv": "^16.4.6",
+     "zod": "^3.25.67"
+    },
+    "devDependencies": {
+     "@changesets/cli": "^2.29.6",
+     "@eslint/js": "^9.29.0",
+     "@types/node": "^24.10.1",
+     "chalk": "^5.3.0",
+     "eslint": "^9.29.0",
+     "eslint-plugin-react": "^7.37.5",
+     "globals": "^16.2.0",
+     "husky": "^9.1.7",
+     "lint-staged": "^16.1.2",
+     "mcpvals": "^0.4.0",
+     "prettier": "^3.6.1",
+     "shx": "^0.3.4",
+     "tsx": "^4.20.3",
+     "typescript": "^5.6.2",
+     "typescript-eslint": "^8.35.0",
+     "vitest": "^4.1.2"
+    },
+    "bin": {
+     "mcp-server-browserbase": "cli.js"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 53,
+  "bytes": 1500387,
+  "by_kind": {
+   "binary": 2,
+   "config": 12,
+   "js": 27,
+   "markdown": 4,
+   "other": 7,
+   "shell": 1
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:25479692a1edc329",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "BROWSERBASE_API_KEY": [
+    "src/config.ts"
+   ],
+   "GEMINI_API_KEY": [
+    "src/config.ts",
+    "src/sessionManager.ts",
+    "src/transport.ts"
+   ],
+   "GOOGLE_API_KEY": [
+    "src/config.ts",
+    "src/sessionManager.ts",
+    "src/transport.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 3399,
+  "forks": 374,
+  "open_issues": 52,
+  "contributors": "16",
+  "created_at": "2024-12-05T19:20:40Z",
+  "pushed_at": "2026-07-20T21:48:14Z",
+  "license": "Apache-2.0",
+  "archived": true,
+  "owner_type": "Organization",
+  "description": "Allow LLMs to control a browser with Browserbase and Stagehand",
+  "signals": [
+   "Repository is archived (no security fixes)"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 1,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 1,
+   "info": 0
+  },
+  "active": 1,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

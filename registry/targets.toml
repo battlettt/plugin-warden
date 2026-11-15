@@ -1,0 +1,258 @@
+# Repositories the public registry tracks. One [[target]] per repo.
+# kind: plugin, marketplace, mcp-server or skill-pack.
+# Add one with a pull request. A listing is not an endorsement or an accusation:
+# see docs/disclosure.md for what the registry publishes and when.
+
+# ---- Claude Code plugins, marketplaces and skill packs
+[[target]]
+source = "anthropics/claude-plugins-official"
+kind = "marketplace"
+
+[[target]]
+source = "anthropics/claude-code"
+kind = "marketplace"
+
+[[target]]
+source = "anthropics/skills"
+kind = "skill-pack"
+
+[[target]]
+source = "obra/superpowers"
+kind = "plugin"
+
+[[target]]
+source = "wshobson/agents"
+kind = "marketplace"
+
+[[target]]
+source = "EveryInc/compound-engineering-plugin"
+kind = "plugin"
+
+[[target]]
+source = "thedotmack/claude-mem"
+kind = "plugin"
+
+[[target]]
+source = "affaan-m/everything-claude-code"
+kind = "plugin"
+
+[[target]]
+source = "davila7/claude-code-templates"
+kind = "marketplace"
+
+[[target]]
+source = "ruvnet/claude-flow"
+kind = "plugin"
+
+[[target]]
+source = "SuperClaude-Org/SuperClaude_Framework"
+kind = "plugin"
+
+[[target]]
+source = "VoltAgent/awesome-claude-code-subagents"
+kind = "marketplace"
+
+[[target]]
+source = "JuliusBrussee/caveman"
+kind = "plugin"
+
+[[target]]
+source = "nextlevelbuilder/ui-ux-pro-max-skill"
+kind = "skill-pack"
+
+[[target]]
+source = "kepano/obsidian-skills"
+kind = "skill-pack"
+
+[[target]]
+source = "vercel-labs/agent-skills"
+kind = "skill-pack"
+
+[[target]]
+source = "vercel/vercel-plugin"
+kind = "plugin"
+
+# ---- MCP servers
+[[target]]
+source = "modelcontextprotocol/servers"
+kind = "mcp-server"
+
+[[target]]
+source = "github/github-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "microsoft/playwright-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "upstash/context7"
+kind = "mcp-server"
+
+[[target]]
+source = "ChromeDevTools/chrome-devtools-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "oraios/serena"
+kind = "mcp-server"
+
+[[target]]
+source = "awslabs/mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "cloudflare/mcp-server-cloudflare"
+kind = "mcp-server"
+
+[[target]]
+source = "stripe/agent-toolkit"
+kind = "mcp-server"
+
+[[target]]
+source = "supabase-community/supabase-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "getsentry/sentry-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "makenotion/notion-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "mongodb-js/mongodb-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "hashicorp/terraform-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "grafana/mcp-grafana"
+kind = "mcp-server"
+
+[[target]]
+source = "elastic/mcp-server-elasticsearch"
+kind = "mcp-server"
+
+[[target]]
+source = "qdrant/mcp-server-qdrant"
+kind = "mcp-server"
+
+[[target]]
+source = "exa-labs/exa-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "tavily-ai/tavily-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "firecrawl/firecrawl-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "browserbase/mcp-server-browserbase"
+kind = "mcp-server"
+
+[[target]]
+source = "executeautomation/mcp-playwright"
+kind = "mcp-server"
+
+[[target]]
+source = "wonderwhy-er/DesktopCommanderMCP"
+kind = "mcp-server"
+
+[[target]]
+source = "GLips/Figma-Context-MCP"
+kind = "mcp-server"
+
+[[target]]
+source = "idosal/git-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "redis/mcp-redis"
+kind = "mcp-server"
+
+[[target]]
+source = "neondatabase/mcp-server-neon"
+kind = "mcp-server"
+
+[[target]]
+source = "ClickHouse/mcp-clickhouse"
+kind = "mcp-server"
+
+[[target]]
+source = "motherduckdb/mcp-server-motherduck"
+kind = "mcp-server"
+
+[[target]]
+source = "crystaldba/postgres-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "sooperset/mcp-atlassian"
+kind = "mcp-server"
+
+[[target]]
+source = "korotovsky/slack-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "ahujasid/blender-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "hangwin/mcp-chrome"
+kind = "mcp-server"
+
+[[target]]
+source = "AgentDeskAI/browser-tools-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "BeehiveInnovations/zen-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "yamadashy/repomix"
+kind = "mcp-server"
+
+[[target]]
+source = "21st-dev/magic-mcp"
+kind = "mcp-server"
+
+[[target]]
+source = "apify/apify-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "heroku/heroku-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "e2b-dev/mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "googleapis/genai-toolbox"
+kind = "mcp-server"
+
+[[target]]
+source = "brave/brave-search-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "kagisearch/kagimcp"
+kind = "mcp-server"
+
+[[target]]
+source = "haris-musa/excel-mcp-server"
+kind = "mcp-server"
+
+[[target]]
+source = "zcaceres/markdownify-mcp"
+kind = "mcp-server"

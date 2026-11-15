@@ -1,0 +1,17 @@
+# Site settings for `warden registry build`. Every URL must be https.
+name = "Plugin Warden"
+base_url = "https://battlettt.github.io/plugin-warden"
+repo_url = "https://github.com/battlettt/plugin-warden"
+
+# Where "Request a pilot" and "Talk to us" go.
+contact_url = "https://github.com/battlettt/plugin-warden/issues/new?template=pilot.yml"
+
+# Where "Report a problem with a listing" goes.
+security_url = "https://github.com/battlettt/plugin-warden/security/advisories/new"
+
+[pricing]
+team_price = 249
+business_price = 749
+# Paste a Stripe Payment Link here and the plan button becomes a checkout button.
+team_checkout_url = ""
+business_checkout_url = ""

@@ -20,6 +20,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 CACHE_DIR = Path(os.environ.get("WARDEN_CACHE", Path.home() / ".cache" / "plugin-warden"))
+FETCH_TIMEOUT = int(os.environ.get("WARDEN_FETCH_TIMEOUT", "300"))
 
 _NAME = r"[A-Za-z0-9_.-]+"
 _SHORTHAND = re.compile(rf"^(?P<owner>{_NAME})/(?P<repo>{_NAME}?)(?:[@#](?P<ref>[^\s]+))?$")
@@ -146,14 +147,18 @@ def _git(args: list[str], cwd: Path | None = None, timeout: int = 180) -> str:
         "-c", "core.fsmonitor=false",
         "-c", "submodule.recurse=false",
     ]
-    proc = subprocess.run(
-        ["git", *safe, *args],
-        cwd=cwd,
-        env=env,
-        capture_output=True,
-        text=True,
-        timeout=timeout,
-    )
+    try:
+        proc = subprocess.run(
+            ["git", *safe, *args],
+            cwd=cwd,
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+        )
+    except subprocess.TimeoutExpired:
+        # A slow or huge repository must fail like any other bad target, not crash a batch run.
+        raise TargetError(f"git {args[0]} timed out after {timeout}s") from None
     if proc.returncode != 0:
         raise TargetError(f"git {args[0]} failed: {proc.stderr.strip()[:400]}")
     return proc.stdout.strip()
@@ -177,7 +182,7 @@ def fetch(target: Target, cache_dir: Path | None = None, with_metadata: bool = T
     try:
         _git(["init", "-q", str(tmp)])
         _git(["remote", "add", "origin", target.url or ""], cwd=tmp)
-        _git(["fetch", "-q", "--depth", "1", "--no-tags", "origin", target.ref or "HEAD"], cwd=tmp)
+        _git(["fetch", "-q", "--depth", "1", "--no-tags", "origin", target.ref or "HEAD"], cwd=tmp, timeout=FETCH_TIMEOUT)
         _git(["checkout", "-q", "FETCH_HEAD"], cwd=tmp)
         commit = _git(["rev-parse", "HEAD"], cwd=tmp)
         slug = f"{target.owner}__{target.repo}" if target.owner else re.sub(r"[^A-Za-z0-9]+", "_", target.url or "repo")[-60:]

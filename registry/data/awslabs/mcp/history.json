@@ -1,0 +1,16 @@
+{
+ "source": "awslabs/mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "5d58a6adaf89a056d0c14e732593dceb12e633df",
+   "scanned_at": "2026-11-15T02:02:35+00:00",
+   "level": "review",
+   "score": 75,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 3915,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

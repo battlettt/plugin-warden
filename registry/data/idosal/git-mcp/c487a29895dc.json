@@ -1,0 +1,330 @@
+{
+ "target": {
+  "display": "idosal/git-mcp",
+  "raw": "idosal/git-mcp",
+  "kind": "github",
+  "url": "https://github.com/idosal/git-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "c487a29895dcfcb5b672247e646426a56e2051c1",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:08:04+00:00",
+ "plugins": [
+  {
+   "name": "idosal__git-mcp@c487a29895dc",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "idosal__git-mcp@c487a29895dc",
+   "path": ".",
+   "plugin": "idosal__git-mcp@c487a29895dc",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "git-mcp",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "react-router build",
+     "deploy": "npm run build && wrangler deploy",
+     "dev": "react-router dev",
+     "preview": "vite preview",
+     "start": "wrangler dev",
+     "format": "biome format --write",
+     "lint:fix": "biome lint --fix",
+     "cf-typegen": "wrangler types",
+     "test": "vitest run",
+     "test:e2e": "playwright test",
+     "prepare": "husky"
+    },
+    "dependencies": {
+     "@ai-sdk/anthropic": "^1.2.10",
+     "@ai-sdk/cohere": "^1.2.9",
+     "@ai-sdk/google": "^1.2.13",
+     "@ai-sdk/groq": "^1.2.8",
+     "@ai-sdk/openai": "^1.3.20",
+     "@ai-sdk/react": "^1.2.9",
+     "@ai-sdk/xai": "^1.2.15",
+     "@cloudflare/workers-oauth-provider": "^0.0.2",
+     "@modelcontextprotocol/sdk": "^1.11.2",
+     "@radix-ui/react-accordion": "^1.2.8",
+     "@radix-ui/react-avatar": "^1.1.7",
+     "@radix-ui/react-dialog": "^1.1.11",
+     "@radix-ui/react-dropdown-menu": "^2.1.12",
+     "@radix-ui/react-label": "^2.1.4",
+     "@radix-ui/react-popover": "^1.1.11",
+     "@radix-ui/react-scroll-area": "^1.2.6",
+     "@radix-ui/react-select": "^2.2.2",
+     "@radix-ui/react-separator": "^1.1.4",
+     "@radix-ui/react-slot": "^1.2.0",
+     "@radix-ui/react-tooltip": "^1.2.4",
+     "@react-router/fs-routes": "^7.5.2",
+     "@remix-run/cloudflare": "^2.16.5",
+     "@types/react": "^19.1.2",
+     "@types/react-dom": "^19.1.2",
+     "agents": "^0.0.84",
+     "ai": "^4.3.10",
+     "class-variance-authority": "^0.7.1",
+     "clsx": "^2.1.1",
+     "dotenv": "^16.5.0",
+     "fast-deep-equal": "^3.1.3",
+     "hono": "^4.7.7",
+     "html-to-md": "^0.8.7",
+     "isbot": "^5.1.27",
+     "lucide-react": "^0.487.0",
+     "motion": "^12.9.2",
+     "next-themes": "^0.4.6",
+     "react": "^19.1.0",
+     "react-dom": "^19.1.0",
+     "react-markdown": "^10.1.0",
+     "react-router": "^7.5.2",
+     "react-router-dom": "^7.5.2",
+     "remark-gfm": "^4.0.1",
+     "sonner": "^2.0.3",
+     "tailwind-merge": "^3.2.0",
+     "tailwindcss-animate": "^1.0.7",
+     "typewriter-effect": "^2.21.0",
+     "zod": "^3.24.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vite-plugin": "^0.1.21",
+     "@cloudflare/workers-types": "^4.20250505.0",
+     "@modelcontextprotocol/inspector": "0.21.2",
+     "@playwright/test": "^1.52.0",
+     "@react-router/dev": "^7.5.2",
+     "@tailwindcss/postcss": "^4.1.4",
+     "@tailwindcss/vite": "^4.1.4",
+     "@types/node": "^20.17.31",
+     "@types/node-fetch": "^2.6.12",
+     "@types/react": "^19.0.1",
+     "@types/react-dom": "^19.0.1",
+     "husky": "^9.1.7",
+     "lint-staged": "^15.5.1",
+     "marked": "^15.0.11",
+     "node-fetch": "^3.3.2",
+     "prettier": "^3.5.3",
+     "tailwindcss": "^4.1.4",
+     "typescript": "^5.8.3",
+     "vite": "^6.3.3",
+     "vite-tsconfig-paths": "^5.1.4",
+     "vitest": "^1.6.1",
+     "workers-mcp": "0.1.0-3",
+     "wrangler": "^4.14.1"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 173,
+  "bytes": 83533937,
+  "by_kind": {
+   "binary": 38,
+   "config": 11,
+   "js": 107,
+   "markdown": 4,
+   "other": 13
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3753ff94b55c2d1d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d5eea45134ccadf0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:830b84bcef89fc98",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.github.com": [
+    "dist/tools/index.js",
+    "src/api/utils/githubClient.ts"
+   ],
+   "autorag-cache.gitmcp.internal": [
+    "src/api/utils/cache.ts"
+   ],
+   "cdn.tailwindcss.com": [
+    "src/utils.ts"
+   ],
+   "developers.cloudflare.com": [
+    "worker-configuration.d.ts"
+   ],
+   "docs.oasis-open.org": [
+    "worker-configuration.d.ts"
+   ],
+   "en.wikipedia.org": [
+    "worker-configuration.d.ts"
+   ],
+   "fonts.googleapis.com": [
+    "src/utils.ts"
+   ],
+   "knowledge.digicert.com": [
+    "worker-configuration.d.ts"
+   ],
+   "ldapwiki.com": [
+    "worker-configuration.d.ts"
+   ],
+   "raw.githubusercontent.com": [
+    "dist/tools/index.js"
+   ],
+   "support.cloudflare.com": [
+    "worker-configuration.d.ts"
+   ],
+   "tldp.org": [
+    "worker-configuration.d.ts"
+   ],
+   "www.iana.org": [
+    "worker-configuration.d.ts"
+   ],
+   "www.iso.org": [
+    "worker-configuration.d.ts"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "GITHUB_TOKEN": [
+    "dist/tools/index.js"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 1,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 8519,
+  "forks": 767,
+  "open_issues": 88,
+  "contributors": "16",
+  "created_at": "2025-03-29T00:44:19Z",
+  "pushed_at": "2026-05-08T14:21:24Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "User",
+  "description": "Put an end to code hallucinations! GitMCP is a free, open-source, remote MCP server for any GitHub project",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 7,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 2,
+   "info": 0
+  },
+  "active": 3,
+  "dismissed": 0,
+  "injection_guard": true,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-context-injection",
+  "pin-mcp-version",
+  "pin-commit",
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

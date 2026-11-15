@@ -1,0 +1,16 @@
+{
+ "source": "supabase-community/supabase-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "9092ab9055509fcdfbedcb75edf02d9412feed37",
+   "scanned_at": "2026-11-15T02:05:13+00:00",
+   "level": "caution",
+   "score": 9,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 172,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

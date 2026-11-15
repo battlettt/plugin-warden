@@ -1,0 +1,16 @@
+{
+ "source": "github/github-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "0663b830582af923e30fb14cb2e10dd3248baa86",
+   "scanned_at": "2026-11-15T02:01:18+00:00",
+   "level": "review",
+   "score": 17,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 716,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

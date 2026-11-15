@@ -1,0 +1,456 @@
+{
+ "target": {
+  "display": "github/github-mcp-server",
+  "raw": "github/github-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/github/github-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "0663b830582af923e30fb14cb2e10dd3248baa86",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:01:18+00:00",
+ "plugins": [
+  {
+   "name": "github__github-mcp-server@0663b830582a",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1,
+  "skill": 18
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "github__github-mcp-server@0663b830582a",
+   "path": ".",
+   "plugin": "github__github-mcp-server@0663b830582a",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "account-and-team-context",
+   "path": "pkg/skills/catalog/skills/account-and-team-context/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: establishing who the authenticated account is, which organisations and teams it belongs to, who sits on a team, and who has write access to a repository. NOT FOR: finding an unfamiliar repos"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "codebase-exploration",
+   "path": "pkg/skills/catalog/skills/codebase-exploration/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: understanding an unfamiliar repository and how it got that way \u2014 its layout, where a behaviour is implemented, and when and why a particular function or line last changed. NOT FOR: editing f"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "copilot-task-delegation",
+   "path": "pkg/skills/catalog/skills/copilot-task-delegation/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: handing a piece of work to the Copilot coding agent \u2014 judging whether an issue is scoped tightly enough to delegate, launching it, and asking for an automated first-pass review of a proposed"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "discussion-participation",
+   "path": "pkg/skills/catalog/skills/discussion-participation/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: taking part in GitHub Discussions \u2014 finding the unanswered questions in a category, reading a thread in full, replying to it, and marking the reply that resolved it. NOT FOR: commenting on a"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "issue-authoring",
+   "path": "pkg/skills/catalog/skills/issue-authoring/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: filing one clear bug report or feature request \u2014 checking it is not already reported, choosing its type and fields, breaking it into sub-issues, and giving it a title and body someone can ac"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "issue-backlog-triage",
+   "path": "pkg/skills/catalog/skills/issue-backlog-triage/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: triaging a backlog of open GitHub issues \u2014 judging which are actionable, labelling and typing them, linking duplicates and parents, and closing what is dead. NOT FOR: writing one new issue, "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "label-scheme-management",
+   "path": "pkg/skills/catalog/skills/label-scheme-management/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: curating the label vocabulary a repository uses \u2014 adding ones it lacks, auditing which are actually applied, renaming and recolouring them, merging overlapping ones, and tidying away the unu"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "notification-triage",
+   "path": "pkg/skills/catalog/skills/notification-triage/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: working through a GitHub notification inbox \u2014 deciding what needs a reply, what to unsubscribe from, and what to mark read or done. NOT FOR: triaging a repository issue backlog, or answering"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "project-planning",
+   "path": "pkg/skills/catalog/skills/project-planning/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: planning and updating work on a GitHub Projects board \u2014 reading fields and views, adding issues or pull requests as items, setting status and iteration, and posting a status update. NOT FOR:"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pull-request-authoring",
+   "path": "pkg/skills/catalog/skills/pull-request-authoring/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: taking a branch of work through to landed \u2014 opening the pull request, describing it, requesting reviewers, keeping it current with its base, and merging it once checks and approvals are in. "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pull-request-code-review",
+   "path": "pkg/skills/catalog/skills/pull-request-code-review/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: examining someone else's pull request and delivering a verdict \u2014 reading the diff in context, leaving line-anchored comments as a batch, and approving or requesting changes. NOT FOR: replyin"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pull-request-review-feedback",
+   "path": "pkg/skills/catalog/skills/pull-request-review-feedback/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: working through review feedback left on a pull request \u2014 reading each unresolved thread, deciding what to change, replying to the reviewer, and resolving threads. NOT FOR: producing a review"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "release-preparation",
+   "path": "pkg/skills/catalog/skills/release-preparation/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: cutting a release of a repository \u2014 picking the version, assembling the changelog since the last tag, confirming the branch is releasable, and drafting release notes. NOT FOR: assessing over"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "repository-content-changes",
+   "path": "pkg/skills/catalog/skills/repository-content-changes/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: changing what a repository holds or whether it exists at all \u2014 opening a working branch, committing files remotely, deleting what should go, and creating, forking or removing the repository "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "repository-discovery",
+   "path": "pkg/skills/catalog/skills/repository-discovery/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: finding a library, tool or organisation you cannot yet name, judging whether a candidate project is worth depending on, and keeping a starred shortlist useful. NOT FOR: searching inside a re"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "repository-health-review",
+   "path": "pkg/skills/catalog/skills/repository-health-review/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: judging how well a repository is maintained overall \u2014 release cadence, branch and proposal age, issue inflow, build reliability, how many people can maintain it, and outstanding alert counts"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "security-alert-triage",
+   "path": "pkg/skills/catalog/skills/security-alert-triage/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: investigating GitHub security alerts \u2014 code scanning, Dependabot, secret scanning and advisories \u2014 and deciding what to fix now, schedule, dismiss, or escalate. NOT FOR: summarising overall "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "workflow-failure-triage",
+   "path": "pkg/skills/catalog/skills/workflow-failure-triage/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"USE FOR: diagnosing a failing GitHub Actions workflow run \u2014 a build gone red, which jobs failed, what their logs say, where the failing step is, and whether a rerun is justified. NOT FOR: judging lon"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@github/mcp-server-ui",
+   "path": "ui/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "node scripts/build.mjs",
+     "dev": "npm run build",
+     "typecheck": "tsc --noEmit",
+     "test": "node --experimental-strip-types --test src/lib/*.test.ts",
+     "clean": "rm -rf dist"
+    },
+    "dependencies": {
+     "@github/markdown-toolbar-element": "^2.2.3",
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@modelcontextprotocol/ext-apps": "^2.0.3",
+     "@primer/octicons-react": "^19.40.0",
+     "@primer/primitives": "^11.10.0",
+     "@primer/react": "^38.40.1",
+     "react": "^19.3.0",
+     "react-dom": "^19.3.0",
+     "react-markdown": "^10.1.0",
+     "remark-gfm": "^4.0.1",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@types/node": "^26.6.5",
+     "@types/react": "^19.3.0",
+     "@types/react-dom": "^19.3.0",
+     "@vitejs/plugin-react": "^6.1.2",
+     "typescript": "^7.0.2",
+     "vite": "^8.3.2",
+     "vite-plugin-singlefile": "^2.3.4"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 716,
+  "bytes": 7373901,
+  "by_kind": {
+   "binary": 64,
+   "code": 327,
+   "config": 27,
+   "js": 14,
+   "markdown": 72,
+   "other": 201,
+   "shell": 11
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 20
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1b062b7cf577b0d4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "DESTRUCT-GIT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0bd0fc93df89fc17",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:76cf79435fdcbe48",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95928f5ff9a11cf1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a879250f2d2cb50e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "raw.githubusercontent.com": [
+    "script/fetch-icons"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "pkg/http/handler.go",
+    "pkg/http/middleware/cors.go"
+   ]
+  },
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 1,
+  "privilege": 1,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 34467,
+  "forks": 5349,
+  "open_issues": 461,
+  "contributors": "100+",
+  "created_at": "2025-03-04T16:42:04Z",
+  "pushed_at": "2026-11-13T20:25:40Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "GitHub's official MCP Server",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 17,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 0,
+   "low": 2,
+   "info": 2
+  },
+  "active": 5,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-commit",
+  "ask-git-destructive",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

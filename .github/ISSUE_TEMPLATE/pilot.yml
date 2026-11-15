@@ -1,0 +1,31 @@
+name: Request a pilot
+description: Ask about the Team or Business plan, or a design-partner pilot.
+title: "Pilot request: "
+labels: ["pilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not include anything confidential. If you would rather talk privately, say so here with a way to reach you and nothing else.
+  - type: input
+    id: team
+    attributes:
+      label: Team or company
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Developers using Claude Code or MCP servers
+      options: ["1 to 10", "11 to 25", "26 to 150", "More than 150"]
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need reviewed?
+      description: Which plugins or MCP servers, and what prompted this (an audit, an incident, a new rollout).
+  - type: input
+    id: contact
+    attributes:
+      label: How should we reach you?

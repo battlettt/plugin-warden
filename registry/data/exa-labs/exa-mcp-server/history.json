@@ -1,0 +1,16 @@
+{
+ "source": "exa-labs/exa-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "93c0d5e1fecfc1ec9bf70fa9f3633962a1f2fa8a",
+   "scanned_at": "2026-11-15T02:07:21+00:00",
+   "level": "caution",
+   "score": 13,
+   "reviewed": false,
+   "auto_runs": 2,
+   "files": 110,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

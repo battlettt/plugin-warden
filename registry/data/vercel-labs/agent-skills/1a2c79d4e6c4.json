@@ -1,0 +1,456 @@
+{
+ "target": {
+  "display": "vercel-labs/agent-skills",
+  "raw": "vercel-labs/agent-skills",
+  "kind": "github",
+  "url": "https://github.com/vercel-labs/agent-skills",
+  "ref": null,
+  "subdir": null,
+  "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:00:50+00:00",
+ "plugins": [
+  {
+   "name": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 3,
+  "skill": 9
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "path": ".",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-composition-patterns",
+   "path": "skills/composition-patterns/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving c"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "deploy-to-vercel",
+   "path": "skills/deploy-to-vercel/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-react-best-practices",
+   "path": "skills/react-best-practices/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patter"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-react-native-skills",
+   "path": "skills/react-native-skills/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "React Native and Expo best practices for building performant mobile apps. Use when building React Native components, optimizing list performance, implementing animations, or working with native module"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-react-view-transitions",
+   "path": "skills/react-view-transitions/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-cli-with-tokens",
+   "path": "skills/vercel-cli-with-tokens/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login \u2014 e.g. \"deploy to vercel\", \"set up vercel\", \"a"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-optimize",
+   "path": "skills/vercel-optimize/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "\"Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan result"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "web-design-guidelines",
+   "path": "skills/web-design-guidelines/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\"."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "writing-guidelines",
+   "path": "skills/writing-guidelines/SKILL.md",
+   "plugin": "vercel-labs__agent-skills@1a2c79d4e6c4",
+   "trigger": "",
+   "details": {
+    "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing han"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@vercel-labs/agent-skills",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "yaml": "2.9.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "react-best-practices-build",
+   "path": "packages/react-best-practices-build/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "pnpm build-agents && pnpm extract-tests",
+     "build-agents": "tsx src/build.ts",
+     "build-all": "tsx src/build.ts --all",
+     "build-react": "tsx src/build.ts --skill=react-best-practices",
+     "build-rn": "tsx src/build.ts --skill=react-native-skills",
+     "build-composition": "tsx src/build.ts --skill=composition-patterns",
+     "validate": "tsx src/validate.ts",
+     "extract-tests": "tsx src/extract-tests.ts",
+     "migrate": "tsx src/migrate.ts",
+     "dev": "pnpm build && pnpm validate"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "^20.0.0",
+     "tsx": "^4.7.0",
+     "typescript": "^5.3.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@vercel-labs/agent-skill-vercel-optimize-tests",
+   "path": "packages/vercel-optimize-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/*.test.mjs",
+     "check-docs": "node ../../skills/vercel-optimize/scripts/check-docs-fresh.mjs",
+     "check-citations": "node ../../skills/vercel-optimize/scripts/check-citations.mjs"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 444,
+  "bytes": 7659804,
+  "by_kind": {
+   "binary": 5,
+   "config": 61,
+   "js": 164,
+   "markdown": 209,
+   "other": 5
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 13
+ },
+ "findings": [
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b91430324e1064fa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4069f7b8a3a3627f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:64f407fdf94f9321",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d63c895b6aabeecb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d0a7123e71bf3746",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b4a74d131ed601bb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:abe0f29c6e63fc6d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c9a579bcd7860777",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "nextjs.org": [
+    "skills/vercel-optimize/lib/scanners/cache-components-suspense-dedupe.mjs",
+    "skills/vercel-optimize/lib/scanners/missing-cache-headers.mjs"
+   ],
+   "vercel.com": [
+    "skills/vercel-optimize/lib/scanners/missing-cache-headers.mjs"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "skills/vercel-optimize/lib/investigation-brief.mjs",
+    "skills/vercel-optimize/lib/verify-claim.mjs",
+    "skills/vercel-optimize/lib/scanners/force-dynamic.mjs",
+    "skills/vercel-optimize/lib/scanners/headers-in-page.mjs",
+    "skills/vercel-optimize/lib/scanners/missing-cache-headers.mjs"
+   ]
+  },
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 1,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 1,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 5,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 34069,
+  "forks": 2971,
+  "open_issues": 199,
+  "contributors": "27",
+  "created_at": "2025-12-08T19:10:06Z",
+  "pushed_at": "2026-11-12T14:09:10Z",
+  "license": null,
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Vercel's official collection of agent skills",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 20,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 0,
+   "low": 5,
+   "info": 2
+  },
+  "active": 8,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "check-persistence",
+  "review-context-injection",
+  "pin-mcp-version",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

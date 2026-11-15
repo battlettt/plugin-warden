@@ -1,0 +1,16 @@
+{
+ "source": "vercel-labs/agent-skills",
+ "kind": "skill-pack",
+ "scans": [
+  {
+   "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+   "scanned_at": "2026-11-15T02:00:50+00:00",
+   "level": "review",
+   "score": 20,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 444,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

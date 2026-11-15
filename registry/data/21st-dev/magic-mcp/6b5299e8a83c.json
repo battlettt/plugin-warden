@@ -1,0 +1,260 @@
+{
+ "target": {
+  "display": "21st-dev/magic-mcp",
+  "raw": "21st-dev/magic-mcp",
+  "kind": "github",
+  "url": "https://github.com/21st-dev/magic-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "6b5299e8a83ceffa73d4fc4e148905bb3eeeeb55",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:10:26+00:00",
+ "plugins": [
+  {
+   "name": "21st",
+   "path": ".",
+   "source": "manifest",
+   "version": "1.0.1",
+   "description": "Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled."
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "mcp_server": 1,
+  "package": 1,
+  "skill": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "21st",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "21st",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.1",
+    "description": "Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled.",
+    "author": {
+     "name": "21st.dev",
+     "email": "sergey@21st.dev",
+     "url": "https://21st.dev"
+    },
+    "repository": "https://github.com/21st-dev/magic-mcp",
+    "license": "ISC"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "21st",
+   "path": ".mcp.json",
+   "plugin": "21st",
+   "trigger": "",
+   "details": {
+    "url": "https://21st.dev/api/mcp",
+    "headers": {
+     "x-api-key": "${API_KEY_21ST}"
+    }
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "21st-ui",
+   "path": "skills/21st-ui/SKILL.md",
+   "plugin": "21st",
+   "trigger": "",
+   "details": {
+    "description": "Find, install, and generate UI with 21st.dev. Use when the user asks for a UI component (pricing table, hero, navbar, dashboard, form, etc.), wants design inspiration, needs a brand logo as an SVG com"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@21st-dev/magic",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "prepublishOnly": "npm run build",
+     "start": "node dist/index.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "^22.13.4",
+     "shx": "^0.3.4",
+     "typescript": "^5.8.2"
+    },
+    "bin": {
+     "magic": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "21st-dev",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "21st",
+      "source": "./",
+      "description": "Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled.",
+      "category": "design",
+      "homepage": "https://21st.dev/mcp",
+      "keywords": [
+       "21st",
+       "21st.dev",
+       "magic-mcp",
+       "ui-components",
+       "react",
+       "tailwind"
+      ]
+     }
+    ],
+    "owner": {
+     "name": "21st.dev",
+     "email": "sergey@21st.dev"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 21,
+  "bytes": 56571,
+  "by_kind": {
+   "binary": 1,
+   "config": 13,
+   "js": 1,
+   "markdown": 3,
+   "other": 3
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 5
+ },
+ "findings": [
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2bc239c0aad8f295",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "https://21st.dev/api/mcp",
+    "type": "MCP server",
+    "plugin": "21st",
+    "file": ".mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "21st",
+    "kind": "MCP server",
+    "launch": "https://21st.dev/api/mcp",
+    "file": ".mcp.json"
+   }
+  ],
+  "hosts": {
+   "21st.dev": [
+    "src/index.ts",
+    ".mcp.json"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "TWENTY_FIRST_API_KEY": [
+    "src/index.ts"
+   ],
+   "API_KEY_21ST": [
+    "src/index.ts"
+   ],
+   "API_KEY": [
+    "src/index.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 1,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 6545,
+  "forks": 534,
+  "open_issues": 9,
+  "contributors": "5",
+  "created_at": "2025-02-19T13:17:50Z",
+  "pushed_at": "2026-09-09T20:38:22Z",
+  "license": "ISC",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "It's like v0, but in your Cursor / Claude Code / Windsurf: search 10,000+ React/Tailwind components, generate new UI with AI, and publish your own \u2014 right from your editor. Magic MCP is now the 21st MCP; this package keeps old configs working. Setup: 21st.dev/mcp",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 1,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 1,
+   "info": 0
+  },
+  "active": 1,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "deny-mcp-server"
+ ],
+ "settings_snippet": {}
+}

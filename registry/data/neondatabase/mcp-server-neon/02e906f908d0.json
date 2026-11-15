@@ -1,0 +1,604 @@
+{
+ "target": {
+  "display": "neondatabase/mcp-server-neon",
+  "raw": "neondatabase/mcp-server-neon",
+  "kind": "github",
+  "url": "https://github.com/neondatabase/mcp-server-neon",
+  "ref": null,
+  "subdir": null,
+  "commit": "02e906f908d04998931e5f3180b382a5e9f5c7fd",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:08:13+00:00",
+ "plugins": [
+  {
+   "name": "neondatabase__mcp-server-neon@02e906f908d0",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1,
+  "skill": 4
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "neondatabase__mcp-server-neon@02e906f908d0",
+   "path": ".",
+   "plugin": "neondatabase__mcp-server-neon@02e906f908d0",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "claimable-postgres",
+   "path": ".agents/skills/claimable-postgres/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Provision instant temporary Postgres databases via Claimable Postgres by Neon (neon.new) with no login, signup, or credit card. Supports REST API, CLI, and SDK. Use when users ask for a quick Postg"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "logging-best-practices",
+   "path": ".agents/skills/logging-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Logging best practices focused on wide events (canonical log lines) for powerful debugging and analytics"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "working-with-effect",
+   "path": ".agents/skills/working-with-effect/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Writing, reviewing, and testing Effect v4 TypeScript: services and layers, schemas, tagged errors, Config, schedules, streams, caches, HTTP clients, and @effect/vitest tests. Combines the Effect sk"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "working-with-oxlint",
+   "path": ".agents/skills/working-with-oxlint/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Setting up and running Oxlint in a TypeScript repo: type-aware linting with oxlint-tsgolint, the strict all-categories config with a shrink-only lint baseline (Matt Pocock's sandcastle), Effect rul"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@neondatabase/mcp-server-neon",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "next dev",
+     "build": "next build",
+     "start": "next start",
+     "lint": "tsx scripts/lint-ratchet.ts",
+     "lint:shrink": "tsx scripts/lint-ratchet.ts --shrink",
+     "lint:report": "tsx scripts/lint-ratchet.ts --report",
+     "lint:fix": "NODE_OPTIONS=--experimental-strip-types effect-tsgo oxlint --type-aware --fix && prettier -w .",
+     "typecheck": "tsc --noEmit",
+     "fmt": "prettier -w .",
+     "fmt:check": "prettier --check .",
+     "knip": "knip",
+     "knip:fix": "knip --fix",
+     "test": "pnpm test:unit && pnpm test:integration && pnpm test:e2e",
+     "test:unit": "vitest run --exclude \"**/*.integration.test.ts\" --exclude \"**/*.e2e.test.ts\"",
+     "test:integration": "vitest run mcp/__tests__/*.integration.test.ts --testTimeout=30000 --hookTimeout=30000",
+     "test:e2e:mcp": "vitest run mcp/__tests__/*.e2e.test.ts",
+     "test:e2e:live": "vitest run mcp/__tests__/live/*.e2e.test.ts",
+     "test:e2e:web": "tsx scripts/e2e-setup.ts && playwright test",
+     "test:ci": "pnpm test:unit && pnpm test:integration && pnpm test:e2e:mcp",
+     "test:e2e": "pnpm test:e2e:mcp && pnpm test:e2e:web"
+    },
+    "dependencies": {
+     "@effect/opentelemetry": "4.1.2",
+     "@modelcontextprotocol/sdk": "1.25.3",
+     "@modelcontextprotocol/server": "2.0.0",
+     "@neon/sdk": "7.13.0",
+     "@neon/tools": "2.14.2",
+     "@neondatabase/serverless": "1.0.0",
+     "@opentelemetry/api": "1.9.1",
+     "@segment/analytics-node": "2.2.1",
+     "@sentry/node": "10.78.0",
+     "@vercel/functions": "3.3.4",
+     "effect": "4.1.2",
+     "he": "1.2.0",
+     "jose": "6.2.2",
+     "keyv": "5.3.2",
+     "mcp-handler": "2.1.0",
+     "next": "16.1.1",
+     "oauth2-server": "3.1.1",
+     "openid-client": "6.3.4",
+     "pg": "8.14.0",
+     "react": "19.2.3",
+     "react-dom": "19.2.3",
+     "redis": "4.6.0",
+     "winston": "3.17.0",
+     "winston-transport": "4.9.0",
+     "zod": "4.6.5",
+     "zod-to-json-schema": "3.25.2"
+    },
+    "devDependencies": {
+     "@effect/tsgo": "0.67.1",
+     "@modelcontextprotocol/client": "2.0.0",
+     "@oxlint/plugins": "1.91.0",
+     "@playwright/test": "1.58.2",
+     "@tailwindcss/postcss": "4.1.7",
+     "@types/he": "1.2.3",
+     "@types/node": "20.17.48",
+     "@types/oauth2-server": "3.0.18",
+     "@types/pg": "8.20.0",
+     "@types/react": "19.2.7",
+     "@types/react-dom": "19.1.5",
+     "dotenv": "17.2.4",
+     "knip": "5.83.1",
+     "oxlint": "1.91.0",
+     "oxlint-tsgolint": "7.0.2005",
+     "prettier": "3.8.1",
+     "tailwindcss": "4.1.7",
+     "tsx": "4.21.0",
+     "typescript": "5.8.3",
+     "vitest": "4.0.18"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 359,
+  "bytes": 4465275,
+  "by_kind": {
+   "binary": 48,
+   "config": 16,
+   "js": 223,
+   "markdown": 32,
+   "other": 40
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 6
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c25e959caee9383",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:acb9121e3cae78ec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c2826b179397a4c1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fe59972dc869e2e5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:639cfae4431c70c0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:08583c6bbd3d9d81",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6a62417e27453f73",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6c6eb71c6c422e33",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:169839d669d947ba",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a42bb3a952e1676b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1395f70615d29328",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3886b74f88a3bd5a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4fbbf07aa28c3522",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c8c0a04993352ef8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "instagres.com": [
+    "e2e/provision-oauth-db.ts"
+   ],
+   "neon.com": [
+    "mcp/oauth/auth-complete-page.ts"
+   ]
+  },
+  "sensitive_paths": {
+   "Cookies": [
+    "app/api/authorize/route.ts",
+    "app/callback/route.ts",
+    "mcp/oauth/browser-binding.ts"
+   ],
+   "CookieS": [
+    "app/api/authorize/route.ts",
+    "mcp/oauth/browser-binding.ts"
+   ],
+   "cookieS": [
+    "app/api/authorize/route.ts",
+    "app/callback/route.ts",
+    "mcp/oauth/browser-binding.ts"
+   ],
+   "cookies": [
+    "app/api/authorize/route.ts",
+    "app/callback/route.ts",
+    "mcp/oauth/browser-binding.ts",
+    "mcp/oauth/consent-canonical-url.ts",
+    "mcp/sentry/instrument.ts"
+   ]
+  },
+  "env_vars": {
+   "FEEDBACK_FIXTURE_PATH": [
+    "e2e/docs-fixture.ts"
+   ],
+   "SITE_SEARCH_FIXTURE_PATH": [
+    "e2e/docs-fixture.ts"
+   ],
+   "OAUTH_DATABASE_URL": [
+    "e2e/global-setup.ts",
+    "e2e/provision-oauth-db.ts",
+    "mcp/oauth/auth-transaction-store.ts",
+    "mcp/oauth/kv-store.ts",
+    "mcp/oauth/refresh-lock.ts"
+   ],
+   "UPSTREAM_OAUTH_HOST": [
+    "lib/config.ts"
+   ],
+   "CLIENT_SECRET": [
+    "lib/config.ts"
+   ],
+   "ANALYTICS_WRITE_KEY": [
+    "lib/config.ts"
+   ],
+   "SERVER_CARD_PATH": [
+    "lib/server-metadata.ts"
+   ],
+   "PROTECTED_RESOURCE_METADATA_PATH": [
+    "lib/oauth/protected-resource-metadata.ts"
+   ],
+   "OAUTH_PAGE_FONT_LINKS": [
+    "mcp/oauth/auth-complete-page.ts",
+    "mcp/oauth/consent-dialog.ts"
+   ],
+   "OAUTH_PAGE_BASE_CSS": [
+    "mcp/oauth/auth-complete-page.ts",
+    "mcp/oauth/consent-dialog.ts"
+   ],
+   "OAUTH_PAGE_CONNECTION_ICONS": [
+    "mcp/oauth/auth-complete-page.ts",
+    "mcp/oauth/consent-dialog.ts"
+   ],
+   "REDIS_LOCK_KEY_PREFIX": [
+    "mcp/oauth/refresh-lock-store.ts"
+   ],
+   "REDIS_TRANSIENT_KEY_PREFIX": [
+    "mcp/oauth/refresh-lock-store.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 9,
+  "credentials": 0,
+  "secrets": 3,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 663,
+  "forks": 135,
+  "open_issues": 52,
+  "contributors": "26",
+  "created_at": "2024-11-29T19:08:55Z",
+  "pushed_at": "2026-11-15T01:40:39Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "MCP server for interacting with Neon Management API and databases",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 1,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 1,
+   "info": 13
+  },
+  "active": 14,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "pin-mcp-version",
+  "pin-commit",
+  "sandbox-bash",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

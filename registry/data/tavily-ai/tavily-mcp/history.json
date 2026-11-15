@@ -1,0 +1,16 @@
+{
+ "source": "tavily-ai/tavily-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "70d4d47f9b96539ca143c940bd3562578923d56f",
+   "scanned_at": "2026-11-15T02:07:24+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 15,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

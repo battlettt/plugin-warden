@@ -1,0 +1,16 @@
+{
+ "source": "heroku/heroku-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "abddf589850f15fd7411b8d0cb00b53da13ebdfe",
+   "scanned_at": "2026-11-15T02:10:40+00:00",
+   "level": "low",
+   "score": 3,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 88,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

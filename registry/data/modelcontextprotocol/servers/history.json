@@ -1,0 +1,16 @@
+{
+ "source": "modelcontextprotocol/servers",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
+   "scanned_at": "2026-11-15T02:01:06+00:00",
+   "level": "caution",
+   "score": 10,
+   "reviewed": false,
+   "auto_runs": 1,
+   "files": 414,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

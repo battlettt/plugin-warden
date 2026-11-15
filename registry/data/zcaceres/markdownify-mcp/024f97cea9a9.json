@@ -1,0 +1,236 @@
+{
+ "target": {
+  "display": "zcaceres/markdownify-mcp",
+  "raw": "zcaceres/markdownify-mcp",
+  "kind": "github",
+  "url": "https://github.com/zcaceres/markdownify-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "024f97cea9a94cd842c445eea4503c442c79bd71",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:11:33+00:00",
+ "plugins": [
+  {
+   "name": "zcaceres__markdownify-mcp@024f97cea9a9",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 2
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "zcaceres__markdownify-mcp@024f97cea9a9",
+   "path": ".",
+   "plugin": "zcaceres__markdownify-mcp@024f97cea9a9",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "mcp-markdownify-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && chmod +x dist/*.js",
+     "dev": "tsc --watch",
+     "preinstall": "node preinstall.js",
+     "prepublishOnly": "bun run build",
+     "start": "bun dist/index.js",
+     "test": "bun test",
+     "test:watch": "bun test --watch"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/sdk": "^1.27.1",
+     "private-ip": "^3.0.2",
+     "repomix": "^1.12.0",
+     "zod": "^4.3.6"
+    },
+    "devDependencies": {
+     "@types/node": "^25.3.5",
+     "typescript": "^6.0.2"
+    },
+    "bin": {
+     "mcp-markdownify-server": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 30,
+  "bytes": 1661438,
+  "by_kind": {
+   "binary": 1,
+   "config": 4,
+   "js": 8,
+   "markdown": 2,
+   "other": 12,
+   "shell": 3
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "DESTRUCT-RM-HOME",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f819b33b71de8c24",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d625a6a84e0bd450",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:976cc1d3b58bf2f1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "MARKITDOWN_PATH": [
+    "src/utils.ts"
+   ],
+   "REPOMIX_PATH": [
+    "src/utils.ts"
+   ],
+   "MD_ALLOWED_PATHS": [
+    "src/utils.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 1,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 1,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 3005,
+  "forks": 253,
+  "open_issues": 32,
+  "contributors": "9",
+  "created_at": "2024-12-18T21:14:52Z",
+  "pushed_at": "2026-11-05T16:38:25Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "A Model Context Protocol server for converting almost anything to Markdown",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 6,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 1,
+   "info": 1
+  },
+  "active": 3,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "review-before-run",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

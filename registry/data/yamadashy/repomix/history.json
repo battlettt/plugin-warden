@@ -1,0 +1,16 @@
+{
+ "source": "yamadashy/repomix",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "813a886c6aa1d66aaec0b061a4442754529c7bcb",
+   "scanned_at": "2026-11-15T02:09:37+00:00",
+   "level": "caution",
+   "score": 20,
+   "reviewed": false,
+   "auto_runs": 1,
+   "files": 1361,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

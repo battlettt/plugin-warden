@@ -1,0 +1,16 @@
+{
+ "source": "mongodb-js/mongodb-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "e607a7cec36a681a17fe3428cd2219e4c64b91bb",
+   "scanned_at": "2026-11-15T02:06:26+00:00",
+   "level": "caution",
+   "score": 35,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 815,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

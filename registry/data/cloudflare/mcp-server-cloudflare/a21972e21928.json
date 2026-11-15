@@ -1,0 +1,2029 @@
+{
+ "target": {
+  "display": "cloudflare/mcp-server-cloudflare",
+  "raw": "cloudflare/mcp-server-cloudflare",
+  "kind": "github",
+  "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "ref": null,
+  "subdir": null,
+  "commit": "a21972e219289337731a066befb5c66886b9ce7b",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:04:30+00:00",
+ "plugins": [
+  {
+   "name": "cloudflare__mcp-server-cloudflare@a21972e21928",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 25
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "cloudflare__mcp-server-cloudflare@a21972e21928",
+   "path": ".",
+   "plugin": "cloudflare__mcp-server-cloudflare@a21972e21928",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@cloudflare/mcp-server-cloudflare",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "changeset:new": "run-changeset-new",
+     "check:deps": "syncpack lint",
+     "check:format": "prettier . --check --cache --ignore-unknown",
+     "check:turbo": "run-turbo check",
+     "types": "run-turbo types",
+     "test:ci": "run-vitest-ci",
+     "test": "vitest run --passWithNoTests",
+     "fix:format": "prettier . --write --cache --ignore-unknown",
+     "fix:deps": "run-fix-deps",
+     "test:watch": "vitest",
+     "eval:ci": "run-turbo eval:ci",
+     "eval:dev": "run-turbo eval:dev",
+     "update-deps": "syncpack update"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@changesets/cli": "2.28.1",
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@cloudflare/workers-types": "4.20250416.0",
+     "@ianvs/prettier-plugin-sort-imports": "4.4.1",
+     "@repo/eslint-config": "workspace:*",
+     "@repo/tools": "workspace:*",
+     "@repo/typescript-config": "workspace:*",
+     "@vitest/ui": "4.1.8",
+     "prettier": "3.5.3",
+     "syncpack": "13.0.3",
+     "turbo": "2.5.0",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-ai-gateway-mcp-server",
+   "path": "apps/ai-gateway/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@cloudflare/workers-oauth-provider": "catalog:",
+     "@repo/mcp-common": "workspace:*",
+     "cloudflare": "4.2.0",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "auditlogs",
+   "path": "apps/auditlogs/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "msw": "2.14.6",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-autorag-mcp-server",
+   "path": "apps/autorag/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-browser-mcp-server",
+   "path": "apps/browser-rendering/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "cloudflare": "4.2.0",
+     "msw": "2.14.6",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-blog",
+   "path": "apps/cloudflare-blog/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "npm run dev",
+     "types": "wrangler types --include-runtime false",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-casb-mcp-server",
+   "path": "apps/cloudflare-one-casb/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/jsonwebtoken": "9.0.9",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "demo-day",
+   "path": "apps/demo-day/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "dex-analysis",
+   "path": "apps/dex-analysis/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "cf-typegen": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "jszip": "3.10.1",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/jsonwebtoken": "9.0.9",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "dns-analytics",
+   "path": "apps/dns-analytics/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "cloudflare": "4.2.0",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs-ai-search",
+   "path": "apps/docs-ai-search/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "npm run dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "graphql-mcp-server",
+   "path": "apps/graphql/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "lz-string": "1.5.0",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "msw": "2.14.6",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "logpush",
+   "path": "apps/logpush/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cloudflare-radar-mcp-server",
+   "path": "apps/radar/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "cloudflare": "4.2.0",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "containers-mcp",
+   "path": "apps/sandbox-container/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:types": "run-tsc",
+     "check:lint": "run-eslint-workers",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev --var ENVIRONMENT:dev",
+     "start": "wrangler dev",
+     "test": "vitest run",
+     "types": "wrangler types",
+     "eval:dev": "start-server-and-test --expect 404 eval:server http://localhost:8976 'vitest --testTimeout=60000 --config vitest.config.evals.ts'",
+     "eval:server": "wrangler dev --var ENVIRONMENT:test --var DEV_DISABLE_OAUTH:true --var DEV_CLOUDFLARE_EMAIL:mcp-server-eval-account@workers-for-platforms-dev.cfdata.org",
+     "eval:ci": "start-server-and-test --expect 404 eval:server http://localhost:8976 'vitest run --testTimeout=60000 --config vitest.config.evals.ts'"
+    },
+    "dependencies": {
+     "@n8n/json-schema-to-zod": "1.1.0",
+     "@repo/eval-tools": "workspace:*",
+     "@repo/mcp-common": "workspace:*",
+     "@repo/mcp-observability": "workspace:*",
+     "agents": "catalog:",
+     "cron-schedule": "5.0.4",
+     "esbuild": "0.27.3",
+     "hono": "4.7.6",
+     "mime": "4.0.6",
+     "simple-git-hooks": "2.12.1",
+     "vitest-evals": "0.1.4",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "ai": "6.0.194",
+     "start-server-and-test": "2.0.11",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "stack-mcp",
+   "path": "apps/stack-mcp/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "npm run dev",
+     "types": "wrangler types --include-runtime false",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "workers-bindings",
+   "path": "apps/workers-bindings/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "deploy:staging": "wrangler deploy --env staging",
+     "deploy:production": "wrangler deploy --env production",
+     "eval:dev": "start-server-and-test --expect 404 eval:server http://localhost:8977 'vitest --testTimeout=60000 --config vitest.config.evals.ts'",
+     "eval:server": "wrangler dev --var ENVIRONMENT:test --var DEV_DISABLE_OAUTH:true --var DEV_CLOUDFLARE_EMAIL:mcp-server-eval-account@workers-for-platforms-dev.cfdata.org --inspector-port 9230 --port 8977",
+     "eval:ci": "start-server-and-test --expect 404 eval:server http://localhost:8977 'vitest run --testTimeout=60000 --config vitest.config.evals.ts'",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@n8n/json-schema-to-zod": "1.1.0",
+     "@repo/eval-tools": "workspace:*",
+     "@repo/mcp-common": "workspace:*",
+     "agents": "catalog:",
+     "ai": "6.0.194",
+     "cloudflare": "4.2.0",
+     "concurrently": "9.1.2",
+     "start-server-and-test": "2.0.11",
+     "vitest-evals": "0.1.4",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "marked": "15.0.7",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "workers-builds",
+   "path": "apps/workers-builds/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "vite dev",
+     "start": "vite dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@repo/mcp-common": "workspace:*",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vite-plugin": "1.1.0",
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vite": "6.3.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "workers-observability",
+   "path": "apps/workers-observability/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "deploy": "run-wrangler-deploy",
+     "dev": "wrangler dev",
+     "start": "wrangler dev",
+     "types": "wrangler types",
+     "test": "vitest run"
+    },
+    "dependencies": {
+     "@fast-csv/format": "5.0.2",
+     "@repo/mcp-common": "workspace:*",
+     "workers-tagged-logger": "0.13.5",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@types/node": "22.15.17",
+     "prettier": "3.5.3",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/eslint-config",
+   "path": "packages/eslint-config/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {
+     "@types/eslint": "8.56.10",
+     "@types/node": "22.15.17",
+     "@typescript-eslint/eslint-plugin": "7.18.0",
+     "@typescript-eslint/parser": "7.18.0",
+     "eslint": "8.57.0",
+     "eslint-config-prettier": "9.1.0",
+     "eslint-config-turbo": "2.4.2",
+     "eslint-import-resolver-typescript": "3.8.3",
+     "eslint-plugin-import": "2.31.0",
+     "eslint-plugin-only-warn": "1.1.0",
+     "eslint-plugin-unused-imports": "3.2.0",
+     "typescript": "5.5.4",
+     "vitest": "4.1.8"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/eval-tools",
+   "path": "packages/eval-tools/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "types": "wrangler types"
+    },
+    "dependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/sdk": "catalog:",
+     "agents": "catalog:",
+     "ai": "6.0.194",
+     "ai-gateway-provider": "3.1.3",
+     "wrangler": "4.149.0",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@repo/typescript-config": "workspace:*",
+     "@types/node": "22.15.17",
+     "vitest-evals": "0.1.4"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/mcp-common",
+   "path": "packages/mcp-common/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:lint": "run-eslint-workers",
+     "check:types": "run-tsc",
+     "test": "vitest run",
+     "test:coverage": "run-vitest-coverage"
+    },
+    "dependencies": {
+     "@cloudflare/workers-oauth-provider": "catalog:",
+     "@fast-csv/format": "5.0.2",
+     "@hono/zod-validator": "0.4.3",
+     "@modelcontextprotocol/server": "catalog:",
+     "@repo/mcp-observability": "workspace:*",
+     "agents": "catalog:",
+     "cloudflare": "4.2.0",
+     "hono": "4.7.6",
+     "toucan-js": "4.1.1",
+     "zod": "4.4.3"
+    },
+    "devDependencies": {
+     "@cloudflare/vitest-pool-workers": "0.16.11",
+     "@repo/eslint-config": "workspace:*",
+     "@repo/tools": "workspace:*",
+     "@repo/typescript-config": "workspace:*",
+     "@sentry/types": "8.9.2",
+     "@types/node": "22.15.17",
+     "@vitest/ui": "4.1.8",
+     "msw": "2.14.6",
+     "vitest": "4.1.8",
+     "wrangler": "4.149.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/mcp-observability",
+   "path": "packages/mcp-observability/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "check:types": "run-tsc"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "catalog:"
+    },
+    "devDependencies": {
+     "@repo/tools": "workspace:*",
+     "@repo/typescript-config": "workspace:*",
+     "@types/node": "22.15.17"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/tools",
+   "path": "packages/tools/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "@commander-js/extra-typings": "13.1.0",
+     "@jahands/cli-tools": "0.10.2",
+     "commander": "13.1.0",
+     "empathic": "1.1.0",
+     "tsx": "4.19.3",
+     "zod": "4.4.3",
+     "zx": "8.5.4"
+    },
+    "devDependencies": {
+     "@types/fs-extra": "11.0.4",
+     "@types/node": "22.15.17",
+     "vitest": "4.1.8"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repo/typescript-config",
+   "path": "packages/typescript-config/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "22.15.17"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 468,
+  "bytes": 12188581,
+  "by_kind": {
+   "binary": 10,
+   "config": 87,
+   "js": 261,
+   "markdown": 62,
+   "other": 38,
+   "shell": 10
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 26
+ },
+ "findings": [
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d01803960045ea12",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c4b9405431674b97",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9787147c8a0505cc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a3103bed3e81d275",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:73b11420a06899a6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5787a0a13a9955b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:098fd03a3702352d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:126d3ad286b39c1b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8a0e44c75d0a5ff3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:aef5196df5f66e5b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8b4929bae656329a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d3da77ccec6ca365",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:668a58ab3a885e74",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:398f92b5d8118b3c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:970f062762f6ec70",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:21bd0ed36abb2c65",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:903765b30a5592a6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:55e0f6f0d5c05d9d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:936cf7f3752211f3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ea28528d0d81489f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c70827ba31583d46",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9f25a7364adbc155",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:83d9dd137b72cc78",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7d4a7e7daf04bb3b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3529104e492f5365",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1735155120b626f8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5dd7696b06b64742",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2cd9234f47a3f774",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8b6d676c5bfac237",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:df7c5bd3b06f41d1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:97f18d049631dba7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d0e6f4d837385dea",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a24123bbfcae6b21",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eefbdb8b612e2b65",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d180a07e4a3bb05c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:90dc35b134ca3b8c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2581213b8d38375a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a42b48002c4c152f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:45c58d60df4f4c89",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5b31f0d5abb0e9e0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:82f30ce0e2b7df9a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d44b3bcc91ab58bd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3b7dfd2ee392c833",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bf68c2c7d1981581",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-044",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a1d9c42c89ce73d8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-045",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:134520d7c9bb833b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-046",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:96be321406807583",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-047",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4cf0390af759d7f5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-048",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "assets.local": [
+    "apps/demo-day/src/demo-day.app.ts"
+   ],
+   "calendar.google.com": [
+    "apps/demo-day/frontend/script.js"
+   ],
+   "cloudflare.tv": [
+    "apps/demo-day/frontend/script.js"
+   ],
+   "demo-day.mcp.cloudflare.com": [
+    "apps/demo-day/src/demo-day.app.ts"
+   ],
+   "developers.cloudflare.com": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "docs.oasis-open.org": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "dpgr.am": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "en.wikipedia.org": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "github.com": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "knowledge.digicert.com": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "ldapwiki.com": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "outlook.live.com": [
+    "apps/demo-day/frontend/script.js"
+   ],
+   "pptr.dev": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "starbasedb-3285.outerbase.workers.dev": [
+    "apps/demo-day/frontend/script.js"
+   ],
+   "support.cloudflare.com": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "tldp.org": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "www.iana.org": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ],
+   "www.iso.org": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "apps/ai-gateway/worker-configuration.d.ts",
+    "apps/auditlogs/worker-configuration.d.ts",
+    "apps/autorag/worker-configuration.d.ts",
+    "apps/browser-rendering/worker-configuration.d.ts",
+    "apps/cloudflare-one-casb/worker-configuration.d.ts",
+    "apps/demo-day/worker-configuration.d.ts"
+   ]
+  },
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 7,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 19,
+  "permissions": 0,
+  "supply-chain": 22,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 4466,
+  "forks": 576,
+  "open_issues": 64,
+  "contributors": "43",
+  "created_at": "2024-11-27T22:07:30Z",
+  "pushed_at": "2026-10-22T15:21:16Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Product specific Cloudflare MCP servers",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 10,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 22,
+   "info": 26
+  },
+  "active": 48,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "dependency-audit",
+  "review-context-injection",
+  "disable-hooks",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

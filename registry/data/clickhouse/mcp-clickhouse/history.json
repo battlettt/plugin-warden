@@ -1,0 +1,16 @@
+{
+ "source": "clickhouse/mcp-clickhouse",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "e6dfc28d12a06ce670fdd20b8aec719490d79b70",
+   "scanned_at": "2026-11-15T02:08:19+00:00",
+   "level": "caution",
+   "score": 6,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 82,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

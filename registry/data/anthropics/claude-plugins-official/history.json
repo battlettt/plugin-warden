@@ -1,0 +1,16 @@
+{
+ "source": "anthropics/claude-plugins-official",
+ "kind": "marketplace",
+ "scans": [
+  {
+   "commit": "b5b01ac4f889fec0c4c6bb89f27ca7c8574473f6",
+   "scanned_at": "2026-11-15T01:31:43+00:00",
+   "level": "block",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 55,
+   "files": 765,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

@@ -1,0 +1,399 @@
+{
+ "target": {
+  "display": "beehiveinnovations/zen-mcp-server",
+  "raw": "beehiveinnovations/zen-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/beehiveinnovations/zen-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "7afc7c1cc96e23992c8f105f960132c657883bb1",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:09:17+00:00",
+ "plugins": [
+  {
+   "name": "BeehiveInnovations__zen-mcp-server@7afc7c1cc96e",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 2
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "BeehiveInnovations__zen-mcp-server@7afc7c1cc96e",
+   "path": ".",
+   "plugin": "BeehiveInnovations__zen-mcp-server@7afc7c1cc96e",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "requirements.txt",
+   "path": "requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 362,
+  "bytes": 3969621,
+  "by_kind": {
+   "binary": 1,
+   "config": 38,
+   "markdown": 49,
+   "other": 14,
+   "python": 249,
+   "shell": 11
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c1804a2417435ef0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c499cd87abca73f4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-OVERRIDE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:de8c1ffcd641bb68",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc650716516d9fa1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:934c63f9058b002d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5ade68a60fcdbb1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9fec5e74f04c776b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9824d7b7d0f9c0cf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ad324e06beaa4d6c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:48efccec61687441",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "bootstrap.pypa.io": [
+    "run-server.sh"
+   ],
+   "claude.ai": [
+    "run-server.sh"
+   ],
+   "core.dialx.ai": [
+    "providers/dial.py"
+   ],
+   "dialx.ai": [
+    "providers/dial.py"
+   ],
+   "docs.anthropic.com": [
+    "run-server.sh"
+   ],
+   "github.com": [
+    "run-server.sh"
+   ],
+   "pyenv.run": [
+    "run-server.sh"
+   ],
+   "raw.githubusercontent.com": [
+    "tools/version.py"
+   ]
+  },
+  "sensitive_paths": {
+   ".zshrc": [
+    "run-server.sh"
+   ],
+   ".bashrc": [
+    "run-server.sh"
+   ]
+  },
+  "env_vars": {
+   "VENV_PATH": [
+    "run-server.ps1",
+    "run-server.sh"
+   ],
+   "GEMINI_API_KEY": [
+    "run_integration_tests.sh"
+   ],
+   "OPENAI_API_KEY": [
+    "run_integration_tests.sh"
+   ],
+   "XAI_API_KEY": [
+    "run_integration_tests.sh"
+   ],
+   "OPENROUTER_API_KEY": [
+    "run_integration_tests.sh"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 2,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 0,
+  "secrets": 1,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 1,
+  "obfuscation": 0,
+  "prompt-injection": 1,
+  "permissions": 0,
+  "supply-chain": 3,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 11839,
+  "forks": 1038,
+  "open_issues": 156,
+  "contributors": "32",
+  "created_at": "2025-06-08T15:36:50Z",
+  "pushed_at": "2025-12-15T17:07:31Z",
+  "license": "NOASSERTION",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "The power of Claude Code / GeminiCLI / CodexCLI + [Gemini / OpenAI / OpenRouter / Azure / Grok / Ollama / Custom Model / All Of The Above] working as one.",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 9,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 4,
+   "info": 5
+  },
+  "active": 10,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-commit",
+  "sandbox-bash",
+  "review-context-injection",
+  "disable-plugin",
+  "pin-mcp-version",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

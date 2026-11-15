@@ -1,0 +1,16 @@
+{
+ "source": "redis/mcp-redis",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "d66c5ea0172e0991a98c0f13c0f880246c93b2a5",
+   "scanned_at": "2026-11-15T02:08:11+00:00",
+   "level": "low",
+   "score": 0,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 60,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

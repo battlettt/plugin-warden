@@ -1,0 +1,1895 @@
+{
+ "target": {
+  "display": "vercel/vercel-plugin",
+  "raw": "vercel/vercel-plugin",
+  "kind": "github",
+  "url": "https://github.com/vercel/vercel-plugin",
+  "ref": null,
+  "subdir": null,
+  "commit": "b004b4098274bb1b3a0290623260e23432437b4b",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:00:57+00:00",
+ "plugins": [
+  {
+   "name": "vercel",
+   "path": ".",
+   "source": "manifest",
+   "version": "0.55.1",
+   "description": "Build and deploy web apps and agents"
+  }
+ ],
+ "component_counts": {
+  "agent": 3,
+  "command": 4,
+  "hook": 6,
+  "manifest": 1,
+  "marketplace": 1,
+  "mcp_server": 1,
+  "package": 1,
+  "skill": 55
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "vercel",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "0.55.1",
+    "description": "Build and deploy web apps and agents",
+    "author": {
+     "name": "Vercel",
+     "url": "https://github.com/vercel"
+    },
+    "repository": "https://github.com/vercel/vercel-plugin",
+    "license": "Apache-2.0"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.0]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup|resume|clear|compact",
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start-seen-skills.mjs\""
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.1]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup|resume|clear|compact",
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start-profiler.mjs\""
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.2]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup|resume|clear|compact",
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.mjs\" --part 1/2"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.3]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup|resume|clear|compact",
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.mjs\" --part 2/2"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUse[0.0]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "PostToolUse",
+   "details": {
+    "matcher": "Skill",
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/posttooluse-skill-telemetry.mjs\"",
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionEnd[0.0]",
+   "path": "hooks/hooks.json",
+   "plugin": "vercel",
+   "trigger": "SessionEnd",
+   "details": {
+    "matcher": null,
+    "type": "command",
+    "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"",
+    "timeout": 15
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "vercel",
+   "path": ".mcp.json",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.vercel.com",
+    "note": "Official Vercel MCP server. Uses OAuth to authorize access to your teams. Supports reads and writes, including documentation search, project and deployment inspection, logs, deployments, and resource updates. Available tools depend on the connection; your team grants and Vercel permissions apply. Domain registration requires a quote and explicit approval. Digital subscriptions, credits, and add-on purchases are unavailable through MCP."
+   }
+  },
+  {
+   "kind": "command",
+   "name": "bootstrap",
+   "path": "commands/bootstrap.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Bootstrap a repository with Vercel-linked resources by running preflight checks, provisioning integrations, verifying env keys, and then executing db/dev startup commands safely."
+   }
+  },
+  {
+   "kind": "command",
+   "name": "deploy",
+   "path": "commands/deploy.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Deploy the current project to Vercel. Pass \"prod\" or \"production\" as argument to deploy to production. Default is preview deployment."
+   }
+  },
+  {
+   "kind": "command",
+   "name": "env",
+   "path": "commands/env.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Manage Vercel environment variables. Commands include list, pull, add, remove, and diff. Use to sync environment variables between Vercel and your local development environment."
+   }
+  },
+  {
+   "kind": "command",
+   "name": "status",
+   "path": "commands/status.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Show the status of the current Vercel project \u2014 recent deployments, linked project info, and environment overview."
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "ai-architect",
+   "path": "agents/ai-architect.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Specializes in architecting AI-powered applications on Vercel \u2014 choosing between AI SDK patterns, configuring providers, building agents, setting up durable workflows, and integrating MCP servers. Use"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "deployment-expert",
+   "path": "agents/deployment-expert.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Specializes in Vercel deployment strategies, CI/CD pipelines, preview URLs, production promotions, rollbacks, environment variables, and domain configuration. Use when troubleshooting deployments, set"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "performance-optimizer",
+   "path": "agents/performance-optimizer.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Specializes in optimizing Vercel application performance \u2014 Core Web Vitals, rendering strategies, caching, image optimization, font loading, edge computing, and bundle size. Use when investigating slo"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "access-protected-vercel-deployment",
+   "path": "skills/access-protected-vercel-deployment/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Access and test Vercel deployments protected by Vercel Authentication, SSO, or Deployment Protection. Use when curl, agent-browser, Playwright, or another automated request reaches a Vercel login or p"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ai-gateway",
+   "path": "skills/ai-gateway/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel AI Gateway guidance for setup, model discovery, authentication, routing, fallbacks, virtual models, evaluation models, BYOK, budgets, spend reporting, observability, compatible APIs, and coding"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ai-sdk",
+   "path": "skills/ai-sdk/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel AI SDK expert guidance. Use when building AI-powered features \u2014 chat interfaces, text generation, structured output, tool calling, agents, MCP integration, streaming, embeddings, reranking, ima"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ai-sdk",
+   "path": "skills/ai-sdk/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "'Answer questions about the AI SDK and help build AI-powered features. Use when developers: (1) Ask about AI SDK functions like generateText, streamText, ToolLoopAgent, embed, or tools, (2) Want to bu"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "auth",
+   "path": "skills/auth/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Authentication integration guidance \u2014 Clerk (native Vercel Marketplace), Better Auth, Descope, and Auth0 setup for Next.js applications, plus Sign in with Vercel, Vercel Passport, and Vercel KMS. Cove"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "bootstrap",
+   "path": "skills/bootstrap/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Project bootstrapping orchestrator for repos that depend on Vercel-linked resources (databases, auth, and managed integrations). Use when setting up or repairing a repository so linking, environment p"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "build-agents",
+   "path": "skills/build-agents/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"Default guidance for building AI agents. Use for generic requests to build, create, scaffold, design, architect, or implement an AI agent, agent app, tool-calling agent, durable agent, multi-agent sy"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "cdn-caching",
+   "path": "skills/cdn-caching/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Debug Vercel CDN caching \u2014 cache hit rate, stale content, revalidation behavior, ISR + PPR, per-request cache reasons (cacheReason) and PPR state (ppr_state), and costs."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "chat-sdk",
+   "path": "skills/chat-sdk/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Chat SDK expert guidance. Use when building multi-platform chat bots \u2014 Slack, Telegram, Microsoft Teams, Discord, Google Chat, GitHub, Linear \u2014 with a single codebase. Covers the Chat class, ad"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "chat-sdk",
+   "path": "skills/chat-sdk/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Build multi-platform chat bots with Chat SDK (`chat` npm package). Use when developers want to scaffold a bot with create-chat-sdk, build a Slack, Teams, Google Chat, Discord, Telegram, GitHub, Linear"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "create-a-backend",
+   "path": "skills/create-a-backend/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Backend architecture guidance. Use when planning, building, or migrating an API or backend; choosing between Functions, Services, containers, Daemons, Workflow, Queues, and Marketplace databases; or s"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "custom-metrics",
+   "path": "skills/custom-metrics/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Emit and query Vercel Custom Metrics. Use when instrumenting application or business measurements in Vercel Functions, using metric() from @vercel/functions, choosing metric names and attributes, or q"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "daemons",
+   "path": "skills/daemons/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Daemons guidance \u2014 long-running background workers built from a Dockerfile and declared under the `daemons` key in vercel.json. Use when running queue consumers, Celery/Sidekiq/BullMQ workers, "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "deployments-cicd",
+   "path": "skills/deployments-cicd/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel deployment and CI/CD expert guidance. Use when deploying, promoting, rolling back, inspecting deployments, building with --prebuilt, or configuring CI workflow files for Vercel."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "domains",
+   "path": "skills/domains/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Search, register, connect, transfer, and renew domain names on Vercel using the CLI or Domains Registrar API. Use for domain availability and pricing, custom domains, DNS records, nameservers, ownersh"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "env-vars",
+   "path": "skills/env-vars/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel environment variable expert guidance. Use when working with .env files, vercel env commands, Secret or Config variable types, OIDC tokens, or managing environment-specific configuration."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "eve",
+   "path": "skills/eve/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"eve framework guidance for durable AI agents and agent-powered applications. Use when creating, editing, or debugging an eve project, when the user explicitly asks for eve, or when the build-agents s"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "eve",
+   "path": "skills/eve/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Build durable backend AI agents with the eve framework. Use when creating, editing, or debugging an eve project \u2014 agent instructions, skills, tools, connections, channels, sandboxes, subagents, schedu"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "flags-sdk",
+   "path": "skills/flags-sdk/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"Implement feature flags in Next.js or SvelteKit code with the Flags SDK (`flags` npm package). Use when installing or configuring the SDK, declaring flags with `flag()`, reading a connected same-team"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "flags-sdk",
+   "path": "skills/flags-sdk/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "> Implement feature flags in Next.js or SvelteKit code with the Flags SDK (`flags` npm package). Use when installing or configuring the SDK, declaring flags with `flag()`, setting up Project Connectio"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "is-agentic",
+   "path": "skills/is-agentic/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Score how ready a website, domain, or public MCP endpoint is for AI agents using Is Agentic, and read or act on the resulting report. Use when asked to check a site's agent readiness, get its Is Agent"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "is-agentic",
+   "path": "skills/is-agentic/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Score how ready a website, domain, or public MCP endpoint is for AI agents using Is Agentic, and read or act on the resulting report. Use when asked to check a site's agent readiness, get its Is Agent"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "knowledge-update",
+   "path": "skills/knowledge-update/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Corrects outdated LLM knowledge about the Vercel platform and introduces new products. Injected at session start."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "marketplace",
+   "path": "skills/marketplace/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Marketplace expert guidance \u2014 discovering, installing, and managing third-party integrations via the `vercel integration` CLI. Use when building any app that needs an external capability withou"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "microfrontends",
+   "path": "skills/microfrontends/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Guide for building, configuring, and deploying microfrontends on Vercel. Use this skill when the user mentions microfrontends, multi-zones, splitting an app across teams, independent deployments, cros"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "offload-to-sandbox",
+   "path": "skills/offload-to-sandbox/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Offload heavy builds, full test suites and parallel experiments from the local machine to Vercel Sandboxes with the `vercel sandbox` CLI. Use when a local machine is overloaded or shared by several ag"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "queues",
+   "path": "skills/queues/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Queues guidance \u2014 durable topics with at-least-once delivery, independent consumer groups, retries, delays, and idempotency keys via @vercel/queue (JS) or vercel-queue (Python). Use when deferr"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "react-best-practices",
+   "path": "skills/react-best-practices/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel's React and Next.js performance rules (70 rules in 8 categories ordered by impact - eliminating waterfalls, bundle size, server-side performance, client-side data fetching, re-renders, renderin"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-react-best-practices",
+   "path": "skills/react-best-practices/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patter"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "routing-middleware",
+   "path": "skills/routing-middleware/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Routing Middleware guidance \u2014 request interception before cache, rewrites, redirects, personalization. Works with any framework. Supports Edge, Node.js, Bun, and Python runtimes. Use when inter"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "runtime-cache",
+   "path": "skills/runtime-cache/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Runtime Cache API guidance \u2014 ephemeral per-region key-value cache with tag-based invalidation. Shared across Functions, Routing Middleware, and Builds. Use when implementing caching strategies "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-agent",
+   "path": "skills/vercel-agent/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Agent guidance \u2014 dashboard and Slack chat, code review, Security Review, production investigation, approved actions, and product installation. Use when configuring or working with Vercel's AI a"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-cli",
+   "path": "skills/vercel-cli/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel CLI expert guidance. Use when deploying, managing environment variables, linking projects, viewing logs, querying metrics, debugging a deployed app on Vercel (errors, 5xx responses, timeouts, s"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-cli",
+   "path": "skills/vercel-cli/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Deploy, manage, inspect, and troubleshoot Vercel projects from the command line. Use for Vercel deployments, Vercel Toolbar comments, build failures, projects and teams, environment variables, domains"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-connect",
+   "path": "skills/vercel-connect/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Connect expert guidance for securely obtaining scoped credentials for third-party services on behalf of apps or users. Use when wiring up provider API access, OAuth, API-key services, MCP serve"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-firewall",
+   "path": "skills/vercel-firewall/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Firewall expert guidance \u2014 automatic DDoS mitigation, the Vercel WAF (custom rules, IP blocking, managed rulesets, rate limiting), Attack Mode, system bypass, bot management, and the `vercel fi"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-flags",
+   "path": "skills/vercel-flags/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"Feature flags, A/B tests, and gradual rollouts with Vercel Flags, in any app or framework. Use whenever the user is planning, adding, changing, or cleaning up a feature flag, toggle, kill switch, exp"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-flags",
+   "path": "skills/vercel-flags/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "> Feature flags, A/B tests, and gradual rollouts with Vercel Flags, in any app or framework. Use whenever the user is planning, adding, changing, or cleaning up a feature flag, toggle, kill switch, ex"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-functions",
+   "path": "skills/vercel-functions/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Functions expert guidance \u2014 Node.js/Bun/Python runtimes, Fluid Compute, long-duration (30 min) functions, large functions (5 GB bundles), Docker/OCI container images, plan limits, streaming, We"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-sandbox",
+   "path": "skills/vercel-sandbox/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Sandbox guidance \u2014 ephemeral Firecracker microVMs for running untrusted code safely. Supports AI agents, code generation, and experimentation. Use when executing user-generated or AI-generated "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "sandbox",
+   "path": "skills/vercel-sandbox/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Creates isolated Linux MicroVMs using Vercel Sandbox SDK. Use when building code execution environments, running untrusted code, spinning up dev servers, testing in isolation, or when the user mention"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-schedules",
+   "path": "skills/vercel-schedules/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Schedules guidance \u2014 run a private function, route, or Vercel Queues topic on a cron cadence or once at a set time. Covers static schedules in vercel.json, dynamic per-user schedules with @verc"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-services",
+   "path": "skills/vercel-services/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Configure and troubleshoot Vercel Services for multiple frontends and backends in one project. Use when composing a polyglot or multi-service application on one Vercel deployment; defining the `servic"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-storage",
+   "path": "skills/vercel-storage/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel storage expert guidance \u2014 Blob, Global Config (formerly Edge Config), and Marketplace storage (Neon Postgres, Upstash Redis). Use when choosing, configuring, or using data storage with Vercel a"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-tracing",
+   "path": "skills/vercel-tracing/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Set up OpenTelemetry instrumentation for Vercel Tracing and query the resulting spans. Use when adding or fixing `@vercel/otel`, wiring a framework's server startup hook (Next.js, SvelteKit, and other"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "verification",
+   "path": "skills/verification/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"Full-story verification \u2014 infers what the user is building, then verifies the complete flow end-to-end: browser \u2192 API \u2192 data \u2192 response. Triggers on dev server start and 'why isn't this working' sign"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "workflow",
+   "path": "skills/workflow/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Vercel Workflow SDK expert guidance. Use when building durable workflows, long-running tasks, API routes or agents that need pause/resume, retries, step-based execution, or crash-safe orchestration wi"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "workflow",
+   "path": "skills/workflow/upstream/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "Creates durable, resumable workflows using Vercel's Workflow SDK. Use when building workflows that need to survive restarts, pause for external events, retry on failure, or coordinate multi-step opera"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "benchmark-agents",
+   "path": ".claude/skills/benchmark-agents/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Advanced AI agent benchmark scenarios that push Vercel's cutting-edge platform features \u2014 Workflow SDK, AI Gateway, MCP, Chat SDK, Queues, Flags, Sandbox, and multi-agent orchestration. Designed to st"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "benchmark-e2e",
+   "path": ".claude/skills/benchmark-e2e/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "End-to-end benchmark suite for vercel-plugin. Runs realistic projects through skill injection, launches dev servers, verifies everything works, analyzes conversation logs, and produces an improvement "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "benchmark-sandbox",
+   "path": ".claude/skills/benchmark-sandbox/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Run vercel-plugin eval scenarios in Vercel Sandboxes instead of local WezTerm panels. Provisions ephemeral microVMs with Claude Code + plugin pre-installed, runs benchmark prompts, extracts hook artif"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "benchmark-testing",
+   "path": ".claude/skills/benchmark-testing/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Create and launch benchmark test projects to exercise vercel-plugin skill injection across realistic scenarios. Sets up isolated directories, installs the plugin, and spawns WezTerm panes running Clau"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "plugin-audit",
+   "path": ".claude/skills/plugin-audit/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Audit vercel-plugin performance on real-world projects. Extracts tool calls from Claude Code conversation logs, tests hook matching against actual inputs, identifies pattern coverage gaps, and checks "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "release",
+   "path": ".claude/skills/release/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Release vercel-plugin \u2014 run gates, bump version, generate artifacts, commit, and push. Use when asked to \"release\", \"ship\", \"bump and push\", or \"cut a release\"."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "vercel-plugin-eval",
+   "path": ".claude/skills/vercel-plugin-eval/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Run live eval sessions against the vercel-plugin to verify hook behavior, skill injection, dedup correctness, and coverage. Launches real Claude Code sessions via WezTerm, monitors debug logs, and pro"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "vercel-plugin",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build:hooks": "tsup --config hooks/tsup.config.ts",
+     "build:from-skills": "bun run scripts/build-from-skills.ts",
+     "build:skills": "bun run scripts/build-skills.ts",
+     "build:skills:check": "bun run scripts/build-skills.ts --check",
+     "build:from-skills:check": "bun run scripts/build-from-skills.ts --check",
+     "build:all": "bun run build:skills && bun run build:hooks && bun run build:from-skills",
+     "validate": "bun run scripts/validate.ts",
+     "doctor": "bun run src/cli/index.ts doctor",
+     "typecheck": "tsc -p hooks/tsconfig.json --noEmit",
+     "test": "bun run typecheck && bun test",
+     "test:update-snapshots": "UPDATE_SNAPSHOTS=1 bun test tests/snapshot-runner.test.ts",
+     "playground:generate": "bun run .playground/generate-all.ts"
+    },
+    "dependencies": {
+     "detect-agent": "1.2.0",
+     "minisearch": "^7.2.0"
+    },
+    "devDependencies": {
+     "@anthropic-ai/claude-agent-sdk": "^0.2.70",
+     "@types/node": "^25.3.5",
+     "@vercel/sandbox": "^1.8.0",
+     "tsup": "^8.5.1",
+     "typescript": "^5.9.3"
+    },
+    "bin": {
+     "vercel-plugin": "src/cli/index.ts"
+    }
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "vercel",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "vercel-plugin",
+      "source": "./",
+      "description": "Build and deploy web apps and agents",
+      "author": {
+       "name": "Vercel"
+      },
+      "repository": "https://github.com/vercel/vercel-plugin",
+      "license": "Apache-2.0",
+      "keywords": [
+       "vercel",
+       "nextjs",
+       "ai-sdk",
+       "turborepo",
+       "turbopack",
+       "workflow",
+       "deployment",
+       "serverless"
+      ]
+     }
+    ],
+    "owner": {
+     "name": "Vercel"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 539,
+  "bytes": 3715301,
+  "by_kind": {
+   "binary": 1,
+   "config": 32,
+   "js": 147,
+   "markdown": 314,
+   "other": 45
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 72
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3db880a68ab8b244",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-KEYCHAIN",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0f0776ea76b4dd21",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-KEYCHAIN",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c9cc7c7111bcaa4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-KEYCHAIN",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:08f53679946911e9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "NET-AUTORUN",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1f2453bf6b6874d8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c6833dd03ad41202",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:560f1508e2739a89",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d8aa216c9e8ffa13",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6e57e2fad97e6eee",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1ab46d4490507704",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:75ec441e46524c6a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:31d982c2dae4520d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1d661a5f6266196e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fe5cf632249c4e77",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7563212887c773b9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8cd4b9401c0aed49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8695a579807f5189",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6712a176a2f17c33",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5d73a2bac7452f16",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e7ba8ad8c4e89f90",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8a2c1a93d3d5e77f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7d72a058469c8e50",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ea177b17a30abd08",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4c9829a0e4ac8984",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f61079cbeca9b581",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:76074abe4888f5e5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f5626ab1c76d338a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4e10b40c87444645",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c1a1afd67d00f31d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:afd70b961b888979",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:02a68b829137aa7b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6534c6c4c994df38",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:70ff95ce30e1fd32",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8a62e0cd56e471ec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:905f3db6f018e25b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:20d244049ad79c6d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:50d91663f53a0ce5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:edc595b29faefb0e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:727ce2eb89d43cd7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b7e94941c8869c4d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bcda98bfebe076df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ab0ae442870d2a67",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3142b131cdb540e7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "SessionStart (startup|resume|clear|compact)",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start-seen-skills.mjs\"",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "SessionStart (startup|resume|clear|compact)",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start-profiler.mjs\"",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "SessionStart (startup|resume|clear|compact)",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.mjs\" --part 1/2",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "SessionStart (startup|resume|clear|compact)",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.mjs\" --part 2/2",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUse (Skill)",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/posttooluse-skill-telemetry.mjs\"",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "SessionEnd",
+    "what": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"",
+    "type": "command hook",
+    "plugin": "vercel",
+    "file": "hooks/hooks.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.vercel.com",
+    "type": "MCP server",
+    "plugin": "vercel",
+    "file": ".mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "vercel",
+    "kind": "MCP server",
+    "launch": "https://mcp.vercel.com",
+    "file": ".mcp.json"
+   }
+  ],
+  "hosts": {
+   "ai-gateway.vercel.sh": [
+    ".claude/skills/benchmark-sandbox/run-eval.ts"
+   ],
+   "github.com": [
+    "scripts/cli-reference.ts"
+   ],
+   "mcp.vercel.com": [
+    ".mcp.json"
+   ],
+   "telemetry.vercel.com": [
+    "hooks/telemetry.mjs",
+    "hooks/src/telemetry.mts"
+   ],
+   "vercel.com": [
+    "scripts/cli-reference.ts",
+    "scripts/coverage-baseline.ts"
+   ]
+  },
+  "sensitive_paths": {
+   ".claude/settings": [
+    ".claude/skills/benchmark-sandbox/run-eval.ts",
+    ".claude/skills/benchmark-sandbox/sandbox-runner.ts",
+    ".claude/skills/benchmark-sandbox/spike/create-snapshot.ts",
+    ".claude/skills/benchmark-sandbox/spike/interactive-proof.ts"
+   ]
+  },
+  "env_vars": {
+   "ANTHROPIC_API_KEY": [
+    ".claude/skills/benchmark-sandbox/run-eval.ts",
+    ".claude/skills/benchmark-sandbox/sandbox-runner.ts",
+    ".claude/skills/benchmark-sandbox/spike/create-snapshot.ts",
+    ".claude/skills/benchmark-sandbox/spike/interactive-proof.ts",
+    ".claude/skills/benchmark-sandbox/spike/provision.ts"
+   ],
+   "VERCEL_OIDC_TOKEN": [
+    ".claude/skills/benchmark-sandbox/run-eval.ts"
+   ],
+   "AI_GATEWAY_API_KEY": [
+    ".claude/skills/benchmark-sandbox/sandbox-runner.ts",
+    ".claude/skills/benchmark-sandbox/spike/create-snapshot.ts",
+    ".claude/skills/benchmark-sandbox/spike/interactive-proof.ts",
+    ".claude/skills/benchmark-sandbox/spike/provision.ts"
+   ],
+   "VERCEL_API_KEY": [
+    ".claude/skills/benchmark-sandbox/spike/create-snapshot.ts",
+    ".claude/skills/benchmark-sandbox/spike/interactive-proof.ts",
+    ".claude/skills/benchmark-sandbox/spike/provision.ts"
+   ],
+   "EVENTS_PATH": [
+    "scripts/benchmark-e2e.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": [
+   "SessionStart hook in hooks/hooks.json",
+   "hooks/compat.mjs writes additionalContext",
+   "hooks/inject-claude-md.mjs writes additionalContext",
+   "hooks/session-start-profiler.mjs writes additionalContext"
+  ]
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 3,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 1,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 24,
+  "permissions": 6,
+  "supply-chain": 7,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 336,
+  "forks": 80,
+  "open_issues": 72,
+  "contributors": "51",
+  "created_at": "2026-03-04T16:46:22Z",
+  "pushed_at": "2026-11-13T14:18:10Z",
+  "license": "NOASSERTION",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Comprehensive Vercel ecosystem plugin \u2014 relational knowledge graph, skills for every major product, specialized agents, and Vercel conventions. Turns any AI agent into a Vercel expert.",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 69,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 12,
+   "low": 9,
+   "info": 22
+  },
+  "active": 43,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "protect-claude-config",
+  "disable-plugin",
+  "disable-hooks",
+  "sandbox-bash",
+  "lock-permission-mode",
+  "review-context-injection",
+  "deny-mcp-server",
+  "pin-mcp-version",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

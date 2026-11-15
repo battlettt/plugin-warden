@@ -1,0 +1,16 @@
+{
+ "source": "getsentry/sentry-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "d9c69544d649e2aa41d3a62e045b04637ab8d931",
+   "scanned_at": "2026-11-15T02:05:21+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 4,
+   "files": 2860,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

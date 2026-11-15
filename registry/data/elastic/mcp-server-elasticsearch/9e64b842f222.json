@@ -1,0 +1,148 @@
+{
+ "target": {
+  "display": "elastic/mcp-server-elasticsearch",
+  "raw": "elastic/mcp-server-elasticsearch",
+  "kind": "github",
+  "url": "https://github.com/elastic/mcp-server-elasticsearch",
+  "ref": null,
+  "subdir": null,
+  "commit": "9e64b842f22269eb214793e1a4885128dc4a8fd8",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:07:17+00:00",
+ "plugins": [
+  {
+   "name": "elastic__mcp-server-elasticsearch@9e64b842f222",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "elastic__mcp-server-elasticsearch@9e64b842f222",
+   "path": ".",
+   "plugin": "elastic__mcp-server-elasticsearch@9e64b842f222",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  }
+ ],
+ "stats": {
+  "files": 38,
+  "bytes": 179633,
+  "by_kind": {
+   "code": 14,
+   "config": 10,
+   "markdown": 2,
+   "other": 10,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 1
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:de22220bdd842897",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "ES_API_KEY": [
+    "src/lib.rs"
+   ],
+   "ES_PASSWORD": [
+    "src/lib.rs"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 733,
+  "forks": 162,
+  "open_issues": 26,
+  "contributors": "23",
+  "created_at": "2025-03-24T11:59:18Z",
+  "pushed_at": "2026-11-12T23:46:33Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": null,
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 1,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 1,
+   "info": 0
+  },
+  "active": 1,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

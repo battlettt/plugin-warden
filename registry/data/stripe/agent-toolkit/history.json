@@ -1,0 +1,16 @@
+{
+ "source": "stripe/agent-toolkit",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "17d0c774b7dcfcd8a55cb5a7cf9f3b809bc24a29",
+   "scanned_at": "2026-11-15T02:05:03+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 9,
+   "files": 896,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

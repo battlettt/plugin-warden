@@ -1,0 +1,16 @@
+{
+ "source": "korotovsky/slack-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "b88c0de3f706f4f07337c9eda7133c736d1c9524",
+   "scanned_at": "2026-11-15T02:08:44+00:00",
+   "level": "low",
+   "score": 2,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 80,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

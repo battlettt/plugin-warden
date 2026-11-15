@@ -1,0 +1,16 @@
+{
+ "source": "hashicorp/terraform-mcp-server",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "3e38ca6943992c108b7b83c3a06b0c1b6f4902ac",
+   "scanned_at": "2026-11-15T02:06:47+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 441,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

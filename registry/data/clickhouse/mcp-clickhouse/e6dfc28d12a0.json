@@ -1,0 +1,305 @@
+{
+ "target": {
+  "display": "clickhouse/mcp-clickhouse",
+  "raw": "clickhouse/mcp-clickhouse",
+  "kind": "github",
+  "url": "https://github.com/clickhouse/mcp-clickhouse",
+  "ref": null,
+  "subdir": null,
+  "commit": "e6dfc28d12a06ce670fdd20b8aec719490d79b70",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:08:19+00:00",
+ "plugins": [
+  {
+   "name": "ClickHouse__mcp-clickhouse@e6dfc28d12a0",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1,
+  "skill": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "ClickHouse__mcp-clickhouse@e6dfc28d12a0",
+   "path": ".",
+   "plugin": "ClickHouse__mcp-clickhouse@e6dfc28d12a0",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "release",
+   "path": ".claude/skills/release/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Prepare and ship a new mcp-clickhouse release \u2014 bump the version, update the changelog, refresh the lockfile, then walk through tagging, PyPI, Docker, and MCP Registry publishing. Use when asked to cu",
+    "allowed-tools": "Read, Edit, Bash, AskUserQuestion"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 82,
+  "bytes": 1341533,
+  "by_kind": {
+   "config": 17,
+   "markdown": 13,
+   "other": 7,
+   "python": 45
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:42c04c5229786e00",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bf38914568b69551",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b70842824fccd730",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a39dcb40c314a78a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1ffdb099f12ba147",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a048d07b9ff10166",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ebfd2f53ba7dc1a9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "CLICKHOUSE_PASSWORD": [
+    "mcp_clickhouse/clients.py",
+    "mcp_clickhouse/mcp_env.py"
+   ],
+   "CLICKHOUSE_PROXY_PATH": [
+    "mcp_clickhouse/mcp_env.py"
+   ],
+   "CLICKHOUSE_CLIENT_CERT_KEY": [
+    "mcp_clickhouse/mcp_env.py"
+   ],
+   "CHDB_DATA_PATH": [
+    "mcp_clickhouse/mcp_env.py"
+   ],
+   "CLICKHOUSE_MCP_AUTH_TOKEN": [
+    "mcp_clickhouse/mcp_env.py"
+   ],
+   "CLICKHOUSE_MCP_AUTH_DISABLED": [
+    "mcp_clickhouse/mcp_env.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 4,
+  "credentials": 0,
+  "secrets": 1,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 1,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 905,
+  "forks": 210,
+  "open_issues": 13,
+  "contributors": "28",
+  "created_at": "2024-12-25T14:15:46Z",
+  "pushed_at": "2026-11-14T06:31:34Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Connect ClickHouse to your AI assistants.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 6,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 1,
+   "info": 5
+  },
+  "active": 7,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "sandbox-bash",
+  "pin-mcp-version",
+  "pin-commit",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

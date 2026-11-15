@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem, or a wrong registry listing
+    url: https://github.com/battlettt/plugin-warden/security/advisories/new
+    about: Private. Use this for vulnerabilities in Plugin Warden and for corrections to a registry entry about your repository.

@@ -1,0 +1,176 @@
+{
+ "target": {
+  "display": "kagisearch/kagimcp",
+  "raw": "kagisearch/kagimcp",
+  "kind": "github",
+  "url": "https://github.com/kagisearch/kagimcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "4dc1dc97ca8dead8458c7025e4fcc36d2e3d6ec4",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:11:21+00:00",
+ "plugins": [
+  {
+   "name": "kagisearch__kagimcp@4dc1dc97ca8d",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "kagisearch__kagimcp@4dc1dc97ca8d",
+   "path": ".",
+   "plugin": "kagisearch__kagimcp@4dc1dc97ca8d",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 37,
+  "bytes": 451924,
+  "by_kind": {
+   "config": 1,
+   "markdown": 1,
+   "other": 5,
+   "python": 30
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:487f8d5a4da58c5c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c3a11932a7d47b0d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "KAGI_API_KEY": [
+    "src/kagimcp/server.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 1,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 568,
+  "forks": 52,
+  "open_issues": 7,
+  "contributors": "8",
+  "created_at": "2024-12-13T02:41:16Z",
+  "pushed_at": "2026-10-28T13:39:24Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "The Official Model Context Protocol (MCP) server for Kagi Search & other tools.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 2,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 2,
+   "info": 0
+  },
+  "active": 2,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "sandbox-bash",
+  "review-before-run",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

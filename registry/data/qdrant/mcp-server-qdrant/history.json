@@ -1,0 +1,16 @@
+{
+ "source": "qdrant/mcp-server-qdrant",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "9cfd5f1584e4de45517c335c2bb69f7a53e44055",
+   "scanned_at": "2026-11-15T02:07:19+00:00",
+   "level": "review",
+   "score": 15,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 37,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

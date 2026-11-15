@@ -1,0 +1,26 @@
+{
+ "source": "wshobson/agents",
+ "kind": "marketplace",
+ "scans": [
+  {
+   "commit": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+   "scanned_at": "2026-11-07T21:39:29+00:00",
+   "level": "caution",
+   "score": 14,
+   "reviewed": true,
+   "auto_runs": 4,
+   "files": 1172,
+   "tool_version": "0.1.0"
+  },
+  {
+   "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+   "scanned_at": "2026-11-15T01:35:23+00:00",
+   "level": "review",
+   "score": 85,
+   "reviewed": false,
+   "auto_runs": 4,
+   "files": 1172,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

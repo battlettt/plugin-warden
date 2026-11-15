@@ -1,0 +1,1117 @@
+{
+ "target": {
+  "display": "modelcontextprotocol/servers",
+  "raw": "modelcontextprotocol/servers",
+  "kind": "github",
+  "url": "https://github.com/modelcontextprotocol/servers",
+  "ref": null,
+  "subdir": null,
+  "commit": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:01:06+00:00",
+ "plugins": [
+  {
+   "name": "modelcontextprotocol__servers@e1dc4b18dbb9",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "mcp_server": 1,
+  "package": 8,
+  "skill": 11
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "modelcontextprotocol__servers@e1dc4b18dbb9",
+   "path": ".",
+   "plugin": "modelcontextprotocol__servers@e1dc4b18dbb9",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "mcp-docs",
+   "path": ".mcp.json",
+   "plugin": "modelcontextprotocol__servers@e1dc4b18dbb9",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://modelcontextprotocol.io/mcp"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "board-ops",
+   "path": ".claude/skills/board-ops/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"gh recipes for the Servers V2 project board (#43): add an issue's card, move its Status, set or change its Priority, delete a card, and recover from a deleted single-select option. Use when moving a "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "client-smoke",
+   "path": ".claude/skills/client-smoke/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Drive a locally built server with a real client: the Inspector CLI (scripted), the Inspector web UI (through Playwright) and an LLM client. Use when smoke-testing a server change; when calling a tool"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "issue-create",
+   "path": ".claude/skills/issue-create/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Create a tracked issue in this repo end to end \u2014 duplicate check, v2 label, type label, server-scope label, milestone, board card, Status and Priority. Use when asked to file, create, open or raise a"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "issue-triage",
+   "path": ".claude/skills/issue-triage/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Triage this repo's inflow \u2014 sweep unboarded issues onto the Servers V2 board (#43) as Incoming, score Priority with the rubric and post the score, classify outside PRs and spam (server listings, new "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "local-dev",
+   "path": ".claude/skills/local-dev/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Install, build and run a server from this checkout. Use when starting a server locally over stdio, SSE or Streamable HTTP; when pointing npx, uvx or an MCP client config at the local build; when a ru"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pr-flow",
+   "path": ".claude/skills/pr-flow/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Take an issue through to a PR in this repo and close it out after merge. Use when asked to open, create or submit a PR; when naming a branch; when signing off commits or repairing a missing Signed-of"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pre-push-gate",
+   "path": ".claude/skills/pre-push-gate/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Run this repo's pre-push gate and fix it when it goes red. Use when npm run local:gate fails or a stage of it does (verify:install-fresh, a root guard, lint, typecheck, ruff, pyright, pytest, verify:"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "project-structure",
+   "path": ".claude/skills/project-structure/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Find where code lives in this repo's seven servers and decide where a new file goes. Use when choosing the file or directory for a new tool, resource, prompt, transport, helper module, command-line f"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "release",
+   "path": ".claude/skills/release/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Cut a milestone release: the release issue, the preparation PRs on v2/main (audit, changesets Version Packages, Python CalVer), the pure v2/main to main merge PR with its release ledger, then the Git"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "security-advisory",
+   "path": ".claude/skills/security-advisory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Take a privately reported vulnerability through this repo's security advisory flow: board it as a draft card, check whether the code is this repo's server or the SDK underneath, accept or reject, fix"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "testing",
+   "path": ".claude/skills/testing/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Write, place and run tests for a server in this repo. Use when choosing between driving the server through an MCP client and calling its functions directly; when writing a protocol-level test for a T"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@modelcontextprotocol/servers",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "npm run build --workspaces",
+     "watch": "npm run watch --workspaces",
+     "publish-all": "npm publish --workspaces --access public",
+     "link-all": "npm link --workspaces",
+     "changeset": "changeset",
+     "version-packages": "changeset version && npm install --package-lock-only --ignore-scripts",
+     "verify:skills": "node scripts/verify-skills.mjs",
+     "verify:skills:cli": "node scripts/verify-skills-cli.mjs",
+     "skills:eval": "node scripts/skill-eval.mjs",
+     "test:scripts": "node --test \"scripts/**/*.test.mjs\"",
+     "validate": "npm run validate:guards && npm run validate --workspaces",
+     "validate:guards": "npm run format:check:root && npm run lint:root && npm run verify:format-coverage && npm run verify:skills && npm run verify:typecheck-coverage && npm run verify:dep-lockstep && npm run verify:no-test-retries && npm run verify:action-pins && npm run test:scripts",
+     "format": "npm run format:root && npm run format --workspaces",
+     "format:root": "prettier --write \"scripts/**/*.{ts,mts,cts,js,mjs,cjs}\" \"*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path .prettierignore",
+     "format:check": "npm run format:check:root && npm run format:check --workspaces",
+     "format:check:root": "prettier --check \"scripts/**/*.{ts,mts,cts,js,mjs,cjs}\" \"*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path .prettierignore",
+     "lint": "npm run lint:root && npm run lint --workspaces",
+     "lint:root": "eslint scripts \"*.{js,mjs,cjs}\" --max-warnings 0",
+     "test": "npm run test --workspaces",
+     "coverage": "npm run coverage --workspaces",
+     "verify:format-coverage": "node scripts/verify-format-coverage.mjs",
+     "verify:typecheck-coverage": "node scripts/verify-typecheck-coverage.mjs",
+     "verify:dep-lockstep": "node scripts/verify-dep-lockstep.mjs",
+     "validate:py": "node scripts/validate-py.mjs",
+     "coverage:py": "node scripts/coverage-py.mjs",
+     "verify:install-fresh": "node scripts/verify-install-fresh.mjs",
+     "verify:no-test-retries": "node scripts/verify-no-test-retries.mjs",
+     "verify:action-pins": "node scripts/verify-action-pins.mjs",
+     "verify:dco": "node scripts/verify-dco.mjs",
+     "smoke": "node scripts/smoke-servers.mjs",
+     "interface-diff": "node scripts/interface-diff.mjs",
+     "pack:verify": "node scripts/pack-and-verify.mjs",
+     "release:notes": "node scripts/release-notes.mjs",
+     "local:gate": "node scripts/gate-lease.mjs npm run local:gate:stages",
+     "local:gate:stages": "npm run verify:install-fresh && npm run verify:dco && npm run validate && npm run coverage && npm run validate:py && npm run coverage:py && npm run verify:skills:cli && npm run smoke && npm run interface-diff"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server-everything": "*",
+     "@modelcontextprotocol/server-filesystem": "*",
+     "@modelcontextprotocol/server-memory": "*",
+     "@modelcontextprotocol/server-sequential-thinking": "*"
+    },
+    "devDependencies": {
+     "@changesets/changelog-github": "1.0.1",
+     "@changesets/cli": "^3.0.3",
+     "@eslint/js": "^10.0.1",
+     "@modelcontextprotocol/client": "^2.3.1",
+     "eslint": "^10.11.0",
+     "globals": "^17.12.0",
+     "mcp-server-diff": "3.0.0",
+     "prettier": "3.8.4",
+     "proper-lockfile": "^4.1.2",
+     "semver": "^7.8.4",
+     "typescript-eslint": "^8.71.0",
+     "yaml": "^2.9.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@modelcontextprotocol/server-everything",
+   "path": "src/everything/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx cp -r docs dist/ && shx chmod +x dist/*.js",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "start:stdio": "node dist/index.js stdio",
+     "start:sse": "node dist/index.js sse",
+     "start:streamableHttp": "node dist/index.js streamableHttp",
+     "test": "vitest run",
+     "format": "prettier --write \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "format:check": "prettier --check \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "lint": "eslint . --max-warnings 0",
+     "typecheck": "tsc -p tsconfig.test.json",
+     "coverage": "vitest run --coverage",
+     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/node": "^2.1.1",
+     "@modelcontextprotocol/server": "^2.3.1",
+     "@modelcontextprotocol/server-legacy": "^2.3.1",
+     "cors": "^2.8.5",
+     "express": "^5.3.0",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@modelcontextprotocol/core": "^2.3.1",
+     "@types/cors": "^2.8.19",
+     "@types/express": "^5.0.6",
+     "@vitest/coverage-v8": "^4.1.12",
+     "shx": "^0.4.0",
+     "typescript": "^5.8.2",
+     "vitest": "^4.1.12"
+    },
+    "bin": {
+     "mcp-server-everything": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/fetch/pyproject.toml",
+   "path": "src/fetch/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@modelcontextprotocol/server-filesystem",
+   "path": "src/filesystem/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "test": "vitest run",
+     "format": "prettier --write \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "format:check": "prettier --check \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "lint": "eslint . --max-warnings 0",
+     "typecheck": "tsc -p tsconfig.test.json",
+     "coverage": "vitest run --coverage",
+     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "^2.3.1",
+     "diff": "^8.0.3",
+     "minimatch": "^11.0.4",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@types/diff": "^5.0.9",
+     "@types/minimatch": "^5.1.2",
+     "@types/node": "^24",
+     "@vitest/coverage-v8": "^4.1.12",
+     "shx": "^0.4.0",
+     "typescript": "^5.8.2",
+     "vitest": "^4.1.12"
+    },
+    "bin": {
+     "mcp-server-filesystem": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/git/pyproject.toml",
+   "path": "src/git/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@modelcontextprotocol/server-memory",
+   "path": "src/memory/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "test": "vitest run",
+     "format": "prettier --write \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "format:check": "prettier --check \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "lint": "eslint . --max-warnings 0",
+     "typecheck": "tsc -p tsconfig.test.json",
+     "coverage": "vitest run --coverage",
+     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "^2.3.1",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@types/node": "^24",
+     "@vitest/coverage-v8": "^4.1.12",
+     "shx": "^0.4.0",
+     "typescript": "^5.8.2",
+     "vitest": "^4.1.12"
+    },
+    "bin": {
+     "mcp-server-memory": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@modelcontextprotocol/server-sequential-thinking",
+   "path": "src/sequentialthinking/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "test": "vitest run",
+     "format": "prettier --write \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "format:check": "prettier --check \"**/*.{ts,mts,cts,js,mjs,cjs}\" --ignore-path ../../.prettierignore",
+     "lint": "eslint . --max-warnings 0",
+     "typecheck": "tsc -p tsconfig.test.json",
+     "coverage": "vitest run --coverage",
+     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/server": "^2.3.1",
+     "chalk": "^5.3.0",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@modelcontextprotocol/client": "^2.3.1",
+     "@types/node": "^24",
+     "@vitest/coverage-v8": "^4.1.12",
+     "shx": "^0.4.0",
+     "typescript": "^5.8.2",
+     "vitest": "^4.1.12"
+    },
+    "bin": {
+     "mcp-server-sequential-thinking": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/time/pyproject.toml",
+   "path": "src/time/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 414,
+  "bytes": 5487139,
+  "by_kind": {
+   "config": 46,
+   "js": 246,
+   "markdown": 44,
+   "other": 28,
+   "python": 50
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 21
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-GIT-HOOKS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:27dbd287dc3d6371",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DESTRUCT-GIT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6103f4a6da6a0d29",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7568c9fa3c7fda7b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2e6f3d28348932de",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "OBF-ENCODED-BLOB",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a2863481788a9e0f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:33623f8fbb19e389",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-UNPINNED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1015e40013bec971",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d91ec90882dff9ee",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ec1b522e9216ee55",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d553301c0261c60b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c9c291ab816476f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b531177df8e3c141",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:afc9fecd532b519c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a0aba6b651f62d9d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f18bc2ba7eb68ec8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:aa8a8da67af7e9e4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a5713729ba406e2c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:717523516cdec6fe",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0a6eb27c80466e73",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:97df2cdd859ecfc1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:62e16f4a700fbb3a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3644bc7e4c781017",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f11541eddb619cf0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4513120bc5ac1ed3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c744df413eec0c8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:770f331fbce24514",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5ffe398794895ac2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7779c3f6124128c7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "https://modelcontextprotocol.io/mcp",
+    "type": "MCP server",
+    "plugin": "modelcontextprotocol__servers@e1dc4b18dbb9",
+    "file": ".mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "mcp-docs",
+    "kind": "MCP server",
+    "launch": "https://modelcontextprotocol.io/mcp",
+    "file": ".mcp.json"
+   }
+  ],
+  "hosts": {
+   "github.com": [
+    "scripts/sdk-watch.mjs",
+    "src/fetch/src/mcp_server_fetch/server.py"
+   ],
+   "modelcontextprotocol.io": [
+    ".mcp.json"
+   ],
+   "pypi.org": [
+    "scripts/sdk-watch.mjs"
+   ],
+   "raw.githubusercontent.com": [
+    "src/everything/tools/gzip-file-as-resource.ts"
+   ],
+   "registry.npmjs.org": [
+    "scripts/npm-publish-guard.mjs"
+   ]
+  },
+  "sensitive_paths": {
+   ".claude/settings": [
+    "scripts/session-instructions-check.mjs"
+   ]
+  },
+  "env_vars": {
+   "INCLUDE_SECRETS_VAR": [
+    "src/everything/tools/get-env.ts"
+   ],
+   "MEMORY_FILE_PATH": [
+    "src/memory/index.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 10,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 1,
+  "destructive": 1,
+  "privilege": 0,
+  "obfuscation": 3,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 13,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 91999,
+  "forks": 11968,
+  "open_issues": 19,
+  "contributors": "100+",
+  "created_at": "2024-11-19T01:10:17Z",
+  "pushed_at": "2026-11-12T05:37:52Z",
+  "license": "NOASSERTION",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Model Context Protocol Reference Servers",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 10,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 15,
+   "info": 13
+  },
+  "active": 28,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "check-persistence",
+  "ask-git-destructive",
+  "deny-mcp-server",
+  "review-context-injection",
+  "review-before-run",
+  "dependency-audit",
+  "sandbox-bash",
+  "pin-mcp-version",
+  "pin-commit"
+ ],
+ "settings_snippet": {}
+}

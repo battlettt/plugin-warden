@@ -1,0 +1,3636 @@
+{
+ "target": {
+  "display": "getsentry/sentry-mcp",
+  "raw": "getsentry/sentry-mcp",
+  "kind": "github",
+  "url": "https://github.com/getsentry/sentry-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "d9c69544d649e2aa41d3a62e045b04637ab8d931",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:05:21+00:00",
+ "plugins": [
+  {
+   "name": "getsentry__sentry-mcp@d9c69544d649",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  },
+  {
+   "name": "sentry-cli",
+   "path": "packages/cli/plugins/sentry-cli",
+   "source": "manifest",
+   "version": "0.50.0",
+   "description": "Skills for using the Sentry CLI to interact with Sentry from the command line"
+  },
+  {
+   "name": "sentry-mcp",
+   "path": "plugins/sentry-mcp",
+   "source": "manifest",
+   "version": null,
+   "description": "Sentry error tracking and performance monitoring via MCP"
+  },
+  {
+   "name": "sentry-mcp-experimental",
+   "path": "plugins/sentry-mcp-experimental",
+   "source": "manifest",
+   "version": null,
+   "description": "Sentry MCP with experimental features enabled"
+  }
+ ],
+ "component_counts": {
+  "agent": 2,
+  "bin": 1,
+  "manifest": 4,
+  "marketplace": 1,
+  "mcp_server": 4,
+  "package": 18,
+  "skill": 19
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "getsentry__sentry-mcp@d9c69544d649",
+   "path": ".",
+   "plugin": "getsentry__sentry-mcp@d9c69544d649",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sentry",
+   "path": ".mcp.json",
+   "plugin": "getsentry__sentry-mcp@d9c69544d649",
+   "trigger": "",
+   "details": {
+    "type": "stdio",
+    "command": "sentry",
+    "args": [
+     "mcp",
+     "sentry/mcp-server",
+     "--experimental"
+    ]
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sentry-dev",
+   "path": ".mcp.json",
+   "plugin": "getsentry__sentry-mcp@d9c69544d649",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "http://localhost:5173/mcp/sentry/mcp-server?experimental=1"
+   }
+  },
+  {
+   "kind": "bin",
+   "name": "bump-version.sh",
+   "path": "bin/bump-version.sh",
+   "plugin": "getsentry__sentry-mcp@d9c69544d649",
+   "trigger": "",
+   "details": {
+    "executable": true,
+    "kind": "shell"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "sentry-cli",
+   "path": "packages/cli/plugins/sentry-cli/.claude-plugin/plugin.json",
+   "plugin": "sentry-cli",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "0.50.0",
+    "description": "Skills for using the Sentry CLI to interact with Sentry from the command line"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "sentry-cli",
+   "path": "packages/cli/plugins/sentry-cli/skills/sentry-cli/SKILL.md",
+   "plugin": "sentry-cli",
+   "trigger": "",
+   "details": {
+    "description": "Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user asks about viewing issues, events, projects, organizations, making API calls, or authenticating with Sen"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "sentry-mcp",
+   "path": "plugins/sentry-mcp/.claude-plugin/plugin.json",
+   "plugin": "sentry-mcp",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "description": "Sentry error tracking and performance monitoring via MCP",
+    "author": {
+     "name": "Sentry"
+    }
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sentry",
+   "path": "plugins/sentry-mcp/.mcp.json",
+   "plugin": "sentry-mcp",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.sentry.dev/mcp"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "sentry-mcp",
+   "path": "plugins/sentry-mcp/agents/sentry-mcp.md",
+   "plugin": "sentry-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Sentry error tracking and performance monitoring agent. Use when the user asks about errors, exceptions, issues, stack traces, performance, traces, releases, snapshots, screenshots, visual regression,"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "sentry-mcp-experimental",
+   "path": "plugins/sentry-mcp-experimental/.claude-plugin/plugin.json",
+   "plugin": "sentry-mcp-experimental",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "description": "Sentry MCP with experimental features enabled",
+    "author": {
+     "name": "Sentry"
+    }
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sentry",
+   "path": "plugins/sentry-mcp-experimental/.mcp.json",
+   "plugin": "sentry-mcp-experimental",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.sentry.dev/mcp?experimental=1"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "sentry-mcp",
+   "path": "plugins/sentry-mcp-experimental/agents/sentry-mcp.md",
+   "plugin": "sentry-mcp-experimental",
+   "trigger": "",
+   "details": {
+    "description": "Sentry error tracking and performance monitoring agent. Use when the user asks about errors, exceptions, issues, stack traces, performance, traces, releases, snapshots, screenshots, visual regression,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "create-pr",
+   "path": ".agents/skills/create-pr/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Alias for sentry-skills:pr-writer. Use when users explicitly ask for \"create-pr\" or reference the legacy skill name. Redirects to the canonical PR writing workflow."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "logging-observability",
+   "path": ".agents/skills/logging-observability/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Review code for correct logging and error handling patterns. Use when reviewing code that handles errors, uses logging functions, or captures exceptions. Enforces the error hierarchy where 4xx errors "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "mcp-audit",
+   "path": ".agents/skills/mcp-audit/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Audit MCP servers for protocol compliance, metadata drift, and compatibility regressions. Use when reviewing tool annotations, tool/result schemas, structured output, lifecycle/init handshake, capabil"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "mcp-qa",
+   "path": ".agents/skills/mcp-qa/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "QA MCP tool changes with local CLI and real agent clients. Use when explicitly invoked via /mcp-qa or when asked to QA MCP tool changes end-to-end."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-apply-change",
+   "path": ".agents/skills/openspec-apply-change/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Implement tasks from an OpenSpec change. Use when the user wants to start implementing, continue implementation, or work through tasks."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-archive-change",
+   "path": ".agents/skills/openspec-archive-change/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Archive a completed change in the experimental workflow. Use when the user wants to finalize and archive a change after implementation is complete."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-explore",
+   "path": ".agents/skills/openspec-explore/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Enter explore mode - a thinking partner for exploring ideas, investigating problems, and clarifying requirements. Use when the user wants to think through something before or during a change."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-propose",
+   "path": ".agents/skills/openspec-propose/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Propose a new change with all artifacts generated in one step. Use when the user wants to quickly describe what they want to build and get a complete proposal with design, specs, and tasks ready for i"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-sync-specs",
+   "path": ".agents/skills/openspec-sync-specs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Sync delta specs from a change to main specs. Use when the user wants to update main specs with changes from a delta spec, without archiving the change."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "skill-creator",
+   "path": ".agents/skills/skill-creator/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Alias for sentry-skills:skill-writer. Use when users explicitly ask for \"skill-creator\" or reference the legacy skill name. Redirects to the canonical skill authoring workflow."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "testing-guidelines",
+   "path": ".agents/skills/testing-guidelines/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Guide for writing tests. Use when adding new functionality, fixing bugs, or when tests are needed. Emphasizes integration tests, real-world fixtures, and regression coverage."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-apply-change",
+   "path": ".codex/skills/openspec-apply-change/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Implement tasks from an OpenSpec change. Use when the user wants to start implementing, continue implementation, or work through tasks."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-archive-change",
+   "path": ".codex/skills/openspec-archive-change/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Archive a completed change in the experimental workflow. Use when the user wants to finalize and archive a change after implementation is complete."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-explore",
+   "path": ".codex/skills/openspec-explore/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Enter explore mode - a thinking partner for exploring ideas, investigating problems, and clarifying requirements. Use when the user wants to think through something before or during a change."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-propose",
+   "path": ".codex/skills/openspec-propose/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Propose a new change with all artifacts generated in one step. Use when the user wants to quickly describe what they want to build and get a complete proposal with design, specs, and tasks ready for i"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "openspec-sync-specs",
+   "path": ".codex/skills/openspec-sync-specs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Sync delta specs from a change to main specs. Use when the user wants to update main specs with changes from a delta spec, without archiving the change."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "sentry-cli",
+   "path": "apps/cli-docs/public/.well-known/skills/sentry-cli/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "skill",
+   "name": "sentry-cli",
+   "path": "packages/cli/.cursor/skills/sentry-cli/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "package",
+   "name": "sentry-mcp",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "docs:check": "node scripts/check-doc-links.mjs",
+     "test:ci-projects": "node --test scripts/ci-projects.test.mjs scripts/check-workspace-deps.test.mjs scripts/cli-nightly-version.test.mjs scripts/cli-nightly-watchdog.test.mjs scripts/codemod-version-changed.test.mjs scripts/cloudflare-deployment.test.mjs scripts/deploy-workflow.test.mjs scripts/migrate-cloudflare-token.test.mjs scripts/oxc-config.test.mjs scripts/cli-lint-rules.test.mjs scripts/workflow-policy.test.mjs",
+     "dev": "pnpm --filter '@sentry/mcp-cloudflare...' --if-present run build && dotenv -e .env -e .env.local -- pnpm --parallel --filter @sentry/mcp-cloudflare --filter @sentry/mcp-core --filter @sentry/mcp-server-mocks --if-present run dev",
+     "dev:stdio": "pnpm --filter '@sentry/mcp-core...' --if-present run build 1>&2 && dotenv -e .env -e .env.local -- pnpm --silent --dir packages/cli run cli mcp",
+     "build": "dotenv -e .env -e .env.local -- pnpm -r --filter '!sentry' --filter '!sentry-cli-docs' --if-present run build",
+     "build:cli": "dotenv -e .env -e .env.local -- pnpm --filter sentry run build && pnpm --filter sentry-cli-docs run build",
+     "check:generated": "pnpm --filter @sentry/mcp-core generate-definitions && git diff --exit-code -- packages/mcp-core/src/toolDefinitions.json packages/mcp-core/src/skillDefinitions.json plugins/sentry-mcp/agents/sentry-mcp.md plugins/sentry-mcp-experimental/agents/sentry-mcp.md",
+     "deploy:docs": "pnpm --filter sentry run generate:docs && pnpm --filter sentry-cli-docs run build && pnpm --filter sentry-cli-docs run deploy",
+     "eval": "pnpm --filter '@sentry/mcp-server-evals...' --if-present run build && dotenv -e .env -e .env.local -- pnpm --filter @sentry/mcp-server-evals run eval",
+     "eval:ci": "pnpm --filter '@sentry/mcp-server-evals...' --if-present run build && CI=true dotenv -e .env -e .env.local -- pnpm --stream -r run eval:ci",
+     "format": "oxfmt --write",
+     "lint": "oxlint --report-unused-disable-directives . && pnpm run lint:format && pnpm run lint:ast-grep && pnpm run lint:deps",
+     "lint:ast-grep": "ast-grep scan && ast-grep test --skip-snapshot-tests",
+     "lint:deps": "node scripts/check-workspace-deps.mjs",
+     "lint:format": "oxfmt --check",
+     "lint:fix": "oxlint --fix .",
+     "pre-commit:generated": "node scripts/pre-commit-generated.mjs",
+     "inspector": "pnpx @modelcontextprotocol/inspector@latest",
+     "inspector:stdio": "pnpx @modelcontextprotocol/inspector@latest -- pnpm --silent --dir packages/cli run cli mcp",
+     "measure-tokens": "pnpm run --filter ./packages/mcp-core measure-tokens",
+     "prepare": "simple-git-hooks",
+     "cli": "pnpm run --filter ./packages/mcp-test-client start",
+     "start:stdio": "pnpm --silent --dir packages/cli run cli mcp",
+     "test": "pnpm run build && dotenv -e .env -e .env.local -- pnpm -r --filter '!@sentry/mcp-smoke-tests' --if-present run test",
+     "test:ci": "pnpm run build && CI=true dotenv -e .env -e .env.local -- pnpm --stream -r run test:ci",
+     "test:watch": "dotenv -e .env -e .env.local -- pnpm -r --parallel --if-present run test:watch",
+     "tsc": "pnpm run build && pnpm -r --if-present run tsc && pnpm -r --if-present run typecheck"
+    },
+    "dependencies": {
+     "@ast-grep/cli": "catalog:",
+     "@types/node": "catalog:",
+     "dotenv": "catalog:",
+     "dotenv-cli": "catalog:",
+     "lint-staged": "catalog:",
+     "oxfmt": "catalog:",
+     "oxlint": "catalog:",
+     "oxlint-tsgolint": "catalog:",
+     "peggy": "^5.1.0",
+     "simple-git-hooks": "catalog:",
+     "tsdown": "catalog:",
+     "typescript": "catalog:",
+     "valibot": "catalog:",
+     "vitest": "catalog:"
+    },
+    "devDependencies": {
+     "@types/json-schema": "^7.0.15"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "sentry-cli-docs",
+   "path": "apps/cli-docs/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "ci:prepare": "pnpm --filter sentry run generate:docs",
+     "dev": "astro dev",
+     "build": "astro build",
+     "test": "node --test test/*.test.mjs",
+     "preview": "astro preview",
+     "deploy": "wrangler deploy"
+    },
+    "dependencies": {
+     "@astrojs/mdx": "^7.0.8",
+     "@astrojs/starlight": "^0.41.5",
+     "@sentry/astro": "^11.12.0",
+     "@sentry/starlight-theme": "^0.8.0",
+     "@vercel/analytics": "^2.0.1",
+     "@vercel/speed-insights": "^2.0.0",
+     "astro": "^7.4.7",
+     "sharp": "^0.35.5",
+     "shiki": "^3.21.0"
+    },
+    "devDependencies": {
+     "wrangler": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs-mcp",
+   "path": "apps/docs-mcp/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "wrangler dev --port 8788",
+     "build": "wrangler deploy --dry-run",
+     "deploy": "wrangler deploy --minify",
+     "generate:cf-types": "wrangler types --env-interface CloudflareBindings",
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+     "@hono/mcp": "^0.2.3",
+     "@mastra/core": "^1.63.2",
+     "@modelcontextprotocol/sdk": "^1.31.0",
+     "@openrouter/ai-sdk-provider": "^1.5.4",
+     "@sentry/cloudflare": "catalog:",
+     "@sentry/toolkit-core": "workspace:*",
+     "ai": "^5.0.0",
+     "hono": "^4.13.16",
+     "zod": "^4.6.6"
+    },
+    "devDependencies": {
+     "@types/node": "^22",
+     "typescript": "^5.9.3",
+     "wrangler": "catalog:",
+     "vitest": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/games-api",
+   "path": "apps/games-api/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "wrangler dev",
+     "build": "wrangler deploy --dry-run",
+     "deploy": "wrangler deploy --minify",
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:watch": "vitest",
+     "tsc": "tsc --noEmit"
+    },
+    "dependencies": {
+     "@sentry/cloudflare": "catalog:",
+     "@sentry/toolkit-core": "workspace:*",
+     "hono": "catalog:",
+     "zod": "catalog:"
+    },
+    "devDependencies": {
+     "@cloudflare/workers-types": "catalog:",
+     "@sentry/mcp-server-tsconfig": "workspace:*",
+     "typescript": "catalog:",
+     "vitest": "catalog:",
+     "wrangler": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "local",
+   "path": "apps/local/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite",
+     "build": "tsc -b && vite build",
+     "lint": "oxlint",
+     "preview": "vite preview",
+     "test": "pnpm --filter sentry exec node script/ensure-generated.mjs schema grammar && vitest run",
+     "test:integration": "pnpm run test src/App.integration.test.tsx",
+     "typecheck": "tsc -b",
+     "sample": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/replay.ts"
+    },
+    "dependencies": {
+     "@hookform/resolvers": "^5.9.1",
+     "@radix-ui/react-dialog": "^1.1.23",
+     "@radix-ui/react-popover": "^1.3.1",
+     "@radix-ui/react-slot": "^1.3.3",
+     "@radix-ui/react-tooltip": "^1.4.1",
+     "@shikijs/core": "^3.23.0",
+     "@shikijs/engine-javascript": "^3.23.0",
+     "@shikijs/langs": "^3.23.0",
+     "@shikijs/themes": "^3.23.0",
+     "@tailwindcss/vite": "^4.3.3",
+     "@uidotdev/usehooks": "^2.4.1",
+     "@vercel/analytics": "^2.0.1",
+     "class-variance-authority": "^0.7.1",
+     "clsx": "^2.1.1",
+     "cmdk": "^1.1.1",
+     "lucide-react": "^1.43.0",
+     "next-themes": "^0.4.6",
+     "nuqs": "^2.10.1",
+     "react": "^19.2.8",
+     "react-dom": "^19.2.8",
+     "react-hook-form": "^7.90.0",
+     "react-router": "^7.18.3",
+     "tailwind-merge": "^3.6.0",
+     "tailwindcss": "^4.3.3",
+     "tslib": "^2.8.1",
+     "valibot": "catalog:"
+    },
+    "devDependencies": {
+     "@testing-library/react": "^16.3.2",
+     "@types/node": "^24.13.3",
+     "@types/react": "^19.2.18",
+     "@types/react-dom": "^19.2.4",
+     "@vitejs/plugin-react": "^6.1.0",
+     "eventsource": "^4.1.0",
+     "jsdom": "^28.1.0",
+     "oxlint": "^1.79.0",
+     "typescript": "catalog:",
+     "vite": "^8.3.3",
+     "vitest": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "sentry",
+   "path": "packages/cli/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "ts": "node --env-file-if-exists=.env.local --experimental-strip-types --import ./script/require-shim.mjs",
+     "cli": "node script/ensure-generated.mjs && node --env-file-if-exists=.env.local --experimental-strip-types --import ./script/require-shim.mjs --import ./script/strip-arg-separator.mjs src/bin.ts",
+     "dev": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && node --experimental-strip-types --import ./script/require-shim.mjs --import ./script/strip-arg-separator.mjs src/bin.ts",
+     "build": "pnpm --filter @sentry/mcp-core run build && node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && pnpm ts script/build.ts --single",
+     "build:all": "pnpm --filter @sentry/mcp-core run build && node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && pnpm ts script/build.ts",
+     "bundle": "pnpm --filter @sentry/mcp-core run build && node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && pnpm ts script/bundle.ts",
+     "typecheck": "pnpm --filter @sentry/mcp-core run build && node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && tsc --noEmit",
+     "lint": "pnpm -w exec oxlint --report-unused-disable-directives packages/cli && pnpm -w exec oxfmt --check packages/cli",
+     "lint:fix": "pnpm -w exec oxlint --fix packages/cli && pnpm -w exec oxfmt --write packages/cli",
+     "test": "pnpm run test:unit",
+     "test:unit": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && vitest run test/lib test/commands test/types test/script --coverage",
+     "test:changed": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk && vitest run --changed",
+     "test:e2e": "pnpm ts script/prepare-e2e-bundle.ts && vitest run test/e2e",
+     "generate": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs sdk",
+     "generate:sdk": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts sdk",
+     "generate:skill": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts skill",
+     "generate:banner": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts banner",
+     "generate:docs": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs",
+     "generate:grammar": "node ../../scripts/generate-parsers.mjs .",
+     "generate:output-schemas": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts output-schemas",
+     "generate:completions": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts completions",
+     "generate:top-level-routes": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts top-level-routes",
+     "generate:docs-sections": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs-sections",
+     "generate:schema": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts schema",
+     "generate:command-api": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts command-api",
+     "generate:command-docs": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts command-docs",
+     "eval:skill": "pnpm ts script/eval-skill.ts",
+     "bench": "pnpm ts script/bench.ts",
+     "bench:save": "pnpm ts script/bench.ts --save-baseline",
+     "bench:compare": "pnpm ts script/bench.ts --compare",
+     "bench:sweep": "pnpm ts script/bench-sweep.ts",
+     "check:fragments": "pnpm ts script/check-fragments.ts --strict",
+     "check:deps": "pnpm ts script/check-no-deps.ts",
+     "check:errors": "pnpm ts script/check-error-patterns.ts",
+     "check:patches": "pnpm ts script/check-patches.ts",
+     "check:docs-sections": "node --experimental-strip-types --import ./script/require-shim.mjs script/generate.ts docs-sections --check",
+     "check:env-coverage": "pnpm ts script/check-env-coverage.ts",
+     "check:stale-refs": "pnpm ts script/check-stale-references.ts",
+     "check:doc-examples": "pnpm ts script/check-doc-examples.ts",
+     "check:installer-docs": "pnpm ts script/check-installer-docs.ts",
+     "check:destructive": "pnpm ts script/check-destructive-commands.ts",
+     "ci:policy": "pnpm run check:patches && pnpm run check:deps && pnpm run check:errors && pnpm run check:fragments && pnpm run check:docs-sections && pnpm run check:env-coverage && pnpm run check:stale-refs && pnpm run check:doc-examples && pnpm run check:installer-docs && pnpm run check:destructive"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@anthropic-ai/sdk": "^0.39.0",
+     "@clack/prompts": "0.11.0",
+     "@hono/node-server": "^2.1.6",
+     "@sentry/api": "catalog:",
+     "@sentry/core": "catalog:",
+     "@sentry/logger": "workspace:*",
+     "@sentry/mcp-core": "workspace:*",
+     "@sentry/node": "catalog:",
+     "@sentry/search-syntax": "catalog:",
+     "@sentry/sqlish": "^1.0.1",
+     "@sentry/symbolic": "14.0.0-alpha.5",
+     "@sentry/toolkit-core": "workspace:*",
+     "@stricli/auto-complete": "^1.2.8",
+     "@stricli/core": "1.2.8",
+     "@types/http-cache-semantics": "^4.2.0",
+     "@types/node": "^22.20.0",
+     "@types/picomatch": "^4.0.3",
+     "@types/pngjs": "^6.0.5",
+     "@types/qrcode-terminal": "^0.12.2",
+     "@types/semver": "^7.7.1",
+     "@types/yauzl": "3.4.0",
+     "@vitest/coverage-v8": "catalog:",
+     "binpatch": "^0.4.2",
+     "chalk": "^5.6.2",
+     "cli-highlight": "^2.1.11",
+     "esbuild": "^0.28.1",
+     "fast-check": "^4.8.0",
+     "fflate": "^0.8.3",
+     "fossilize": "^0.10.1",
+     "hono": "catalog:",
+     "http-cache-semantics": "^4.2.0",
+     "ignore": "^7.0.5",
+     "jpeg-js": "^0.4.4",
+     "marked": "catalog:",
+     "node-sqlite3-wasm": "0.8.59",
+     "p-limit": "^7.3.0",
+     "peggy": "^5.1.0",
+     "picomatch": "^4.0.4",
+     "pixelmatch": "^7.2.0",
+     "pngjs": "^7.0.0",
+     "pretty-ms": "^9.3.0",
+     "qrcode-terminal": "^0.12.0",
+     "semver": "^7.8.5",
+     "shell-quote": "^1.10.0",
+     "string-width": "^8.2.1",
+     "tinyglobby": "^0.2.17",
+     "typescript": "catalog:",
+     "uuidv7": "^1.2.1",
+     "valibot": "^1.4.2",
+     "vitest": "catalog:",
+     "wrap-ansi": "^10.0.0",
+     "yauzl": "3.4.0"
+    },
+    "bin": {
+     "sentry": "./dist/bin.cjs"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/cli3to4",
+   "path": "packages/codemod-cli3to4/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "pnpm dlx codemod@1.12.7 jssg test -l typescript ./scripts/codemod.ts",
+     "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@codemod.com/jssg-types": "1.6.3",
+     "typescript": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/logger",
+   "path": "packages/logger/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "bench": "tsdown && node bench/run.mjs",
+     "build": "tsdown",
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:package": "bash test/package/check.sh",
+     "tsc": "tsc --noEmit"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/node": "catalog:",
+     "tsdown": "catalog:",
+     "typescript": "catalog:",
+     "vitest": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "packages/logger/test/package/consumer/package.json",
+   "path": "packages/logger/test/package/consumer/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-cloudflare",
+   "path": "packages/mcp-cloudflare/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc -b && vite build",
+     "dev": "vite",
+     "cf:versions:upload": "npx wrangler versions upload",
+     "preview": "vite preview",
+     "cf-typegen": "wrangler types",
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:watch": "vitest",
+     "tsc": "tsc --noEmit"
+    },
+    "dependencies": {
+     "@ai-sdk/mcp": "catalog:",
+     "@ai-sdk/react": "catalog:",
+     "@cloudflare/workers-oauth-provider": "catalog:",
+     "@modelcontextprotocol/server": "catalog:",
+     "@radix-ui/react-accordion": "catalog:",
+     "@radix-ui/react-slot": "catalog:",
+     "@sentry/cloudflare": "catalog:",
+     "@sentry/react": "catalog:",
+     "agents": "catalog:",
+     "ai": "catalog:",
+     "asciinema-player": "^3.17.0",
+     "class-variance-authority": "catalog:",
+     "clsx": "catalog:",
+     "hono": "catalog:",
+     "lucide-react": "catalog:",
+     "react": "catalog:",
+     "react-dom": "catalog:",
+     "react-markdown": "catalog:",
+     "react-router-dom": "^7.18.1",
+     "react-scroll-to-bottom": "^4.2.0",
+     "remark-gfm": "catalog:",
+     "tailwind-merge": "catalog:",
+     "tw-animate-css": "catalog:",
+     "workers-mcp": "catalog:",
+     "zod": "catalog:"
+    },
+    "devDependencies": {
+     "@cloudflare/vite-plugin": "catalog:",
+     "@cloudflare/vitest-plugin": "catalog:",
+     "@cloudflare/workers-types": "catalog:",
+     "@sentry/mcp-core": "workspace:*",
+     "@sentry/mcp-server-mocks": "workspace:*",
+     "@sentry/mcp-server-tsconfig": "workspace:*",
+     "@sentry/toolkit-core": "workspace:*",
+     "@sentry/vite-plugin": "catalog:",
+     "@tailwindcss/typography": "catalog:",
+     "@tailwindcss/vite": "catalog:",
+     "@types/react": "catalog:",
+     "@types/react-dom": "catalog:",
+     "@types/react-scroll-to-bottom": "^4.2.5",
+     "@vitejs/plugin-react": "catalog:",
+     "tailwindcss": "catalog:",
+     "urlpattern-polyfill": "^10.1.0",
+     "undici": "^7.30.1",
+     "vite": "catalog:",
+     "vitest": "catalog:",
+     "miniflare": "catalog:",
+     "wrangler": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-core",
+   "path": "packages/mcp-core/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prebuild": "pnpm run generate-definitions",
+     "build": "tsdown && pnpm run check:build-imports",
+     "check:build-imports": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/check-build-imports.ts",
+     "pretest": "pnpm run generate-definitions",
+     "test": "pnpm run validate-skills && vitest run",
+     "test:ci": "pnpm run generate-definitions && pnpm run validate-skills && vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:watch": "pnpm run generate-definitions && vitest",
+     "tsc": "tsc --noEmit",
+     "generate-definitions": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/generate-definitions.ts && oxfmt --write src/toolDefinitions.json src/skillDefinitions.json",
+     "generate-otel-namespaces": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/generate-otel-namespaces.ts",
+     "measure-tokens": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/measure-token-cost.ts",
+     "validate-skills": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs scripts/validate-skills-mapping.ts"
+    },
+    "dependencies": {
+     "@ai-sdk/anthropic": "catalog:",
+     "@ai-sdk/mcp": "catalog:",
+     "@ai-sdk/openai": "catalog:",
+     "@logtape/logtape": "^1.1.1",
+     "@logtape/sentry": "^1.1.1",
+     "@modelcontextprotocol/server": "catalog:",
+     "@sentry/api": "catalog:",
+     "@sentry/core": "catalog:",
+     "@sentry/search-syntax": "catalog:",
+     "@sentry/toolkit-core": "workspace:*",
+     "ai": "catalog:",
+     "dotenv": "catalog:",
+     "fast-png": "^8.0.0",
+     "jpeg-js": "^0.4.4",
+     "zod": "catalog:"
+    },
+    "devDependencies": {
+     "@ai-sdk/provider": "^3.0.6",
+     "@ai-sdk/provider-utils": "^4.0.11",
+     "@modelcontextprotocol/sdk": "catalog:",
+     "@sentry/mcp-server-mocks": "workspace:*",
+     "@sentry/mcp-server-tsconfig": "workspace:*",
+     "msw": "catalog:",
+     "tiktoken": "^1.0.18",
+     "yaml": "^2.8.3"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-server",
+   "path": "packages/mcp-server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "bundle": "pnpm --filter @sentry/mcp-core run build && pnpm --filter sentry run generate && node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs script/bundle.ts",
+     "test:bundle": "node --test test/bundle.test.mjs test/server-json.test.mjs"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "esbuild": "^0.28.1"
+    },
+    "bin": {
+     "sentry-mcp": "./dist/sentry-mcp.cjs"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-server-evals",
+   "path": "packages/mcp-server-evals/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc -b",
+     "dev": "tsc -w",
+     "start": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs src/bin/start-mock-stdio.ts",
+     "eval": "vitest --config=vitest.config.ts",
+     "eval:ci": "vitest run --reporter=vitest-evals/reporter --reporter=junit --reporter=json --outputFile.json=eval-results.json --outputFile.junit=eval.junit.xml"
+    },
+    "dependencies": {
+     "@ai-sdk/mcp": "catalog:",
+     "@ai-sdk/openai": "catalog:",
+     "@sentry/mcp-core": "workspace:*",
+     "@sentry/mcp-server-mocks": "workspace:*",
+     "@sentry/mcp-server-tsconfig": "workspace:*",
+     "ai": "catalog:",
+     "dotenv": "catalog:",
+     "msw": "catalog:",
+     "typescript": "catalog:",
+     "vitest": "catalog:",
+     "vitest-evals": "catalog:",
+     "zod": "catalog:"
+    },
+    "devDependencies": {
+     "@sentry/roach": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-server-mocks",
+   "path": "packages/mcp-server-mocks/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsdown",
+     "dev": "tsdown -w"
+    },
+    "dependencies": {
+     "msw": "catalog:"
+    },
+    "devDependencies": {
+     "@sentry/mcp-server-tsconfig": "workspace:*",
+     "tsdown": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-server-tsconfig",
+   "path": "packages/mcp-server-tsconfig/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-test-client",
+   "path": "packages/mcp-test-client/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsdown",
+     "start": "node --experimental-strip-types --import ../../scripts/strip-types-resolve.mjs src/index.ts",
+     "test-client": "node dist/index.js",
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:watch": "vitest",
+     "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+     "@ai-sdk/mcp": "catalog:",
+     "@ai-sdk/openai": "catalog:",
+     "@modelcontextprotocol/sdk": "catalog:",
+     "@sentry/core": "catalog:",
+     "@sentry/mcp-core": "workspace:*",
+     "@sentry/node": "catalog:",
+     "ai": "catalog:",
+     "chalk": "catalog:",
+     "commander": "catalog:",
+     "dotenv": "catalog:",
+     "open": "catalog:",
+     "zod": "catalog:"
+    },
+    "devDependencies": {
+     "tsdown": "catalog:",
+     "typescript": "catalog:",
+     "vitest": "catalog:"
+    },
+    "bin": {
+     "sentry-mcp-test-client": "./dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/mcp-smoke-tests",
+   "path": "packages/smoke-tests/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "test:watch": "vitest"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "vitest": "catalog:",
+     "@types/node": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@sentry/toolkit-core",
+   "path": "packages/toolkit-core/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "vitest run",
+     "test:ci": "vitest run --reporter=default --reporter=junit --outputFile=tests.junit.xml",
+     "tsc": "tsc --noEmit && tsc -p tsconfig.browser.json"
+    },
+    "dependencies": {
+     "@sentry/api": "catalog:",
+     "@sentry/search-syntax": "catalog:"
+    },
+    "devDependencies": {
+     "fast-check": "^4.8.0",
+     "marked": "catalog:",
+     "mdast-util-from-markdown": "catalog:",
+     "mdast-util-gfm": "catalog:",
+     "micromark-extension-gfm": "catalog:",
+     "typescript": "catalog:",
+     "vitest": "catalog:"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "sentry-mcp",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "sentry-mcp",
+      "description": "Sentry error tracking and performance monitoring - search issues, analyze errors, explore traces, and get AI-powered root cause analysis",
+      "author": {
+       "name": "Sentry"
+      },
+      "source": "./plugins/sentry-mcp",
+      "category": "monitoring"
+     },
+     {
+      "name": "sentry-mcp-experimental",
+      "description": "Sentry MCP with experimental features enabled - includes all stable tools plus bleeding-edge capabilities",
+      "author": {
+       "name": "Sentry"
+      },
+      "source": "./plugins/sentry-mcp-experimental",
+      "category": "monitoring"
+     }
+    ],
+    "owner": {
+     "name": "Sentry",
+     "email": "oss@sentry.io"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 2860,
+  "bytes": 54556908,
+  "by_kind": {
+   "binary": 29,
+   "code": 3,
+   "config": 286,
+   "js": 2258,
+   "markdown": 209,
+   "other": 69,
+   "shell": 6
+  },
+  "vendored_files": 0,
+  "plugins": 4,
+  "components": 49
+ },
+ "findings": [
+  {
+   "rule_id": "DESTRUCT-RM-HOME",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c9ac08bbf6710126",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ef431c470d4c8dea",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "AGENT-EMBEDDED-CONFIG",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4c0c7d211195d035",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "AGENT-EMBEDDED-CONFIG",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eae3fcca294b6029",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:01530d56706e1fe1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c13fdcdeebbb2bfd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bfe518440e42802e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:87ed2449a54dce67",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1f9affbb9913d098",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:88550b6e74645f01",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3b319273ca5abf7f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "COMPILED-BINARY",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3b905be49e0bfc5b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6adf013acf425150",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1c16d24526d2590d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a13bc5ff734a8cd6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3a9eab0cdf5641f1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:aec04869010d36dc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:28f59f8a4e2bcb38",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dafd9dbdf48a9d83",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b363ff214df027ba",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a8b6eb4b8ca701df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5dfd43490a869ed",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4b70deaf55f329df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:16dfc46c1f3a3f17",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e48fc0a851dfd1fc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8cfdc40314a9015f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-SHELL-PROFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:082467e9c0a0495b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2d80cec4d5d8cf72",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b37b4bf8ecb9d433",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9ea62feb52624ca5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c9572d4a7485df88",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d589d1d73a780999",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:46e949fd9d2f2f11",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c4f5353cba3e3ad8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3370256987ed39f8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:43f5738879f0de22",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8fe9d1fdf2054063",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ff5a0e3d2b36c139",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d1c64d74d65732e0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ce44b7e98a497208",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2450fcb473a71ca3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3d854da4573ff8db",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ba78f4498cdb97b4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bb6215102a2a6624",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-044",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d029c2dac4df3b07",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-045",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:20c18bbc22d43055",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-046",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e3c19e2a4b2b82ad",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-047",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b62869b3d4377ec8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-048",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:50db051e089769cb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-049",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c96cd512b220d8b7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-050",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "BIN-EXECUTABLE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:116049306c3c8205",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-051",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-GIT-HOOKS",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4779692716c28b7a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-052",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b2870e1a31d132f0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-053",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8179c1fb54cc3ab9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-054",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fbf2f0f74ddd197d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-055",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bd098857d8fc24e6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-056",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9ca83accad4f645f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-057",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:766d4c82818d6610",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-058",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a40f4be3ef180acc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-059",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6967333da9700569",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-060",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:65311553fc92ff18",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-061",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a0ff046c5ba5cc7f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-062",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c05322e595aa18c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-063",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4850897d223a00d3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-064",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:572159f27c113352",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-065",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fbe64fca793d9db7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-066",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:050da442c1aa4cf2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-067",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2d6edf5efe93537b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-068",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e3144d038c9f10df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-069",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b8d037535cd1e4d8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-070",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:082a1e3d11a9bedf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-071",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ec584e405c47af33",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-072",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ed1bc5710e5740d7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-073",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:daa5df96edeee50a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-074",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:26cc905f7662cd9b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-075",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a11fdd082d610337",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-076",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cf49129ead130d55",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-077",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:808992d483c38604",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-078",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d74e5cd813f57e63",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-079",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:13a9230979652dbb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-080",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0a8594b39bcae546",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-081",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d5088026f9066108",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-082",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:183ffe562b3d2caa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-083",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0d3d6158949ad656",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-084",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d004f51a163ae854",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-085",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5e1716e1e9637d52",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-086",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:62f7be45e892b850",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-087",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:37b8372c655aedfc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-088",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:688f7799bd9f9d88",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-089",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9679cebd8eefd5f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-090",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e22dbcb51fc9e5bc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-091",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f5cdadaefb601711",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-092",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9ef6fb02c331a7c1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-093",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:57892a4b6af7b4c1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-094",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5eecaefff31a0fbd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-095",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d761762782b26877",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-096",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8eb1237ff630eb8e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-097",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:83cbf0dc482e11ef",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-098",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3835a791fb35478e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-099",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:86e2bdf7904b6b98",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-100",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:849ca6dcde45009c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-101",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e24ff13f76578c69",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-102",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:067aa6d0fac98756",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-103",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4b9e80e4602e06df",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-104",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "sentry mcp sentry/mcp-server --experimental",
+    "type": "MCP server",
+    "plugin": "getsentry__sentry-mcp@d9c69544d649",
+    "file": ".mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "http://localhost:5173/mcp/sentry/mcp-server?experimental=1",
+    "type": "MCP server",
+    "plugin": "getsentry__sentry-mcp@d9c69544d649",
+    "file": ".mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.sentry.dev/mcp",
+    "type": "MCP server",
+    "plugin": "sentry-mcp",
+    "file": "plugins/sentry-mcp/.mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.sentry.dev/mcp?experimental=1",
+    "type": "MCP server",
+    "plugin": "sentry-mcp-experimental",
+    "file": "plugins/sentry-mcp-experimental/.mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "sentry",
+    "kind": "MCP server",
+    "launch": "sentry mcp sentry/mcp-server --experimental",
+    "file": ".mcp.json"
+   },
+   {
+    "name": "sentry-dev",
+    "kind": "MCP server",
+    "launch": "http://localhost:5173/mcp/sentry/mcp-server?experimental=1",
+    "file": ".mcp.json"
+   },
+   {
+    "name": "sentry",
+    "kind": "MCP server",
+    "launch": "https://mcp.sentry.dev/mcp",
+    "file": "plugins/sentry-mcp/.mcp.json"
+   },
+   {
+    "name": "sentry",
+    "kind": "MCP server",
+    "launch": "https://mcp.sentry.dev/mcp?experimental=1",
+    "file": "plugins/sentry-mcp-experimental/.mcp.json"
+   }
+  ],
+  "hosts": {
+   "127.0.0.1": [
+    "packages/cli/src/commands/react-native/xcode.ts"
+   ],
+   "api.cloudflare.com": [
+    "scripts/cloudflare-deployment.mjs"
+   ],
+   "api.github.com": [
+    "packages/cli/install",
+    "packages/cli/install.ps1",
+    "packages/cli/src/lib/binary.ts",
+    "scripts/cli-nightly-watchdog.mjs"
+   ],
+   "chatgpt.com": [
+    "packages/mcp-cloudflare/src/test-utils/fetch-mock-setup.ts"
+   ],
+   "cli.sentry.dev": [
+    "apps/cli-docs/astro.config.mjs",
+    "packages/cli/install",
+    "packages/cli/install.ps1",
+    "packages/cli/script/bundle.ts",
+    "packages/cli/script/generate-skill.ts",
+    "packages/cli/src/commands/cli/setup.ts"
+   ],
+   "develop.sentry.dev": [
+    "packages/cli/src/lib/telemetry.ts"
+   ],
+   "developers.cloudflare.com": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts",
+    "packages/mcp-cloudflare/src/server/routes/chat.ts"
+   ],
+   "direct-token.test": [
+    "packages/mcp-cloudflare/src/test-utils/fetch-mock-setup.ts"
+   ],
+   "docs.oasis-open.org": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "docs.sentry.io": [
+    "apps/docs-mcp/src/sentry-docs/fetcher.ts",
+    "packages/cli/src/lib/errors.ts",
+    "packages/mcp-core/src/api-client/client.ts",
+    "packages/mcp-server-mocks/src/index.ts"
+   ],
+   "dpgr.am": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "en.wikipedia.org": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "fonts.googleapis.com": [
+    "apps/cli-docs/astro.config.mjs"
+   ],
+   "fonts.gstatic.com": [
+    "apps/cli-docs/astro.config.mjs"
+   ],
+   "games.sentry.new": [
+    "apps/games-api/src/leaderboard.ts"
+   ],
+   "ghcr.io": [
+    "packages/cli/install",
+    "packages/cli/src/lib/ghcr.ts",
+    "scripts/cli-nightly-watchdog.mjs"
+   ],
+   "github.com": [
+    "apps/cli-docs/astro.config.mjs",
+    "packages/cli/install",
+    "packages/cli/install.ps1",
+    "packages/cli/src/lib/binary.ts",
+    "packages/cli/src/lib/upgrade.ts",
+    "packages/cli/src/lib/api/infrastructure.ts"
+   ],
+   "knowledge.digicert.com": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "ldapwiki.com": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "localhost": [
+    ".mcp.json"
+   ],
+   "mcp.sentry.dev": [
+    "packages/mcp-cloudflare/src/homepage-content.ts",
+    "packages/mcp-server-mocks/src/index.ts",
+    "plugins/sentry-mcp/.mcp.json",
+    "plugins/sentry-mcp-experimental/.mcp.json"
+   ],
+   "my-org.sentry.io": [
+    "packages/mcp-core/src/api-client/client.ts"
+   ],
+   "nodejs.org": [
+    "packages/cli/src/lib/telemetry.ts"
+   ],
+   "o1.ingest.us.sentry.io": [
+    "packages/cli/install",
+    "packages/cli/install.ps1"
+   ],
+   "objectstore.example.test": [
+    "packages/mcp-server-mocks/src/index.ts"
+   ],
+   "plausible.io": [
+    "apps/cli-docs/astro.config.mjs"
+   ],
+   "raw.githubusercontent.com": [
+    "packages/mcp-core/scripts/generate-otel-namespaces.ts"
+   ],
+   "registry.npmjs.org": [
+    "packages/cli/src/lib/upgrade.ts"
+   ],
+   "release-registry.services.sentry.io": [
+    "packages/cli/install",
+    "packages/cli/install.ps1"
+   ],
+   "sentry.company.com": [
+    "packages/mcp-core/src/api-client/client.ts"
+   ],
+   "sentry.io": [
+    "packages/cli/src/commands/api.ts",
+    "packages/cli/src/commands/auth/login.ts",
+    "packages/cli/src/commands/cli/upgrade.ts",
+    "packages/cli/src/lib/api/infrastructure.ts",
+    "packages/mcp-cloudflare/src/server/routes/chat.ts",
+    "packages/mcp-cloudflare/src/test-utils/fetch-mock-setup.ts"
+   ],
+   "support.cloudflare.com": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "tldp.org": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "us.sentry.io": [
+    "apps/games-api/src/leaderboard.ts",
+    "packages/cli/src/lib/sentry-client.ts",
+    "packages/cli/src/lib/api/infrastructure.ts",
+    "packages/mcp-cloudflare/src/test-utils/fetch-mock-setup.ts",
+    "packages/mcp-core/src/api-client/client.ts",
+    "packages/mcp-core/src/api-client/schema.ts"
+   ],
+   "www.iana.org": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ],
+   "www.iso.org": [
+    "packages/mcp-cloudflare/worker-configuration.d.ts"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "apps/games-api/src/index.ts",
+    "packages/cli/src/types/sentry.ts",
+    "packages/mcp-cloudflare/src/client/contexts/auth-context.tsx",
+    "packages/mcp-cloudflare/src/client/hooks/use-mcp-metadata.ts",
+    "packages/mcp-cloudflare/src/server/lib/approval-dialog.ts",
+    "packages/mcp-cloudflare/src/server/oauth/routes/authorize.ts"
+   ],
+   ".zshrc": [
+    "packages/cli/install",
+    "packages/cli/src/commands/cli/setup.ts",
+    "packages/cli/src/lib/shell.ts"
+   ],
+   ".bashrc": [
+    "packages/cli/install",
+    "packages/cli/src/lib/shell.ts"
+   ],
+   ".ssh": [
+    "packages/cli/src/lib/dsn/detector.ts",
+    "packages/cli/src/lib/dsn/project-root.ts",
+    "packages/cli/src/lib/scan/constants.ts"
+   ],
+   "cookieS": [
+    "packages/mcp-cloudflare/src/server/lib/approval-dialog.ts",
+    "packages/mcp-cloudflare/src/server/oauth/routes/authorize.ts"
+   ]
+  },
+  "env_vars": {
+   "DOCS_BASE_PATH": [
+    "apps/cli-docs/astro.config.mjs"
+   ],
+   "SENTRY_DSN_KEY": [
+    "packages/cli/install"
+   ],
+   "GHCR_TOKEN": [
+    "packages/cli/install"
+   ],
+   "SENTRY_AUTH_TOKEN": [
+    "packages/cli/script/build.ts",
+    "packages/cli/script/bundle.ts"
+   ],
+   "SDK_TYPES_PATH": [
+    "packages/cli/script/bundle.ts",
+    "packages/cli/script/sdk-declarations.ts"
+   ],
+   "WORKSPACE_PATH": [
+    "packages/cli/script/check-patches.ts"
+   ],
+   "OUTPUT_PATH": [
+    "packages/cli/script/generate-api-schema.ts",
+    "packages/cli/script/generate-command-api.ts",
+    "packages/cli/script/generate-completion-targets.ts",
+    "packages/cli/script/generate-skill.ts",
+    "packages/cli/script/generate-top-level-routes.ts"
+   ],
+   "IDEMPOTENT_OUTPUT_PATH": [
+    "packages/cli/script/generate-api-schema.ts"
+   ],
+   "OUT_PATH": [
+    "packages/cli/script/generate-banner-image.ts"
+   ],
+   "INDEX_PATH": [
+    "packages/cli/script/generate-command-docs.ts"
+   ],
+   "CONFIG_PATH": [
+    "packages/cli/script/generate-command-docs.ts"
+   ],
+   "DOCS_PATH": [
+    "packages/cli/script/generate-skill.ts"
+   ],
+   "INDEX_JSON_PATH": [
+    "packages/cli/script/generate-skill.ts"
+   ],
+   "SKILL_CONTENT_PATH": [
+    "packages/cli/script/generate-skill.ts"
+   ],
+   "API_BASE_PATH": [
+    "packages/cli/script/lib/api-schema.ts",
+    "packages/cli/src/commands/api.ts",
+    "packages/cli/src/lib/api-schema.ts",
+    "packages/cli/src/lib/event-attachments.ts",
+    "packages/cli/src/lib/issue-links.ts",
+    "packages/cli/src/lib/api/completion-seed.ts"
+   ],
+   "GITHUB_PATH": [
+    "packages/cli/src/commands/cli/setup.ts"
+   ],
+   "COMMAND_PATH": [
+    "packages/cli/src/commands/issue/merge.ts"
+   ],
+   "VIEWER_SESSIONS_PATH": [
+    "packages/cli/src/commands/local/control-plane.ts"
+   ],
+   "TARGET_PATTERN_NOTE": [
+    "packages/cli/src/commands/log/list.ts",
+    "packages/cli/src/commands/project/view.ts",
+    "packages/cli/src/commands/span/list.ts",
+    "packages/cli/src/commands/trace/list.ts"
+   ],
+   "VERSION_PATTERN": [
+    "packages/cli/src/lib/db/backup.ts"
+   ],
+   "SYMBOLIC_WASM_SUBPATH": [
+    "packages/cli/src/lib/dif/index.ts"
+   ],
+   "LEADERBOARD_PATH": [
+    "packages/cli/src/lib/games/leaderboard-api.ts"
+   ],
+   "DEBUGID_PATTERN": [
+    "packages/cli/src/lib/sourcemap/debug-id.ts"
+   ],
+   "CACHE_KEY_VERSION": [
+    "packages/mcp-cloudflare/src/server/lib/constraint-utils.ts"
+   ],
+   "OPENROUTER_API_KEY": [
+    "packages/mcp-cloudflare/src/server/routes/chat.ts",
+    "packages/mcp-core/src/internal/agents/openrouter-provider.ts",
+    "packages/mcp-core/src/internal/agents/provider-factory.ts",
+    "packages/mcp-test-client/src/agent.ts"
+   ],
+   "DIRECT_AUTH_ASSERTION_TOKEN": [
+    "packages/mcp-cloudflare/src/test-utils/fetch-mock-setup.ts"
+   ],
+   "SENTRY_TOKEN": [
+    "packages/mcp-core/src/server.ts"
+   ],
+   "OPENAI_API_KEY": [
+    "packages/mcp-core/src/internal/agents/azure-openai-provider.ts",
+    "packages/mcp-core/src/internal/agents/provider-factory.ts"
+   ],
+   "ANTHROPIC_API_KEY": [
+    "packages/mcp-core/src/internal/agents/provider-factory.ts"
+   ],
+   "URL_SCHEME_KEY_SOURCE": [
+    "packages/mcp-core/src/tools/support/search-events/utils.ts"
+   ],
+   "REGEX_FILTER_KEY_SOURCE": [
+    "packages/mcp-core/src/tools/support/search-events/utils.ts",
+    "packages/toolkit-core/src/search-query.ts"
+   ],
+   "SEARCH_FILTER_KEY_SOURCE": [
+    "packages/mcp-core/src/tools/support/search-events/utils.ts"
+   ],
+   "SENTRY_ACCESS_TOKEN": [
+    "packages/mcp-test-client/src/index.ts"
+   ],
+   "DEFAULT_OAUTH_REDIRECT_PORT": [
+    "packages/mcp-test-client/src/auth/redirect.ts"
+   ],
+   "GITHUB_TOKEN": [
+    "scripts/cli-nightly-watchdog.mjs"
+   ]
+  },
+  "path_executables": [
+   "bin/bump-version.sh"
+  ],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 3,
+  "remote-code": 15,
+  "exfiltration": 0,
+  "network": 36,
+  "credentials": 0,
+  "secrets": 12,
+  "persistence": 4,
+  "config-tampering": 1,
+  "destructive": 1,
+  "privilege": 5,
+  "obfuscation": 0,
+  "prompt-injection": 2,
+  "permissions": 1,
+  "supply-chain": 16,
+  "integrity": 8,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 964,
+  "forks": 181,
+  "open_issues": 285,
+  "contributors": "99",
+  "created_at": "2025-03-29T22:23:13Z",
+  "pushed_at": "2026-11-14T22:44:37Z",
+  "license": "NOASSERTION",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Agentic tooling for Sentry",
+  "signals": [
+   "No recognised license"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 100,
+  "counts": {
+   "critical": 0,
+   "high": 2,
+   "medium": 20,
+   "low": 28,
+   "info": 54
+  },
+  "active": 104,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "review-before-run",
+  "pin-commit",
+  "disable-hooks",
+  "check-persistence",
+  "deny-mcp-server",
+  "lock-permission-mode",
+  "sandbox-bash",
+  "rotate-secret",
+  "dependency-audit",
+  "pin-mcp-version",
+  "deny-network-bash",
+  "review-context-injection"
+ ],
+ "settings_snippet": {}
+}

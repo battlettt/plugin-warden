@@ -1,0 +1,16 @@
+{
+ "source": "anthropics/skills",
+ "kind": "skill-pack",
+ "scans": [
+  {
+   "commit": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
+   "scanned_at": "2026-11-15T01:35:09+00:00",
+   "level": "review",
+   "score": 34,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 448,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

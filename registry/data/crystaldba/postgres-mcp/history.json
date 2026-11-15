@@ -1,0 +1,16 @@
+{
+ "source": "crystaldba/postgres-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "15c8e33353546148acc2d8bd784551cf3905d1e2",
+   "scanned_at": "2026-11-15T02:08:25+00:00",
+   "level": "low",
+   "score": 3,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 66,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

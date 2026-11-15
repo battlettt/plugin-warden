@@ -1,0 +1,16 @@
+{
+ "source": "grafana/mcp-grafana",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "4f09d9f45d352c8e92870bdfe75bf76af416e35f",
+   "scanned_at": "2026-11-15T02:06:55+00:00",
+   "level": "caution",
+   "score": 7,
+   "reviewed": false,
+   "auto_runs": 1,
+   "files": 687,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

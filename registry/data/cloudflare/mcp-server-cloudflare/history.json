@@ -1,0 +1,16 @@
+{
+ "source": "cloudflare/mcp-server-cloudflare",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "a21972e219289337731a066befb5c66886b9ce7b",
+   "scanned_at": "2026-11-15T02:04:30+00:00",
+   "level": "caution",
+   "score": 10,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 468,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

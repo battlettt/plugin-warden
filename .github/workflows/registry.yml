@@ -1,0 +1,60 @@
+# Rebuild the public registry and publish the site to GitHub Pages.
+# One-time setup: repository Settings, Pages, Source = "GitHub Actions". Then run this workflow.
+# It rescans only repositories whose upstream commit changed, commits the new scan data, and deploys.
+name: registry
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "registry/**"
+      - "src/plugin_warden/site.py"
+      - "src/plugin_warden/registry.py"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: registry
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Rescan repositories that changed upstream
+        if: github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run warden registry scan --only-changed
+      - name: Commit new scan data
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "plugin-warden-bot"
+          git config user.email "plugin-warden-bot@users.noreply.github.com"
+          git add registry/data
+          git diff --cached --quiet || git commit -m "registry: nightly scan"
+          git push
+      - name: Build the site
+        run: uv run warden registry build --out site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

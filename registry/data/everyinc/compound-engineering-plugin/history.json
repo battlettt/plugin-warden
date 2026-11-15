@@ -1,0 +1,16 @@
+{
+ "source": "everyinc/compound-engineering-plugin",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "ee46dde75a40e297bd8eac4055a410a771d3ac1d",
+   "scanned_at": "2026-11-15T01:35:38+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 2207,
+   "tool_version": "0.1.0"
+  }
+ ]
+}

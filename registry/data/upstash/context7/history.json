@@ -1,0 +1,16 @@
+{
+ "source": "upstash/context7",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "4087030ad2dc16578130e2dab1e48ba735f8ea38",
+   "scanned_at": "2026-11-15T02:01:38+00:00",
+   "level": "caution",
+   "score": 15,
+   "reviewed": false,
+   "auto_runs": 1,
+   "files": 641,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

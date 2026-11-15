@@ -1,0 +1,2230 @@
+{
+ "target": {
+  "display": "stripe/agent-toolkit",
+  "raw": "stripe/agent-toolkit",
+  "kind": "github",
+  "url": "https://github.com/stripe/agent-toolkit",
+  "ref": null,
+  "subdir": null,
+  "commit": "17d0c774b7dcfcd8a55cb5a7cf9f3b809bc24a29",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:05:03+00:00",
+ "plugins": [
+  {
+   "name": "stripe__agent-toolkit@17d0c774b7dc",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  },
+  {
+   "name": "stripe",
+   "path": "providers/claude/plugin",
+   "source": "manifest",
+   "version": "0.12.0",
+   "description": "Stripe development plugin for Claude"
+  }
+ ],
+ "component_counts": {
+  "command": 2,
+  "hook": 7,
+  "manifest": 2,
+  "marketplace": 1,
+  "mcp_server": 2,
+  "package": 13,
+  "skill": 66
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "stripe__agent-toolkit@17d0c774b7dc",
+   "path": ".",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "skills/connect-recommend/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "skills/connect-required-verification-information/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "skills/metronome/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "skills/stripe-apps/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "skills/stripe-best-practices/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "skills/stripe-directory/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "skills/stripe-docs/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "skills/stripe-pay/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "skills/stripe-projects/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "skills/upgrade-stripe/SKILL.md",
+   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "stripe",
+   "path": "providers/claude/plugin/.claude-plugin/plugin.json",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "0.12.0",
+    "description": "Stripe development plugin for Claude",
+    "author": {
+     "name": "Stripe",
+     "url": "https://stripe.com"
+    },
+    "repository": "https://github.com/stripe/ai",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": "startup",
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/sessionStart.mjs"
+    ],
+    "timeout": 10
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUse[0.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "PostToolUse",
+   "details": {
+    "matcher": "Skill",
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/postToolUse.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUse[1.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "PostToolUse",
+   "details": {
+    "matcher": "Agent",
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/postToolUse.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUseFailure[0.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "PostToolUseFailure",
+   "details": {
+    "matcher": "Skill",
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/postToolUseFailure.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUseFailure[1.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "PostToolUseFailure",
+   "details": {
+    "matcher": "^mcp__(?:plugin_stripe_stripe|stripe)__.*$",
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/postToolUseFailure.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolBatch[0.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "PostToolBatch",
+   "details": {
+    "matcher": null,
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/postToolBatch.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "UserPromptSubmit[0.0]",
+   "path": "providers/claude/plugin/hooks/hooks.json",
+   "plugin": "stripe",
+   "trigger": "UserPromptSubmit",
+   "details": {
+    "matcher": null,
+    "type": "command",
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/userPromptSubmit.mjs"
+    ],
+    "timeout": 5
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "stripe",
+   "path": "providers/claude/plugin/.mcp.json",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.stripe.com"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "stripe",
+   "path": "providers/claude/plugin/.mcp.json",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "https://mcp.stripe.com"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "explain-error",
+   "path": "providers/claude/plugin/commands/explain-error.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": "Explain Stripe error codes and provide solutions with code examples"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "test-cards",
+   "path": "providers/claude/plugin/commands/test-cards.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": "Display Stripe test card numbers for various testing scenarios"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/claude/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/claude/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/claude/plugin/skills/metronome/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/claude/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/claude/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/claude/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/claude/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/claude/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/claude/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/claude/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "providers/claude/plugin/skills/upgrade-stripe/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/agent-plugins/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/agent-plugins/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/agent-plugins/plugin/skills/metronome/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/agent-plugins/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/agent-plugins/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/agent-plugins/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/agent-plugins/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/agent-plugins/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/agent-plugins/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/agent-plugins/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "providers/agent-plugins/plugin/skills/upgrade-stripe/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/antigravity/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/antigravity/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/antigravity/plugin/skills/metronome/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/antigravity/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/antigravity/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/antigravity/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/antigravity/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/antigravity/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/antigravity/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/antigravity/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "providers/antigravity/plugin/skills/upgrade-stripe/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/cursor/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/cursor/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/cursor/plugin/skills/metronome/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/cursor/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/cursor/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/cursor/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/cursor/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/cursor/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/cursor/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/cursor/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "providers/cursor/plugin/skills/upgrade-stripe/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/grok/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/grok/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/grok/plugin/skills/metronome/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/grok/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/grok/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/grok/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/grok/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/grok/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/grok/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/grok/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "upgrade-stripe",
+   "path": "providers/grok/plugin/skills/upgrade-stripe/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/card-element-to-checkout/environment/server/pyproject.toml",
+   "path": "benchmarks/card-element-to-checkout/environment/server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/card-element-to-checkout/solution/server/pyproject.toml",
+   "path": "benchmarks/card-element-to-checkout/solution/server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "furever",
+   "path": "benchmarks/furever/environment/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "next dev",
+     "build": "next build",
+     "start": "next start",
+     "lint": "next lint && npm run prettier-check",
+     "prettier": "prettier './**/*.{js,ts,md,html,css,tsx}' --write",
+     "prettier-check": "prettier './**/*.{js,ts,md,html,tsx}' --check",
+     "typescript": "tsc -p .",
+     "validate-change": "yarn lint && yarn typescript"
+    },
+    "dependencies": {
+     "@emotion/react": "11.11.4",
+     "@emotion/styled": "11.11.5",
+     "@hookform/resolvers": "3.3.4",
+     "@mui/material": "5.15.14",
+     "@mui/x-charts": "7.1.0",
+     "@radix-ui/react-avatar": "1.0.4",
+     "@radix-ui/react-dialog": "1.0.5",
+     "@radix-ui/react-icons": "1.3.0",
+     "@radix-ui/react-label": "2.0.2",
+     "@radix-ui/react-navigation-menu": "1.1.4",
+     "@radix-ui/react-radio-group": "1.1.3",
+     "@radix-ui/react-select": "2.0.0",
+     "@radix-ui/react-slot": "1.0.2",
+     "@radix-ui/react-switch": "1.0.3",
+     "@radix-ui/react-tabs": "1.0.4",
+     "@stripe/connect-js": "3.3.33-preview-1",
+     "@stripe/react-connect-js": "3.3.34-preview-1",
+     "bcrypt": "6.0.0",
+     "bcryptjs": "2.4.3",
+     "class-variance-authority": "0.7.0",
+     "clsx": "2.1.0",
+     "cmdk": "1.0.0",
+     "lucide-react": "0.363.0",
+     "micro-cors": "0.1.1",
+     "mongoose": "6.13.10",
+     "next": "14.2.35",
+     "next-auth": "4.24.15",
+     "random-words": "2.0.1",
+     "react": "18.3.1",
+     "react-dom": "18.3.1",
+     "react-hook-form": "7.51.1",
+     "sharp": "0.35.0",
+     "stripe": "18.2.0-beta.1",
+     "tailwind-merge": "2.2.2",
+     "tailwindcss-animate": "1.0.7",
+     "yarn": "1.22.22",
+     "zod": "3.22.4"
+    },
+    "devDependencies": {
+     "@types/bcrypt": "5.0.2",
+     "@types/bcryptjs": "2.4.6",
+     "@types/express": "4.17.21",
+     "@types/node": "20.12.7",
+     "@types/react": "18.2.79",
+     "@types/react-dom": "18.2.25",
+     "autoprefixer": "10.4.19",
+     "css-loader": "7.1.1",
+     "eslint": "8.57.0",
+     "eslint-config-next": "14.1.4",
+     "postcss": "8.5.23",
+     "prettier": "3.2.5",
+     "prettier-plugin-tailwindcss": "0.5.13",
+     "tailwindcss": "3.3.0",
+     "typescript": "5.4.3"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/furever/environment/requirements.txt",
+   "path": "benchmarks/furever/environment/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/furever/grader/requirements.txt",
+   "path": "benchmarks/furever/grader/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "stripe-sample-demo",
+   "path": "benchmarks/galtee-basic/environment/server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node server.js",
+     "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+     "body-parser": "1.20.5",
+     "dotenv": "16.0.0",
+     "express": "4.22.2",
+     "stripe": "10.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "stripe-sample-demo",
+   "path": "benchmarks/galtee-basic/solution/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node server.js",
+     "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+     "body-parser": "1.20.4",
+     "dotenv": "16.0.0",
+     "express": "4.22.1",
+     "sqlite3": "5.1.7",
+     "stripe": "10.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "galtee-invoicing",
+   "path": "benchmarks/galtee-invoicing/environment/server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node server.js",
+     "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+     "body-parser": "1.20.9",
+     "dotenv": "16.0.0",
+     "express": "4.22.3",
+     "stripe": "10.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "galtee-invoicing",
+   "path": "benchmarks/galtee-invoicing/solution/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node server.js",
+     "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+     "body-parser": "1.20.4",
+     "csv-parser": "3.0.0",
+     "dotenv": "16.0.0",
+     "express": "4.22.1",
+     "sqlite3": "5.1.7",
+     "stripe": "10.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/saas-starter-embedded-checkout/environment/package.json",
+   "path": "benchmarks/saas-starter-embedded-checkout/environment/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "next dev --turbopack",
+     "build": "next build",
+     "start": "next start",
+     "db:setup": "npx tsx lib/db/setup.ts",
+     "db:seed": "npx tsx lib/db/seed.ts",
+     "db:generate": "drizzle-kit generate",
+     "db:migrate": "drizzle-kit migrate",
+     "db:studio": "drizzle-kit studio"
+    },
+    "dependencies": {
+     "@tailwindcss/postcss": "4.1.7",
+     "@types/node": "^22.15.18",
+     "@types/react": "19.1.4",
+     "@types/react-dom": "19.1.5",
+     "autoprefixer": "^10.4.21",
+     "bcryptjs": "^3.0.2",
+     "class-variance-authority": "^0.7.1",
+     "clsx": "^2.1.1",
+     "dotenv": "^16.5.0",
+     "drizzle-kit": "^0.31.1",
+     "drizzle-orm": "^0.43.1",
+     "jose": "^6.0.11",
+     "lucide-react": "^0.511.0",
+     "next": "^15.5.12",
+     "postcss": "^8.5.3",
+     "postgres": "^3.4.5",
+     "radix-ui": "^1.4.2",
+     "react": "19.1.0",
+     "react-dom": "19.1.0",
+     "server-only": "^0.0.1",
+     "stripe": "18.1.0",
+     "swr": "^2.3.3",
+     "tailwind-merge": "^3.3.0",
+     "tailwindcss": "4.1.7",
+     "tw-animate-css": "^1.3.0",
+     "typescript": "^5.8.3",
+     "zod": "^3.24.4"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/saas-starter-embedded-checkout/grader/requirements.txt",
+   "path": "benchmarks/saas-starter-embedded-checkout/grader/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/saas-starter-partial-payments/environment/package.json",
+   "path": "benchmarks/saas-starter-partial-payments/environment/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "next dev --turbopack",
+     "build": "next build",
+     "start": "next start",
+     "db:setup": "npx tsx lib/db/setup.ts",
+     "db:seed": "npx tsx lib/db/seed.ts",
+     "db:generate": "drizzle-kit generate",
+     "db:migrate": "drizzle-kit migrate",
+     "db:studio": "drizzle-kit studio"
+    },
+    "dependencies": {
+     "@tailwindcss/postcss": "4.1.7",
+     "@types/node": "^22.15.18",
+     "@types/react": "19.1.4",
+     "@types/react-dom": "19.1.5",
+     "autoprefixer": "^10.4.21",
+     "bcryptjs": "^3.0.2",
+     "class-variance-authority": "^0.7.1",
+     "clsx": "^2.1.1",
+     "dotenv": "^16.5.0",
+     "drizzle-kit": "^0.31.1",
+     "drizzle-orm": "^0.43.1",
+     "jose": "^6.0.11",
+     "lucide-react": "^0.511.0",
+     "next": "^15.5.12",
+     "postcss": "^8.5.3",
+     "postgres": "^3.4.5",
+     "radix-ui": "^1.4.2",
+     "react": "19.1.0",
+     "react-dom": "19.1.0",
+     "server-only": "^0.0.1",
+     "stripe": "18.1.0",
+     "swr": "^2.3.3",
+     "tailwind-merge": "^3.3.0",
+     "tailwindcss": "4.1.7",
+     "tw-animate-css": "^1.3.0",
+     "typescript": "^5.8.3",
+     "zod": "^3.24.4"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "benchmarks/saas-starter-partial-payments/grader/requirements.txt",
+   "path": "benchmarks/saas-starter-partial-payments/grader/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "stripe",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "stripe",
+      "source": "./providers/claude/plugin/",
+      "description": "Stripe",
+      "version": "0.12.0",
+      "author": {
+       "name": "Stripe"
+      }
+     }
+    ],
+    "owner": {
+     "name": "Stripe",
+     "email": "support@stripe.com"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 896,
+  "bytes": 23756398,
+  "by_kind": {
+   "binary": 66,
+   "code": 69,
+   "config": 53,
+   "js": 229,
+   "markdown": 274,
+   "other": 145,
+   "python": 18,
+   "shell": 42
+  },
+  "vendored_files": 0,
+  "plugins": 2,
+  "components": 93
+ },
+ "findings": [
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:11fcfd18bc5aa03f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:08ef4f69e236de35",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8dd85fd6ed508cff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3a7a466f8730655f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3a0392658587c1a3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:359f0f5ae0f2d163",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:03bb68aaeade2688",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:896b9a7fdfc70172",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0ced7a0a031d3599",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:51a1b5c60b3f8f37",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:604cb2d5fc72c8c6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4677b334d4221352",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:928b3d12594ce057",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6df3093075b48ed0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0d6d7aa4ee02f1ec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95c9b8a895eed9a4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e8b2cba02b3faa6e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5254c2bb5f09e986",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ac1682e251b2e077",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cc8b815bec06ce4c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:761230371a7efdbc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1fd75fcff093175b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a061d0abab98054e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc5604afbb53c032",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c22145f1f0ea2680",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-REMOTE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95496b34de263661",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:655c1b999fc9f895",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:421f542dfacf6da3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4dd18d176f27954b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:05b0fdb05b097fcd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:25bc66ec8f3d4f36",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:158ef4cdb6874a78",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fd3dd8c405c8d5a4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:24aff65bc5a31e80",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0ee6d6a13b3f739c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:db8684cadd169027",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5441bc154c0cac33",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fb910a04feb63d6e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9f7a9df4165288ad",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "SessionStart (startup)",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUse (Skill)",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUse (Agent)",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUseFailure (Skill)",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUseFailure (^mcp__(?:plugin_stripe_stripe|stripe)__.*$)",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolBatch",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "UserPromptSubmit",
+    "what": "node",
+    "type": "command hook",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/hooks/hooks.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.stripe.com",
+    "type": "MCP server",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/.mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "https://mcp.stripe.com",
+    "type": "MCP server",
+    "plugin": "stripe",
+    "file": "providers/claude/plugin/.mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "stripe",
+    "kind": "MCP server",
+    "launch": "https://mcp.stripe.com",
+    "file": "providers/claude/plugin/.mcp.json"
+   },
+   {
+    "name": "stripe",
+    "kind": "MCP server",
+    "launch": "https://mcp.stripe.com",
+    "file": "providers/claude/plugin/.mcp.json"
+   }
+  ],
+  "hosts": {
+   "docs.stripe.com": [
+    "scripts/sync.js"
+   ],
+   "mcp.stripe.com": [
+    "providers/claude/plugin/.mcp.json",
+    "providers/claude/plugin/.mcp.json"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": [
+   "SessionStart hook in providers/claude/plugin/hooks/hooks.json",
+   "UserPromptSubmit hook in providers/claude/plugin/hooks/hooks.json",
+   "providers/claude/plugin/scripts/hookHelpers.mjs writes additionalContext"
+  ]
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 12,
+  "exfiltration": 0,
+  "network": 1,
+  "credentials": 0,
+  "secrets": 5,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 2,
+  "obfuscation": 0,
+  "prompt-injection": 15,
+  "permissions": 0,
+  "supply-chain": 4,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 2063,
+  "forks": 385,
+  "open_issues": 47,
+  "contributors": "42",
+  "created_at": "2024-11-11T17:13:41Z",
+  "pushed_at": "2026-11-15T00:33:34Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "One-stop shop for building AI-powered products and businesses with Stripe.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 100,
+  "counts": {
+   "critical": 0,
+   "high": 18,
+   "medium": 7,
+   "low": 5,
+   "info": 9
+  },
+  "active": 39,
+  "dismissed": 0,
+  "injection_guard": true,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "pin-commit",
+  "disable-plugin",
+  "review-before-run",
+  "lock-permission-mode",
+  "review-context-injection",
+  "disable-hooks",
+  "deny-mcp-server",
+  "dependency-audit",
+  "sandbox-bash",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

@@ -1,0 +1,16 @@
+{
+ "source": "wonderwhy-er/desktopcommandermcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "bce370e9395f5bc74eda34913e5ae1dee48df8f8",
+   "scanned_at": "2026-11-15T02:07:44+00:00",
+   "level": "review",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 2,
+   "files": 667,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

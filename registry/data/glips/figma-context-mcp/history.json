@@ -1,0 +1,16 @@
+{
+ "source": "glips/figma-context-mcp",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "c083d65c7e002923e7cb98f4e3bdafb105e90f6d",
+   "scanned_at": "2026-11-15T02:08:01+00:00",
+   "level": "low",
+   "score": 0,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 105,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

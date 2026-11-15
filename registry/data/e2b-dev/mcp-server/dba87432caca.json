@@ -1,0 +1,244 @@
+{
+ "target": {
+  "display": "e2b-dev/mcp-server",
+  "raw": "e2b-dev/mcp-server",
+  "kind": "github",
+  "url": "https://github.com/e2b-dev/mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "dba87432cacaa7a5af1326d72e37e2d770628a0b",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:10:43+00:00",
+ "plugins": [
+  {
+   "name": "e2b-dev__mcp-server@dba87432caca",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 4
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "e2b-dev__mcp-server@dba87432caca",
+   "path": ".",
+   "plugin": "e2b-dev__mcp-server@dba87432caca",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "e2b-mcp-root",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "version": "pnpm changeset version && pnpm run -r postVersion",
+     "publish": "pnpm changeset publish && pnpm run -r postPublish",
+     "changeset": "pnpx @changesets/cli"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@changesets/read": "^0.6.2",
+     "changeset": "^0.2.6"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@e2b/mcp-server",
+   "path": "packages/js/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    },
+    "dependencies": {
+     "@e2b/code-interpreter": "^1.0.4",
+     "@modelcontextprotocol/sdk": "1.26.0",
+     "dotenv": "^16.4.5",
+     "zod": "^3.23.8",
+     "zod-to-json-schema": "^3.23.5"
+    },
+    "devDependencies": {
+     "@types/node": "^20.11.24",
+     "typescript": "^5.3.3"
+    },
+    "bin": {
+     "@e2b/mcp-server": "./build/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@e2b/python-mcp-server",
+   "path": "packages/python/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "postVersion": "poetry version $(pnpm pkg get version --workspaces=false | tr -d \\\")",
+     "postPublish": "poetry build && poetry config pypi-token.pypi ${PYPI_TOKEN} && poetry publish --skip-existing"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "packages/python/pyproject.toml",
+   "path": "packages/python/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 30,
+  "bytes": 328700,
+  "by_kind": {
+   "binary": 2,
+   "config": 11,
+   "js": 1,
+   "markdown": 4,
+   "other": 9,
+   "python": 2,
+   "shell": 1
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 5
+ },
+ "findings": [
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f039bf56a60496a9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3de990a5cba8334e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 395,
+  "forks": 73,
+  "open_issues": 5,
+  "contributors": "7",
+  "created_at": "2024-12-01T17:26:15Z",
+  "pushed_at": "2026-04-16T15:51:25Z",
+  "license": "Apache-2.0",
+  "archived": true,
+  "owner_type": "Organization",
+  "description": "Giving Claude ability to run code with E2B via MCP (Model Context Protocol)",
+  "signals": [
+   "Repository is archived (no security fixes)"
+  ],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 2,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 2,
+   "info": 0
+  },
+  "active": 2,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "dependency-audit",
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

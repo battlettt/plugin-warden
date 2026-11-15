@@ -1,0 +1,275 @@
+{
+ "target": {
+  "display": "executeautomation/mcp-playwright",
+  "raw": "executeautomation/mcp-playwright",
+  "kind": "github",
+  "url": "https://github.com/executeautomation/mcp-playwright",
+  "ref": null,
+  "subdir": null,
+  "commit": "2349c2891e7c499c8c07b7d78c7f3fb4c797a1da",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T02:07:41+00:00",
+ "plugins": [
+  {
+   "name": "executeautomation__mcp-playwright@2349c2891e7c",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 2
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "executeautomation__mcp-playwright@2349c2891e7c",
+   "path": ".",
+   "plugin": "executeautomation__mcp-playwright@2349c2891e7c",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@executeautomation/playwright-mcp-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && shx chmod +x dist/*.js",
+     "prepare": "npm run build",
+     "watch": "tsc --watch",
+     "test": "jest --testMatch=\"<rootDir>/src/__tests__/**/*.test.ts\"",
+     "test:coverage": "jest --coverage --testMatch=\"<rootDir>/src/__tests__/**/*.test.ts\"",
+     "test:custom": "node run-tests.cjs"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/sdk": "1.24.3",
+     "@playwright/browser-chromium": "1.57.0",
+     "@playwright/browser-firefox": "1.57.0",
+     "@playwright/browser-webkit": "1.57.0",
+     "@playwright/test": "^1.57.0",
+     "cors": "^2.8.5",
+     "express": "^4.21.1",
+     "mcp-evals": "^2.0.1",
+     "playwright": "1.57.0",
+     "uuid": "11.1.0"
+    },
+    "devDependencies": {
+     "@types/cors": "^2.8.17",
+     "@types/express": "^4.17.21",
+     "@types/jest": "^29.5.14",
+     "@types/node": "^20.10.5",
+     "jest": "^29.7.0",
+     "jest-playwright-preset": "4.0.0",
+     "shx": "^0.3.4",
+     "ts-jest": "^29.2.6",
+     "typescript": "^5.8.3"
+    },
+    "bin": {
+     "playwright-mcp-server": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "playwright-mcp-server",
+   "path": "docs/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "docusaurus": "docusaurus",
+     "start": "docusaurus start",
+     "build": "docusaurus build",
+     "swizzle": "docusaurus swizzle",
+     "deploy": "docusaurus deploy",
+     "clear": "docusaurus clear",
+     "serve": "docusaurus serve",
+     "write-translations": "docusaurus write-translations",
+     "write-heading-ids": "docusaurus write-heading-ids",
+     "typecheck": "tsc"
+    },
+    "dependencies": {
+     "@docusaurus/core": "3.6.3",
+     "@docusaurus/preset-classic": "3.6.3",
+     "@mdx-js/react": "^3.0.0",
+     "clsx": "^2.0.0",
+     "gh-pages": "^6.2.0",
+     "prism-react-renderer": "^2.3.0",
+     "react": "^18.0.0",
+     "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+     "@docusaurus/module-type-aliases": "3.6.3",
+     "@docusaurus/tsconfig": "3.6.3",
+     "@docusaurus/types": "3.6.3",
+     "typescript": "~5.6.2"
+    },
+    "bin": null
+   }
+  }
+ ],
+ "stats": {
+  "files": 139,
+  "bytes": 31252025,
+  "by_kind": {
+   "binary": 15,
+   "config": 18,
+   "js": 64,
+   "markdown": 24,
+   "other": 17,
+   "shell": 1
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5a999320db6e671",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f66f543b190fb907",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ce63e00d5789caad",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "CHROME_EXECUTABLE_PATH": [
+    "src/toolHandler.ts"
+   ],
+   "LOG_FILE_PATH": [
+    "src/logging/logger.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 1,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 5681,
+  "forks": 539,
+  "open_issues": 48,
+  "contributors": "28",
+  "created_at": "2024-12-03T18:43:20Z",
+  "pushed_at": "2025-12-13T04:28:38Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "Playwright Model Context Protocol Server - Tool to automate Browsers and APIs in Claude Desktop, Cline, Cursor IDE and More \ud83d\udd0c",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 2,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 2,
+   "info": 1
+  },
+  "active": 3,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run",
+  "pin-mcp-version",
+  "pin-commit",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

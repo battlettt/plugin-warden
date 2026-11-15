@@ -50,3 +50,18 @@ def test_cached_plugin_folder_gets_a_readable_name(tmp_path: Path) -> None:
     d = tmp_path / "market" / "vercel" / "0.43.0"
     d.mkdir(parents=True)
     assert parse_target(str(d)).display_name == "vercel 0.43.0"
+
+
+def test_git_timeout_is_a_target_error_not_a_crash(monkeypatch) -> None:  # noqa: ANN001
+    import subprocess
+
+    import pytest
+
+    from plugin_warden import acquire
+
+    def slow(*args, **kwargs):  # noqa: ANN002, ANN003, ANN202
+        raise subprocess.TimeoutExpired(cmd="git", timeout=1)
+
+    monkeypatch.setattr(acquire.subprocess, "run", slow)
+    with pytest.raises(acquire.TargetError, match="timed out"):
+        acquire._git(["fetch", "origin"], timeout=1)

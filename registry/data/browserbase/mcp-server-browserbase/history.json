@@ -1,0 +1,16 @@
+{
+ "source": "browserbase/mcp-server-browserbase",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "3e6f53461949037d5e65dd425da3ceb1263f11d6",
+   "scanned_at": "2026-11-15T02:07:31+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 53,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

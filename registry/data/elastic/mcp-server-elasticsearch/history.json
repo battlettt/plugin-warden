@@ -1,0 +1,16 @@
+{
+ "source": "elastic/mcp-server-elasticsearch",
+ "kind": "mcp-server",
+ "scans": [
+  {
+   "commit": "9e64b842f22269eb214793e1a4885128dc4a8fd8",
+   "scanned_at": "2026-11-15T02:07:17+00:00",
+   "level": "low",
+   "score": 1,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 38,
+   "tool_version": "0.2.0"
+  }
+ ]
+}
