@@ -181,9 +181,14 @@ class Scanner:
             scan_lines: _Lines | None = None
             # Extensionless files count as shell only when they are executable or something runs them.
             kind = "shell" if info.kind == "other" and (info.executable or info.rel in self.inv.triggers or text.startswith("#!")) else info.kind
+            lower: str | None = None
             for rule in R.LINE_RULES:
                 if kind not in rule.kinds or (info.kind == "other" and kind == "other"):
                     continue
+                if rule.hints:
+                    lower = lower if lower is not None else text.lower()
+                    if not any(h in lower for h in rule.hints):
+                        continue
                 if windows is None and not rule.pattern.search(scan):
                     continue
                 lines = lines or _Lines(text)
@@ -348,6 +353,10 @@ class Scanner:
                     self.add("MCP-UNPINNED", f"MCP server {c.name} runs an unpinned package ({pkg})", S.MEDIUM, "supply-chain", c.path, line, full,
                              "The newest published version is downloaded and started every session, so a malicious release reaches you with no change to the plugin.",
                              f"Pin an exact version, for example {pkg}@<version>.", ("pin-mcp-version", "deny-mcp-server"), ctx)
+                eco = "pypi" if exe in {"uvx", "pipx"} else "npm"
+                bare = re.split(r"(?<!^)@|==|\[", pkg)[0]
+                if pkg:
+                    self._typosquats({bare: None}, eco, c.path, text)
             if exe in {"docker", "podman"}:
                 joined = " ".join(args)
                 bad = [p for p in ("--privileged", "--network host", "--net=host", "--network=host", "docker.sock", "--pid=host", "--cap-add") if p in joined]
@@ -537,6 +546,9 @@ class Scanner:
                 if deps and not any(f"{pdir}{lf}" in self.inv.files for lf in ("package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lockb", "bun.lock")):
                     self.add("DEP-NO-LOCKFILE", "package.json has dependencies but no lockfile", S.LOW, "supply-chain", c.path, None, f"{len(deps)} dependencies",
                              "Without a lockfile every install can resolve different transitive versions.", "Commit a lockfile.", ("dependency-audit",))
+                self._typosquats({**deps, **(d.get("devDependencies") or {})}, "npm", c.path, text)
+            elif d.get("ecosystem") == "pypi" and not c.path.endswith("setup.py"):
+                self._typosquats(dict.fromkeys(_pypi_names(c.path, text)), "pypi", c.path, text)
             elif c.path.endswith("setup.py") and re.search(r"cmdclass|class\s+\w+\((install|develop|build_py)\)", text):
                 self.add("PY-CUSTOM-INSTALL", "setup.py runs custom code on install", S.MEDIUM, "supply-chain", c.path, _find_line(text, "cmdclass"), "cmdclass",
                          "pip runs this code during installation.", "Move to a pyproject build with no install hooks.", ("review-before-run",))
@@ -544,6 +556,34 @@ class Scanner:
             urls = re.findall(r"url\s*=\s*(\S+)", str(c.details.get("text") or ""))
             self.add("GIT-SUBMODULES", f"Repository pulls {len(urls)} git submodule(s)", S.LOW, "supply-chain", c.path, None, ", ".join(urls[:5]),
                      "Submodules bring code from other repositories that this scan did not read (Claude Code fetches the ones that hold plugin files).", "Scan each submodule repository too.", ("pin-commit",))
+
+    def _typosquats(self, names: dict[str, Any], ecosystem: str, path: str, text: str) -> None:
+        for name in names:
+            target = R.typosquat_of(str(name), ecosystem)
+            if target:
+                self.add("DEP-TYPOSQUAT", f"Dependency '{name}' is one slip away from '{target}'", S.MEDIUM, "supply-chain", path, _find_line(text, str(name)), str(name),
+                         f"Attackers publish packages whose names are near-misses of popular ones. '{name}' is not on the well-known list but differs from '{target}' by one character, one swapped pair or a separator.",
+                         f"Check the package's publisher and history on the registry. If '{target}' was meant, fix the name.", ("dependency-audit", "review-before-run"), confidence="medium")
+
+    def encrypt_correlated(self) -> None:
+        """Ransomware written as ordinary code: walk folders, encrypt, then remove or overwrite."""
+        already = {f.path for f in self.findings if f.rule_id == "DESTRUCT-ENCRYPT"}
+        for info in self._text_files():
+            if not info.is_code or info.rel in already:
+                continue
+            text = info.text
+            m = _ENCRYPT_OP.search(text)
+            if not m or not _WALK_OP.search(text) or not _REPLACE_OP.search(text):
+                continue
+            lines = _Lines(text)
+            ln = lines.lineno(m.start())
+            if _is_comment(lines.line(ln), info.kind):
+                continue
+            sev, ctx = self._context(info.rel, info, True, S.HIGH)
+            self.add("DESTRUCT-ENCRYPT-CORRELATED", "Walks folders, encrypts and removes or overwrites files in one file", sev, "destructive", info.rel, ln,
+                     lines.line(ln) if len(lines.line(ln)) < 400 else text[max(0, m.start() - 80): m.end() + 80],
+                     "This file lists files recursively, calls an encryption function and deletes, renames or overwrites files. That is the shape of ransomware, and also of some backup tools. Check which folder it walks and where the key goes.",
+                     "Limit the code to the plugin's own data folder, or remove it.", ("disable-plugin", "review-before-run"), ctx, "medium")
 
     def integrity(self) -> None:
         vendored: dict[str, int] = defaultdict(int)
@@ -711,6 +751,7 @@ class Scanner:
         self.integrity()
         self.correlations()
         self.config_tamper()
+        self.encrypt_correlated()
         self.network_autorun()
         surface = self.surface()
         coverage = {cat: 0 for cat in CATEGORIES}
@@ -723,6 +764,31 @@ _CLAUDE_CONFIG_PIECES = re.compile(
     r"""['"]\.claude['"]\s*[,/+]\s*['"](settings(\.local)?\.json|CLAUDE\.md|agents|commands|hooks)['"]"""
     r"""|['"]\.claude/(settings(\.local)?\.json|CLAUDE\.md)['"]""")
 _WRITE_OP = re.compile(r"writeFile|appendFile|write_text|json\.dump\(|open\([^)]*['\"](w|a)|\.write\(|>>|\btee\b")
+_WALK_OP = re.compile(r"os\.walk\s*\(|\.rglob\s*\(|glob\.glob\s*\([^)\n]{0,80}\*\*|readdirSync\s*\(|fs\.readdir\s*\(|\breaddir\s*\(|walkSync\s*\(|\bfind\s+(~|\$HOME|\$\{HOME\}|/)")
+_ENCRYPT_OP = re.compile(r"\bFernet\s*\(|AES\.new\s*\(|createCipheriv\s*\(|\bChaCha20|nacl\.secret|\.encrypt\s*\(|openssl\s+enc\b|subtle\.encrypt\s*\(|AESGCM\s*\(")
+_REPLACE_OP = re.compile(r"os\.remove\s*\(|os\.unlink\s*\(|\.unlink\s*\(|unlinkSync\s*\(|rmSync\s*\(|fs\.rm\s*\(|os\.rename\s*\(|os\.replace\s*\(|renameSync\s*\(|open\s*\([^)\n]{0,80}['\"]wb['\"]|write_bytes\s*\(|writeFileSync\s*\(|\brm\s+-")
+_REQ_LINE = re.compile(r"^\s*([A-Za-z0-9][A-Za-z0-9._-]*)\s*(?:\[[^\]\n]*\])?\s*(?:[<>=!~;@]|$)", re.M)
+
+
+def _pypi_names(path: str, text: str) -> list[str]:
+    """Dependency names from requirements.txt or the [project] table of pyproject.toml."""
+    if path.endswith("requirements.txt"):
+        return [m.group(1) for m in _REQ_LINE.finditer(text)]
+    if path.endswith("pyproject.toml"):
+        import tomllib
+
+        try:
+            data = tomllib.loads(text)
+        except (tomllib.TOMLDecodeError, ValueError):
+            return []
+        project = data.get("project") if isinstance(data.get("project"), dict) else {}
+        deps = [d for d in project.get("dependencies") or [] if isinstance(d, str)]
+        for group in (project.get("optional-dependencies") or {}).values():
+            deps += [d for d in group or [] if isinstance(d, str)]
+        return [m.group(1) for d in deps if (m := _REQ_LINE.match(d))]
+    return []
+
+
 LOOPBACK = re.compile(r"localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\]")
 _COMMENT_PREFIX = {"shell": ("#",), "python": ("#",), "js": ("//", "/*", "*"), "code": ("//", "/*", "*", "#", "--")}
 

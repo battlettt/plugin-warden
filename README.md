@@ -2,7 +2,7 @@
 
 Audit a Claude Code plugin, skill pack or MCP server repository **before** you install it.
 
-Plugin Warden clones the repo safely, maps everything Claude Code would load from it, runs 101 built-in checks plus Gitleaks, OSV-Scanner and Semgrep, and then hands the results to a read-only Claude agent (built on the Claude Agent SDK). The agent reads the actual code, confirms or dismisses each finding with a cited reason, and reports risks the rules missed. You get a scored verdict, a report in HTML, Markdown and JSON, and a troubleshooting chat that tells you where each problem lives and which precautions to set up.
+Plugin Warden clones the repo safely, maps everything Claude Code would load from it, runs 131 built-in checks plus Gitleaks, OSV-Scanner and Semgrep, and then hands the results to a read-only Claude agent (built on the Claude Agent SDK). The agent reads the actual code, confirms or dismisses each finding with a cited reason, and reports risks the rules missed. You get a scored verdict, a report in HTML, Markdown and JSON, and a troubleshooting chat that tells you where each problem lives and which precautions to set up.
 
 ```
 warden scan obra/superpowers
@@ -220,7 +220,7 @@ warden policy explain warden-reports/<report-folder>/
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: battlettt/plugin-warden@v0.2.0
+- uses: battlettt/plugin-warden@v0.3.0
 ```
 
 Exit code 0 when everything is allowed, 1 when something is not, 2 when the policy is invalid. `--sarif` writes SARIF 2.1.0, so on GitHub a failure appears on the settings line that enabled the plugin. `--markdown` writes a summary for a pull request comment.
@@ -265,7 +265,7 @@ uv run warden registry build --out site         # build the static site
 ## How it works
 
 ```
-target ──► safe fetch ──► inventory ──► 101 checks + external scanners ──► context levels ──► verdict
+target ──► safe fetch ──► inventory ──► 131 checks + external scanners ──► context levels ──► verdict
                                                                                               │
                                      report.json / .md / .html ◄── agent triage (read-only) ◄─┘
                                                 │
@@ -276,7 +276,7 @@ target ──► safe fetch ──► inventory ──► 101 checks + external 
 
 **Inventory.** Finds every plugin root (manifests, marketplace entries, layout markers) and each component Claude Code would load: hooks, MCP and LSP servers, MCP bundles, monitors, status lines, settings, commands, agents, skills, output styles, `bin/` executables and package install scripts. It then resolves each command (including `${CLAUDE_PLUGIN_ROOT}` paths) and follows `source`, `require` and `import` references, so it knows which files run automatically and from which trigger.
 
-**Checks.** 43 line rules, 48 structural checks and 10 secret patterns across 17 categories, listed by `warden rules`. Structural checks read config rather than lines: a `PreToolUse` hook that matches every tool, an MCP server launched with an unpinned `npx -y`, a marketplace entry that installs by running a command, a symlink that points out of the repo, a file that reads credentials and makes network calls.
+**Checks.** 71 line rules, 50 structural checks and 10 secret patterns across 18 categories, listed by `warden rules`. [docs/coverage.md](docs/coverage.md) maps them to 27 threat areas, with benchmark results and a list of what they cannot catch. Structural checks read config rather than lines: a `PreToolUse` hook that matches every tool, an MCP server launched with an unpinned `npx -y`, a marketplace entry that installs by running a command, a symlink that points out of the repo, a file that reads credentials and makes network calls.
 
 **Context levels.** The same pattern means different things in different places, so severity shifts by where a match sits: +1 in code that runs on its own, 0 in components and the code they call, -1 in code nothing reaches, -2 in tests, docs and CI. External scanner hits get the same treatment.
 
@@ -304,6 +304,7 @@ The agent spends its whole run reading text written by whoever published the plu
 - The agent reviews with a budget. If it stops early the report says so, and its verdicts so far are kept.
 - Precautions are honest about scope: permission rules and the sandbox don't cover hooks, MCP servers, LSP servers, monitors or status lines. The only complete control for those is not enabling the plugin or component.
 - A clean report is not a guarantee. It means the checks that ran found nothing, and the agent's reading agreed.
+- No scanner checks for everything. [docs/coverage.md](docs/coverage.md) lists what the rules look for, six evasions they are known to miss (each pinned by a test), and ten kinds of thing they cannot catch at all.
 
 ## Development
 
@@ -315,7 +316,7 @@ uvx ruff check src tests examples
 
 The deliberately malicious demo plugin is generated at test time (`tests/conftest.py`, or `examples/build_demo.py`) so its fake credentials never sit in the repository.
 
-126 tests: 124 offline (about 5 seconds) and 2 live. The offline suite covers target parsing and unsafe-URL rejection, inventory and trigger tracing, every rule family, context levels, scoring and the injection guard, HTML escaping (XSS), secret redaction, settings generation, the agent's tool validation and path guard (symlink escapes, `..` and `~`), the API-key-only environment, a scripted end-to-end triage run, the chat, and the CLI. For the team features it covers policy parsing and every violation code, pinned approvals, exceptions and their expiry, marketplace resolution, fail-closed behaviour, SARIF locations, report diffing (including code that only moved), the update watch, evidence pack signing, tamper detection and path scrubbing, the registry's publication rules, and the site (every page built, repository text escaped, no third-party resources). The live tests run the real agent and chat against the demo plugin.
+287 tests: 285 offline (about 7 seconds) and 2 live. The offline suite covers target parsing and unsafe-URL rejection, inventory and trigger tracing, every rule family, a matching sample and a near-miss for each rule added in 0.3.0, the coverage benchmark (78 malicious samples that must be detected, 14 ordinary plugins that must stay below "review", 6 known evasions that must stay missed), context levels, scoring and the injection guard, HTML escaping (XSS), secret redaction, settings generation, the agent's tool validation and path guard (symlink escapes, `..` and `~`), the API-key-only environment, a scripted end-to-end triage run, the chat, and the CLI. For the team features it covers policy parsing and every violation code, pinned approvals, exceptions and their expiry, marketplace resolution, fail-closed behaviour, SARIF locations, report diffing (including code that only moved), the update watch, evidence pack signing, tamper detection and path scrubbing, the registry's publication rules, and the site (every page built, repository text escaped, no third-party resources). The live tests run the real agent and chat against the demo plugin.
 
 ## License
 

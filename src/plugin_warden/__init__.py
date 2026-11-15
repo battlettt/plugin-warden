@@ -1,3 +1,3 @@
 """Plugin Warden: audit Claude Code plugins, MCP servers and skills before you install them."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

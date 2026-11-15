@@ -1,6 +1,6 @@
 [project]
 name = "plugin-warden"
-version = "0.2.0"
+version = "0.3.0"
 description = "Audit Claude Code plugins, MCP servers and skills before you install them, then enforce a team policy in CI, watch approved plugins for changes and build audit evidence."
 readme = "README.md"
 license = "MIT"

@@ -28,7 +28,7 @@ permissions:
   issues: write
 
 env:
-  WARDEN: uvx --from git+https://github.com/battlettt/plugin-warden@v0.2.0 warden
+  WARDEN: uvx --from git+https://github.com/battlettt/plugin-warden@v0.3.0 warden
 
 jobs:
   gate:

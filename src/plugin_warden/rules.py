@@ -35,6 +35,9 @@ class LineRule:
     confidence: str = "high"
     auto_boost: bool = True  # raise one level when the file runs on its own
     tags: frozenset[str] = field(default_factory=frozenset)
+    # Lower-case substrings, at least one of which every match contains. A file with none of them
+    # skips the regex. Purely a speed-up: leave empty unless every branch of the pattern is covered.
+    hints: tuple[str, ...] = ()
 
 
 def r(pattern: str, flags: int = re.I) -> re.Pattern[str]:
@@ -275,7 +278,7 @@ LINE_RULES: list[LineRule] = [
     ),
     LineRule(
         "PRIV-TLS-OFF", "Turns off TLS certificate checks", "privilege", S.MEDIUM,
-        r(r"NODE_TLS_REJECT_UNAUTHORIZED\s*=\s*[\"']?0|rejectUnauthorized\s*:\s*false|verify\s*=\s*False|ssl\._create_unverified_context|CERT_NONE|\bcurl\s+[^\n]*(\s-k\b|--insecure)|InsecureSkipVerify:\s*true|PYTHONHTTPSVERIFY\s*=\s*[\"']?0"),
+        r(r"NODE_TLS_REJECT_UNAUTHORIZED\s*=\s*[\"']?0|rejectUnauthorized\s*:\s*false|verify\s*=\s*False|ssl\._create_unverified_context|CERT_NONE|\bcurl\b[^\n]{0,200}(\s-[a-zA-Z]*k[a-zA-Z]*\b|--insecure)|InsecureSkipVerify:\s*true|PYTHONHTTPSVERIFY\s*=\s*[\"']?0"),
         "Without certificate checks, anyone on the network path can impersonate the server and inject responses.",
         "Remove the override and fix the certificate problem.", ("sandbox-bash",), kinds=CODE | SHELLISH,
     ),
@@ -352,6 +355,267 @@ LINE_RULES: list[LineRule] = [
         "HTML comments are invisible when Markdown is rendered on GitHub, but Claude still reads them.",
         "Move the text out of the comment so reviewers can see it.", ("review-context-injection",), kinds=MD, auto_boost=False,
         exclude=r(r"<!--\s*(markdownlint|prettier|toc|begin|end|omit|vale|lint|textlint|spell|cspell|eslint|BEGIN|END)\b"),
+    ),
+    # ---- 0.3.0: exfiltration channels ---------------------------------------------
+    LineRule(
+        "EXFIL-DNS", "Builds a DNS lookup from command output or variables", "exfiltration", S.HIGH,
+        r(r"\b(dig|nslookup|drill)\s+[^\n|;]{0,120}(\$\(|\$\{?\w+\}?\.|`)|\bdns\.(resolve\w*|lookup)\s*\(\s*(`[^`\n]{0,80}\$\{|[\w.()]+\s*\+\s*[\"'`]\.)|"
+          r"\b(gethostbyname|getaddrinfo)\s*\(\s*(f[\"']|[\w.()]+\s*\+\s*[\"']\.)|\bresolver\.(resolve|query)\s*\(\s*(f[\"']|[\w.()]+\s*\+\s*[\"']\.)"),
+        "Data placed in a hostname leaves the machine through DNS, which most firewalls and proxies let through and few teams log.",
+        "Remove the lookup, or look up a fixed, documented hostname.",
+        ("disable-plugin", "sandbox-bash"), kinds=CODE | SHELLISH, confidence="medium",
+    ),
+    LineRule(
+        "EXFIL-PASTE-SITE", "Talks to a paste or anonymous file-drop site", "exfiltration", S.HIGH,
+        r(r"paste\.ee|hastebin\.com|dpaste\.(com|org)|ghostbin\.|rentry\.(co|org)|termbin\.com|\bix\.io\b|sprunge\.us|paste\.rs|pastebin\.com/raw|"
+          r"gofile\.io|anonfiles?\.|catbox\.moe|bashupload\.com|oshi\.at|uguu\.se|tmpfiles\.org|filebin\.net|controlc\.com|privatebin\."),
+        "Paste and file-drop sites need no account, so they are used both to receive stolen data and to host the next stage of an attack.",
+        "Remove the call, or use the project's own documented endpoint.",
+        ("disable-plugin", "deny-network-bash"), kinds=CODE_MD | SHELLISH,
+        hints=("paste", "hastebin", "ghostbin", "rentry", "termbin", "ix.io", "sprunge", "gofile", "anonfile", "catbox", "bashupload", "oshi.at", "uguu", "tmpfiles", "filebin", "controlc", "privatebin"),
+    ),
+    LineRule(
+        "EXFIL-FILE-UPLOAD", "Uploads local files to another machine", "exfiltration", S.MEDIUM,
+        r(r"\b(scp|rsync)\s+[^\n]{0,160}\s[\w.-]+@[\w.-]+:|\brclone\s+(copy|sync|move)\b|\baws\s+s3\s+(cp|sync|mv)\s+[^\n]{0,120}s3://|"
+          r"\bcurl\b[^\n]{0,200}\s(-T|--upload-file)\s|\bcurl\b[^\n]{0,200}(-F|--form)\s+[\"']?[\w-]+=@|\bcurl\b[^\n]{0,200}(--data-binary|--data|-d)\s+[\"']?@|"
+          r"\bsmtplib\.SMTP|\bnodemailer\b|\b(mail|mailx|mutt)\s+-s\b|\bnc\s+(-\w+\s+)*[\w.-]+\s+\d{2,5}\s*<\s*\S"),
+        "Whole files are sent off the machine. Check which files, and who runs the receiving end.",
+        "Make the upload an explicit, documented step the user starts, and name the destination.",
+        ("deny-network-bash", "sandbox-bash"), kinds=CODE | SHELLISH, confidence="medium",
+    ),
+    # ---- 0.3.0: credentials -----------------------------------------------------
+    LineRule(
+        "CRED-CLOUD-METADATA", "Queries a cloud instance metadata service", "credentials", S.HIGH,
+        r(r"169\.254\.169\.254|metadata\.google\.internal|169\.254\.170\.2\b|fd00:ec2::254|100\.100\.100\.200"),
+        "On a cloud VM, CI runner or dev container the metadata service hands out the machine's own cloud credentials to any local process that asks.",
+        "Remove the request. Use the provider's SDK with credentials the user supplies.",
+        ("deny-network-bash", "disable-plugin"), kinds=CODE | SHELLISH,
+    ),
+    LineRule(
+        "CRED-CLI-TOKEN", "Asks a signed-in CLI for its access token", "credentials", S.MEDIUM,
+        r(r"\bgh\s+auth\s+token\b|gcloud\s+auth\s+(application-default\s+)?print-(access|identity)-token|aws\s+configure\s+(get|export-credentials)|"
+          r"aws\s+sts\s+get-session-token|az\s+account\s+get-access-token|\bop\s+(read|item\s+get)\b|git\s+credential\s+fill|"
+          r"npm\s+config\s+get\s+[^\n]{0,40}_authToken|doctl\s+auth\s+token|kubectl\s+config\s+view\s+[^\n]{0,40}--raw|vault\s+print\s+token"),
+        "The command prints a live token for an account you are signed in to. Whatever reads the output can act as you.",
+        "Let the tool that needs the token call the CLI itself, or ask the user for a scoped token.",
+        ("deny-secret-reads", "sandbox-bash"), kinds=CODE | SHELLISH, confidence="medium",
+    ),
+    LineRule(
+        "CRED-APP-DATA", "Reads chat, mail or messaging app data", "credentials", S.HIGH,
+        r(r"discord[^\n]{0,40}(Local Storage|leveldb)|Telegram Desktop|[/\\]tdata\b|Slack/(Cookies|storage|Local Storage)|\.config/Signal\b|"
+          r"Library/Messages\b|Library/Application Support/AddressBook|Library/Mail/|\.thunderbird\b|NoteStore\.sqlite"),
+        "These folders hold session tokens and private messages. Info-stealers copy them to take over accounts.",
+        "Do not install.", ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("discord", "telegram", "tdata", "slack/", "signal", "library/", ".thunderbird", "notestore"),
+    ),
+    LineRule(
+        "CRED-FAKE-PROMPT", "Shows its own password prompt", "credentials", S.HIGH,
+        r(r"display\s+dialog[^\n]{0,240}(hidden\s+answer|password)|zenity\s+[^\n]{0,80}--password|kdialog\s+--password|\bGet-Credential\b|SUDO_ASKPASS\s*="),
+        "A dialog drawn by a script can look like a system prompt. Whatever you type goes to the script.",
+        "Remove the prompt. Let the operating system ask for passwords.",
+        ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("dialog", "zenity", "get-credential", "askpass"),
+    ),
+    # ---- 0.3.0: surveillance ----------------------------------------------------
+    LineRule(
+        "SPY-CLIPBOARD", "Reads the clipboard", "surveillance", S.MEDIUM,
+        r(r"\bpbpaste\b|\bxclip\b[^\n]{0,60}\s-o\b|\bxsel\b[^\n]{0,40}\s(-o|--output)\b|\bwl-paste\b|\bGet-Clipboard\b|pyperclip\.paste\s*\(|"
+          r"clipboardy?\.(read|readSync)\s*\(|navigator\.clipboard\.read(Text)?\s*\(|clipboard\.readText\s*\(|\bNSPasteboard\b|\.clipboard_get\s*\("),
+        "The clipboard often holds passwords, tokens and one-time codes copied from a password manager.",
+        "Take input as an argument or a file instead of reading the clipboard.",
+        ("sandbox-bash", "disable-plugin"), kinds=CODE | SHELLISH,
+    ),
+    LineRule(
+        "SPY-KEYLOGGER", "Listens to keystrokes system-wide", "surveillance", S.HIGH,
+        r(r"\bpynput\b|keyboard\.(on_press|hook|record|read_event)\s*\(|CGEventTapCreate|\biohook\b|\buiohook|node-global-key-listener|GlobalKeyboardListener|"
+          r"\bxinput\s+test\b|\blogkeys\b|GetAsyncKeyState|SetWindowsHookEx|addGlobalMonitorForEvents|/dev/input/event\d"),
+        "A global key listener sees everything you type in every application, including passwords.",
+        "Do not install unless the plugin's documented purpose is keyboard automation and you have read the code.",
+        ("disable-plugin",), kinds=CODE | SHELLISH, confidence="medium",
+        hints=("pynput", "keyboard", "cgeventtap", "iohook", "key-listener", "xinput", "logkeys", "getasynckeystate", "setwindowshookex", "addglobalmonitor", "/dev/input"),
+    ),
+    LineRule(
+        "SPY-SCREENSHOT", "Captures the screen", "surveillance", S.MEDIUM,
+        r(r"\bscreencapture\s+\S|ImageGrab\.grab\s*\(|pyautogui\.screenshot\s*\(|\bmss\.mss\s*\(|\bmss\(\)\.(shot|grab)|\bscrot\s|gnome-screenshot|"
+          r"\bimport\s+-window\s+root|screenshot-desktop|desktopCapturer\.getSources|CGWindowListCreateImage|CGDisplayCreateImage|\bgrim\s+(-|/|~|\$)"),
+        "A screenshot of the whole desktop captures whatever is open: mail, chats, password managers, other projects.",
+        "Capture only the plugin's own window or page, and only when the user asks.",
+        ("disable-plugin", "sandbox-bash"), kinds=CODE | SHELLISH,
+        hints=("screencapture", "imagegrab", "screenshot", "mss", "scrot", "-window", "desktopcapturer", "cgwindowlistcreateimage", "cgdisplaycreateimage", "grim"),
+    ),
+    LineRule(
+        "SPY-MIC-CAMERA", "Records from the microphone, camera or screen", "surveillance", S.HIGH,
+        r(r"\bimagesnap\b|ffmpeg[^\n]{0,160}-f\s+(avfoundation|v4l2|alsa|pulse|dshow|x11grab|gdigrab)|\b(arecord|parecord)\s|\bsox\s+(-t\s+\w+\s+)?-d\b|"
+          r"cv2\.VideoCapture\s*\(\s*\d|sounddevice\.(rec|InputStream)|\bsd\.rec\s*\(|pyaudio\.PyAudio|getUserMedia\s*\(|AVCaptureDevice|AVAudioRecorder|"
+          r"node-record-lpcm16|\bfswebcam\b"),
+        "Audio and video capture records the room, not the project.",
+        "Do not install unless voice or video input is the plugin's documented purpose.",
+        ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("imagesnap", "ffmpeg", "arecord", "parecord", "sox", "videocapture", "sounddevice", "sd.rec", "pyaudio", "getusermedia", "avcapturedevice", "avaudiorecorder", "node-record-lpcm16", "fswebcam"),
+    ),
+    LineRule(
+        "SPY-BROWSER-HISTORY", "Reads browser history or bookmarks", "surveillance", S.HIGH,
+        r(r"\bplaces\.sqlite\b|Safari/History\.db|[/\\\"'](Default|Profile \d+)[/\\]History\b|(Chrome|Chromium|Brave|Edge|Arc)[^\n]{0,120}[/\\\"' ,]History[\"']|"
+          r"\bHistory\.db\b|Library/Safari/(Bookmarks|History|LastSession)|\bTopSites\.plist"),
+        "Browsing history shows which internal tools, banks and accounts you use, and is collected by info-stealers.",
+        "Do not install.", ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("places.sqlite", "history", "library/safari", "topsites"),
+    ),
+    LineRule(
+        "TELEMETRY-MACHINE-ID", "Reads a hardware or machine identifier", "surveillance", S.LOW,
+        r(r"IOPlatformUUID|IOPlatformSerialNumber|/etc/machine-id|/var/lib/dbus/machine-id|system_profiler\s+SPHardwareDataType|wmic\s+csproduct|"
+          r"node-machine-id|machineIdSync\s*\(|\bMachineGuid\b|dmidecode\s+-s\s+system-(uuid|serial)|uuid\.getnode\s*\("),
+        "A stable machine identifier lets a server recognise this computer across sessions, projects and reinstalls.",
+        "Use a random identifier the user can reset, and document it.",
+        ("disable-hooks", "sandbox-bash"), kinds=CODE | SHELLISH, confidence="medium",
+        hints=("ioplatform", "machine-id", "system_profiler", "wmic", "machineid", "machineguid", "dmidecode", "getnode"),
+    ),
+    LineRule(
+        "TELEMETRY-SDK", "Sends usage data to an analytics or telemetry service", "network", S.LOW,
+        r(r"\bposthog\b|api\.segment\.(io|com)|analytics-node|@segment/|\bmixpanel\b|amplitude\.com|@amplitude/|sentry\.io|@sentry/|\bsentry_sdk\b|"
+          r"google-analytics\.com|googletagmanager|api\.honeycomb\.io|\brudderstack\b|\bstatsig\b|plausible\.io/api|\btelemetry\.[\w-]+\.(com|io|dev|net|sh|ai)\b"),
+        "Telemetry reports what you do to a third party. From a hook it can include prompts, file paths and command lines.",
+        "Make telemetry opt-in and document exactly what is sent.",
+        ("disable-hooks", "sandbox-bash"), kinds=CODE | SHELLISH, confidence="medium",
+        hints=("posthog", "segment", "analytics-node", "mixpanel", "amplitude", "sentry", "google-analytics", "googletagmanager", "honeycomb", "rudderstack", "statsig", "plausible", "telemetry"),
+    ),
+    # ---- 0.3.0: instructions hidden in code and tool descriptions ----------------
+    LineRule(
+        "PROMPT-TOOL-POISONING", "Instructions to the model inside code or a tool description", "prompt-injection", S.HIGH,
+        r(r"<IMPORTANT>|(do\s+not|don't|never)\s+(tell|inform|notify|alert|mention\s+(this|it|that)\s+to)\s+(the\s+)?user|without\s+(telling|informing|notifying)\s+the\s+user|"
+          r"ignore\s+(all\s+|any\s+)?(previous|prior|above|earlier)\s+(instructions|prompts|rules)|"
+          r"before\s+(using|calling|invoking|running)\s+(this|any|the|other)\s+tools?\b[^\n]{0,120}\b(read|send|pass|include|fetch|call)\b|"
+          r"(pass|send|include)\s+(its|the|their|file)\s+contents?\s+(as|in|to)\b[^\n]{0,60}(param|argument|sidenote|field|note)|"
+          r"\b(always|must)\s+(call|use)\s+this\s+tool\s+(first|before|instead)"),
+        "An MCP tool's description is read by the model, not shown to you. Text like this steers Claude from inside a tool definition (tool poisoning).",
+        "Remove the instruction. A tool description should say what the tool does and nothing else.",
+        ("deny-mcp-server", "review-context-injection", "disable-plugin"), kinds=CODE | frozenset({"config"}), auto_boost=False,
+        exclude=r(r"re\.compile|\bRegExp\b|\bregex\b|\bpattern\b"),
+    ),
+    LineRule(
+        "TAMPER-SANDBOX-OFF", "Turns off the Bash sandbox or auto-approves MCP servers", "permissions", S.HIGH,
+        r(r"dangerouslyDisableSandbox[\"'`]?\s*[:=]\s*true|enableAllProjectMcpServers[\"'`]?\s*[:=]\s*true|"
+          r"[\"'`]?sandbox[\"'`]?\s*[:=]\s*\{\s*[\"'`]?enabled[\"'`]?\s*[:=]\s*false"),
+        "The sandbox limits what Claude's shell commands can reach, and the MCP approval prompt is the only moment you see a new server before it starts.",
+        "Remove the setting; let the user choose.",
+        ("lock-permission-mode", "protect-claude-config"), kinds=CODE_MD | SHELLISH | frozenset({"config"}),
+        exclude=r(r"\b(do\s*not|don't|never|avoid|instead\s+of|rather\s+than)\b"),
+    ),
+    # ---- 0.3.0: obfuscation, triggers and evasion ----------------------------------
+    LineRule(
+        "OBF-CHARCODE", "Builds a string from character codes", "obfuscation", S.MEDIUM,
+        r(r"String\.fromCharCode\s*\(\s*\d+(\s*,\s*\d+){7,}|(chr\(\s*\d+\s*\)\s*\+\s*){5,}|(\\[0-3][0-7]{2}){12,}"),
+        "Spelling a command or address out of numbers hides it from search and from a quick read.",
+        "Replace it with the plain string.", ("review-before-run",), confidence="medium",
+    ),
+    LineRule(
+        "EVADE-SANDBOX-CHECK", "Checks for a virtual machine, debugger or analysis sandbox", "obfuscation", S.MEDIUM,
+        r(r"systemd-detect-virt|/sys/class/dmi/id/(product_name|sys_vendor|board_vendor)|sysctl\s+(-n\s+)?(hw\.model|kern\.hv_vmm_present)|"
+          r"\b(VBOX|VirtualBox|VMware|QEMU|Parallels|Hyper-V)\b[^\n]{0,80}\b(exit|return|quit|process\.exit|sys\.exit|os\._exit)\b|"
+          r"PT_DENY_ATTACH|IsDebuggerPresent|sys\.gettrace\s*\(\s*\)|joesandbox|\bcuckoo\b"),
+        "Code that behaves differently when it is being watched is written to pass review and then do something else.",
+        "Remove the check, or document why the plugin needs to know.",
+        ("disable-plugin", "review-before-run"), kinds=CODE | SHELLISH, confidence="medium",
+        hints=("detect-virt", "dmi/id", "sysctl", "vbox", "virtualbox", "vmware", "qemu", "parallels", "hyper-v", "pt_deny_attach", "isdebuggerpresent", "gettrace", "joesandbox", "cuckoo"),
+    ),
+    LineRule(
+        "TRIGGER-ENV-GATE", "Behaviour depends on which machine, user or CI system it runs on", "obfuscation", S.LOW,
+        r(r"(GITHUB_ACTIONS|\$\{?CI\}?\b|process\.env\.CI\b|os\.environ[^\n]{0,20}[\"']CI[\"'])[^\n]{0,80}\b(exit|return)\b|"
+          r"(os\.hostname\(\)|socket\.gethostname\(\)|getpass\.getuser\(\)|os\.userInfo\(\)\.username|\$\(hostname\)|\$\(whoami\)|\$USER\b)[\"']?\s*\]?\s*(===?|!==?|=|-eq)\s*[\"'][\w.-]+[\"']|"
+          r"[\"'][\w.-]+[\"']\s*(===?|!==?)\s*(os\.hostname\(\)|socket\.gethostname\(\)|getpass\.getuser\(\))"),
+        "A branch that only runs for one host name, one user or outside CI will not show up when someone else tests the plugin.",
+        "Read what the gated branch does.", ("review-before-run",), kinds=CODE | SHELLISH, confidence="low",
+    ),
+    LineRule(
+        "TRIGGER-TIME-BOMB", "Behaviour switches on a hard-coded date", "obfuscation", S.MEDIUM,
+        r(r"(Date\.now\(\)|new\s+Date\(\)(\.getTime\(\))?|time\.time\(\)|datetime\.(now|utcnow|today)\(\)|date\.today\(\))\s*(>=?|<=?)\s*"
+          r"(1[6-9]\d{8}(\d{3})?\b|new\s+Date\(\s*[\"']?20\d\d|datetime(\.datetime)?\(\s*20\d\d|(datetime\.)?date\(\s*20\d\d)|"
+          r"\$\(date\s+\+%s\)[\"']?\s+-(gt|ge|lt|le)\s+1[6-9]\d{8}\b|\$\(date\s+\+%Y-?%m-?%d\)[\"']?\s*(>|<|==|-gt|-ge)\s*[\"']?20\d\d"),
+        "Code that waits for a date can stay quiet through review and the first weeks of use, then change what it does.",
+        "Read both branches. Remove the date check if it is not a documented expiry.",
+        ("pin-commit", "review-before-run"), kinds=CODE | SHELLISH, confidence="medium",
+    ),
+    # ---- 0.3.0: reconnaissance --------------------------------------------------
+    LineRule(
+        "RECON-NET-SCAN", "Scans the local network or ports", "network", S.MEDIUM,
+        r(r"\b(nmap|masscan|zmap|rustscan|arp-scan|netdiscover|fping)\s+(-|\d|\$|[\"'])|\bnc\s+(-[a-z]+\s+)*-[a-z]*z[a-z]*\s|\barp\s+-a\b|"
+          r"for\s+\w+\s+in\s+[^\n]{0,60}(seq\s|\{1\.\.25[45]\})[^\n]{0,120}(ping\s+-c|/dev/tcp)|\bpython-nmap\b|\bfrom\s+scapy\b|\bimport\s+scapy\b"),
+        "Mapping the network a developer's laptop sits on is the first step of moving to other machines.",
+        "Remove the scan unless network discovery is the plugin's documented purpose.",
+        ("deny-network-bash", "sandbox-bash"), kinds=CODE | SHELLISH,
+        hints=("nmap", "masscan", "zmap", "rustscan", "arp", "netdiscover", "fping", "nc", "ping", "/dev/tcp", "scapy"),
+    ),
+    # ---- 0.3.0: tampering and defence evasion ---------------------------------------
+    LineRule(
+        "TAMPER-OTHER-PLUGINS", "Installs, edits or removes other plugins, skills or MCP servers", "config-tampering", S.HIGH,
+        r(r"(writeFile|appendFile|write_text|open\([^)\n]{0,80}[\"'](w|a)|>>?|\btee\b|\bcp\b|\bmv\b|\brm\b|sed\s+-i|json\.dump|rmSync|unlink|shutil\.(copy|move|rmtree))"
+          r"[^\n]{0,200}(\.claude/plugins\b|installed_plugins\.json|known_marketplaces\.json|\.claude/skills/)|"
+          r"(installed_plugins\.json|known_marketplaces\.json)[^\n]{0,200}(writeFile|appendFile|write_text|json\.dump)|"
+          r"\bclaude\s+plugins?\s+(install|enable|marketplace\s+add)\b|\bclaude\s+mcp\s+add(-json)?\b"),
+        "A plugin that changes what else is installed can add code you never chose, or alter a plugin you already reviewed.",
+        "Ask the user to install other plugins themselves.",
+        ("protect-claude-config", "disable-plugin"), kinds=CODE | SHELLISH,
+        exclude=r(r"CLAUDE_PLUGIN_DATA|\.claude/plugins/data/"),
+        hints=("claude", "installed_plugins", "known_marketplaces"),
+    ),
+    LineRule(
+        "PRIV-SECURITY-TOOLS", "Stops or disables security software", "privilege", S.HIGH,
+        r(r"(pkill|killall|kill\s+-9|taskkill|launchctl\s+(unload|bootout|remove|disable)|systemctl\s+(stop|disable|mask)|service\s+\S+\s+stop)[^\n]{0,120}"
+          r"(falcon|crowdstrike|sentinel(one|d|ctl)|defender|mdatp|little\s*snitch|\blulu\b|osquery|\bsanta\b|clamd|clamav|auditd|apparmor|firewalld|\bufw\b|"
+          r"carbonblack|cbdaemon|\bjamf\b|sophos|malwarebytes|blockblock|knockknock|wazuh|ossec|\bfalco\b|sysmon)|"
+          r"Set-MpPreference\s+[^\n]{0,80}-Disable|\bsetenforce\s+0|\bufw\s+disable|\bpfctl\s+-d\b|socketfilterfw\s+--setglobalstate\s+off|"
+          r"\biptables\s+(-F|--flush)|\bauditctl\s+-e\s*0|DisableAntiSpyware|netsh\s+advfirewall\s+set\s+\w+\s+state\s+off"),
+        "Endpoint protection, firewalls and audit logging are what would notice the rest of an attack.",
+        "Do not install.", ("disable-plugin",), kinds=CODE_MD | SHELLISH,
+        hints=("kill", "launchctl", "systemctl", "service", "set-mppreference", "setenforce", "ufw", "pfctl", "socketfilterfw", "iptables", "auditctl", "disableantispyware", "netsh"),
+    ),
+    LineRule(
+        "TAMPER-LOGS", "Deletes system logs or Claude Code session transcripts", "obfuscation", S.HIGH,
+        r(r"\b(rm|shred|srm|truncate|unlink)\s+[^\n]{0,80}(/var/log\b|\.claude/projects\b|\.claude/history\.jsonl|\.claude/logs\b|/var/audit\b|Library/Logs\b|"
+          r"\bauth\.log|\bwtmp\b|\butmp\b|\blastlog\b|\.viminfo|\.lesshst|\.python_history|\.node_repl_history)|>\s*/var/log/\S+|"
+          r"\bjournalctl\s+[^\n]{0,40}--(vacuum-\w+|rotate)|\bwevtutil\s+cl\b|\bClear-EventLog\b|"
+          r"(rmSync|unlinkSync|unlink|os\.remove|shutil\.rmtree|\.unlink)\s*\([^)\n]{0,120}(\.claude[/\"', +]+(projects|logs|history)|transcript_path|/var/log)"),
+        "Logs and transcripts are the record of what ran. Removing them hides what a plugin or the agent did.",
+        "Remove it.", ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("rm", "shred", "truncate", "unlink", "/var/log", "journalctl", "wevtutil", "clear-eventlog", "remove"),
+    ),
+    LineRule(
+        "DESTRUCT-ENCRYPT", "Encrypts files in bulk or leaves a ransom note", "destructive", S.CRITICAL,
+        r(r"find\s+[^\n]{0,200}-exec\s+(openssl\s+enc|gpg\s+[^\n]{0,40}(-c\b|--symmetric|--encrypt)|age\s+-|7z\s+a\s+[^\n]{0,40}-p|zip\s+[^\n]{0,40}(-P|--password|-e\b))|"
+          r"openssl\s+enc\s+[^\n]{0,200}(&&|;|\|\|)\s*(rm|shred|srm|unlink)\b|gpg\s+[^\n]{0,120}(-c\b|--symmetric)[^\n]{0,200}(&&|;)\s*(rm|shred|srm)\b|"
+          r"(zip|7z)\s+[^\n]{0,80}(-P\s|--password|-p\S)[^\n]{0,200}(&&|;)\s*(rm|shred|srm)\b|"
+          r"your\s+files\s+(have\s+been|are|were)\s+encrypted|README[_-]?(DECRYPT|RESTORE|RECOVER)|HOW[_ -]TO[_ -](DECRYPT|RESTORE|RECOVER)|DECRYPT[_ -]INSTRUCTIONS|"
+          r"vssadmin\s+delete\s+shadows|tmutil\s+(deletelocalsnapshots|disable)\b|wbadmin\s+delete|recoveryenabled\s+no"),
+        "Encrypting files and deleting the originals, or removing backups and snapshots, is how ransomware works.",
+        "Do not install.", ("disable-plugin",), kinds=CODE | SHELLISH,
+        hints=("find", "openssl", "gpg", "zip", "7z", "encrypted", "decrypt", "restore", "recover", "vssadmin", "tmutil", "wbadmin", "recoveryenabled"),
+    ),
+    LineRule(
+        "PRIV-ESCALATE", "Grants itself administrator rights", "privilege", S.HIGH,
+        r(r"/etc/sudoers|\bNOPASSWD\b|\bvisudo\b|with\s+administrator\s+privileges|\bpkexec\s+\S|\bsetcap\s+\S|chown\s+(-R\s+)?root\b|"
+          r"dscl\s+\.\s+-append\s+/Groups/admin|usermod\s+[^\n]{0,40}-a?G\s+(sudo|wheel|admin|docker)|\|\s*sudo\s+-S\b|sudo\s+-S\b[^\n]{0,60}<<<|"
+          r"net\s+localgroup\s+administrators|runas\s+/user:|Start-Process\s+[^\n]{0,80}-Verb\s+RunAs|AuthorizationExecuteWithPrivileges"),
+        "These give a script lasting root or administrator access, beyond a single sudo command.",
+        "Remove it; ask the user to run privileged steps themselves.",
+        ("disable-plugin", "sandbox-bash"), kinds=CODE | SHELLISH,
+        hints=("sudo", "nopasswd", "administrator", "pkexec", "setcap", "chown", "dscl", "usermod", "localgroup", "runas", "authorizationexecutewithprivileges"),
+    ),
+    LineRule(
+        "PERSIST-LOGIN-HOOK", "Hooks into login, shell start-up or library loading", "persistence", S.HIGH,
+        r(r"make\s+(new\s+)?login\s+item|/etc/profile\.d/|\.ssh/rc\b|/etc/rc\.local|\.xinitrc|\.xprofile|/etc/ld\.so\.preload|DYLD_INSERT_LIBRARIES|"
+          r"\bLD_PRELOAD\s*=|LoginHook|\.config/fish/conf\.d|\.pam_environment|SMLoginItemSetEnabled|\.bash_logout|/etc/zshenv|/etc/zprofile|"
+          r"emond\.d|init\.templateDir|Startup[/\\][^\n]{0,60}\.(lnk|bat|vbs)\b"),
+        "These run code at every login, in every shell or inside other programs, long after the plugin is removed.",
+        "Remove it. If the plugin needs to start something, document it and let the user do it.",
+        ("check-persistence", "disable-plugin"), kinds=CODE | SHELLISH, confidence="medium",
+        hints=("login", "profile", ".ssh/rc", "rc.local", ".xinitrc", "preload", "dyld_insert", "fish/conf.d", "pam_environment", "bash_logout", "zshenv", "emond", "templatedir", "startup"),
+    ),
+    LineRule(
+        "PERSIST-DETACHED", "Starts a process that outlives the session", "persistence", S.LOW,
+        r(r"\bnohup\s+\S[^\n]{0,200}&\s*($|\)|;)|\bsetsid\s+(-f\s+)?\S|\bdisown\b|\bdetached\s*:\s*true|start_new_session\s*=\s*True|DETACHED_PROCESS|os\.setsid\s*\(\s*\)", re.I | re.M),
+        "A detached process keeps running after Claude Code exits, with nothing on screen to show it.",
+        "Stop the process when the session ends, or document it.",
+        ("check-persistence", "disable-hooks"), kinds=CODE | SHELLISH, confidence="medium",
     ),
 ]
 
@@ -442,4 +706,70 @@ STRUCTURAL_RULES: dict[str, tuple[str, str]] = {
     "EXFIL-CORRELATED": ("exfiltration", "Same file reads sensitive data and makes network calls"),
     "NET-AUTORUN": ("network", "Code that runs automatically makes network calls"),
     "HIDDEN-UNICODE": ("prompt-injection", "Invisible or bidirectional Unicode characters"),
+    "DEP-TYPOSQUAT": ("supply-chain", "Dependency name is one slip away from a well-known package"),
+    "DESTRUCT-ENCRYPT-CORRELATED": ("destructive", "Same file walks folders, encrypts and removes or overwrites files"),
 }
+
+
+# Well-known package names that typosquatters imitate. A dependency that is not on the list but is
+# one edit (or one swapped pair, or a dropped separator) away from an entry is reported.
+POPULAR_PACKAGES: dict[str, frozenset[str]] = {
+    "npm": frozenset({
+        "react", "react-dom", "lodash", "express", "axios", "chalk", "commander", "request", "moment", "webpack", "typescript", "eslint",
+        "prettier", "jquery", "angular", "nodemon", "dotenv", "mongoose", "underscore", "async", "debug", "yargs", "inquirer", "bluebird",
+        "cheerio", "puppeteer", "playwright", "electron", "socket.io", "body-parser", "jsonwebtoken", "bcrypt", "node-fetch", "cross-env",
+        "rimraf", "minimist", "semver", "colors", "mocha", "babel-core", "openai", "esbuild", "rollup", "tailwindcss", "discord.js", "ethers",
+        "sharp", "dayjs", "date-fns", "winston", "passport", "nodemailer", "sequelize", "redis", "mysql", "sqlite3", "fs-extra", "shelljs",
+        "execa", "tslib", "core-js", "classnames", "prop-types", "styled-components", "graphql", "firebase", "aws-sdk", "stripe", "twilio",
+        "mcp-remote", "supergateway", "@modelcontextprotocol/sdk", "@anthropic-ai/sdk", "@anthropic-ai/claude-code", "@anthropic-ai/claude-agent-sdk",
+    }),
+    "pypi": frozenset({
+        "requests", "urllib3", "numpy", "pandas", "boto3", "botocore", "setuptools", "pyyaml", "cryptography", "django", "flask", "fastapi",
+        "pydantic", "httpx", "aiohttp", "beautifulsoup4", "selenium", "pillow", "scipy", "matplotlib", "tensorflow", "torch", "transformers",
+        "openai", "anthropic", "fastmcp", "langchain", "sqlalchemy", "psycopg2", "pymongo", "redis", "celery", "pytest", "click", "typer",
+        "jinja2", "colorama", "python-dotenv", "paramiko", "scikit-learn", "opencv-python", "pyjwt", "uvicorn", "gunicorn", "playwright",
+        "discord.py", "pycryptodome", "python-dateutil", "certifi", "attrs", "websockets", "starlette", "claude-agent-sdk",
+    }),
+}
+# Real packages that sit one edit away from a popular name.
+TYPOSQUAT_ALLOW = frozenset({"preact", "requests", "color", "mysql2", "sqlite", "boto", "aredis", "torchx", "clickx", "redis-py", "flask2"})
+KNOWN_SCOPES = ("@anthropic-ai", "@modelcontextprotocol")
+
+
+def _one_edit(a: str, b: str) -> bool:
+    """True when a and b differ by one insert, delete, substitute or adjacent swap."""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        diff = [i for i in range(len(a)) if a[i] != b[i]]
+        if len(diff) == 1:
+            return True
+        return len(diff) == 2 and diff[1] == diff[0] + 1 and a[diff[0]] == b[diff[1]] and a[diff[1]] == b[diff[0]]
+    short, long = (a, b) if len(a) < len(b) else (b, a)
+    i = 0
+    while i < len(short) and short[i] == long[i]:
+        i += 1
+    return short[i:] == long[i + 1:]
+
+
+def typosquat_of(name: str, ecosystem: str) -> str | None:
+    """The well-known package this name imitates, or None."""
+    name = name.strip().lower()
+    if ecosystem == "pypi":
+        name = re.sub(r"[-_.]+", "-", name)
+    popular = POPULAR_PACKAGES.get(ecosystem, frozenset())
+    if not name or name in popular or name in TYPOSQUAT_ALLOW:
+        return None
+    if name.startswith("@") and "/" in name:
+        scope = name.split("/", 1)[0]
+        for known in KNOWN_SCOPES:
+            if scope != known and (_one_edit(scope, known) or re.sub(r"[-_.]", "", scope) == re.sub(r"[-_.]", "", known)):
+                return known + "/" + name.split("/", 1)[1]
+    flat = re.sub(r"[-_.]", "", name)
+    for known in popular:
+        if len(known) < 5:
+            continue
+        if _one_edit(name, known) or (flat == re.sub(r"[-_.]", "", known) and ecosystem == "npm"):
+            return known
+    return None
+

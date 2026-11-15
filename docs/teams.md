@@ -7,7 +7,7 @@ Everything here runs in your own repository and CI. Nothing is sent to a Plugin 
 In the repository that holds the `.claude/settings.json` your team shares:
 
 ```bash
-uvx --from git+https://github.com/battlettt/plugin-warden@v0.2.0 warden init
+uvx --from git+https://github.com/battlettt/plugin-warden@v0.3.0 warden init
 ```
 
 That writes:
@@ -47,7 +47,7 @@ Commit the policy file. The approval history is now the git history of that file
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: battlettt/plugin-warden@v0.2.0
+- uses: battlettt/plugin-warden@v0.3.0
   with:
     project: .
 ```

@@ -13,7 +13,7 @@ LOW_CAP = 10
 # If any of these fire, the repository contains text aimed at a model. A model
 # that read it may have been steered, so its dismissals of serious findings are
 # not trusted for scoring.
-INJECTION_RULES = {"PROMPT-OVERRIDE", "PROMPT-CONCEAL", "PROMPT-HIDDEN-COMMENT", "HIDDEN-UNICODE", "PROMPT-REMOTE-INSTRUCTIONS", "PROMPT-SECRET-ACCESS"}
+INJECTION_RULES = {"PROMPT-OVERRIDE", "PROMPT-CONCEAL", "PROMPT-HIDDEN-COMMENT", "HIDDEN-UNICODE", "PROMPT-REMOTE-INSTRUCTIONS", "PROMPT-SECRET-ACCESS", "PROMPT-TOOL-POISONING"}
 
 LEVELS = [
     ("block", "Do not install"),

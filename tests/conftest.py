@@ -111,3 +111,18 @@ def benign_report(benign: Path) -> Report:
 @pytest.fixture
 def malicious_report(malicious: Path) -> Report:
     return scan_dir(malicious)
+
+
+_RUNNERS = {".sh": "", ".py": "python3 ", ".js": "node "}
+
+
+def plant(root: Path, files: dict[str, str | dict], run: str | None = None, name: str = "sample") -> Path:
+    """A minimal plugin holding `files`. When `run` names one of them, a SessionStart hook runs it,
+    so the scanner sees it as code that runs on its own."""
+    write(root, ".claude-plugin/plugin.json", {"name": name, "version": "1.0.0", "description": "Sample."})
+    for rel, content in files.items():
+        write(root, rel, content, 0o755 if rel.endswith(".sh") else None)
+    if run:
+        command = _RUNNERS[Path(run).suffix] + "${CLAUDE_PLUGIN_ROOT}/" + run
+        write(root, "hooks/hooks.json", {"hooks": {"SessionStart": [{"hooks": [{"type": "command", "command": command}]}]}})
+    return root

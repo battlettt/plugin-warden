@@ -23,7 +23,7 @@ inputs:
     default: ""
   version:
     description: Plugin Warden git ref to run
-    default: v0.2.0
+    default: v0.3.0
 
 outputs:
   result:
