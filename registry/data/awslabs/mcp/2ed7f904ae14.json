@@ -1,0 +1,3156 @@
+{
+ "target": {
+  "display": "awslabs/mcp",
+  "raw": "awslabs/mcp",
+  "kind": "github",
+  "url": "https://github.com/awslabs/mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "2ed7f904ae146f5d8bc8e775cbdf69d95e8484ef",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-15T07:12:11+00:00",
+ "plugins": [
+  {
+   "name": "awslabs__mcp@2ed7f904ae14",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 64,
+  "skill": 8
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "awslabs__mcp@2ed7f904ae14",
+   "path": ".",
+   "plugin": "awslabs__mcp@2ed7f904ae14",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "amazon aurora dsql",
+   "path": "src/aurora-dsql-mcp-server/skills/amazon-aurora-dsql-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "aurora dsql",
+   "path": "src/aurora-dsql-mcp-server/skills/aurora-dsql-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "aws dsql",
+   "path": "src/aurora-dsql-mcp-server/skills/aws-dsql-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "distributed postgres",
+   "path": "src/aurora-dsql-mcp-server/skills/distributed-postgres-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "distributed sql",
+   "path": "src/aurora-dsql-mcp-server/skills/distributed-sql-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "dsql",
+   "path": "src/aurora-dsql-mcp-server/skills/dsql-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Deprecated compatibility redirect for Aurora DSQL guidance. Use when a request concerns DSQL, Aurora DSQL, distributed SQL, DSQL schemas, migrations, queries, authentication, performance, or applicat"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "agentcore-investigation",
+   "path": "src/cloudwatch-mcp-server/skills/agentcore-investigation/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Investigate Bedrock AgentCore runtime sessions via CloudWatch Logs Insights \u2014 resolve session/trace IDs, query OTEL spans, filter noise, build timelines. Use when debugging AgentCore agent sessions, t"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "redshift-guide",
+   "path": "src/redshift-mcp-server/awslabs/redshift_mcp_server/skills/redshift-guide/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Amazon Redshift is NOT PostgreSQL; corrects LLM mistakes; covers SQL, metadata, connectivity/auth, storage, query performance, and operations. Applies ONLY to Redshift (provisioned or Serverless). Pu"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs",
+   "path": "docusaurus/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "docusaurus build",
+     "clear": "docusaurus clear",
+     "deploy": "docusaurus deploy",
+     "docusaurus": "docusaurus",
+     "serve": "docusaurus serve",
+     "start": "docusaurus start",
+     "swizzle": "docusaurus swizzle",
+     "typecheck": "tsc",
+     "write-heading-ids": "docusaurus write-heading-ids",
+     "write-translations": "docusaurus write-translations"
+    },
+    "dependencies": {
+     "@docusaurus/core": "^3.10.2",
+     "@docusaurus/preset-classic": "^3.10.2",
+     "@mdx-js/react": "^3.1.1",
+     "clsx": "^2.0.0",
+     "prism-react-renderer": "^2.3.0",
+     "react": "^19.3.1",
+     "react-dom": "^19.3.1",
+     "unist-util-visit": "^5.2.0"
+    },
+    "devDependencies": {
+     "@docusaurus/module-type-aliases": "^3.10.2",
+     "@docusaurus/tsconfig": "^3.10.2",
+     "@docusaurus/types": "^3.10.2",
+     "baseline-browser-mapping": "^2.11.13",
+     "typescript": "~7.0.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "samples/mcp-integration-with-kb/pyproject.toml",
+   "path": "samples/mcp-integration-with-kb/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "samples/mcp-integration-with-nova-canvas/pyproject.toml",
+   "path": "samples/mcp-integration-with-nova-canvas/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-bedrock-agentcore-mcp-server/pyproject.toml",
+   "path": "src/amazon-bedrock-agentcore-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-kendra-index-mcp-server/pyproject.toml",
+   "path": "src/amazon-kendra-index-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-keyspaces-mcp-server/pyproject.toml",
+   "path": "src/amazon-keyspaces-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-mq-mcp-server/pyproject.toml",
+   "path": "src/amazon-mq-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-neptune-mcp-server/pyproject.toml",
+   "path": "src/amazon-neptune-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-qbusiness-anonymous-mcp-server/pyproject.toml",
+   "path": "src/amazon-qbusiness-anonymous-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-qindex-mcp-server/pyproject.toml",
+   "path": "src/amazon-qindex-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-sns-sqs-mcp-server/pyproject.toml",
+   "path": "src/amazon-sns-sqs-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/amazon-translate-mcp-server/pyproject.toml",
+   "path": "src/amazon-translate-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aurora-dsql-mcp-server/pyproject.toml",
+   "path": "src/aurora-dsql-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-api-mcp-server/pyproject.toml",
+   "path": "src/aws-api-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-appsync-mcp-server/pyproject.toml",
+   "path": "src/aws-appsync-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-bedrock-custom-model-import-mcp-server/pyproject.toml",
+   "path": "src/aws-bedrock-custom-model-import-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-dataprocessing-mcp-server/pyproject.toml",
+   "path": "src/aws-dataprocessing-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-documentation-mcp-server/pyproject.toml",
+   "path": "src/aws-documentation-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-for-sap-management-mcp-server/pyproject.toml",
+   "path": "src/aws-for-sap-management-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-healthomics-mcp-server/pyproject.toml",
+   "path": "src/aws-healthomics-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-iac-mcp-server/pyproject.toml",
+   "path": "src/aws-iac-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-iot-sitewise-mcp-server/pyproject.toml",
+   "path": "src/aws-iot-sitewise-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-location-mcp-server/pyproject.toml",
+   "path": "src/aws-location-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-network-mcp-server/pyproject.toml",
+   "path": "src/aws-network-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-pricing-mcp-server/pyproject.toml",
+   "path": "src/aws-pricing-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-serverless-mcp-server/pyproject.toml",
+   "path": "src/aws-serverless-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-support-mcp-server/pyproject.toml",
+   "path": "src/aws-support-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/aws-transform-mcp-server/pyproject.toml",
+   "path": "src/aws-transform-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/bedrock-kb-retrieval-mcp-server/pyproject.toml",
+   "path": "src/bedrock-kb-retrieval-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/billing-cost-management-mcp-server/pyproject.toml",
+   "path": "src/billing-cost-management-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/ccapi-mcp-server/pyproject.toml",
+   "path": "src/ccapi-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/cloudtrail-mcp-server/pyproject.toml",
+   "path": "src/cloudtrail-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/cloudwatch-applicationsignals-mcp-server/pyproject.toml",
+   "path": "src/cloudwatch-applicationsignals-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/cloudwatch-applicationsignals-mcp-server/evals/requirements.txt",
+   "path": "src/cloudwatch-applicationsignals-mcp-server/evals/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/cloudwatch-mcp-server/pyproject.toml",
+   "path": "src/cloudwatch-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/db2-mcp-server/pyproject.toml",
+   "path": "src/db2-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/document-loader-mcp-server/pyproject.toml",
+   "path": "src/document-loader-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/documentdb-mcp-server/pyproject.toml",
+   "path": "src/documentdb-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/dynamodb-mcp-server/pyproject.toml",
+   "path": "src/dynamodb-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/ecs-mcp-server/pyproject.toml",
+   "path": "src/ecs-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/eks-mcp-server/pyproject.toml",
+   "path": "src/eks-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/elasticache-mcp-server/pyproject.toml",
+   "path": "src/elasticache-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/finch-mcp-server/pyproject.toml",
+   "path": "src/finch-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/healthimaging-mcp-server/pyproject.toml",
+   "path": "src/healthimaging-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/healthlake-mcp-server/pyproject.toml",
+   "path": "src/healthlake-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/iam-mcp-server/pyproject.toml",
+   "path": "src/iam-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/lambda-tool-mcp-server/pyproject.toml",
+   "path": "src/lambda-tool-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/mcp-lambda-handler/pyproject.toml",
+   "path": "src/mcp-lambda-handler/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/memcached-mcp-server/pyproject.toml",
+   "path": "src/memcached-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/mssql-mcp-server/pyproject.toml",
+   "path": "src/mssql-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/mysql-mcp-server/pyproject.toml",
+   "path": "src/mysql-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/openapi-mcp-server/pyproject.toml",
+   "path": "src/openapi-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/oracle-mcp-server/pyproject.toml",
+   "path": "src/oracle-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/postgres-mcp-server/pyproject.toml",
+   "path": "src/postgres-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/prometheus-mcp-server/pyproject.toml",
+   "path": "src/prometheus-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/redshift-mcp-server/pyproject.toml",
+   "path": "src/redshift-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/roda-mcp-server/pyproject.toml",
+   "path": "src/roda-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/s3-tables-mcp-server/pyproject.toml",
+   "path": "src/s3-tables-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/sagemaker-ai-mcp-server/pyproject.toml",
+   "path": "src/sagemaker-ai-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/security-agent-mcp-server/pyproject.toml",
+   "path": "src/security-agent-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/stepfunctions-tool-mcp-server/pyproject.toml",
+   "path": "src/stepfunctions-tool-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/timestream-for-influxdb-mcp-server/pyproject.toml",
+   "path": "src/timestream-for-influxdb-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/valkey-mcp-server/pyproject.toml",
+   "path": "src/valkey-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "src/well-architected-security-mcp-server/pyproject.toml",
+   "path": "src/well-architected-security-mcp-server/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 3915,
+  "bytes": 76385874,
+  "by_kind": {
+   "binary": 13,
+   "config": 218,
+   "js": 4,
+   "markdown": 495,
+   "other": 479,
+   "python": 2620,
+   "shell": 86
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 73
+ },
+ "findings": [
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:278de8c0467cece6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:360654095a709795",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e84447ff1d3ebd9b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c629e2d00fd7269c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:00e9d7ea5954068a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a7d0edef7a6daf45",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a58210b7475e716",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:52c485e585d2364e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ca315fea727e2eee",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4e6ea1b3e3ef6e71",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d959f048404b7406",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:06ab030488a79fd8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f8998ec53109881f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1e7f841452288c48",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc64e2efe74690f6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6fad340d109573ba",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a0d321a289b873ee",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:154d21e6658030fc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b066c750c0192dbd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:096de0839dfc55d3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:67f10ad0c491cdd4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6bc52532ef2bac12",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:708af50f25a22ff4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0a9c6835aca035c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9aa9b8639d004ecd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cc2c102c3d635b6f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c8f7a21cef88a849",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e26a1a5466f746ca",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:24de6682c4b278c8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:de2ca124d78a904a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:70e61058dae1f0c4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3d538c2c50e04409",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:529ef7f54c707ab9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4fefeb11b964b0dc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:27fd46c822670663",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e2e5d46c9b502bc3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f47dd4620c56ac71",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9759226c0a7c3026",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f2bb5b5e0cbb36b4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:da1eac1d211cb490",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:624486c5839e0cfe",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5169af939e270a19",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3c150c58699ce014",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:760ffe45b8534caa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-044",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:28dcc27a1235b422",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-045",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a2e0cf388a297f2f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-046",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:474bb9cfcbade4e3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-047",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:35814a5202f6b195",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-048",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8e8c0a790148357c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-049",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:237a9d8a3fa1aaa2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-050",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7bd221111705820e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-051",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:005d7329ff091f27",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-052",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:66260ad1ebcf3897",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-053",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c4e56f9b57424fb9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-054",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e689de18074f4c91",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-055",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dd438d910fbb0c16",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-056",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8924b7d64eaa089e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-057",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c132a9a647326052",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-058",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:464f36fd79475f25",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-059",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bde2116537053115",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-060",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:633cce3cc11a21c6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-061",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c82234a4be051d27",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-062",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3320321ed5d286a7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-063",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8c783c7f0c9fab49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-064",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6367555455f88d72",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-065",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f1b734344e166d39",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-066",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a3b67d5bed081aeb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-067",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0817cc74bc0e08e9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-068",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:04478673f8e7d1ff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-069",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2c814c4117f70e32",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-070",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8ecf444d0b67a28a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-071",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e4b7f76d1534448f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-072",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9b23a103c77797db",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-073",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a4122619564b7800",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-074",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ab7cee19a2ad90fc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-075",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a375252e1ba97213",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-076",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6c4129de953f6aee",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-077",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:48e9f5018c4e6bfb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-078",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6344e9c430861ef7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-079",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-CHMOD",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9dc61b3070dd617",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-080",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0e3c47ae629a24bb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-081",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a2240e179b94ef8c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-082",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3b7dc0b1f2cefed8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-083",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:55d905d0469cb081",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-084",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dcca2ee027d1530c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-085",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:94e6d99da69eb353",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-086",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c8c2e20fca1600b5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-087",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:43f2ce8eead975f3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-088",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:baed032638355353",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-089",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5dc76f0b0618972d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-090",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:084c4a8f0f15ab56",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-091",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1461c5689eab0efe",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-092",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8aa0b4cba58683c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-093",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2c21c249156c5b3b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-094",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:983f80453105036c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-095",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ef2c3336b402279c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-096",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d461e8fe6461304d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-097",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:00cb2670b5e2d764",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-098",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1560a76586e591d0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-099",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e2a99f68f74ef090",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-100",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:32ad4939827b81c4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-101",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:000238d263e2c704",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-102",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.contentrecs.docs.aws.com": [
+    "src/aws-documentation-mcp-server/awslabs/aws_documentation_mcp_server/server_aws.py"
+   ],
+   "api.github.com": [
+    "src/amazon-bedrock-agentcore-mcp-server/awslabs/amazon_bedrock_agentcore_mcp_server/tools/identity/guide.py"
+   ],
+   "d1ni2b6xgvw0s0.cloudfront.net": [
+    "src/dynamodb-mcp-server/awslabs/dynamodb_mcp_server/model_validation_utils.py"
+   ],
+   "d38p8g9d7yc7ms.cloudfront.net": [
+    "src/aurora-dsql-mcp-server/awslabs/aurora_dsql_mcp_server/server.py"
+   ],
+   "docs.amazonaws.cn": [
+    "src/aws-documentation-mcp-server/awslabs/aws_documentation_mcp_server/server_aws_cn.py"
+   ],
+   "docs.aws.amazon.com": [
+    "src/aws-documentation-mcp-server/awslabs/aws_documentation_mcp_server/server_aws.py",
+    "src/eks-mcp-server/awslabs/eks_mcp_server/scripts/update_eks_cloudwatch_metrics_guidance.py",
+    "src/postgres-mcp-server/hatch_build.py"
+   ],
+   "loguru.readthedocs.io": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/main.py"
+   ],
+   "mcpserver.eks-beta.us-west-2.api.aws": [
+    "src/eks-mcp-server/awslabs/eks_mcp_server/eks_kb_handler.py"
+   ],
+   "proxy.search.docs.aws.com": [
+    "src/aws-documentation-mcp-server/awslabs/aws_documentation_mcp_server/server_aws.py"
+   ],
+   "registry.opendata.aws": [
+    "src/roda-mcp-server/awslabs/roda_mcp_server/server.py"
+   ],
+   "servicereference.us-east-1.amazonaws.com": [
+    "src/aws-api-mcp-server/awslabs/aws_api_mcp_server/core/metadata/read_only_operations_list.py"
+   ],
+   "strandsagents.com": [
+    "src/amazon-bedrock-agentcore-mcp-server/awslabs/amazon_bedrock_agentcore_mcp_server/utils/doc_fetcher.py"
+   ],
+   "truststore.pki.rds.amazonaws.com": [
+    "src/mysql-mcp-server/hatch_build.py",
+    "src/postgres-mcp-server/hatch_build.py"
+   ],
+   "www.amazontrust.com": [
+    "src/postgres-mcp-server/hatch_build.py"
+   ],
+   "www.googleapis.com": [
+    "src/amazon-bedrock-agentcore-mcp-server/awslabs/amazon_bedrock_agentcore_mcp_server/tools/identity/guide.py"
+   ],
+   "xmfe3hc3pk.execute-api.us-east-2.amazonaws.com": [
+    "src/aurora-dsql-mcp-server/awslabs/aurora_dsql_mcp_server/server.py"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "src/amazon-bedrock-agentcore-mcp-server/awslabs/amazon_bedrock_agentcore_mcp_server/tools/browser/observation.py",
+    "src/amazon-bedrock-agentcore-mcp-server/awslabs/amazon_bedrock_agentcore_mcp_server/tools/browser/session.py",
+    "src/cloudwatch-applicationsignals-mcp-server/awslabs/cloudwatch_applicationsignals_mcp_server/rum_tools.py",
+    "src/openapi-mcp-server/awslabs/openapi_mcp_server/server.py",
+    "src/openapi-mcp-server/awslabs/openapi_mcp_server/auth/api_key_auth.py",
+    "src/openapi-mcp-server/awslabs/openapi_mcp_server/auth/auth_protocol.py"
+   ],
+   ".aws/": [
+    "src/amazon-qbusiness-anonymous-mcp-server/awslabs/amazon_qbusiness_anonymous_mcp_server/server.py",
+    "src/aws-api-mcp-server/awslabs/aws_api_mcp_server/core/common/config.py",
+    "src/aws-api-mcp-server/awslabs/aws_api_mcp_server/core/common/errors.py",
+    "src/aws-dataprocessing-mcp-server/awslabs/aws_dataprocessing_mcp_server/utils/aws_helper.py",
+    "src/aws-healthomics-mcp-server/awslabs/aws_healthomics_mcp_server/metrics/schema.py",
+    "src/aws-healthomics-mcp-server/awslabs/aws_healthomics_mcp_server/tools/ecr_tools.py"
+   ],
+   ".netrc": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   ".bashrc": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   ".zshrc": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   ".npmrc": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   ".git-credentials": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   "id_rsa": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   "id_ed25519": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   ".docker/config": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py"
+   ],
+   ".ssh": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/file_validation.py",
+    "src/ecs-mcp-server/awslabs/ecs_mcp_server/utils/path_validation.py",
+    "src/eks-mcp-server/awslabs/eks_mcp_server/path_validation.py",
+    "src/sagemaker-ai-mcp-server/awslabs/sagemaker_ai_mcp_server/path_validation.py"
+   ],
+   "Cookies": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/tools/configure.py",
+    "src/cloudwatch-applicationsignals-mcp-server/awslabs/cloudwatch_applicationsignals_mcp_server/rum_tools.py",
+    "src/openapi-mcp-server/awslabs/openapi_mcp_server/auth/auth_provider.py"
+   ]
+  },
+  "env_vars": {
+   "DB_USE_KEYSPACES": [
+    "src/amazon-keyspaces-mcp-server/awslabs/amazon_keyspaces_mcp_server/config.py"
+   ],
+   "DB_CASSANDRA_PASSWORD": [
+    "src/amazon-keyspaces-mcp-server/awslabs/amazon_keyspaces_mcp_server/config.py"
+   ],
+   "DB_KEYSPACES_ENDPOINT": [
+    "src/amazon-keyspaces-mcp-server/awslabs/amazon_keyspaces_mcp_server/config.py"
+   ],
+   "DB_KEYSPACES_REGION": [
+    "src/amazon-keyspaces-mcp-server/awslabs/amazon_keyspaces_mcp_server/config.py"
+   ],
+   "AWS_ACCESS_KEY_ID": [
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/aws_client.py",
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/config.py",
+    "src/aws-location-mcp-server/awslabs/aws_location_server/server.py",
+    "src/dynamodb-mcp-server/awslabs/dynamodb_mcp_server/server.py"
+   ],
+   "AWS_SECRET_ACCESS_KEY": [
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/aws_client.py",
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/config.py",
+    "src/aws-location-mcp-server/awslabs/aws_location_server/server.py",
+    "src/dynamodb-mcp-server/awslabs/dynamodb_mcp_server/server.py"
+   ],
+   "AWS_SESSION_TOKEN": [
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/aws_client.py",
+    "src/aws-location-mcp-server/awslabs/aws_location_server/server.py"
+   ],
+   "TRANSLATE_BLOCKED_PATTERNS": [
+    "src/amazon-translate-mcp-server/awslabs/amazon_translate_mcp_server/config.py"
+   ],
+   "TEMPLATES_PATH": [
+    "src/aws-serverless-mcp-server/awslabs/aws_serverless_mcp_server/template/registry.py"
+   ],
+   "AWS_TRANSFORM_OAUTH_SCOPE": [
+    "src/aws-transform-mcp-server/awslabs/aws_transform_mcp_server/tools/configure.py"
+   ],
+   "KB_INCLUSION_TAG_KEY": [
+    "src/bedrock-kb-retrieval-mcp-server/awslabs/bedrock_kb_retrieval_mcp_server/server.py"
+   ],
+   "AUDITOR_LOG_PATH": [
+    "src/cloudwatch-applicationsignals-mcp-server/awslabs/cloudwatch_applicationsignals_mcp_server/audit_utils.py",
+    "src/cloudwatch-applicationsignals-mcp-server/awslabs/cloudwatch_applicationsignals_mcp_server/server.py"
+   ],
+   "MYSQL_SECRET_ARN": [
+    "src/dynamodb-mcp-server/awslabs/dynamodb_mcp_server/db_analyzer/analyzer_utils.py"
+   ],
+   "EKS_AUTH_MODE": [
+    "src/eks-mcp-server/awslabs/eks_mcp_server/k8s_client_cache.py",
+    "src/eks-mcp-server/awslabs/eks_mcp_server/server.py"
+   ],
+   "FUNCTION_TAG_KEY": [
+    "src/lambda-tool-mcp-server/awslabs/lambda_tool_mcp_server/server.py"
+   ],
+   "FUNCTION_INPUT_SCHEMA_ARN_TAG_KEY": [
+    "src/lambda-tool-mcp-server/awslabs/lambda_tool_mcp_server/server.py"
+   ],
+   "MEMCACHED_TLS_CERT_PATH": [
+    "src/memcached-mcp-server/awslabs/memcached_mcp_server/common/connection.py"
+   ],
+   "MEMCACHED_TLS_KEY_PATH": [
+    "src/memcached-mcp-server/awslabs/memcached_mcp_server/common/connection.py"
+   ],
+   "MEMCACHED_TLS_CA_CERT_PATH": [
+    "src/memcached-mcp-server/awslabs/memcached_mcp_server/common/connection.py"
+   ],
+   "STATE_MACHINE_TAG_KEY": [
+    "src/stepfunctions-tool-mcp-server/awslabs/stepfunctions_tool_mcp_server/server.py"
+   ],
+   "STATE_MACHINE_INPUT_SCHEMA_ARN_TAG_KEY": [
+    "src/stepfunctions-tool-mcp-server/awslabs/stepfunctions_tool_mcp_server/server.py"
+   ],
+   "INFLUXDB_TOKEN": [
+    "src/timestream-for-influxdb-mcp-server/awslabs/timestream_for_influxdb_mcp_server/server.py"
+   ],
+   "VALKEY_HOST": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_PORT": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_USERNAME": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_PWD": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_USE_SSL": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_SSL_CA_CERTS": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_CLUSTER_MODE": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_VECTOR_ALGORITHM": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_VECTOR_DISTANCE_METRIC": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_GLIDE_LOG_LEVEL": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_IAM_AUTH": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_CACHE_NAME": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_REGION": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "OPENAI_API_KEY": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/common/config.py"
+   ],
+   "VALKEY_ADMIN_ENABLED": [
+    "src/valkey-mcp-server/awslabs/valkey_mcp_server/tools/valkey_admin.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 5,
+  "exfiltration": 2,
+  "network": 30,
+  "credentials": 34,
+  "secrets": 15,
+  "persistence": 3,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 5,
+  "obfuscation": 0,
+  "prompt-injection": 3,
+  "permissions": 0,
+  "supply-chain": 5,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 9924,
+  "forks": 1877,
+  "open_issues": 278,
+  "contributors": "100+",
+  "created_at": "2025-03-21T00:39:00Z",
+  "pushed_at": "2026-11-15T05:48:52Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Open source MCP Servers for AWS",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.2.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 75,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 13,
+   "low": 26,
+   "info": 63
+  },
+  "active": 102,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "deny-secret-reads",
+  "disable-plugin",
+  "sandbox-bash",
+  "check-persistence",
+  "review-before-run",
+  "pin-commit",
+  "rotate-secret",
+  "pin-mcp-version",
+  "deny-network-bash",
+  "review-context-injection",
+  "disable-hooks"
+ ],
+ "settings_snippet": {}
+}

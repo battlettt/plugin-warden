@@ -1,0 +1,16 @@
+{
+ "source": "affaan-m/everything-claude-code",
+ "kind": "plugin",
+ "scans": [
+  {
+   "commit": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+   "scanned_at": "2026-11-15T07:09:51+00:00",
+   "level": "block",
+   "score": 100,
+   "reviewed": false,
+   "auto_runs": 28,
+   "files": 4701,
+   "tool_version": "0.2.0"
+  }
+ ]
+}

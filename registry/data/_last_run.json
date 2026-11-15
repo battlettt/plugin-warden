@@ -1,8 +1,19 @@
 {
- "finished_at": "2026-11-15T02:11:35+00:00",
+ "finished_at": "2026-11-15T07:13:50+00:00",
  "scanned": [
+  "anthropics/claude-code",
   "thedotmack/claude-mem",
+  "affaan-m/everything-claude-code",
   "davila7/claude-code-templates",
+  "awslabs/mcp",
+  "sooperset/mcp-atlassian"
+ ],
+ "unchanged": [
+  "anthropics/claude-plugins-official",
+  "anthropics/skills",
+  "obra/superpowers",
+  "wshobson/agents",
+  "everyinc/compound-engineering-plugin",
   "ruvnet/claude-flow",
   "superclaude-org/superclaude_framework",
   "voltagent/awesome-claude-code-subagents",
@@ -17,7 +28,6 @@
   "upstash/context7",
   "chromedevtools/chrome-devtools-mcp",
   "oraios/serena",
-  "awslabs/mcp",
   "cloudflare/mcp-server-cloudflare",
   "stripe/agent-toolkit",
   "supabase-community/supabase-mcp",
@@ -41,7 +51,6 @@
   "clickhouse/mcp-clickhouse",
   "motherduckdb/mcp-server-motherduck",
   "crystaldba/postgres-mcp",
-  "sooperset/mcp-atlassian",
   "korotovsky/slack-mcp-server",
   "ahujasid/blender-mcp",
   "hangwin/mcp-chrome",
@@ -58,15 +67,5 @@
   "haris-musa/excel-mcp-server",
   "zcaceres/markdownify-mcp"
  ],
- "unchanged": [
-  "anthropics/claude-plugins-official",
-  "anthropics/claude-code",
-  "anthropics/skills",
-  "obra/superpowers",
-  "wshobson/agents",
-  "everyinc/compound-engineering-plugin"
- ],
- "failed": {
-  "affaan-m/everything-claude-code": "git fetch timed out after 150s"
- }
+ "failed": {}
 }
