@@ -1,0 +1,94 @@
+# Services shown on the site's Services page (`warden registry build`).
+# Rule: a service is listed only if it is delivered with a tool in a public repository whose test
+# suite was re-run on the `checked` date. `tests` is the number of tests that passed on that date.
+# Paid services are pilots: no customers yet, and the page says so.
+checked = 2026-11-15
+
+[[service]]
+id = "plugin-review"
+name = "Plugin and MCP server review"
+tool = "Plugin Warden"
+source_url = "https://github.com/battlettt/plugin-warden"
+tests = 285
+tests_note = "offline tests"
+status = "pilot"
+price = "Team $249 a month, Business $749 a month"
+summary = "You name the Claude Code plugins and MCP servers your developers use. Each one is scanned, reviewed by an agent, read a second time by a person, and returned with a written recommendation and a pinned policy entry."
+delivers = [
+  "A written review per repository: what runs and when, each confirmed finding with file, line and commit",
+  "A policy file with approved plugins pinned to exact commits, and the CI gate set up in one repository",
+  "A re-review when an approved plugin changes upstream",
+  "An evidence pack with a hashed manifest for your auditor",
+]
+limits = [
+  "Only the third-party repositories you name are read. Your own source code is not reviewed.",
+  "Static analysis and reading. Nothing is executed, so behaviour decided at run time can be missed.",
+  "A review is of one commit. It is not a guarantee that a plugin is safe.",
+]
+needs = ["The list of repositories", "One engineer who can merge a workflow file"]
+
+[[service]]
+id = "email-triage"
+name = "Reported-email triage"
+tool = "PhishLens"
+source_url = "https://github.com/battlettt/phishlens"
+tests = 79
+tests_note = "tests"
+status = "pilot"
+price = "Pilot, priced per batch. Ask for a quote."
+summary = "Your staff forward suspicious emails. The headers and links of each one are analysed and returned with a plain-English verdict, the reasons for it and what to do next."
+delivers = [
+  "A verdict per email: looks safe, suspicious or likely phishing, with the specific header and link evidence",
+  "Every URL and domain written in defanged form, so nothing in the report can be clicked",
+  "A monthly summary of what was reported and which lures repeated",
+]
+limits = [
+  "Works on headers and link text that you paste or forward. It never opens a mailbox and never connects to a mail server.",
+  "No network lookups: links are not visited and attachments are not opened or detonated.",
+  "Lexical checks only. A well-made message from a compromised real account can pass.",
+]
+needs = ["Raw headers of each reported email", "A contact who receives the verdicts"]
+
+[[service]]
+id = "exposure-inventory"
+name = "External exposure inventory"
+tool = "Porthawk"
+source_url = "https://github.com/battlettt/porthawk"
+tests = 50
+tests_note = "tests (87 with subtests)"
+status = "pilot"
+price = "Pilot, priced per address range. Ask for a quote."
+summary = "A list of what your own internet-facing addresses answer on: open TCP ports, the service and version each banner reports, TLS versions and certificate dates, and what changed since the last run."
+delivers = [
+  "An inventory of open ports and services per host, in HTML and JSON",
+  "TLS protocol, cipher and certificate expiry for encrypted services",
+  "A change report against the previous inventory: opened, closed, changed",
+]
+limits = [
+  "Customer-owned networks only. Written authorisation naming the address ranges and the time window is signed before any scan. No authorisation, no scan.",
+  "TCP connect scanning and banner reading. No UDP, no exploitation, no vulnerability testing, no evasion.",
+  "A banner is what a service says about itself. Versions are leads to check, not confirmed vulnerabilities.",
+]
+needs = ["Signed authorisation with address ranges and a time window", "A contact reachable during the scan"]
+
+[[service]]
+id = "ssh-log-review"
+name = "SSH access log review"
+tool = "AuthLog Sentinel"
+source_url = "https://github.com/battlettt/authlog-sentinel"
+tests = 33
+tests_note = "tests (46 with subtests)"
+status = "pilot"
+price = "Pilot, priced per server per month. Ask for a quote."
+summary = "You export the SSH authentication log from a Linux server. It comes back as a ranked report of the addresses that look like brute-force or credential-stuffing sources, with a suggested blocklist."
+delivers = [
+  "Source addresses ranked by a score you can check by hand, with the pattern each one shows",
+  "A suggested blocklist in which every rule is commented out",
+  "Notes on accounts that were targeted and on any success after repeated failures",
+]
+limits = [
+  "Read-only. Nothing is blocked and no firewall is touched. Applying a rule is your decision.",
+  "Reads exported log files. It is not live monitoring and not an intrusion detection system.",
+  "SSH authentication logs in syslog format only. An attacker who logs in with a stolen valid key on the first try looks like a normal login.",
+]
+needs = ["An export of auth.log, secure or journalctl output", "The time zone of the server"]

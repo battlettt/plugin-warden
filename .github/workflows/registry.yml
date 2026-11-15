@@ -12,6 +12,7 @@ on:
     paths:
       - "registry/**"
       - "src/plugin_warden/site.py"
+      - "src/plugin_warden/rules.py"
       - "src/plugin_warden/registry.py"
 
 permissions:

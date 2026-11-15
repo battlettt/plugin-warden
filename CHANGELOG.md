@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+Site only. No change to the scanner.
+
+- Landing page: a "check a repository" box that searches the tracked repositories in the page, and a Scan, Gate, Watch, Prove walkthrough with the real scan output from the README.
+- Registry: sortable columns, filter chips for kind and status, an empty state.
+- Copy buttons on every code block, collapsible sections on repository pages, a plan chooser and a one-open-at-a-time FAQ on the pricing page, a docs table of contents that marks the current section.
+- Services page, fed by `registry/services.toml`: plugin and MCP server review (Plugin Warden), reported-email triage (PhishLens), external exposure inventory (Porthawk), SSH access log review (AuthLog Sentinel). Each lists its limits, its source and the number of tests that passed when its suite was re-run on 2026-11-15. All are marked as paid pilots.
+- Pricing page: removed a twelve-month price hold and a four-business-hour response time that nothing backs yet.
+- The registry workflow now also rebuilds the site when `rules.py` changes, so the check count on the site stays current.
+- Tests: 287 offline (was 285).
+
 ## 0.3.0 (2026-11-15)
 
 Broader, measured coverage. 131 checks (was 101) across 18 categories (was 17).

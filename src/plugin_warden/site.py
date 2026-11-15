@@ -174,7 +174,41 @@ footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:640px){.wrap{padding:0 16px}.nav .wrap{gap:14px;padding-top:8px;padding-bottom:8px}.band{padding:40px 0}
 .stack thead{display:none}.stack tr{display:block;padding:10px 4px;border-bottom:1px solid var(--rule)}.stack td{display:block;border:0;padding:3px 10px;text-align:left}
 .stack td.num{text-align:left}.stack td[data-l]::before{content:attr(data-l) ": ";font:600 11px var(--mono);color:var(--mute);text-transform:uppercase;letter-spacing:.05em}}
-@media (prefers-reduced-motion:no-preference){.btn,.nav a.l{transition:color .15s,background-color .15s,border-color .15s}}
+.check{margin-top:26px;max-width:540px}.check label{display:block;font:600 .9rem var(--sans);margin-bottom:6px}
+.check .row{display:flex;gap:8px}.check input{flex:1;min-width:0;font:15px var(--mono);padding:11px 12px;border:1px solid var(--ink);border-radius:8px;background:var(--panel);color:var(--ink)}
+.check input::placeholder{color:var(--mute)}.check .out{margin-top:10px;font-size:.93rem;min-height:1.6em;color:var(--soft)}
+.check .out ul{list-style:none;margin:0;padding:0}.check .out li{padding:2px 0}.check .out a{font:600 .9rem var(--mono)}
+.alt{margin-top:14px;font-size:.93rem;color:var(--soft)}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--ink);margin-top:26px}
+.tab{font:600 .95rem var(--sans);padding:10px 18px;border:1px solid transparent;border-bottom:0;border-radius:8px 8px 0 0;background:none;color:var(--soft);cursor:pointer}
+.tab:hover{color:var(--ink)}.tab[aria-selected=true]{background:var(--ink);color:var(--paper)}
+.panel{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;padding-top:26px;align-items:start}.panel[hidden]{display:none}
+.panel h3{font-size:1.45rem;margin-bottom:10px}.panel p{color:var(--soft)}.panel pre{margin:0;max-height:420px;overflow:auto}
+.cap{font:12px var(--mono);color:var(--mute);margin:0 0 8px}
+.pw{position:relative;margin:14px 0}.pw pre{margin:0}.panel .pw{margin:0}
+.cp{position:absolute;top:7px;right:7px;font:11px var(--mono);padding:4px 8px;border:1px solid var(--rule);border-radius:5px;background:var(--panel);color:var(--soft);cursor:pointer;opacity:.85}
+.cp:hover{color:var(--stamp);border-color:var(--stamp);opacity:1}
+.fset{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.fset+.fset{margin-top:8px}.fset span{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chipb{font:600 12.5px var(--mono);padding:6px 11px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--soft);cursor:pointer}
+.chipb:hover{border-color:var(--ink);color:var(--ink)}.chipb[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+th button{all:unset;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit}th button:hover{color:var(--ink)}th button:focus-visible{outline:2px solid var(--stamp);outline-offset:2px}
+th[aria-sort] button{color:var(--ink)}th[aria-sort=ascending] button::after{content:" \2191"}th[aria-sort=descending] button::after{content:" \2193"}
+.none{padding:22px 16px;color:var(--soft)}
+details.sec>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:10px}details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary h2{margin:0}details.sec>summary::after{content:"show";font:12px var(--mono);color:var(--mute)}details.sec[open]>summary::after{content:"hide"}
+details.sec[open]>summary{margin-bottom:12px}
+.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,220px)) minmax(0,1fr);gap:20px;align-items:end;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:20px 24px;margin-top:28px}
+.chooser label{display:block;font:600 .88rem var(--sans);margin-bottom:6px}.chooser input{width:100%;font:16px var(--sans);padding:10px 12px;border:1px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink)}
+.chooser output{font-weight:600;padding-bottom:10px}.tier.pick{border:2px solid var(--stamp);padding:23px}.tier.pick h3::after{content:"fits";font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);border-radius:5px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.faq summary{display:flex;justify-content:space-between;gap:16px;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";font:400 1.3rem/1 var(--mono);color:var(--stamp)}.faq details[open] summary::after{content:"\2212"}
+.toc a[aria-current]{color:var(--ink);box-shadow:inset 2px 0 0 var(--stamp);padding-left:10px}
+.svc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;padding:36px 0;border-top:1px solid var(--rule);align-items:start}
+.svc h2{font-size:1.6rem;margin-bottom:10px}.svc .facts{font:13px var(--mono);color:var(--mute);margin:14px 0}.svc .facts a{color:var(--mute)}
+.svc h3{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}.svc ul{margin:0 0 20px;padding-left:18px}.svc li{margin-bottom:6px;font-size:.95rem}
+.svc .lim li{color:var(--soft)}.svc .price{font-weight:600;margin:0 0 14px}
+@media (max-width:860px){.panel,.svc{grid-template-columns:minmax(0,1fr);gap:18px}.chooser{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.check .row{flex-direction:column}.check .btn{text-align:center}.tab{padding:9px 12px}.toc a[aria-current]{box-shadow:0 2px 0 var(--stamp);padding-left:0}}
+@media (prefers-reduced-motion:no-preference){.btn,.nav a.l,.tab,.chipb,.cp{transition:color .15s,background-color .15s,border-color .15s}.btn:active,.chipb:active,.tab:active{transform:translateY(1px)}}
 """
 
 THEME_JS = (
@@ -184,21 +218,61 @@ THEME_JS = (
     "d.dataset.theme=dark?'light':'dark';try{localStorage.setItem('warden-theme',d.dataset.theme)}catch(e){}})})();"
 )
 
-FILTER_JS = (
-    "(function(){var q=document.getElementById('q'),k=document.getElementById('kind'),s=document.getElementById('state'),"
-    "rows=[].slice.call(document.querySelectorAll('#reg tbody tr')),c=document.getElementById('count');"
-    "function run(){var t=(q.value||'').toLowerCase().trim(),n=0;rows.forEach(function(r){var ok=(!t||r.dataset.t.indexOf(t)>-1)"
-    "&&(!k.value||r.dataset.k===k.value)&&(!s.value||r.dataset.s===s.value);r.hidden=!ok;if(ok)n++});"
-    "c.textContent=n+' of '+rows.length+' repositories'}"
-    "[q,k,s].forEach(function(el){el.addEventListener('input',run)});"
-    "try{var p=new URLSearchParams(location.search).get('q');if(p){q.value=p}}catch(e){}run()})();"
-)
+# Runs on every page. Each block looks for its own elements and does nothing when they are absent.
+# Repository text only ever reaches the page through textContent, never innerHTML.
+SITE_JS = r"""
+(function(){var D=document;function all(q,r){return [].slice.call((r||D).querySelectorAll(q))}
+all('pre').forEach(function(p){var w=D.createElement('div');w.className='pw';p.parentNode.insertBefore(w,p);w.appendChild(p);
+var b=D.createElement('button');b.type='button';b.className='cp';b.textContent='copy';b.setAttribute('aria-label','Copy to clipboard');w.appendChild(b);
+b.addEventListener('click',function(){function done(t){b.textContent=t;setTimeout(function(){b.textContent='copy'},1600)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(p.textContent).then(function(){done('copied')},function(){done('press Ctrl+C')})}
+else{var r=D.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);done('selected')}})});
+all('[role=tablist]').forEach(function(tl){var tabs=all('[role=tab]',tl);
+function sel(t,f){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;D.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(f)t.focus()}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(ev){var d=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;
+if(d){ev.preventDefault();sel(tabs[(i+d+tabs.length)%tabs.length],1)}})});if(tabs.length)sel(tabs[0])});
+var faq=all('.faq details');faq.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)faq.forEach(function(o){if(o!==d)o.open=false})})});
+var toc=D.querySelector('.toc');if(toc){var links={};all('a',toc).forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+function mark(id){if(!links[id])return;for(var k in links)links[k].removeAttribute('aria-current');links[id].setAttribute('aria-current','true')}
+function fromHash(){mark((location.hash||'').slice(1)||Object.keys(links)[0])}fromHash();window.addEventListener('hashchange',fromHash);
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)mark(en.target.id)})},{rootMargin:'0px 0px -70% 0px'});
+for(var k in links){var h=D.getElementById(k);if(h)io.observe(h)}}}
+var f=D.getElementById('chk');if(f){var inp=D.getElementById('repo'),out=D.getElementById('chkout'),idx=JSON.parse(D.getElementById('idx').textContent);
+function norm(v){return v.trim().toLowerCase().replace(/^https?:\/\/(www\.)?github\.com\//,'').replace(/\.git$/,'').replace(/\/+$/,'')}
+function show(){var q=norm(inp.value);out.textContent='';if(!q)return;var hits=idx.filter(function(s){return s.indexOf(q)>-1}).slice(0,5);
+if(hits.length){var ul=D.createElement('ul');hits.forEach(function(s){var li=D.createElement('li'),a=D.createElement('a');a.href='r/'+s+'/';a.textContent=s;li.appendChild(a);ul.appendChild(li)});out.appendChild(ul)}
+else{out.appendChild(D.createTextNode('Not in the registry yet. Scan it yourself: '));var c=D.createElement('code');c.textContent='warden scan '+q;out.appendChild(c)}}
+inp.addEventListener('input',show);f.addEventListener('submit',function(ev){ev.preventDefault();var q=norm(inp.value);if(!q)return;
+if(idx.indexOf(q)>-1)location.href='r/'+q+'/';else if(idx.some(function(s){return s.indexOf(q)>-1}))location.href='registry/?q='+encodeURIComponent(q);else show()})}
+var dv=D.getElementById('devs'),rv=D.getElementById('revs');if(dv&&rv){var pick=D.getElementById('pick');
+function plan(){var d=+dv.value||0,r=+rv.value||0,k,t;
+if(r<=0){k='community';t='Community fits: you run the reviews yourselves with the free CLI.'}
+else if(d<=25&&r<=15){k='team';t='Team fits: up to 25 developers and 15 reviewed approvals a month.'}
+else if(d<=150&&r<=50){k='business';t='Business fits: up to 150 developers and 50 reviewed approvals a month.'}
+else{k='';t='Larger than the listed plans. Ask about a custom pilot.'}
+pick.textContent=t;all('.tier').forEach(function(x){x.classList.toggle('pick',x.dataset.plan===k)})}
+dv.addEventListener('input',plan);rv.addEventListener('input',plan);plan()}
+var q=D.getElementById('q'),tb=D.querySelector('#reg tbody');if(q&&tb){var rows=[].slice.call(tb.rows),cnt=D.getElementById('count'),none=D.getElementById('none'),st={k:'',s:''};
+function run(){var t=(q.value||'').toLowerCase().trim(),n=0;rows.forEach(function(r){var ok=(!t||r.dataset.t.indexOf(t)>-1)&&(!st.k||r.dataset.k===st.k)&&(!st.s||r.dataset.s===st.s);r.hidden=!ok;if(ok)n++});
+cnt.textContent=n+' of '+rows.length+' repositories';none.hidden=n>0}
+q.addEventListener('input',run);
+all('.chipb').forEach(function(b){b.addEventListener('click',function(){st[b.dataset.f]=b.dataset.v;all('.chipb').forEach(function(x){if(x.dataset.f===b.dataset.f)x.setAttribute('aria-pressed',x===b)});run()})});
+all('#reg thead th').forEach(function(th,ci){var b=th.querySelector('button');if(!b)return;b.addEventListener('click',function(){var num=th.classList.contains('num'),cur=th.getAttribute('aria-sort');
+var asc=cur?cur!=='ascending':!num;all('#reg thead th').forEach(function(x){x.removeAttribute('aria-sort')});th.setAttribute('aria-sort',asc?'ascending':'descending');
+function val(r){var c=r.cells[ci],v=c.dataset.v!==undefined?c.dataset.v:c.textContent.trim();if(!num)return String(v).toLowerCase();var n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?-1:n}
+rows.sort(function(a,z){var x=val(a),y=val(z);return(x<y?-1:x>y?1:0)*(asc?1:-1)});rows.forEach(function(r){tb.appendChild(r)})})});
+try{var pq=new URLSearchParams(location.search).get('q');if(pq)q.value=pq}catch(e){}run()}
+})();
+"""
 
 
 # ----------------------------------------------------------------------- layout
 def _page(cfg: SiteConfig, *, title: str, description: str, body: str, depth: int, active: str = "", path: str = "", script: str = "") -> str:
     root = "../" * depth or "./"
-    links = [("registry/", "Registry", "registry"), ("docs/", "Docs", "docs"), ("pricing/", "Pricing", "pricing")]
+    links = [("registry/", "Registry", "registry"), ("docs/", "Docs", "docs")]
+    if cfg.extra.get("has_services"):
+        links.append(("services/", "Services", "services"))
+    links.append(("pricing/", "Pricing", "pricing"))
     nav = "".join(f"<a class='l' href='{root}{href}'" + (" aria-current='page'" if key == active else "") + f">{label}</a>" for href, label, key in links)
     canonical = f"{cfg.base_url}/{path}"
     return (
@@ -215,7 +289,7 @@ def _page(cfg: SiteConfig, *, title: str, description: str, body: str, depth: in
         "<p>This site makes no third-party requests: no analytics, no web fonts, no trackers.</p></div>"
         f"<div><p><a href='{root}docs/#disclosure'>Disclosure policy</a> · <a href='{root}docs/#method'>How the registry works</a> · "
         f"<a href='{root}api/v1/index.json'>JSON API</a></p><p><a href='{e(cfg.security_url)}'>Report a problem with a listing</a></p></div></div></footer>"
-        f"<script>{THEME_JS}{script}</script></body></html>"
+        f"<script>{THEME_JS}{SITE_JS}{script}</script></body></html>"
     )
 
 
@@ -236,7 +310,7 @@ def _reg_rows(views: list[dict[str, Any]], root: str) -> str:
         desc = f"<span class='d'>{e(str(v['description'])[:140])}</span>" if v.get("description") else ""
         rows.append(
             f"<tr data-t='{e((v['source'] + ' ' + str(v.get('description') or '')).lower())}' data-k='{e(v['kind'])}' data-s='{e(v['state'])}'>"
-            f"<td data-l='Repository'><a class='repo mono' href='{root}{e(_entry_href(v))}'>{e(v['source'])}</a>{desc}</td>"
+            f"<td data-l='Repository' data-v='{e(v['source'])}'><a class='repo mono' href='{root}{e(_entry_href(v))}'>{e(v['source'])}</a>{desc}</td>"
             f"<td data-l='Kind'>{e(v['kind_label'])}</td><td data-l='Status'>{_status_tag(v)}</td>"
             f"<td class='num' data-l='Runs on its own'>{len(v['auto_runs'])}</td><td class='num' data-l='Processes'>{len(v['processes'])}</td>"
             f"<td class='num' data-l='Hosts'>{len(v['hosts'])}</td><td class='num' data-l='Stars'>{_n(v.get('stars'))}</td>"
@@ -244,8 +318,15 @@ def _reg_rows(views: list[dict[str, Any]], root: str) -> str:
     return "".join(rows)
 
 
-REG_HEAD = ("<thead><tr><th>Repository</th><th>Kind</th><th>Status</th><th class='num'>Runs on its own</th><th class='num'>Processes</th>"
-            "<th class='num'>Hosts</th><th class='num'>Stars</th><th>Scanned</th></tr></thead>")
+_REG_COLS = [("Repository", ""), ("Kind", ""), ("Status", ""), ("Runs on its own", "num"), ("Processes", "num"), ("Hosts", "num"), ("Stars", "num"), ("Scanned", "")]
+
+
+def _reg_head(sortable: bool = False) -> str:
+    cells = "".join(f"<th{f' class={c!r}' if c else ''}>" + (f"<button type='button'>{label}</button>" if sortable else label) + "</th>" for label, c in _REG_COLS)
+    return f"<thead><tr>{cells}</tr></thead>"
+
+
+REG_HEAD = _reg_head()
 
 
 def _totals(views: list[dict[str, Any]]) -> dict[str, int]:
@@ -266,6 +347,65 @@ def _checks() -> int:
     return len(rules.LINE_RULES) + len(rules.STRUCTURAL_RULES) + len(rules.SECRET_PATTERNS)
 
 
+# Walkthrough samples. The scan output is the real run printed in the README; the rest are the README's own examples.
+_WALK_SCAN = """Static scan: 9 files, 21 findings, 4.6s
+Agent review with claude-opus-5-5 (effort high, budget $5.00)
+  agent: get_overview
+  agent: list_findings
+  agent: read scripts/setup.sh
+  agent: read scripts/approve.js
+  agent: read scripts/lib/helpers.sh
+  ...
+  agent: verdicts 21 confirmed
+  agent: new finding  Remote script output from SessionStart hook flows into Claude's context at scripts/setup.sh:2
+  agent: submit_assessment
+Agent: 21 findings reviewed, 2 new, 17 turns, $0.22, 64.8s
+
+ DO NOT INSTALL  risk score 100/100
+ 9 critical  8 high  3 medium  3 low
+ Prompt-injection text found: agent dismissals of serious findings are ignored in the score.
+
+ The plugin is named 'claude-official-tools' and says it "Formats code." It contains no formatting
+ code. It is malware. As soon as a session starts, its SessionStart hook (hooks/hooks.json:8 ->
+ scripts/setup.sh) does four things:
+  - Downloads https://cdn.evil-updates.net/install.sh and runs it with bash (setup.sh:2).
+  - Packs up your whole ~/.ssh directory, private keys included, and POSTs it to webhook.site (setup.sh:3).
+  - Adds `source ~/.cache/.evil` to ~/.zshrc, so every new shell runs that file (setup.sh:4).
+  - Sources a helper script that decodes and runs base64 text (scripts/lib/helpers.sh:2)."""
+_WALK_GATE = """[policy]
+mode = "allowlist"            # or "threshold"
+max_verdict = "caution"
+require_pinned = true
+deny_categories = ["remote-code", "exfiltration", "persistence", "config-tampering"]
+
+[[allow]]
+source = "obra/superpowers"
+commit = "22f0b463e7a5"
+approved_by = "Dana Li"
+approved_at = 2026-11-14
+reason = "Read hooks and skills at this commit"
+
+# Exit code 0 when everything is allowed, 1 when something is not, 2 when the policy is invalid.
+# When upstream moves, the approval stops matching and the check fails with COMMIT-DRIFT."""
+_WALK_WATCH = """alert    A new hook, monitor or server, a new high or critical finding, or a worse verdict
+notice   New network hosts, new credential-like environment variables, or new lower-severity findings
+none     Nothing the scanner tracks changed
+
+# Findings are matched by rule, file and code, not by line number,
+# so code that only moved is not reported as new.
+# WARDEN_WEBHOOK_URL sends the result to an https Slack-compatible webhook."""
+_WALK_PROVE = """evidence pack (folder and zip)
+  the policy as enforced
+  the decision for every enabled plugin
+  the scan behind each decision
+  a readable summary
+  manifest.json with the SHA-256 of every file
+
+# With WARDEN_EVIDENCE_KEY set, the manifest is signed with HMAC-SHA256.
+# warden evidence --verify <folder> reports any file that changed, went missing or was added.
+# Plugin Warden does not certify compliance."""
+
+
 # ------------------------------------------------------------------------ pages
 def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
     t = _totals(views)
@@ -280,12 +420,17 @@ def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
                 f"<ol>{items}</ol><div class='foot'>" + (f"and {more} more. " if more > 0 else "")
                 + f"<a href='{e(_entry_href(sample))}'>Open the full entry</a></div></aside>")
     top = sorted(views, key=lambda v: -(v.get("stars") or 0))[:8]
+    idx = json.dumps(sorted(v["source"] for v in views)).replace("<", "\\u003c")
     hero = (
         "<section class='hero'><div class='wrap'><div><div class='eyebrow'>Supply-chain security for AI coding agents</div>"
         "<h1>Know what a plugin will run before your team installs it.</h1>"
-        "<p class='lede' style='margin-top:18px'>Claude Code plugins and MCP servers run hooks and background processes with your full user access, "
-        "outside the permission system. Plugin Warden reads the code first, tells you exactly what runs and when, and keeps watching after you approve it.</p>"
-        f"<div class='cta'><a class='btn p' href='registry/'>Search the registry</a><a class='btn' href='docs/#start'>Install the CLI</a></div></div>{slip}</div></section>"
+        "<p class='lede' style='margin-top:18px'>Claude Code plugins and MCP servers run with your full user access, outside the permission system. "
+        "Plugin Warden reads the code first and shows what runs and when.</p>"
+        "<form class='check' id='chk' action='registry/' method='get' role='search'><label for='repo'>Check a repository</label>"
+        "<div class='row'><input id='repo' name='q' type='text' placeholder='owner/repo' autocomplete='off' autocapitalize='none' spellcheck='false' aria-describedby='chkout'>"
+        "<button class='btn p' type='submit'>Check</button></div><div class='out' id='chkout' aria-live='polite'></div></form>"
+        f"<script type='application/json' id='idx'>{idx}</script>"
+        f"<p class='alt'>Or <a href='docs/#start'>install the CLI</a> and scan anything yourself.</p></div>{slip}</div></section>"
     )
     stats = (
         "<section class='band' style='padding-top:0;border:0'><div class='wrap'><div class='stats'>"
@@ -295,7 +440,7 @@ def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
         f"<div><b>{_checks()}</b><span>built-in checks on every scan</span></div></div></div></section>"
     )
     why = (
-        "<section class='band w'><div class='wrap'><div class='eyebrow'>The gap</div><h2>The install prompt does not show you this.</h2><div class='cols'>"
+        "<section class='band w'><div class='wrap'><h2>The install prompt does not show you this.</h2><div class='cols'>"
         "<div><h3>Hooks run outside the sandbox</h3><p>A hook fires on session start or on every tool call. It is a shell command with your access. "
         "Permission rules and the Bash sandbox govern Claude's own tools, not hooks.</p></div>"
         "<div><h3>Servers start in the background</h3><p>MCP and LSP servers launch as processes when a session starts. Many are fetched fresh from a package registry "
@@ -303,40 +448,55 @@ def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
         "<div><h3>Approved today, different tomorrow</h3><p>A plugin that was clean when you reviewed it updates itself. Nobody on the team re-reads it. "
         "That is how a trusted dependency turns into an incident.</p></div></div></div></section>"
     )
-    jobs = (
-        "<section class='band'><div class='wrap'><div class='eyebrow'>What it does</div><h2>Four jobs, one tool.</h2><div class='jobs'>"
-        "<div class='job'><div class='k'>01 Scan</div><h3>Read it before you run it</h3><p>Maps every hook, server, monitor and PATH executable, traces each to the files it runs, "
-        f"and applies {_checks()} checks. An optional read-only Claude agent confirms or dismisses each match with a cited reason.</p>"
-        "<pre><code>warden scan owner/repo</code></pre></div>"
-        "<div class='job'><div class='k'>02 Gate</div><h3>Enforce a policy in CI</h3><p>One TOML file says which plugins are approved, at which commit, by whom. "
-        "A pull request that enables anything else fails, with the reason on the line that enabled it.</p>"
-        "<pre><code>warden check . --sarif warden.sarif</code></pre></div>"
-        "<div class='job'><div class='k'>03 Watch</div><h3>Catch the update that gains reach</h3><p>Each night it compares every approved plugin with its upstream. "
-        "If an update adds a hook, a process or a serious finding, it opens an issue with the diff.</p>"
-        "<pre><code>warden watch --fail-on-alert</code></pre></div>"
-        "<div class='job'><div class='k'>04 Prove</div><h3>Hand your auditor a pack</h3><p>Policy, decisions, the scan behind each one and a hashed manifest. "
-        "Evidence that third-party agent software is reviewed before it runs.</p>"
-        "<pre><code>warden evidence . --period 2026-Q4</code></pre></div></div></div></section>"
-    )
+    steps = [
+        ("scan", "Scan", "Read it before you run it",
+         f"Maps every hook, server, monitor and PATH executable, traces each to the files it runs, and applies {_checks()} checks. "
+         "An optional read-only Claude agent confirms or dismisses each match with a cited reason.",
+         "warden scan owner/repo", "Real output from the project README: the demo plugin, reviewed with Opus 5.5", _WALK_SCAN),
+        ("gate", "Gate", "Enforce a policy in CI",
+         "One TOML file says which plugins are approved, at which commit, by whom. A pull request that enables anything else fails, "
+         "with the reason on the line that enabled it.",
+         "warden check . --sarif warden.sarif", "The policy file, from the README", _WALK_GATE),
+        ("watch", "Watch", "Catch the update that gains reach",
+         "Each night it compares every approved plugin with its upstream. If an update adds a hook, a process or a serious finding, it opens an issue with the diff.",
+         "warden watch --fail-on-alert", "What each level means, from the README", _WALK_WATCH),
+        ("prove", "Prove", "Hand your auditor a pack",
+         "Policy, decisions, the scan behind each one and a hashed manifest. Evidence that third-party agent software is reviewed before it runs.",
+         "warden evidence . --period 2026-Q4", "What a pack holds, from the README", _WALK_PROVE),
+    ]
+    tabs = "".join(f"<button class='tab' type='button' role='tab' id='t-{k}' aria-controls='p-{k}' aria-selected='{'true' if n == 0 else 'false'}'>{label}</button>"
+                   for n, (k, label, *_rest) in enumerate(steps))
+    panels = "".join(
+        f"<div class='panel' role='tabpanel' id='p-{k}' aria-labelledby='t-{k}'><div><h3>{title}</h3><p>{text}</p><pre><code>{e(cmd)}</code></pre></div>"
+        f"<div><p class='cap'>{cap}</p><pre tabindex='0'><code>{e(sample)}</code></pre></div></div>" for k, _label, title, text, cmd, cap, sample in steps)
+    jobs = (f"<section class='band'><div class='wrap'><h2>Four jobs, one tool.</h2><div class='tabs' role='tablist' aria-label='What Plugin Warden does'>{tabs}</div>{panels}</div></section>")
     reg = (
-        "<section class='band w'><div class='wrap'><div class='head'><div><div class='eyebrow'>Public registry</div>"
-        f"<h2>{t['repos']} repositories, scanned in the open.</h2></div><a class='btn' href='registry/'>See all {t['repos']}</a></div>"
+        "<section class='band w'><div class='wrap'><div class='head'>"
+        f"<h2>{t['repos']} repositories, scanned in the open.</h2><a class='btn' href='registry/'>See all {t['repos']}</a></div>"
         "<p class='lede'>What each one runs on your machine, which processes it starts and which hosts its code names. "
         f"{t['reviewed']} {'has' if t['reviewed'] == 1 else 'have'} a completed agent review and a verdict. The rest show facts only, with no verdict, until they are reviewed.</p>"
         f"<div class='tw' style='margin-top:20px'><table class='stack'>{REG_HEAD}<tbody>{_reg_rows(top, '')}</tbody></table></div></div></section>"
     )
+    more = "<a class='btn' href='services/'>Other services</a>" if cfg.extra.get("has_services") else "<a class='btn' href='docs/#teams'>Set it up in ten minutes</a>"
     teams = (
-        "<section class='band'><div class='wrap'><div class='eyebrow'>For teams</div><h2>Free to run yourself. Paid when you want it reviewed for you.</h2>"
+        "<section class='band'><div class='wrap'><h2>Free to run yourself. Paid when you want it reviewed for you.</h2>"
         "<p class='lede'>The CLI, the policy gate, the nightly watch and the evidence packs are open source and run in your own CI. "
-        "The paid plans add reviewed approvals: an agent review plus a human second read on every plugin your team approves, and a response when one changes.</p>"
-        "<div class='cta'><a class='btn p' href='pricing/'>See plans</a><a class='btn' href='docs/#teams'>Set it up in ten minutes</a></div></div></section>"
+        "The paid plans are a pilot. They add an agent review plus a human second read on every plugin your team approves.</p>"
+        f"<div class='cta'><a class='btn p' href='pricing/'>See plans</a>{more}</div></div></section>"
     )
     return hero + stats + why + jobs + reg + teams
 
 
 def _registry_page(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
     t = _totals(views)
-    kinds = "".join(f"<option value='{e(k)}'>{e(label)}</option>" for k, label in registry.KINDS.items() if any(v["kind"] == k for v in views))
+
+    def chips(key: str, label: str, options: list[tuple[str, str]]) -> str:
+        return (f"<div class='fset' role='group' aria-label='{label}'><span>{label}</span>"
+                + "".join(f"<button class='chipb' type='button' data-f='{key}' data-v='{e(v)}' aria-pressed='{'true' if not v else 'false'}'>{e(text)}</button>" for v, text in options)
+                + "</div>")
+
+    kinds = [("", "All")] + [(k, label) for k, label in registry.KINDS.items() if any(v["kind"] == k for v in views)]
+    states = [("", "Any"), ("reviewed", "Agent-reviewed"), ("static-only", "Not yet reviewed")]
     ordered = sorted(views, key=lambda v: (-(v.get("stars") or 0), v["source"]))
     return (
         "<div class='wrap'><div class='crumb'>registry</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>The registry</h1>"
@@ -345,11 +505,10 @@ def _registry_page(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
         "<div class='note'><p><b>How to read this.</b> A verdict appears only after a completed agent review. "
         f"\"Not yet reviewed\" means the static scan ran and its {t['matches']} rule matches are waiting for review. Rule matches are leads, not findings, "
         "so they are counted here and not shown. <a href='../docs/#method'>How the registry works</a>.</p></div>"
-        "<div class='tools'><label class='skip' for='q'>Search</label><input id='q' type='search' placeholder='Search by repository or description' autocomplete='off'>"
-        f"<label class='skip' for='kind'>Kind</label><select id='kind'><option value=''>All kinds</option>{kinds}</select>"
-        "<label class='skip' for='state'>Status</label><select id='state'><option value=''>Any status</option><option value='reviewed'>Agent-reviewed</option>"
-        "<option value='static-only'>Not yet reviewed</option></select></div><p class='count' id='count' aria-live='polite'></p>"
-        f"<div class='tw'><table class='stack' id='reg'>{REG_HEAD}<tbody>{_reg_rows(ordered, '../')}</tbody></table></div>"
+        "<div class='tools'><label class='skip' for='q'>Search</label><input id='q' type='search' placeholder='Search by repository or description' autocomplete='off'></div>"
+        f"{chips('k', 'Kind', kinds)}{chips('s', 'Status', states)}<p class='count' id='count' aria-live='polite' style='margin-top:14px'></p>"
+        f"<div class='tw'><table class='stack' id='reg'>{_reg_head(sortable=True)}<tbody>{_reg_rows(ordered, '../')}</tbody></table>"
+        "<p class='none' id='none' hidden>No repository matches. Clear the search or pick another filter.</p></div>"
         "<p style='margin:24px 0 56px;color:var(--soft)'>Missing a repository? Add it to <code>registry/targets.toml</code> in a pull request. "
         "Maintainer of one listed here? See the <a href='../docs/#disclosure'>disclosure policy</a>.</p></div>"
     )
@@ -404,16 +563,16 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
     if v["processes"]:
         rows = "".join(f"<tr><td data-l='Name'><code>{e(p.get('name', ''))}</code></td><td data-l='Kind'>{e(p.get('kind', ''))}</td>"
                        f"<td data-l='Launch'><code>{e(p.get('launch', ''))}</code></td><td data-l='Declared in'><code>{e(p.get('file', ''))}</code></td></tr>" for p in v["processes"][:40])
-        parts.append(f"<div class='sec'><h2>Background processes</h2><div class='tw'><table class='stack'><thead><tr><th>Name</th><th>Kind</th><th>Launch</th><th>Declared in</th></tr></thead><tbody>{rows}</tbody></table></div></div>")
+        parts.append(f"<details class='sec' open><summary><h2>Background processes</h2></summary><div class='tw'><table class='stack'><thead><tr><th>Name</th><th>Kind</th><th>Launch</th><th>Declared in</th></tr></thead><tbody>{rows}</tbody></table></div></details>")
     if v["hosts"]:
-        parts.append("<div class='sec'><h2>Network hosts named in code</h2><p>Hosts that appear in code that makes requests. Being listed is not a problem in itself: it is what you would allow through a firewall.</p>"
-                     f"<div class='chips'>{''.join(f'<span class=chip>{e(h)}</span>' for h in v['hosts'][:80])}</div></div>")
+        parts.append("<details class='sec' open><summary><h2>Network hosts named in code</h2></summary><p>Hosts that appear in code that makes requests. Being listed is not a problem in itself: it is what you would allow through a firewall.</p>"
+                     f"<div class='chips'>{''.join(f'<span class=chip>{e(h)}</span>' for h in v['hosts'][:80])}</div></details>")
     if v["env_vars"]:
-        parts.append("<div class='sec'><h2>Credential-like environment variables read</h2>"
-                     f"<div class='chips'>{''.join(f'<span class=chip>{e(h)}</span>' for h in v['env_vars'][:60])}</div></div>")
+        parts.append("<details class='sec' open><summary><h2>Credential-like environment variables read</h2></summary>"
+                     f"<div class='chips'>{''.join(f'<span class=chip>{e(h)}</span>' for h in v['env_vars'][:60])}</div></details>")
     if comp:
-        parts.append("<div class='sec'><h2>Components Claude Code would load</h2><div class='chips'>"
-                     + "".join(f"<span class='chip'>{e(k.replace('_', ' '))} {e(n)}</span>" for k, n in comp.items()) + "</div></div>")
+        parts.append("<details class='sec'><summary><h2>Components Claude Code would load</h2></summary><div class='chips'>"
+                     + "".join(f"<span class='chip'>{e(k.replace('_', ' '))} {e(n)}</span>" for k, n in comp.items()) + "</div></details>")
 
     ch = v.get("change")
     if ch:
@@ -456,8 +615,8 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
     hist = "".join(f"<tr><td data-l='Commit'><code>{e(str(h.get('commit'))[:12])}</code></td><td data-l='Scanned'>{e(_date(h.get('scanned_at')))}</td>"
                    f"<td data-l='Status'>{e(h.get('level') or 'not yet reviewed')}</td><td class='num' data-l='Runs on its own'>{e(h.get('auto_runs'))}</td></tr>"
                    for h in reversed(v["history"][-12:]))
-    parts.append(f"<div class='sec'><h2>Scan history</h2><div class='tw'><table class='stack'><thead><tr><th>Commit</th><th>Scanned</th><th>Status</th>"
-                 f"<th class='num'>Runs on its own</th></tr></thead><tbody>{hist}</tbody></table></div></div>")
+    parts.append(f"<details class='sec'><summary><h2>Scan history</h2></summary><div class='tw'><table class='stack'><thead><tr><th>Commit</th><th>Scanned</th><th>Status</th>"
+                 f"<th class='num'>Runs on its own</th></tr></thead><tbody>{hist}</tbody></table></div></details>")
 
     badge_url = f"{cfg.base_url}/badge/{src}.svg"
     page_url = f"{cfg.base_url}/r/{src}/"
@@ -479,19 +638,22 @@ def _pricing_page(cfg: SiteConfig) -> str:
         "<div class='wrap'><div class='crumb'>pricing</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>Free to run. Paid to have it reviewed.</h1>"
         "<p class='lede' style='margin-top:12px'>Everything that runs on your machines is open source. The paid plans are a review service on top: "
         "we read the plugins your team wants, and we respond when one of them changes.</p>"
+        "<div class='chooser'><div><label for='devs'>Developers using Claude Code</label><input id='devs' type='number' min='1' max='5000' value='20' inputmode='numeric'></div>"
+        "<div><label for='revs'>Plugins to review a month</label><input id='revs' type='number' min='0' max='500' value='10' inputmode='numeric'></div>"
+        "<output id='pick' for='devs revs' aria-live='polite'>Enter your team size to see which plan fits.</output></div>"
         "<div class='tiers'>"
-        "<div class='tier'><h3>Community</h3><div class='price'>$0</div><p style='color:var(--soft)'>For individuals and any team that wants to run it themselves.</p><ul>"
+        "<div class='tier' data-plan='community'><h3>Community</h3><div class='price'>$0</div><p style='color:var(--soft)'>For individuals and any team that wants to run it themselves.</p><ul>"
         f"<li>The full CLI, MIT licensed, {_checks()} checks</li><li>Agent review with your own Anthropic API key</li>"
         "<li>Policy file, CI gate and SARIF output</li><li>Nightly watch and update diffs</li><li>Audit evidence packs</li><li>Public registry, badges and JSON API</li></ul>"
         f"<a class='btn' href='{e(cfg.repo_url)}'>Get it on GitHub</a></div>"
-        f"<div class='tier f'><h3>Team</h3><div class='price'>${cfg.team_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 25 developers. Pilot pricing.</p><ul>"
+        f"<div class='tier' data-plan='team'><h3>Team</h3><div class='price'>${cfg.team_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 25 developers. Pilot pricing.</p><ul>"
         "<li>Everything in Community</li><li>Reviewed approvals: agent review plus a human second read, 15 plugins a month</li>"
         "<li>Update reviews within one business day when an approved plugin gains reach</li><li>Private reports that never enter the public registry</li>"
         "<li>Policy and CI set up in your GitHub organisation</li><li>Email support</li></ul>"
         f"{cta(cfg.team_checkout_url, 'Start Team')}</div>"
-        f"<div class='tier'><h3>Business</h3><div class='price'>${cfg.business_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 150 developers. Pilot pricing.</p><ul>"
+        f"<div class='tier' data-plan='business'><h3>Business</h3><div class='price'>${cfg.business_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 150 developers. Pilot pricing.</p><ul>"
         "<li>Everything in Team</li><li>50 reviewed approvals a month</li><li>Custom rules for your internal marketplace</li>"
-        "<li>Quarterly evidence pack with a walkthrough for your auditor</li><li>Shared channel, alert response within four business hours</li></ul>"
+        "<li>Quarterly evidence pack with a walkthrough for your auditor</li><li>Shared channel for questions and alerts</li></ul>"
         f"{cta(cfg.business_checkout_url, 'Start Business')}</div></div>"
         f"<p style='margin-top:20px;color:var(--soft)'>Larger than 150 developers, or need on-premises review? <a href='{e(cfg.contact_url)}'>Talk to us</a>.</p>"
         "<div class='sec faq'><h2>Questions</h2>"
@@ -501,7 +663,7 @@ def _pricing_page(cfg: SiteConfig) -> str:
         "<details><summary>Does my code leave my network?</summary><p>No. The gate, the watch and the evidence pack run in your own CI. "
         "Plugin Warden scans the third-party plugin repositories you name, not your source code. Reviews are of those public or vendor repositories.</p></details>"
         "<details><summary>What does \"pilot pricing\" mean?</summary><p>The paid plans are new and are offered to a small number of design partners. "
-        "The price you start on is held for twelve months. You can cancel at any time and keep everything the open-source tool does.</p></details>"
+        "There are no paying customers yet. You can cancel at any time and keep everything the open-source tool does.</p></details>"
         "<details><summary>Is a clean scan a guarantee?</summary><p>No, and nobody honest will tell you otherwise. Static analysis reads code and does not run it. "
         "A clean result means the checks that ran found nothing and a reviewer agreed. The watch exists because the code can change after that.</p></details>"
         "<details><summary>Do you support tools other than Claude Code?</summary><p>MCP servers are scanned wherever they are used. "
@@ -633,10 +795,57 @@ So without a completed agent review, an entry shows what the code does (what run
 <ul><li>Static analysis reads code and does not run it. Behaviour assembled at run time may only show up as "makes network calls" or "decodes and runs data".</li>
 <li>The agent reviews within a budget. If it stops early the report says so.</li>
 <li>Settings can limit Claude's own tools. They cannot contain a hook or a server process. The only complete control for those is not enabling the plugin.</li>
-<li>A clean report is not a guarantee. It means the checks that ran found nothing, and the reviewer agreed.</li></ul>
+<li>A clean report is not a guarantee. It means the checks that ran found nothing, and the reviewer agreed.</li>
+<li>No scanner checks for everything. <a href='{repo}/blob/main/docs/coverage.md'>The coverage document</a> lists what the rules look for, the benchmark results,
+six evasions they are known to miss and ten kinds of thing they cannot catch.</li></ul>
 """
     return (f"<div class='wrap'><div class='doc'><nav class='toc' aria-label='On this page'>{nav}</nav><div><div class='crumb' style='margin-top:0'>docs</div>"
             f"<h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem);margin-bottom:28px'>Documentation</h1>{body}</div></div></div>")
+
+
+def load_services(path: Path) -> dict[str, Any] | None:
+    """registry/services.toml, validated. None when the file does not exist."""
+    if not path.is_file():
+        return None
+    data = tomllib.loads(path.read_text())
+    services = data.get("service") or []
+    for sv in services:
+        for key in ("id", "name", "tool", "source_url", "tests", "status", "summary", "delivers", "limits"):
+            if not sv.get(key):
+                raise registry.RegistryError(f"services.toml: service {sv.get('id') or sv.get('name') or '?'} is missing {key}")
+        if not str(sv["source_url"]).startswith("https://"):
+            raise registry.RegistryError(f"services.toml: {sv['id']} source_url must be an https URL")
+        if not isinstance(sv["tests"], int) or sv["tests"] <= 0:
+            raise registry.RegistryError(f"services.toml: {sv['id']} tests must be a positive number")
+    if not services:
+        return None
+    if not data.get("checked"):
+        raise registry.RegistryError("services.toml: checked (the date the test suites were re-run) is required")
+    return {"checked": str(data["checked"]), "services": services}
+
+
+def _services_page(cfg: SiteConfig, data: dict[str, Any]) -> str:
+    blocks = []
+    for sv in data["services"]:
+        pilot = sv["status"] == "pilot"
+        price = f"<p class='price'>{e(sv['price'])}</p>" if sv.get("price") else ""
+        needs = ("<h3>What we need from you</h3><ul>" + "".join(f"<li>{e(x)}</li>" for x in sv["needs"]) + "</ul>") if sv.get("needs") else ""
+        blocks.append(
+            f"<section class='svc' id='{e(sv['id'])}'><div><h2>{e(sv['name'])}</h2>"
+            + (f"<p><span class='tag caution'>{'paid pilot' if pilot else e(sv['status'])}</span></p>")
+            + f"<p>{e(sv['summary'])}</p>"
+            f"<p class='facts'>Delivered with <a href='{e(sv['source_url'])}'>{e(sv['tool'])}</a> · {e(sv['tests'])} {e(sv.get('tests_note') or 'tests')} passed on {e(data['checked'])} · "
+            f"<a href='{e(sv['source_url'])}'>source</a></p>{price}"
+            f"<a class='btn' href='{e(cfg.contact_url)}'>Request a pilot</a></div>"
+            "<div><h3>What you get</h3><ul>" + "".join(f"<li>{e(x)}</li>" for x in sv["delivers"]) + "</ul>"
+            "<h3>Limits</h3><ul class='lim'>" + "".join(f"<li>{e(x)}</li>" for x in sv["limits"]) + f"</ul>{needs}</div></section>")
+    return (
+        "<div class='wrap'><div class='crumb'>services</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>Services</h1>"
+        f"<p class='lede' style='margin-top:12px'>{len(data['services'])} services, each delivered with an open-source tool you can read and run yourself. "
+        "One person does the work, and every limit is written down before you start.</p>"
+        "<div class='note'><p><b>These are pilots.</b> There are no paying customers yet, so there are no case studies or testimonials here. "
+        f"A service is listed only if its tool's test suite was re-run and passed. That was last done on {e(data['checked'])}.</p></div>"
+        + "".join(blocks) + "<div style='height:56px'></div></div>")
 
 
 # ----------------------------------------------------------------------- assets
@@ -665,8 +874,10 @@ def _index_row(v: dict[str, Any], cfg: SiteConfig) -> dict[str, Any]:
             "stars": v.get("stars"), "page": f"{cfg.base_url}/r/{v['source']}/", "api": f"{cfg.base_url}/api/v1/r/{v['source']}.json"}
 
 
-def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, cfg: SiteConfig | None = None, today: date | None = None) -> dict[str, Any]:
+def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, cfg: SiteConfig | None = None, today: date | None = None,
+          services: dict[str, Any] | None = None) -> dict[str, Any]:
     cfg = cfg or SiteConfig()
+    cfg.extra["has_services"] = bool(services)
     today = today or datetime.now(UTC).date()
     views = [registry.public_view(en, disclosures.get(en.key), today) for en in entries]
     views.sort(key=lambda v: v["source"])
@@ -687,7 +898,7 @@ def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, c
                               body=_landing(cfg, views), depth=0, path=""))
     write("registry/index.html", _page(cfg, title=f"Registry: {t['repos']} plugin and MCP server repositories | {cfg.name}",
                                        description="What each public Claude Code plugin and MCP server repository runs on your machine, which processes it starts and which hosts it names.",
-                                       body=_registry_page(cfg, views), depth=1, active="registry", path="registry/", script=FILTER_JS))
+                                       body=_registry_page(cfg, views), depth=1, active="registry", path="registry/"))
     write("pricing/index.html", _page(cfg, title=f"Pricing | {cfg.name}", description="Free and open source to run yourself. Paid plans add reviewed approvals and a response when an approved plugin changes.",
                                       body=_pricing_page(cfg), depth=1, active="pricing", path="pricing/"))
     write("docs/index.html", _page(cfg, title=f"Documentation | {cfg.name}", description="Install the CLI, write a policy, gate pull requests, watch approved plugins and build audit evidence.",
@@ -696,6 +907,12 @@ def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, c
                             body=f"<div class='wrap' style='padding:80px 20px'><h1>Nothing here.</h1><p class='lede' style='margin-top:14px'>Try the <a href='{e(cfg.base_url)}/registry/'>registry</a>.</p></div>",
                             depth=0, path="404.html"))
     pages += 5
+    if services:
+        write("services/index.html", _page(cfg, title=f"Services | {cfg.name}",
+                                           description="Security services delivered with open-source tools: plugin and MCP server review, reported-email triage, "
+                                                       "external exposure inventory and SSH access log review. Paid pilots, limits stated.",
+                                           body=_services_page(cfg, services), depth=1, active="services", path="services/"))
+        pages += 1
     for v in views:
         desc = (f"What {v['source']} runs on your machine: {len(v['auto_runs'])} automatic entry points, {len(v['processes'])} background processes, "
                 f"{len(v['hosts'])} network hosts. Scanned at {str(v['commit'])[:12]}.")
@@ -706,7 +923,7 @@ def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, c
         pages += 1
     write("api/v1/index.json", json.dumps({"generated_at": datetime.now(UTC).isoformat(timespec="seconds"), "tool_version": __version__,
                                            "totals": t, "entries": [_index_row(v, cfg) for v in views]}, indent=1) + "\n")
-    urls = ["", "registry/", "docs/", "pricing/"] + [f"r/{v['source']}/" for v in views]
+    urls = ["", "registry/", "docs/", "pricing/"] + (["services/"] if services else []) + [f"r/{v['source']}/" for v in views]
     write("sitemap.xml", "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
           + "".join(f"<url><loc>{e(cfg.base_url)}/{e(u)}</loc></url>" for u in urls) + "</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {cfg.base_url}/sitemap.xml\n")

@@ -257,7 +257,8 @@ def cmd_registry(args: argparse.Namespace) -> int:
 
             targets = registry.load_targets(root / "targets.toml") if (root / "targets.toml").is_file() else None
             entries = registry.load_entries(data, targets)
-            info = site.build(entries, registry.load_disclosures(root / "disclosures.toml"), Path(args.out), site.load_config(root / "site.toml"))
+            info = site.build(entries, registry.load_disclosures(root / "disclosures.toml"), Path(args.out), site.load_config(root / "site.toml"),
+                              services=site.load_services(root / "services.toml"))
             console.print(f"[green]Site built:[/] {args.out} ({info['pages']} pages, {info['entries']} registry entries, "
                           f"{info['reviewed']} agent-reviewed)")
             return 0

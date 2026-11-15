@@ -508,6 +508,40 @@ def test_site_never_shows_unreviewed_findings(tmp_path: Path, benign_report: Rep
     assert "r/acme/evil/" in (out / "sitemap.xml").read_text()
 
 
+def test_site_interactive_parts_are_present_and_self_contained(tmp_path: Path, benign_report: Report, malicious_report: Report) -> None:
+    out, _ = build_site(tmp_path, benign_report, malicious_report)
+    home, reg = (out / "index.html").read_text(), (out / "registry/index.html").read_text()
+    assert "id='chk'" in home and "role='tablist'" in home and home.count("role='tabpanel'") == 4
+    assert '["acme/counter", "acme/evil"]' in home  # the check box searches the tracked repositories only
+    assert reg.count("class='chipb'") >= 5 and "<th><button type='button'>Repository</button></th>" in reg and "id='none'" in reg
+    assert "id='devs'" in (out / "pricing/index.html").read_text() and "class='toc'" in (out / "docs/index.html").read_text()
+    for page in out.rglob("*.html"):
+        text = page.read_text()
+        assert "innerHTML" not in text and "<script src" not in text and "fetch(" not in text and "XMLHttpRequest" not in text
+    assert not (out / "services/index.html").exists() and "services/" not in home
+
+
+def test_services_page_lists_only_what_the_file_says(tmp_path: Path, benign_report: Report, malicious_report: Report) -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    real = site.load_services(repo_root / "registry" / "services.toml")
+    assert real and [s["tool"] for s in real["services"]] == ["Plugin Warden", "PhishLens", "Porthawk", "AuthLog Sentinel"]
+    assert all(s["status"] == "pilot" and s["limits"] and s["source_url"].startswith("https://github.com/battlettt/") for s in real["services"])
+    data = tmp_path / "data"
+    registry.store_report(data, "acme/counter", pinned(reviewed(benign_report)), "plugin")
+    out = tmp_path / "site"
+    real["services"][0]["summary"] = f"Reviews {XSS}"
+    info = site.build(registry.load_entries(data), {}, out, site.SiteConfig(), today=TODAY, services=real)
+    page = (out / "services/index.html").read_text()
+    assert info["pages"] == 7 and XSS not in page and "paid pilot" in page and "written authorisation" in page.lower()
+    assert "79 tests passed on" in page and "no paying customers yet" in page.lower() and "href='../services/'" in (out / "docs/index.html").read_text()
+    assert "services/" in (out / "sitemap.xml").read_text()
+    bad = tmp_path / "services.toml"
+    bad.write_text("checked = 2026-11-15\n[[service]]\nid = 'x'\nname = 'X'\ntool = 'T'\nsource_url = 'http://x.test'\ntests = 3\nstatus = 'pilot'\nsummary = 's'\ndelivers = ['d']\nlimits = ['l']\n")
+    with pytest.raises(registry.RegistryError, match="https"):
+        site.load_services(bad)
+    assert site.load_services(tmp_path / "missing.toml") is None
+
+
 def test_site_config_reads_prices_and_rejects_http(tmp_path: Path) -> None:
     cfg_path = tmp_path / "site.toml"
     cfg_path.write_text("base_url = 'https://warden.example.test/'\n[pricing]\nteam_price = 199\nteam_checkout_url = 'https://buy.example.test/team'\n")
