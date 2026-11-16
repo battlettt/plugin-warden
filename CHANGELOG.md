@@ -22,7 +22,7 @@ Broader, measured coverage. 131 checks (was 101) across 18 categories (was 17).
 - `tests/test_benchmark.py`: 78 malicious samples, one per technique, written at test time and all detected (70 at "review" or "block"); 14 ordinary plugins that must stay below "review"; 6 known evasions that must stay missed, so the documentation cannot drift.
 - `docs/coverage.md`: threat matrix, measured results and "What this cannot catch".
 - Fix: `PRIV-TLS-OFF` missed `curl -k` when `-k` was the first flag, and combined flags such as `-sk`.
-- Rules can carry literal hints so a file that contains none of them skips the regex. Measured before hints were added: line rules over the 21 plugin versions installed on the author's machine took 35 s with the 43 old rules and 82 s with all 71. The time with hints was not measured before this release.
+- Rules can carry literal hints so a file that contains none of them skips the regex. Measured before hints were added: line rules over the 21 plugin versions installed on the author's machine took 35 s with the 43 old rules and 82 s with all 71. Measured after the release with hints: 61 s.
 - Tests: 285 offline (was 124).
 
 ## 0.2.0 (2026-11-14)
