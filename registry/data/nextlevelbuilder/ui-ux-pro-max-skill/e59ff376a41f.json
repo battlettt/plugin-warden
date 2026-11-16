@@ -1,0 +1,899 @@
+{
+ "target": {
+  "display": "nextlevelbuilder/ui-ux-pro-max-skill",
+  "raw": "nextlevelbuilder/ui-ux-pro-max-skill",
+  "kind": "github",
+  "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "ref": null,
+  "subdir": null,
+  "commit": "e59ff376a41f7ca47b7541ad5c116495cbade3ee",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-16T13:53:58+00:00",
+ "plugins": [
+  {
+   "name": "ui-ux-pro-max",
+   "path": ".",
+   "source": "manifest",
+   "version": "2.15.0",
+   "description": "UI/UX design intelligence. Searchable local database with 80 styles, 192 palettes, 74 font pairings, 25 charts, and 22 stacks (React, Next.js, Vue, Nuxt.js, Nuxt UI, Svelte, Astro, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, JavaFX, WPF, WinUI, Avalonia, Uno Platform, UWP, Three.js). Use when designing, building, or reviewing UI: pages, components, color schemes, typography, layout, accessibility, animation, or data visualization."
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "package": 7,
+  "skill": 13
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "ui-ux-pro-max",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "2.15.0",
+    "description": "UI/UX design intelligence. Searchable local database with 80 styles, 192 palettes, 74 font pairings, 25 charts, and 22 stacks (React, Next.js, Vue, Nuxt.js, Nuxt UI, Svelte, Astro, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, JavaFX, WPF, WinUI, Avalonia, Uno Platform, UWP, Three.js). Use when designing, building, or reviewing UI: pages, components, color schemes, typography, layout, accessibility, animation, or data visualization.",
+    "author": {
+     "name": "nextlevelbuilder"
+    },
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "banner-design",
+   "path": ".claude/skills/banner-design/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "\"Design banners for social media, ads, website heroes, creative assets, and print. Multiple art direction options with optional generated or supplied visuals. Actions: design, create, generate banner."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "brand",
+   "path": ".claude/skills/brand/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style guides."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "design",
+   "path": ".claude/skills/design/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "\"Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini, Atlas Cloud, MuAPI, or UberLLM AI), corporate identity program (50 deliverables, CIP mockups"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "design-system",
+   "path": ".claude/skills/design-system/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "Token architecture, component specifications, and slide generation. Three-layer tokens (primitive\u2192semantic\u2192component), CSS variables, spacing/typography scales, component specs, strategic slide creati"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "slides",
+   "path": ".claude/skills/slides/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ui-styling",
+   "path": ".claude/skills/ui-styling/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user inter"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ui-ux-pro-max",
+   "path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+   "plugin": "ui-ux-pro-max",
+   "trigger": "",
+   "details": {
+    "description": "\"UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "banner-design",
+   "path": "cli/assets/skills/banner-design/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Design banners for social media, ads, website heroes, creative assets, and print. Multiple art direction options with optional generated or supplied visuals. Actions: design, create, generate banner."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "brand",
+   "path": "cli/assets/skills/brand/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style guides."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "design",
+   "path": "cli/assets/skills/design/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini, Atlas Cloud, MuAPI, or UberLLM AI), corporate identity program (50 deliverables, CIP mockups"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "design-system",
+   "path": "cli/assets/skills/design-system/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Token architecture, component specifications, and slide generation. Three-layer tokens (primitive\u2192semantic\u2192component), CSS variables, spacing/typography scales, component specs, strategic slide creati"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "slides",
+   "path": "cli/assets/skills/slides/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ui-styling",
+   "path": "cli/assets/skills/ui-styling/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user inter"
+   }
+  },
+  {
+   "kind": "package",
+   "name": ".claude/skills/ui-styling/scripts/requirements.txt",
+   "path": ".claude/skills/ui-styling/scripts/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": ".claude/skills/ui-styling/scripts/tests/requirements.txt",
+   "path": ".claude/skills/ui-styling/scripts/tests/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ui-ux-pro-max-cli",
+   "path": "cli/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "node scripts/build.mjs",
+     "dev": "bun run src/index.ts",
+     "sync:assets": "node scripts/sync-assets.mjs",
+     "check:assets": "node scripts/sync-assets.mjs --check",
+     "validate:csv": "cd .. && node cli/scripts/run-python.mjs scripts/validate-csv.py",
+     "validate:semantic": "cd .. && node cli/scripts/run-python.mjs src/ui-ux-pro-max/scripts/validate_data.py",
+     "validate:agent-guide": "cd .. && node cli/scripts/run-python.mjs scripts/validate-agent-guide.py",
+     "validate:catalog-summary": "cd .. && node cli/scripts/run-python.mjs scripts/generate-catalog-summary.py --check",
+     "test:python": "cd .. && node cli/scripts/run-python.mjs -m unittest discover -s src/ui-ux-pro-max/scripts/tests -p \"test_*.py\"",
+     "evaluate:relevance": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py",
+     "evaluate:relevance:calibration": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py --split calibration",
+     "evaluate:relevance:held-out": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py --split held_out",
+     "smoke:domains": "cd .. && bash scripts/smoke-domains.sh",
+     "smoke:stacks": "cd .. && bash scripts/smoke-stacks.sh",
+     "verify:data": "npm run validate:csv && npm run validate:semantic && npm run validate:agent-guide && npm run validate:catalog-summary && npm run test:python && npm run evaluate:relevance && npm run smoke:domains && npm run smoke:stacks && npm run check:assets",
+     "typecheck": "tsc --noEmit",
+     "prepublishOnly": "npm run sync:assets && npm run verify:data && npm run typecheck && npm run build"
+    },
+    "dependencies": {
+     "chalk": "^5.3.0",
+     "commander": "^12.1.0",
+     "ora": "^8.1.1",
+     "prompts": "^2.4.2"
+    },
+    "devDependencies": {
+     "@playwright/test": "^1.61.1",
+     "@types/bun": "^1.1.14",
+     "@types/node": "^22.10.1",
+     "@types/prompts": "^2.4.9",
+     "typescript": "^5.7.2"
+    },
+    "bin": {
+     "uipro": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cli/assets/skills/ui-styling/scripts/requirements.txt",
+   "path": "cli/assets/skills/ui-styling/scripts/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "cli/assets/skills/ui-styling/scripts/tests/requirements.txt",
+   "path": "cli/assets/skills/ui-styling/scripts/tests/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "style-gallery",
+   "path": "gallery/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "next dev",
+     "build": "next build",
+     "test": "tsc -p tsconfig.test.json && node --test .test-dist/lib/parseStyles.test.js .test-dist/components/metadata-badges.test.js .test-dist/components/style-card.test.js",
+     "start": "next start"
+    },
+    "dependencies": {
+     "next": "^14.2.0",
+     "react": "^18.3.0",
+     "react-dom": "^18.3.0",
+     "next-themes": "^0.4.4"
+    },
+    "devDependencies": {
+     "@types/node": "^20.0.0",
+     "@types/react": "^18.3.0",
+     "@types/react-dom": "^18.3.0",
+     "autoprefixer": "^10.4.0",
+     "postcss": "^8.4.0",
+     "tailwindcss": "^3.4.0",
+     "typescript": "^5.5.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "claude-website-design-stack",
+   "path": "stack/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "setup": "bash scripts/setup.sh",
+     "audit": "node scripts/design-audit.mjs",
+     "audit:file": "node scripts/design-audit.mjs --file ./index.html"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "playwright": "^1.49.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "ui-ux-pro-max-skill",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "ui-ux-pro-max",
+      "source": "./",
+      "description": "Professional UI/UX design intelligence for AI coding assistants. Includes searchable databases of styles, colors, typography, charts, and UX guidelines for React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, JavaFX, and Three.js.",
+      "version": "2.15.0",
+      "author": {
+       "name": "nextlevelbuilder"
+      },
+      "keywords": [
+       "ui",
+       "ux",
+       "design",
+       "styles",
+       "typography",
+       "color-palette",
+       "accessibility",
+       "charts",
+       "components"
+      ],
+      "category": "design",
+      "strict": false
+     }
+    ],
+    "owner": {
+     "name": "nextlevelbuilder"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 725,
+  "bytes": 22596100,
+  "by_kind": {
+   "binary": 62,
+   "config": 123,
+   "js": 71,
+   "markdown": 151,
+   "other": 190,
+   "python": 125,
+   "shell": 3
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 22
+ },
+ "findings": [
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:984f17f7603aef29",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:751dbb5de5146d2b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1bfffd0bc55be612",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f0a06b16ba3c64ad",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:18143f75f800b7bb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-SANDBOX-OFF",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eeb5d729e455215d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:06ec5e17e0614850",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b49b2819d66f1915",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6f6d12b5140d8c0b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a26409d20b508d17",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e7c83ac3eb2f0f55",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fe2e1b5ae6f1663b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-SANDBOX-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:516e5fc9db109620",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c36066f43995c815",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d4aba6a19fa3f012",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:738443a5064b1707",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b352a5f44ab40a96",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1346b087d1d3b779",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4f6dc983f56a3ce6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.atlascloud.ai": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "api.github.com": [
+    "cli/src/utils/github.ts"
+   ],
+   "api.muapi.ai": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "api.uberllm.dev": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "fonts.google.com": [
+    "scripts/refresh-google-fonts.py"
+   ],
+   "fonts.gstatic.com": [
+    "scripts/refresh-google-fonts.py"
+   ],
+   "github.com": [
+    "cli/src/utils/github.ts",
+    "scripts/refresh-google-fonts.py"
+   ],
+   "www.googleapis.com": [
+    "scripts/refresh-google-fonts.py"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "DEFAULT_GUIDELINES_PATH": [
+    ".claude/skills/brand/scripts/inject-brand-context.cjs",
+    "cli/assets/skills/brand/scripts/inject-brand-context.cjs"
+   ],
+   "DESIGN_TOKENS_JSON": [
+    ".claude/skills/brand/scripts/sync-brand-to-tokens.cjs",
+    "cli/assets/skills/brand/scripts/sync-brand-to-tokens.cjs"
+   ],
+   "DESIGN_TOKENS_CSS": [
+    ".claude/skills/brand/scripts/sync-brand-to-tokens.cjs",
+    "cli/assets/skills/brand/scripts/sync-brand-to-tokens.cjs"
+   ],
+   "GEMINI_API_KEY": [
+    ".claude/skills/design/scripts/cip/generate.py",
+    ".claude/skills/design/scripts/icon/generate.py",
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/cip/generate.py",
+    "cli/assets/skills/design/scripts/icon/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "GOOGLE_API_KEY": [
+    ".claude/skills/design/scripts/cip/generate.py",
+    "cli/assets/skills/design/scripts/cip/generate.py"
+   ],
+   "ATLASCLOUD_API_KEY": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "MUAPI_API_KEY": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "UBERLLM_API_KEY": [
+    ".claude/skills/design/scripts/logo/generate.py",
+    "cli/assets/skills/design/scripts/logo/generate.py"
+   ],
+   "UI_PRO_MAX_GITHUB_TOKEN": [
+    "cli/src/utils/github.ts"
+   ],
+   "GITHUB_TOKEN": [
+    "cli/src/utils/github.ts"
+   ],
+   "GOOGLE_FONTS_API_KEY": [
+    "scripts/refresh-google-fonts.py"
+   ],
+   "PW_EXECUTABLE_PATH": [
+    "stack/scripts/design-audit.mjs"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 2,
+  "credentials": 7,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 3,
+  "permissions": 2,
+  "supply-chain": 5,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 150245,
+  "forks": 15883,
+  "open_issues": 83,
+  "contributors": "100+",
+  "created_at": "2025-11-30T11:36:31Z",
+  "pushed_at": "2026-11-16T04:10:04Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 54,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 10,
+   "low": 4,
+   "info": 5
+  },
+  "active": 19,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "deny-secret-reads",
+  "sandbox-bash",
+  "lock-permission-mode",
+  "protect-claude-config",
+  "pin-mcp-version",
+  "pin-commit",
+  "review-context-injection"
+ ],
+ "settings_snippet": {}
+}

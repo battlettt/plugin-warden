@@ -1,0 +1,730 @@
+{
+ "target": {
+  "display": "chromedevtools/chrome-devtools-mcp",
+  "raw": "chromedevtools/chrome-devtools-mcp",
+  "kind": "github",
+  "url": "https://github.com/chromedevtools/chrome-devtools-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "86a1c239cb5a7f2cb1b06d6c4dec8c4fe457478b",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-16T13:54:29+00:00",
+ "plugins": [
+  {
+   "name": "chrome-devtools-mcp",
+   "path": ".",
+   "source": "manifest",
+   "version": "1.13.0",
+   "description": "Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer"
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "mcp_server": 1,
+  "package": 1,
+  "skill": 8,
+  "submodules": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "chrome-devtools-mcp",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.13.0",
+    "description": "Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "chrome-devtools",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "--prefix",
+     "${CLAUDE_PLUGIN_DATA}",
+     "chrome-devtools-mcp@1.13.0"
+    ]
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "a11y-debugging",
+   "path": "skills/a11y-debugging/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Uses Chrome DevTools MCP for accessibility (a11y) debugging and auditing based on web.dev guidelines. Use when testing semantic HTML, ARIA labels, focus states, keyboard navigation, tap targets, and c"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "chrome-devtools",
+   "path": "skills/chrome-devtools/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Uses Chrome DevTools via MCP for efficient debugging, troubleshooting and browser automation. Use when debugging web pages, automating browser interactions, analyzing performance, or inspecting networ"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "chrome-devtools-cli",
+   "path": "skills/chrome-devtools-cli/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Use this skill to write shell scripts or run shell commands to automate tasks in the browser or otherwise use Chrome DevTools via CLI."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "cookie-debugging",
+   "path": "skills/cookie-debugging/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Uses Chrome DevTools MCP for inspecting, debugging, and testing cookies, session state, authentication issues, and cookie consent compliance. Use when diagnosing 401/403 errors, authentication redirec"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "debug-optimize-lcp",
+   "path": "skills/debug-optimize-lcp/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Guides debugging and optimizing Largest Contentful Paint (LCP) using Chrome DevTools MCP tools. Use this skill whenever the user asks about LCP performance, slow page loads, Core Web Vitals optimizati"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "inspect-in-devtools",
+   "path": "skills/inspect-in-devtools/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Use this skill to connect to the Chrome DevTools UI for interactive debugging, UI/UX review, Q&A, showing elements/network requests/panels to the user, inspecting the user's current DevTools selection"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "memory-leak-debugging",
+   "path": "skills/memory-leak-debugging/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Diagnoses and resolves memory leaks in JavaScript/Node.js applications. Use when a user reports high memory usage, OOM errors, or wants to capture, compare, or inspect heap snapshots with Chrome DevTo"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "troubleshooting",
+   "path": "skills/troubleshooting/SKILL.md",
+   "plugin": "chrome-devtools-mcp",
+   "trigger": "",
+   "details": {
+    "description": "Uses Chrome DevTools MCP and documentation to troubleshoot connection and target issues. Trigger this skill when list_pages, new_page, or navigate_page fail, or when the server initialization fails."
+   }
+  },
+  {
+   "kind": "submodules",
+   "name": ".gitmodules",
+   "path": ".gitmodules",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "package",
+   "name": "chrome-devtools-mcp",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "cli:generate": "node scripts/generate-cli.ts",
+     "clean": "node scripts/clean.ts",
+     "clean:submodules": "node scripts/clean-submodules.ts",
+     "build": "node scripts/ninja.ts",
+     "build:release": "node scripts/gn-gen.ts --args=is_debug=false && node scripts/ninja.ts",
+     "typecheck": "node scripts/ninja.ts",
+     "format": "eslint --cache --fix . && prettier --write --cache .",
+     "check-format": "eslint --cache . && prettier --check --cache .",
+     "gen": "npm run build && npm run cli:generate && npm run docs:generate && npm run update-metrics && npm run format",
+     "docs:generate": "node scripts/generate-docs.ts",
+     "start": "npm run build && node out/Default/gen/src/bin/chrome-devtools-mcp.js",
+     "start-debug": "NODE_DEBUG=mcp:* npm run build && node out/Default/gen/src/bin/chrome-devtools-mcp.js",
+     "test": "npm run build && node scripts/test.js",
+     "test:no-build": "node scripts/test.js",
+     "test:only": "npm run build && node scripts/test.js --test-only",
+     "test:update-snapshots": "npm run build && node scripts/test.js --test-update-snapshots",
+     "prepare": "node scripts/prepare.ts",
+     "gn:gen": "node scripts/gn-gen.ts",
+     "sync": "npm ci && git submodule update --init && node scripts/gclient-sync.ts",
+     "verify-server-json-version": "node scripts/verify-server-json-version.ts",
+     "update-lighthouse": "node scripts/update-lighthouse.ts",
+     "update-metrics": "node scripts/update_metrics.ts",
+     "verify-npm-package": "node scripts/verify-npm-package.js",
+     "eval": "npm run build && node scripts/eval_gemini.ts",
+     "count-tokens": "node scripts/count_tokens.ts",
+     "profile": "npm run build:release && node scripts/profile/profile_mcp.ts",
+     "test:memory": "npm run build:release && node scripts/profile/profile_mcp.ts --threshold-percentage 1",
+     "profile:footprint": "npm run build:release && node scripts/profile/footprint_mcp.ts"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@blackwell-systems/gcf": "^2.2.2",
+     "@google/genai": "^2.0.1",
+     "@modelcontextprotocol/client": "2.4.0",
+     "@modelcontextprotocol/core": "2.4.0",
+     "@modelcontextprotocol/server": "2.4.0",
+     "@stylistic/eslint-plugin": "^5.4.0",
+     "@toon-format/toon": "^4.1.0",
+     "@types/node": "^26.0.0",
+     "@types/semver": "^7.7.1",
+     "@types/sinon": "^22.0.0",
+     "@types/yargs": "^17.0.33",
+     "@typescript-eslint/eslint-plugin": "^8.43.0",
+     "@typescript-eslint/parser": "^8.43.0",
+     "core-js": "3.51.0",
+     "eslint": "^10.7.0",
+     "eslint-import-resolver-typescript": "^4.4.4",
+     "eslint-plugin-eslint-plugin": "^7.6.2",
+     "eslint-plugin-import": "^2.32.0",
+     "eslint-plugin-jsdoc": "^65.2.0",
+     "eslint-plugin-mocha": "^12.0.2",
+     "globals": "^17.0.0",
+     "lighthouse": "13.6.0",
+     "prettier": "^3.6.2",
+     "puppeteer": "25.17.0",
+     "semver": "^7.7.4",
+     "sinon": "^22.0.0",
+     "typescript": "npm:@typescript/typescript6@^6.0.2",
+     "typescript-eslint": "^8.43.0",
+     "yargs": "18.2.0",
+     "zod": "^4.4.3"
+    },
+    "bin": {
+     "chrome-devtools-mcp": "./out/Default/gen/src/bin/chrome-devtools-mcp.js",
+     "chrome-devtools": "./out/Default/gen/src/bin/chrome-devtools.js"
+    }
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "chrome-devtools-plugins",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "chrome-devtools-mcp",
+      "source": "./",
+      "description": "Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer"
+     }
+    ],
+    "owner": {
+     "name": "Chrome DevTools Team",
+     "email": "devtools-dev@chromium.org"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 404,
+  "bytes": 14776239,
+  "by_kind": {
+   "binary": 2,
+   "config": 36,
+   "js": 296,
+   "markdown": 30,
+   "other": 40
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 13
+ },
+ "findings": [
+  {
+   "rule_id": "SECRET-GOOGLE",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:543d9d95027c959e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "CRED-BROWSER-DATA",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:19cce2c4bcff371e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-BROWSER-DATA",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:41e9aeef9c14169e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "SECRET-GOOGLE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b1727dc75f6544ac",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:54d99a9c0d46d568",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ac2e2c322cc4c2ce",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:381e6931a131a61a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "GIT-SUBMODULES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ae64326c39032e6e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:84855792fb8aef9c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a6b8ec9afaf4ef03",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a712557fad6f67bf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:98a43494da478fdc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:43d698d4ab189785",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ccd556b8a23baa5b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c94e4ce87bacdf3d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9b0ff0938e89857d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2f4ee8606b0224c5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "npx --prefix ${CLAUDE_PLUGIN_DATA} chrome-devtools-mcp@1.13.0",
+    "type": "MCP server",
+    "plugin": "chrome-devtools-mcp",
+    "file": ".claude-plugin/plugin.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "chrome-devtools",
+    "kind": "MCP server",
+    "launch": "npx --prefix ${CLAUDE_PLUGIN_DATA} chrome-devtools-mcp@1.13.0",
+    "file": ".claude-plugin/plugin.json"
+   }
+  ],
+  "hosts": {
+   "github.com": [
+    "scripts/verify-server-json-version.ts"
+   ],
+   "play.googleapis.com": [
+    "src/telemetry/watchdog/ClearcutSender.ts"
+   ],
+   "registry.npmjs.org": [
+    "src/bin/check-latest-version.ts"
+   ],
+   "w3c.github.io": [
+    "src/config/cli-options.ts"
+   ]
+  },
+  "sensitive_paths": {
+   "cookies": [
+    "src/NetworkOverrideManager.ts",
+    "src/config/cli-options.ts",
+    "src/tools/pages.ts"
+   ],
+   ".npmrc": [
+    "src/bin/check-latest-version.ts"
+   ]
+  },
+  "env_vars": {
+   "GEMINI_API_KEY": [
+    "scripts/count_tokens.ts",
+    "scripts/eval_gemini.ts"
+   ],
+   "GITHUB_PATH": [
+    "scripts/gclient-sync.ts"
+   ],
+   "OUTPUT_PATH": [
+    "scripts/generate-cli.ts"
+   ],
+   "SPARSE_CHECKOUT_PATTERNS": [
+    "scripts/prepare.ts"
+   ],
+   "PUPPETEER_EXECUTABLE_PATH": [
+    "scripts/test.js"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 1,
+  "network": 4,
+  "credentials": 2,
+  "secrets": 2,
+  "persistence": 4,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 2,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 57458,
+  "forks": 4840,
+  "open_issues": 128,
+  "contributors": "100+",
+  "created_at": "2025-09-11T10:39:55Z",
+  "pushed_at": "2026-11-16T13:40:03Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Chrome DevTools for coding agents",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 35,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 3,
+   "low": 5,
+   "info": 8
+  },
+  "active": 17,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "rotate-secret",
+  "disable-plugin",
+  "deny-secret-reads",
+  "pin-commit",
+  "review-before-run",
+  "sandbox-bash",
+  "deny-network-bash",
+  "check-persistence",
+  "disable-hooks"
+ ],
+ "settings_snippet": {}
+}

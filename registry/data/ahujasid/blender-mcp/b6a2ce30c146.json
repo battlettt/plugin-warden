@@ -1,0 +1,837 @@
+{
+ "target": {
+  "display": "ahujasid/blender-mcp",
+  "raw": "ahujasid/blender-mcp",
+  "kind": "github",
+  "url": "https://github.com/ahujasid/blender-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "b6a2ce30c14636a562b5549684d9db6fc01f29ab",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-16T13:56:33+00:00",
+ "plugins": [
+  {
+   "name": "mcp-for-blender",
+   "path": "integrations/claude/mcp-for-blender",
+   "source": "manifest",
+   "version": "2.2.9",
+   "description": "Community open-source Blender integration: build and edit 3D scenes in your running Blender (not affiliated with the Blender Foundation)."
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "mcp_server": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "mcp-for-blender",
+   "path": "integrations/claude/mcp-for-blender/.claude-plugin/plugin.json",
+   "plugin": "mcp-for-blender",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "2.2.9",
+    "description": "Community open-source Blender integration: build and edit 3D scenes in your running Blender (not affiliated with the Blender Foundation).",
+    "author": {
+     "name": "Siddharth Ahuja",
+     "url": "https://mcp-for-blender.com"
+    },
+    "repository": "https://github.com/ahujasid/mcp-for-blender",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "blender",
+   "path": "integrations/claude/mcp-for-blender/.mcp.json",
+   "plugin": "mcp-for-blender",
+   "trigger": "",
+   "details": {
+    "command": "uvx",
+    "args": [
+     "--from",
+     "${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.2.9-py3-none-any.whl",
+     "mcp-for-blender"
+    ]
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "mcp-for-blender",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "mcp-for-blender",
+      "source": "./integrations/claude/mcp-for-blender",
+      "description": "Build and edit 3D scenes in your running Blender."
+     }
+    ],
+    "owner": {
+     "name": "Siddharth Ahuja",
+     "url": "https://mcp-for-blender.com"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 89,
+  "bytes": 2911972,
+  "by_kind": {
+   "binary": 7,
+   "config": 7,
+   "markdown": 10,
+   "other": 10,
+   "python": 53,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 4
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d0d369d40787f838",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-OTHER-PLUGINS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e60115d89ebedfab",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c33909c66317b9b6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-UNPINNED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9a4960b8bd26837",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:569b4097ae8ce236",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f4a0b793358aef36",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9786da1e7389befb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ARCHIVE-FILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "integrity",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e123d3b780bd64bd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:96927831bbd68aae",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b60297642c69d734",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-PRIVATE-KEY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:25b90b7aa473a7b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:137993704814eff3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:86f8588a036277a7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:13c8f1088a4d42cd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c7d898118f7b0255",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4951d392216ed3c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6acc8156e167c07d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:50780882b9a3ce88",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4859be01ab9cae4b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:763b6117fcea296f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4dc747a9f3878126",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6c4d09d5e3a356eb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:da6bdc49136f90b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9ef3be6b350127f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TELEMETRY-MACHINE-ID",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "surveillance",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f79efb2b34d070ae",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TELEMETRY-MACHINE-ID",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "surveillance",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2a9e596d30afda3b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.2.9-py3-none-any.whl mcp-for-blender",
+    "type": "MCP server",
+    "plugin": "mcp-for-blender",
+    "file": "integrations/claude/mcp-for-blender/.mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "blender",
+    "kind": "MCP server",
+    "launch": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.2.9-py3-none-any.whl mcp-for-blender",
+    "file": "integrations/claude/mcp-for-blender/.mcp.json"
+   }
+  ],
+  "hosts": {
+   "api.meshy.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "api.poly.pizza": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "api.polyhaven.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "api.sketchfab.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "api.worldlabs.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "astral.sh": [
+    "install.ps1",
+    "install.sh"
+   ],
+   "console.cloud.tencent.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "dbunjhuejdwwcafedslw.supabase.co": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "developers.tripo": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "discord.gg": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "docs.astral.sh": [
+    "install.ps1",
+    "install.sh"
+   ],
+   "fal.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "github.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "hyper3d.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "hyperhuman.deemos.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "mcp-for-blender.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "openapi.tripo": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "platform.worldlabs.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "poly.pizza": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "polyhaven.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "pypi.org": [
+    "src/blender_mcp/update_cli.py"
+   ],
+   "queue.fal.run": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "raw.githubusercontent.com": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "www.mcp-for-blender.com": [
+    "install.ps1",
+    "install.sh"
+   ],
+   "www.meshy.ai": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ]
+  },
+  "sensitive_paths": {
+   ".bashrc": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   ".claude.json": [
+    "src/blender_mcp/setup_cli.py"
+   ]
+  },
+  "env_vars": {
+   "BLENDERMCP_PREMIUM_LICENSE_KEY": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 2,
+  "exfiltration": 0,
+  "network": 4,
+  "credentials": 3,
+  "secrets": 1,
+  "persistence": 1,
+  "config-tampering": 2,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 2,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 10,
+  "integrity": 1,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 34612,
+  "forks": 3160,
+  "open_issues": 60,
+  "contributors": "46",
+  "created_at": "2025-03-07T09:58:58Z",
+  "pushed_at": "2026-11-15T13:56:17Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "Community plugin to control Blender 3D with any LLM of your choice. Not affiliated with the official Blender Foundation.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 30,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 4,
+   "low": 14,
+   "info": 8
+  },
+  "active": 26,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "protect-claude-config",
+  "disable-plugin",
+  "review-before-run",
+  "pin-commit",
+  "pin-mcp-version",
+  "deny-mcp-server",
+  "deny-network-bash",
+  "deny-secret-reads",
+  "check-persistence",
+  "rotate-secret",
+  "sandbox-bash",
+  "disable-hooks"
+ ],
+ "settings_snippet": {}
+}

@@ -1,0 +1,1299 @@
+{
+ "target": {
+  "display": "googleapis/genai-toolbox",
+  "raw": "googleapis/genai-toolbox",
+  "kind": "github",
+  "url": "https://github.com/googleapis/genai-toolbox",
+  "ref": null,
+  "subdir": null,
+  "commit": "1f9a421ccb75868dc5fc10c7cfaaca36af2d4825",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-16T13:56:51+00:00",
+ "plugins": [
+  {
+   "name": "googleapis__genai-toolbox@1f9a421ccb75",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 21,
+  "skill": 6,
+  "submodules": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "googleapis__genai-toolbox@1f9a421ccb75",
+   "path": ".",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "docsite-link-sweep",
+   "path": "skills/maintainer/docsite-link-sweep/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Sweep the googleapis/mcp-toolbox docs for broken and non-canonical links, report each finding with its cause, and apply the safe class of internal link fixes. CI does not check links on this repo, "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "fix-failing-tests",
+   "path": "skills/maintainer/fix-failing-tests/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Diagnose a failing test in the googleapis/mcp-toolbox repo and land a fix by reasoning from the actual error: read the failure, reproduce it, shrink it until the cause is forced into the open, then"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "reproduce-bug",
+   "path": "skills/maintainer/reproduce-bug/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Reproduce a reported bug in googleapis/mcp-toolbox and decide whether it is real, delivering an evidence-backed verdict: confirmed, already fixed, misconfiguration, client-side, works as intended, "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "review-prs",
+   "path": "skills/maintainer/review-prs/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Review a GitHub pull request in the googleapis/mcp-toolbox repo against the team's reviewer checklist: PR title/description conventions, linked issue, logic errors and unhandled edge cases, breakin"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stale-sweep",
+   "path": "skills/maintainer/stale-sweep/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Sweep the googleapis/mcp-toolbox repo for issues and PRs with no real activity in N days (default 60), sort each by whose silence it is (the author's, ours, or nobody's), and draft the nudge or clo"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "triage-issues",
+   "path": "skills/maintainer/triage-issues/SKILL.md",
+   "plugin": "googleapis__genai-toolbox@1f9a421ccb75",
+   "trigger": "",
+   "details": {
+    "description": ">- Triage GitHub issues in the googleapis/mcp-toolbox repo: propose the correct labels (type / priority / product / status), check for duplicates, verify a bug has enough info to act on, and draft a t"
+   }
+  },
+  {
+   "kind": "submodules",
+   "name": ".gitmodules",
+   "path": ".gitmodules",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "package",
+   "name": "mcp-toolbox-docs",
+   "path": ".hugo/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {
+     "autoprefixer": "^10.6.2",
+     "postcss": "^8.5.32",
+     "postcss-cli": "^11.0.1"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "adk",
+   "path": "docs/en/documentation/configuration/pre-post-processing/js/adk/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node agent.js"
+    },
+    "dependencies": {
+     "@google/adk": "^1.2.0",
+     "@toolbox-sdk/adk": "^1.2.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "langchain",
+   "path": "docs/en/documentation/configuration/pre-post-processing/js/langchain/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node agent.js"
+    },
+    "dependencies": {
+     "@langchain/core": "^1.1.26",
+     "@langchain/google-genai": "^2.1.19",
+     "@langchain/google-vertexai": "^2.1.19",
+     "@toolbox-sdk/core": "^1.0.0",
+     "langchain": "^1.2.25",
+     "zod": "^4.6.7"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/configuration/pre-post-processing/python/adk/requirements.txt",
+   "path": "docs/en/documentation/configuration/pre-post-processing/python/adk/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/configuration/pre-post-processing/python/langchain/requirements.txt",
+   "path": "docs/en/documentation/configuration/pre-post-processing/python/langchain/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "adk",
+   "path": "docs/en/documentation/getting-started/quickstart/js/adk/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {
+     "@google/adk": "^1.2.0",
+     "@toolbox-sdk/adk": "^1.2.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "genai",
+   "path": "docs/en/documentation/getting-started/quickstart/js/genAI/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {
+     "@google/genai": "^2.8.0",
+     "@toolbox-sdk/core": "^1.0.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "genkit",
+   "path": "docs/en/documentation/getting-started/quickstart/js/genkit/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {
+     "@genkit-ai/google-genai": "^1.44.0",
+     "@toolbox-sdk/core": "^1.0.0",
+     "genkit": "^1.44.0",
+     "zod": "^3.25.76"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "langchain",
+   "path": "docs/en/documentation/getting-started/quickstart/js/langchain/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {
+     "@langchain/core": "^1.1.26",
+     "@langchain/google-genai": "^2.1.19",
+     "@langchain/langgraph": "^1.0.0",
+     "@toolbox-sdk/core": "^1.0.0",
+     "langchain": "^1.2.25"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/getting-started/quickstart/python/adk/requirements.txt",
+   "path": "docs/en/documentation/getting-started/quickstart/python/adk/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/getting-started/quickstart/python/core/requirements.txt",
+   "path": "docs/en/documentation/getting-started/quickstart/python/core/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/getting-started/quickstart/python/langchain/requirements.txt",
+   "path": "docs/en/documentation/getting-started/quickstart/python/langchain/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "docs/en/documentation/getting-started/quickstart/python/llamaindex/requirements.txt",
+   "path": "docs/en/documentation/getting-started/quickstart/python/llamaindex/requirements.txt",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server",
+   "path": "npm/server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "@toolbox-sdk/server-darwin-arm64": "1.17.0",
+     "@toolbox-sdk/server-darwin-x64": "1.17.0",
+     "@toolbox-sdk/server-linux-x64": "1.17.0",
+     "@toolbox-sdk/server-win32-arm64": "1.17.0",
+     "@toolbox-sdk/server-win32-x64": "1.17.0"
+    },
+    "devDependencies": {},
+    "bin": {
+     "toolbox": "./bin/run.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server-darwin-arm64",
+   "path": "npm/server-darwin-arm64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepack": "node scripts/downloadBinary.js darwin arm64"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server-darwin-x64",
+   "path": "npm/server-darwin-x64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepack": "node scripts/downloadBinary.js darwin x64"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server-linux-x64",
+   "path": "npm/server-linux-x64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepack": "node scripts/downloadBinary.js linux x64"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server-win32-arm64",
+   "path": "npm/server-win32-arm64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepack": "node scripts/downloadBinary.js win32 arm64"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@toolbox-sdk/server-win32-x64",
+   "path": "npm/server-win32-x64/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepack": "node scripts/downloadBinary.js win32 x64"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pypi/pyproject.toml",
+   "path": "pypi/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pypi/setup.py",
+   "path": "pypi/setup.py",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 2127,
+  "bytes": 32641398,
+  "by_kind": {
+   "binary": 43,
+   "code": 1080,
+   "config": 138,
+   "js": 31,
+   "markdown": 709,
+   "other": 87,
+   "python": 17,
+   "shell": 22
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 29
+ },
+ "findings": [
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6a0324491024fc3e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3f2379f7f516638f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e73cc52ee1a6c0cc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PRIV-GATEKEEPER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9c43d281cf67ebe7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-DOWNLOAD-EXEC",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:74644f5106d85519",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PY-CUSTOM-INSTALL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c13795696450634d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLI-TOKEN",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a687b62e88caaf3c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLI-TOKEN",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:855274b06504837e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-FILES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f7ad199fed587936",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:944e68d11248a758",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9f90d05b8ae11b0f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d21fed1a7ba003b8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:55e40bcd2a9d5f96",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b84d4701d7021178",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-OVERRIDE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c28c8c5018c05893",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-OVERRIDE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9379967302fd669a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "GIT-SUBMODULES",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b6ae7dc840e96697",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e5d33c4155a97dda",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:001a3c24a0b5f52b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2c56e3a3c81181ed",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f13738fbf3a6edb4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:13b11e4970987f15",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:56e746add1f7d1bc",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:040fa4b48598b150",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e1b65850673f4a71",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7c92ee8e93adb2ca",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:21791df4aae26316",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a2908ad5c2b18aba",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6cf25105f9b7dde1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-TLS-OFF",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95ff42dbe97c4a5d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:95f0bb93be62e608",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:544467f318543450",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:44c33cbbcff6e843",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HOOK-CONTEXT-INJECTION",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cfd421f8b39bc743",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d334471511419082",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e9535fb596052ada",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "artifactregistry.googleapis.com": [
+    ".ci/promote_artifacts.sh"
+   ],
+   "developers.google.com": [
+    "internal/server/static/js/toolDisplay.js"
+   ],
+   "storage.googleapis.com": [
+    ".ci/generate_release_table.sh",
+    ".ci/sample_tests/run_tests.sh",
+    "internal/util/cloudsqlconnect/setup.go",
+    "npm/server-darwin-arm64/scripts/downloadBinary.js",
+    "npm/server-darwin-x64/scripts/downloadBinary.js",
+    "npm/server-linux-x64/scripts/downloadBinary.js"
+   ],
+   "www.googleapis.com": [
+    "internal/sources/sources.go"
+   ]
+  },
+  "sensitive_paths": {
+   "gcloud": [
+    ".ci/promote_artifacts.sh",
+    ".ci/publish_pypi_to_ar.sh",
+    ".ci/trigger_exit_gate.sh",
+    ".ci/dataproc/recreate_dataproc_cluster.sh",
+    "internal/server/static/js/toolDisplay.js",
+    "internal/sources/util.go"
+   ],
+   ".npmrc": [
+    ".ci/publish_npm_to_ar.sh"
+   ]
+  },
+  "env_vars": {
+   "ACCESS_TOKEN": [
+    ".ci/promote_artifacts.sh"
+   ],
+   "SOURCE_PATH": [
+    ".ci/test_with_coverage.sh"
+   ],
+   "GREP_PATTERN": [
+    ".ci/test_with_coverage.sh"
+   ],
+   "MANIFEST_PATH": [
+    ".ci/trigger_exit_gate.sh"
+   ],
+   "AGENT_FILE_PATTERN": [
+    ".ci/sample_tests/run_tests.sh"
+   ],
+   "DB_PASSWORD": [
+    ".ci/sample_tests/run_tests.sh"
+   ],
+   "GOOGLE_API_KEY": [
+    ".ci/sample_tests/run_tests.sh"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 2,
+  "network": 9,
+  "credentials": 4,
+  "secrets": 1,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 9,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 6,
+  "permissions": 0,
+  "supply-chain": 4,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 16887,
+  "forks": 1802,
+  "open_issues": 417,
+  "contributors": "100+",
+  "created_at": "2024-06-07T20:52:54Z",
+  "pushed_at": "2026-11-16T13:51:41Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "MCP Toolbox for Databases is an open source MCP server for databases.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 40,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 6,
+   "low": 12,
+   "info": 18
+  },
+  "active": 36,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "deny-secret-reads",
+  "disable-plugin",
+  "review-before-run",
+  "pin-commit",
+  "sandbox-bash",
+  "deny-network-bash",
+  "review-context-injection",
+  "pin-mcp-version",
+  "disable-hooks",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}
