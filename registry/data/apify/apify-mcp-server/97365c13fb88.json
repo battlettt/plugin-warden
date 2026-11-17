@@ -1,197 +1,271 @@
 {
  "target": {
-  "display": "grafana/mcp-grafana",
-  "raw": "grafana/mcp-grafana",
+  "display": "apify/apify-mcp-server",
+  "raw": "apify/apify-mcp-server",
   "kind": "github",
-  "url": "https://github.com/grafana/mcp-grafana",
+  "url": "https://github.com/apify/apify-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "4f09d9f45d352c8e92870bdfe75bf76af416e35f",
+  "commit": "97365c13fb88e08b43d75b3a9a2c2221f70f64ce",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:06:55+00:00",
+ "generated_at": "2026-11-17T14:58:16+00:00",
  "plugins": [
   {
-   "name": "grafana",
+   "name": "apify__apify-mcp-server@97365c13fb88",
    "path": ".",
-   "source": "manifest",
-   "version": "0.7.6",
-   "description": "A Model Context Protocol (MCP) server for Grafana providing access to dashboards, datasources, and querying capabilities"
+   "source": "layout",
+   "version": null,
+   "description": null
   }
  ],
  "component_counts": {
   "manifest": 1,
-  "mcp_server": 1,
-  "package": 4,
-  "skill": 1
+  "mcp_server": 3,
+  "package": 2,
+  "skill": 3
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "grafana",
-   "path": ".claude-plugin/plugin.json",
-   "plugin": "grafana",
+   "name": "apify__apify-mcp-server@97365c13fb88",
+   "path": ".",
+   "plugin": "apify__apify-mcp-server@97365c13fb88",
    "trigger": "",
    "details": {
-    "source": "manifest",
-    "version": "0.7.6",
-    "description": "A Model Context Protocol (MCP) server for Grafana providing access to dashboards, datasources, and querying capabilities",
-    "author": {
-     "name": "Grafana Labs"
-    },
-    "repository": "https://github.com/grafana/mcp-grafana",
-    "license": "Apache-2.0"
+    "source": "layout"
    }
   },
   {
    "kind": "mcp_server",
-   "name": "grafana",
-   "path": ".claude-plugin/plugin.json",
-   "plugin": "grafana",
+   "name": "dev",
+   "path": ".mcp.json",
+   "plugin": "apify__apify-mcp-server@97365c13fb88",
+   "trigger": "",
+   "details": {
+    "type": "http",
+    "url": "http://localhost:3001",
+    "headers": {
+     "Authorization": "<redacted>"
+    }
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "stdio",
+   "path": ".mcp.json",
+   "plugin": "apify__apify-mcp-server@97365c13fb88",
    "trigger": "",
    "details": {
     "command": "node",
     "args": [
-     "${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs"
-    ]
+     "dist/stdio.js"
+    ],
+    "env": {
+     "APIFY_TOKEN": "${APIFY_TOKEN}",
+     "NODE_EXTRA_CA_CERTS": "${NODE_EXTRA_CA_CERTS}"
+    }
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "stdio-full",
+   "path": ".mcp.json",
+   "plugin": "apify__apify-mcp-server@97365c13fb88",
+   "trigger": "",
+   "details": {
+    "command": "node",
+    "args": [
+     "dist/stdio.js",
+     "--tools=actors,docs,runs,storage,tasks,schedules,apify/rag-web-browser"
+    ],
+    "env": {
+     "APIFY_TOKEN": "${APIFY_TOKEN}",
+     "NODE_EXTRA_CA_CERTS": "${NODE_EXTRA_CA_CERTS}"
+    }
    }
   },
   {
    "kind": "skill",
-   "name": "draft-release",
-   "path": ".claude/skills/draft-release/SKILL.md",
+   "name": "bug-triage",
+   "path": ".claude/skills/bug-triage/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
-    "description": "Draft a new release. Bumps version, generates CHANGELOG.md from git history, and creates a PR.",
-    "allowed-tools": "Bash(git *), Bash(gh *), Bash(date *), Read, Write, Edit, Glob"
+    "description": ">- Triage open GitHub bug issues for Apify MCP server. Fetches issues, analyzes root causes, drafts developer-to-developer responses, and posts after user approval. Use when handling user bug reports,",
+    "allowed-tools": "[Read, Glob, Grep, Bash, WebFetch, Agent]"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "creating-mcp-agent-evals",
+   "path": ".claude/skills/creating-mcp-agent-evals/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Use when adding Langfuse MCP agent evals for a tool family of the Apify MCP server (\"create evals for the storage tools\"), when eval cases fail and you must decide whether the case, the tool, or its d"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "dig",
+   "path": ".claude/skills/dig/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Explore, analyze, plan, or spec features for the Apify MCP server. Adapts to what the user asks \u2014 from quick code exploration to full GitHub issue specs. Use when the user asks to explore code, und",
+    "allowed-tools": "[Read, Glob, Grep, Bash, WebFetch, WebSearch, Agent]"
    }
   },
   {
    "kind": "package",
-   "name": "tests/pyproject.toml",
-   "path": "tests/pyproject.toml",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "ecosystem": "pypi"
-   }
-  },
-  {
-   "kind": "package",
-   "name": "@mcp-grafana/mcp-apps",
-   "path": "ui/mcp-apps/package.json",
+   "name": "@apify/actors-mcp-server",
+   "path": "package.json",
    "plugin": "",
    "trigger": "",
    "details": {
     "ecosystem": "npm",
     "scripts": {
-     "build": "npm run build:lib && npm run build:apps",
-     "build:lib": "vite build && tsc -p tsconfig.build.json",
-     "build:apps": "vite build --config grafana.vite.config.ts",
-     "build:preview": "vite build --config preview/vite.config.ts",
-     "dev": "vite --config preview/vite.config.ts",
-     "typecheck": "tsc --noEmit",
-     "test": "vitest run"
+     "start": "tsx src/dev_server.ts",
+     "dev": "node scripts/dev_standby.js",
+     "build": "pnpm run build:core && pnpm run build:web",
+     "build:core": "tsc -b src && tsc -b tests/test_kit",
+     "build:watch": "tsc -b src -w",
+     "build:web": "pnpm --filter @apify/mcp-web-widget run build",
+     "postbuild": "mkdir -p dist/web && (cp -r src/web/dist dist/web/ 2>/dev/null || :)",
+     "clean": "tsc -b src --clean && tsc -b tests/test_kit --clean && rm -rf dist/web",
+     "lint": "oxlint .",
+     "lint:fix": "oxlint . --fix",
+     "format": "oxfmt",
+     "format:check": "oxfmt --check",
+     "check:agents": "node scripts/check-agents-links.mjs",
+     "type-check": "tsc -p tsconfig.json --noEmit",
+     "typecheck": "pnpm run type-check",
+     "check": "pnpm run type-check && pnpm run lint",
+     "check:widgets": "tsx scripts/check_widgets.ts",
+     "test": "pnpm run test:unit",
+     "test:unit": "vitest run tests/unit",
+     "test:integration": "pnpm run build && vitest run tests/integration",
+     "test:integration:stdio": "pnpm run build && vitest run tests/integration/stdio.test.ts",
+     "test:integration:streamable": "pnpm run build && vitest run tests/integration/actor.server_streamable.test.ts",
+     "test:integration:stateless": "pnpm run build && vitest run tests/integration/actor.server_stateless.test.ts",
+     "test:conformance": "bash scripts/test_conformance.sh",
+     "inspector:stdio": "npx @modelcontextprotocol/inspector -e APIFY_TOKEN=$APIFY_TOKEN -- node dist/stdio.js",
+     "evals:mcp-agent": "pnpm run build && tsx evals/runner/run.ts",
+     "evals:mcp-agent:export-dataset": "tsx evals/scripts/export_dataset.ts",
+     "evals:mcp-agent:fixtures": "tsx evals/scripts/fixtures.ts"
     },
     "dependencies": {
-     "@emotion/css": "11.13.5",
-     "@fontsource/inter": "^5.3.0",
-     "@modelcontextprotocol/client": "2.4.0",
-     "@modelcontextprotocol/core": "2.4.0",
-     "@modelcontextprotocol/ext-apps": "2.0.4",
-     "echarts": "^6.1.0",
-     "lucide-react": "^0.577.0",
-     "zod": "^4.2.0"
+     "@apify/utilities": "^2.25.1",
+     "@modelcontextprotocol/ext-apps": "^1.1.2",
+     "@modelcontextprotocol/node": "2.1.2",
+     "@modelcontextprotocol/sdk": "1.32.1",
+     "@modelcontextprotocol/server": "2.3.1",
+     "@segment/analytics-node": "^2.3.0",
+     "@sentry/node": "^10.78.0",
+     "ajv": "^8.17.1",
+     "algoliasearch": "^5.31.0",
+     "apify-client": "^2.25.0",
+     "axios": "^1.21.0",
+     "dedent": "^1.7.2",
+     "dotenv": "^17.4.1",
+     "express": "^4.22.3",
+     "proxy-agent": "^6.5.0",
+     "yargs": "^17.7.2",
+     "zod": "^4.6.7"
     },
     "devDependencies": {
-     "@grafana/data": "13.3.0",
-     "@grafana/ui": "13.3.0",
-     "@grafana/viz-contract": "1.6.0",
-     "@testing-library/react": "16.3.3",
-     "@testing-library/user-event": "^14.6.1",
-     "@types/node": "^24.0.0",
-     "@types/react": "19.3.0",
-     "@types/react-dom": "19.3.0",
-     "@types/semver": "7.8.0",
-     "jsdom": "^31.0.0",
-     "react": "19.3.1",
-     "react-dom": "19.3.1",
-     "react-inlinesvg": "4.6.0",
-     "semver": "7.8.6",
-     "typescript": "~7.0.0",
-     "vite": "^8.3.4",
-     "vite-plugin-singlefile": "^2.3.0",
-     "vitest": "^5.0.0"
+     "@anthropic-ai/claude-agent-sdk": "0.3.206",
+     "@apify/log": "^2.5.16",
+     "@apify/mcpc": "^0.8.0",
+     "@apify/oxlint-config": "^0.2.10",
+     "@apify/tsconfig": "^0.1.2",
+     "@langfuse/client": "5.9.1",
+     "@langfuse/otel": "5.9.1",
+     "@langfuse/tracing": "5.9.1",
+     "@modelcontextprotocol/client": "2.3.1",
+     "@modelcontextprotocol/conformance": "0.2.0-alpha.9",
+     "@opentelemetry/api": "1.9.1",
+     "@opentelemetry/sdk-node": "0.220.0",
+     "@sentry/cli": "^3.8.2",
+     "@types/express": "^4.0.0",
+     "@types/yargs": "^17.0.33",
+     "@types/yargs-parser": "^21.0.3",
+     "eventsource": "^3.0.2",
+     "openai": "^6.49.0",
+     "oxfmt": "0.51.0",
+     "oxlint": "^1.64.0",
+     "oxlint-tsgolint": "0.22.1",
+     "tsx": "^4.20.6",
+     "typescript": "^5.3.3",
+     "vitest": "^4.1.12"
     },
-    "bin": null
+    "bin": {
+     "actors-mcp-server": "./dist/stdio.js"
+    }
    }
   },
   {
    "kind": "package",
-   "name": "@plugins/grafana-echarts-renderer",
-   "path": "ui/mcp-apps/renderer/package.json",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "ecosystem": "npm",
-    "scripts": {},
-    "dependencies": {},
-    "devDependencies": {},
-    "bin": null
-   }
-  },
-  {
-   "kind": "package",
-   "name": "@mcp-grafana/panel-viewer-app",
-   "path": "ui/panel-viewer/package.json",
+   "name": "@apify/mcp-web-widget",
+   "path": "src/web/package.json",
    "plugin": "",
    "trigger": "",
    "details": {
     "ecosystem": "npm",
     "scripts": {
-     "build": "INPUT=mcp-app.html vite build",
-     "dev": "vite --open /mcp-app.html"
+     "dev": "node build.js --watch",
+     "build": "node build.js"
     },
     "dependencies": {
-     "@modelcontextprotocol/ext-apps": "^2.0.3"
+     "@apify/mcp-widgets": "^0.3.4",
+     "@apify/ui-icons": "^1.54.0",
+     "@apify/ui-library": "^1.168.1",
+     "@modelcontextprotocol/ext-apps": "^1.1.2",
+     "pluralize": "^8.0.0",
+     "react": "^19.3.1",
+     "react-dom": "^19.3.1",
+     "styled-components": "^6.3.8"
     },
     "devDependencies": {
-     "typescript": "^7.0.0",
-     "vite": "^8.3.4",
-     "vite-plugin-singlefile": "^2.3.3"
+     "@types/pluralize": "^0.0.33",
+     "@types/react": "^19.3.0",
+     "@types/react-dom": "^19.3.0",
+     "autoprefixer": "^10.4.20",
+     "esbuild": "^0.28.2",
+     "postcss": "^8.5.32",
+     "tailwindcss": "^3.4.17",
+     "typescript": "^5.6.3"
     },
     "bin": null
    }
   }
  ],
  "stats": {
-  "files": 687,
-  "bytes": 13571780,
+  "files": 474,
+  "bytes": 5634282,
   "by_kind": {
-   "binary": 2,
-   "code": 360,
-   "config": 122,
-   "js": 80,
-   "markdown": 63,
-   "other": 39,
-   "python": 7,
-   "shell": 14
+   "binary": 10,
+   "config": 42,
+   "js": 374,
+   "markdown": 28,
+   "other": 19,
+   "shell": 1
   },
   "vendored_files": 0,
   "plugins": 1,
-  "components": 7
+  "components": 9
  },
  "findings": [
   {
-   "rule_id": "NET-AUTORUN",
+   "rule_id": "BROAD-TOOL-GRANT",
    "title": "Withheld",
    "severity": "medium",
-   "category": "network",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:48226029a28d2043",
+   "snippet": "fp:e712aa22d42334e3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -205,13 +279,13 @@
    "effective_severity": "medium"
   },
   {
-   "rule_id": "PERSIST-LAUNCH",
+   "rule_id": "BROAD-TOOL-GRANT",
    "title": "Withheld",
-   "severity": "low",
-   "category": "persistence",
+   "severity": "medium",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:1d7eb6821b834b90",
+   "snippet": "fp:3c5099a7f983da45",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -222,16 +296,16 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "low"
+   "effective_severity": "medium"
   },
   {
-   "rule_id": "PRIV-TLS-OFF",
+   "rule_id": "MCP-REMOTE",
    "title": "Withheld",
    "severity": "low",
-   "category": "privilege",
+   "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:04571a424e0f2b5e",
+   "snippet": "fp:1bd089da5934e04f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -245,153 +319,153 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HIDDEN-UNICODE",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:4d60b242c9b7d8b5",
+   "snippet": "fp:3a5e5db9fb8f0e7b",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-004",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HIDDEN-UNICODE",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:2e3b883167c91a2c",
+   "snippet": "fp:2782e22b5c62c20f",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-005",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HOOK-AUTO-APPROVE",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:3c903c4f978b4bba",
+   "snippet": "fp:d45b5ed53a545645",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-006",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:faf6347a2f9a2fab",
+   "snippet": "fp:5eb0bd24b92c4cf1",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-007",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HOOK-AUTO-APPROVE",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:37924581f0947a44",
+   "snippet": "fp:a9497d902275f70c",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-008",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "PROMPT-TOOL-POISONING",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:7033a06ca38e8fae",
+   "snippet": "fp:2df2b6cb23b1c5f6",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-009",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "PROMPT-CONCEAL",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:fe696c49782e697e",
+   "snippet": "fp:4f1403bc7365e7bb",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-010",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:e71ca5bf26083cf3",
+   "snippet": "fp:8e5bae327ec1d546",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -402,16 +476,16 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:966ea8ba0b820d45",
+   "snippet": "fp:226ed07372325b8f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -422,16 +496,16 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:1312f21a015eac1a",
+   "snippet": "fp:8a058ae0c0c5f682",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -442,56 +516,56 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "RCE-UNPINNED-RUNNER",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "supply-chain",
    "path": "",
    "line": null,
-   "snippet": "fp:1d07e2818c54a70d",
+   "snippet": "fp:128e0c2ddfee15ad",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-014",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "DEP-NO-LOCKFILE",
    "title": "Withheld",
-   "severity": "info",
-   "category": "network",
+   "severity": "low",
+   "category": "supply-chain",
    "path": "",
    "line": null,
-   "snippet": "fp:56c5d9d719e65852",
+   "snippet": "fp:bb5c306b94275de7",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-015",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "info"
+   "effective_severity": "low"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TELEMETRY-SDK",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:502188483e65f6a7",
+   "snippet": "fp:976069f8855363b5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -505,13 +579,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TELEMETRY-SDK",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:5b06f6f222ec0efc",
+   "snippet": "fp:52731691aa407549",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -525,13 +599,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TELEMETRY-SDK",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:b895d260baf598f5",
+   "snippet": "fp:4da5d46b6ce6647c",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -551,7 +625,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:bb0abfe6cc6fa79e",
+   "snippet": "fp:a7ead9f8cf2e9102",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -571,7 +645,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:58b95a670d994f40",
+   "snippet": "fp:a57ac2a09e4f43ef",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -591,7 +665,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:584d7d442b66bb01",
+   "snippet": "fp:e91c02e7be35aee0",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -605,13 +679,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TELEMETRY-SDK",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:0ce8658ec0da4dc7",
+   "snippet": "fp:755008b8253fffa9",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -631,7 +705,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:dbf18bba8180f0f2",
+   "snippet": "fp:d9ef4f3a7f428e48",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -651,7 +725,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:fd16ed053c56dec5",
+   "snippet": "fp:f6793e901531d09d",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -665,13 +739,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "TELEMETRY-SDK",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:b33f16fc3f3384e2",
+   "snippet": "fp:a0e0d1a72fe03a9f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -691,7 +765,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:a25ecca4c21104be",
+   "snippet": "fp:45f522c970a0d932",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -711,7 +785,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:5292bf3f5430919d",
+   "snippet": "fp:ea8cb37405bc91b2",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -731,7 +805,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:10d8d4328560e9c2",
+   "snippet": "fp:835b10b46ccbb608",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -751,7 +825,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:7e9e4d37034f381b",
+   "snippet": "fp:150f14200d3708e6",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -765,19 +839,19 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HOOK-REWRITES-INPUT",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:41af2db81cf8cf8e",
+   "snippet": "fp:5a029fde07c92837",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-030",
    "verdict": "unreviewed",
    "agent_severity": null,
@@ -785,19 +859,19 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "HOOK-REWRITES-INPUT",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:81181b6a0c583d25",
+   "snippet": "fp:087c7f3b39bb39a3",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "medium",
+   "confidence": "high",
    "id": "F-031",
    "verdict": "unreviewed",
    "agent_severity": null,
@@ -805,13 +879,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "NET-CLEARTEXT",
+   "rule_id": "PROMPT-PRIORITY",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:37955b8c36c40706",
+   "snippet": "fp:2f674972a89f834f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -831,7 +905,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:440a83c93097c636",
+   "snippet": "fp:a425e3a5628d153d",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -851,7 +925,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:a224cf0d2f1b7fb7",
+   "snippet": "fp:1c2a25556548e5c5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -871,7 +945,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:be31c4cfa6b8b08f",
+   "snippet": "fp:9160afb71f1b60f5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -883,170 +957,83 @@
    "agent_severity": null,
    "rationale": "",
    "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:559019e28f417539",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-036",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:efcd2f4d25e68a6e",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-037",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:55647cde1560ab52",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-038",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:91e5bea5939bb981",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-039",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:db06a58889632cf5",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-040",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:618a9b78a2ff22e3",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-041",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
   }
  ],
  "surface": {
   "auto_runs": [
    {
     "when": "session start",
-    "what": "node ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs",
+    "what": "http://localhost:3001",
     "type": "MCP server",
-    "plugin": "grafana",
-    "file": ".claude-plugin/plugin.json"
+    "plugin": "apify__apify-mcp-server@97365c13fb88",
+    "file": ".mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "node dist/stdio.js",
+    "type": "MCP server",
+    "plugin": "apify__apify-mcp-server@97365c13fb88",
+    "file": ".mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "node dist/stdio.js --tools=actors,docs,runs,storage,tasks,schedules,apify/rag-web-browser",
+    "type": "MCP server",
+    "plugin": "apify__apify-mcp-server@97365c13fb88",
+    "file": ".mcp.json"
    }
   ],
   "processes": [
    {
-    "name": "grafana",
+    "name": "dev",
     "kind": "MCP server",
-    "launch": "node ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs",
-    "file": ".claude-plugin/plugin.json"
+    "launch": "http://localhost:3001",
+    "file": ".mcp.json"
+   },
+   {
+    "name": "stdio",
+    "kind": "MCP server",
+    "launch": "node dist/stdio.js",
+    "file": ".mcp.json"
+   },
+   {
+    "name": "stdio-full",
+    "kind": "MCP server",
+    "launch": "node dist/stdio.js --tools=actors,docs,runs,storage,tasks,schedules,apify/rag-web-browser",
+    "file": ".mcp.json"
    }
   ],
   "hosts": {
-   "api.github.com": [
-    ".claude-plugin/install-binary.mjs"
+   "console.apify.com": [
+    "src/dev_server.ts"
    ],
    "github.com": [
-    "client_cache.go",
-    "mcpgrafana.go",
-    ".claude-plugin/install-binary.mjs"
+    "src/mcp/client.ts"
    ],
-   "grafana.com": [
-    "mcpgrafana.go"
+   "localhost": [
+    ".mcp.json"
+   ],
+   "modelcontextprotocol.io": [
+    "src/dev_server.ts"
    ]
   },
   "sensitive_paths": {
+   "Cookies": [
+    "src/tools/actors/actor_tool_contract.ts"
+   ],
    "cookies": [
-    "tools/datasources.go"
+    "src/tools/actors/actor_tool_contract.ts",
+    "src/tools/actors/call_actor.ts",
+    "src/tools/schedules/schedule_helpers.ts"
    ]
   },
   "env_vars": {
-   "GITHUB_TOKEN": [
-    ".claude-plugin/install-binary.mjs"
+   "APIFY_TOKEN": [
+    "scripts/test_conformance.sh",
+    "src/stdio.ts"
    ],
-   "INFLUXDB_TOKEN": [
-    "testdata/influxdb-seed.sh"
+   "SKYFIRE_PAY_ID_KEY": [
+    "src/payments/skyfire.ts"
    ]
   },
   "path_executables": [],
@@ -1056,61 +1043,67 @@
   "auto-execution": 0,
   "remote-code": 0,
   "exfiltration": 0,
-  "network": 30,
+  "network": 15,
   "credentials": 0,
-  "secrets": 9,
-  "persistence": 1,
+  "secrets": 6,
+  "persistence": 0,
   "config-tampering": 0,
   "destructive": 0,
-  "privilege": 1,
-  "obfuscation": 0,
-  "prompt-injection": 0,
-  "permissions": 0,
-  "supply-chain": 0,
+  "privilege": 0,
+  "obfuscation": 2,
+  "surveillance": 0,
+  "prompt-injection": 3,
+  "permissions": 7,
+  "supply-chain": 2,
   "integrity": 0,
   "impersonation": 0,
   "vulnerable-dependency": 0
  },
  "notes": [],
  "metadata": {
-  "stars": 3668,
-  "forks": 497,
-  "open_issues": 87,
-  "contributors": "100+",
-  "created_at": "2024-12-24T15:44:23Z",
-  "pushed_at": "2026-11-13T20:40:29Z",
-  "license": "Apache-2.0",
+  "stars": 16653,
+  "forks": 462,
+  "open_issues": 265,
+  "contributors": "54",
+  "created_at": "2025-01-02T15:43:09Z",
+  "pushed_at": "2026-11-17T08:28:10Z",
+  "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
-  "description": "MCP server for Grafana",
+  "description": "The Apify MCP server enables your AI agents to extract data from social media, search engines, maps, e-commerce sites, or any other website using thousands of ready-made scrapers, crawlers, and automation tools available on the Apify Store.",
   "signals": [],
   "error": null
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",
-  "score": 7,
+  "score": 20,
   "counts": {
    "critical": 0,
    "high": 0,
-   "medium": 1,
-   "low": 2,
-   "info": 38
+   "medium": 2,
+   "low": 13,
+   "info": 20
   },
-  "active": 41,
+  "active": 35,
   "dismissed": 0,
   "injection_guard": false,
   "reasons": []
  },
  "recommended_precautions": [
-  "disable-hooks",
   "sandbox-bash",
-  "check-persistence",
+  "deny-mcp-server",
+  "review-context-injection",
+  "disable-hooks",
+  "lock-permission-mode",
   "disable-plugin",
-  "rotate-secret"
+  "rotate-secret",
+  "pin-mcp-version",
+  "pin-commit",
+  "dependency-audit"
  ],
  "settings_snippet": {}
 }

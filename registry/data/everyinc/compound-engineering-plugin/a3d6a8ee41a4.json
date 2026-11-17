@@ -1,0 +1,3783 @@
+{
+ "target": {
+  "display": "everyinc/compound-engineering-plugin",
+  "raw": "everyinc/compound-engineering-plugin",
+  "kind": "github",
+  "url": "https://github.com/everyinc/compound-engineering-plugin",
+  "ref": null,
+  "subdir": null,
+  "commit": "a3d6a8ee41a404b74391ee278423b52890b8920d",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-17T14:43:20+00:00",
+ "plugins": [
+  {
+   "name": "compound-engineering",
+   "path": ".",
+   "source": "manifest",
+   "version": "3.38.1",
+   "description": "Brainstorm, plan, debug, review, and compound learnings with AI agents"
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "package": 63,
+  "skill": 46
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "compound-engineering",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "3.38.1",
+    "description": "Brainstorm, plan, debug, review, and compound learnings with AI agents",
+    "author": {
+     "name": "Kieran Klaassen and Trevin Chow"
+    },
+    "repository": "https://github.com/EveryInc/compound-engineering-plugin",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-babysit-pr",
+   "path": "skills/ce-babysit-pr/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Babysits an open GitHub PR until merge-ready, first judging whether an old PR still belongs. Use when asked to watch a PR over time or update an old one \u2014 not for one-shot comment resolution or one C"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-bakeoff",
+   "path": "skills/ce-bakeoff/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Develop independent competing solutions to a defined brief, compare them, and synthesize a winning approach. Use when choosing well requires developing alternatives beyond their current form. Use ce-"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-brainstorm",
+   "path": "skills/ce-brainstorm/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Explore vague or ambitious ideas into a right-sized requirements-only unified plan. Use when the user wants to brainstorm or scope what to build. Not for executing already-specified work. Use ce-pov "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-code-review",
+   "path": "skills/ce-code-review/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Review a named diff or PR for bugs, regressions, tests, and standards. Use when asked to review code or when a shipping skill needs a review receipt. Use when asked to apply this review's findings lo"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-commit",
+   "path": "skills/ce-commit/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Create a git commit with a clear, value-communicating message. Use when the user asks to commit/save staged or unstaged changes with a repo-appropriate message."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-commit-push-pr",
+   "path": "skills/ce-commit-push-pr/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Commit, push, and open a PR. Use when asked to ship/open a PR, or for PR-description-only flows like writing, rewriting, or describing a PR body."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-compound",
+   "path": "skills/ce-compound/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Capture a solved problem's lesson in its cheapest durable form, a test or lint rule, a coding standard, or a repo learning, or refresh existing learnings against the codebase. Use when verified work c"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-compound-refresh",
+   "path": "skills/ce-compound-refresh/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Old name for refreshing learnings, which now lives in `ce-compound`. Use only when a prompt or standing instruction names `ce-compound-refresh`; use `ce-compound` for every other learnings audit."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-debug",
+   "path": "skills/ce-debug/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Diagnosis loop for bugs and failing behavior. Use when asked to debug or fix failing or slow behavior.\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-doc-review",
+   "path": "skills/ce-doc-review/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Review requirements, plans, or specs with role-specific lenses. Use when the user wants to improve an existing planning document."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-dogfood",
+   "path": "skills/ce-dogfood/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Hands-off, diff-scoped browser QA of the active branch: maps user flows, drives a real browser, autonomously fixes small breakages with regression tests and commits, judges experience against product"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-explain",
+   "path": "skills/ce-explain/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Explain how and why something has its current shape, or what happened over a window of work, grounded in evidence. Use when the user asks for an explanation. Use ce-pov for a judgment or recommendati"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-handoff",
+   "path": "skills/ce-handoff/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Create a session handoff for another agent, or resume, find, and read any user-selected continuity source. Use when work or conversation must continue without access to the current session history."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-help",
+   "path": "skills/ce-help/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Help and orientation for Compound Engineering: place the user's work on the compounding loop and recommend the next command, without running it. Use when the user invokes ce-help to ask which skill f"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-ideate",
+   "path": "skills/ce-ideate/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Generate and evaluate grounded ideas. Use when the user wants ideas, improvements, or surprising directions before choosing one to develop. Not for refining an idea they already have (ce-brainstorm) "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-noslop",
+   "path": "skills/ce-noslop/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Rewrite, check, or draft prose so it carries no AI writing tells, reads plainly on the first read, and keeps every source fact. Use when asked to make writing plainer or free of those tells, to check"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-optimize",
+   "path": "skills/ce-optimize/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Optimize a named target with a measured loop: attribute a workload's cost, or score variants and keep winners. Use when a working system's metric should move and the winning change is not already kno"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-plan",
+   "path": "skills/ce-plan/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Create structured plans for multi-step work, including software and non-software tasks. Use when asked to plan, break down implementation, plan from requirements, or deepen an existing plan; prefer c"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-polish",
+   "path": "skills/ce-polish/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Polish a working feature through user-directed live browser feedback. Use when a functional feature needs focused UX refinement before shipping.\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-pov",
+   "path": "skills/ce-pov/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Judge a supplied subject against the project's evidence and constraints. Use when assessing an external-adoption question, a holistic take on a document, or a supplied approach set. Use for an oracle"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-product-pulse",
+   "path": "skills/ce-product-pulse/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Generate time-windowed product pulse reports from configured signals.\"",
+    "allowed-tools": "- Read - Write - Glob - Grep - Bash - AskUserQuestion"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-promote",
+   "path": "skills/ce-promote/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Draft launch or promotion copy for a shipped feature.\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-proof",
+   "path": "skills/ce-proof/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Publish, read, comment on, or edit markdown in Proof. Use for Proof links, sharing specs/plans/drafts, or publish handoffs from planning workflows; avoid proofread, math, evidence, or proof-of-concept",
+    "allowed-tools": "- Bash - Read - Write - WebFetch"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-prototype",
+   "path": "skills/ce-prototype/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Build a throwaway prototype to answer how something should work, feel, or read. Use when committing the wrong answer would be expensive to unravel and a cheap sketch cannot settle it. Not a rough visu"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-resolve-pr-feedback",
+   "path": "skills/ce-resolve-pr-feedback/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Judge PR feedback centrally, apply valid fixes, and complete review conversations with publication verified. Use when addressing feedback already left on a PR, preparing local fixes for a caller to pu",
+    "allowed-tools": "Bash(gh *), Bash(git *), Bash(bash *), Bash(python3 *), Read, Write"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-retro",
+   "path": "skills/ce-retro/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Look back over an agent session in this repo, the current one by default or any scope the user names across harnesses, and find what in the repo's environment keeps costing agents effort or leading t"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-retune",
+   "path": "skills/ce-retune/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Retune a skill corpus for a new model, measurement-first: mine the run archive for a baseline, establish a noise floor, audit the corpus adversarially, then cut in measured passes until a pre-registe"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-riffrec-feedback-analysis",
+   "path": "skills/ce-riffrec-feedback-analysis/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Analyze recorded product feedback into evidence for bugs and requirements. Use when a Riffrec capture or other screen, voice, or notes artifact needs interpretation. Use for Riffrec setup, capture, o"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-setup",
+   "path": "skills/ce-setup/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Check Compound Engineering's tools and repo config and fix what it finds, scaffold a Compound Pack with `pack:<id>`, or draft and refresh coding standards and review docs from pull request history. U"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-simplify-code",
+   "path": "skills/ce-simplify-code/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Simplify code for clarity, reuse, quality, and efficiency while preserving behavior, and prune tests and comments that carry no value. Use after implementation and before review, or to audit tests or"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-strategy",
+   "path": "skills/ce-strategy/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Create or update STRATEGY.md. Use when starting a product, adding a strategy doc, or changing direction or roadmap.\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-sweep",
+   "path": "skills/ce-sweep/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First",
+    "allowed-tools": "- Read - Write - Edit - Glob - Grep - Bash - Agent - AskUserQuestion"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-test-browser",
+   "path": "skills/ce-test-browser/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Run browser tests for pages affected by the current branch or PR. Use when asked to run or check browser tests for the current change."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-test-xcode",
+   "path": "skills/ce-test-xcode/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Test iOS apps in a simulator with XcodeBuildMCP. Use when iOS changes need simulator evidence before handoff.\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-work",
+   "path": "skills/ce-work/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Execute a plan or concrete work prompt end-to-end. Use when implementing from a plan document, a spec path, or a clear build request; use ce-debug for open-ended bugs. Use when an outer orchestrator n"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-worktree",
+   "path": "skills/ce-worktree/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "Set up isolated git worktrees \u2014 create a new branch for fresh work, or attach a worktree to an existing branch, PR, or commit. Use when starting isolated work or isolating an existing ref."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "lfg",
+   "path": "skills/lfg/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Take a request all the way to done, hands-off, through the right Compound Engineering skills. A code change ends as an open pull request, pushed without stopping. Use only when the user explicitly as"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "wtf",
+   "path": "skills/wtf/SKILL.md",
+   "plugin": "compound-engineering",
+   "trigger": "",
+   "details": {
+    "description": "\"Explain the last message, or a supplied file, link, or passage, in plain language a person follows on the first read. Use when the user invokes wtf because they did not follow something. Use ce-expla"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "ce-skill-work",
+   "path": ".agents/skills/ce-skill-work/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Applies this repository's skill-authoring standard as a procedure. Use for any change to, or judgment about, a file under skills/** \u2014 a SKILL.md, a reference, a persona prompt, a bundled script's ins"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "custom-skill",
+   "path": "tests/fixtures/custom-paths/custom-skills/custom-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "skill",
+   "name": "default-skill",
+   "path": "tests/fixtures/custom-paths/skills/default-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "skill",
+   "name": "agent-only-skill",
+   "path": "tests/fixtures/sample-plugin/skills/agent-only-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "An agent-only skill not intended for direct user invocation"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "claude-only-skill",
+   "path": "tests/fixtures/sample-plugin/skills/claude-only-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "A skill restricted to Claude Code only"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "disabled-skill",
+   "path": "tests/fixtures/sample-plugin/skills/disabled-skill/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "A skill with model invocation disabled"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "skill-one",
+   "path": "tests/fixtures/sample-plugin/skills/skill-one/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Sample skill"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "release-notes",
+   "path": "tests/skill-eval-cell/fixtures/review-roster-skill-prose/skills/release-notes/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Draft release notes from merged pull requests since the last tag. Use when preparing a release."
+   }
+  },
+  {
+   "kind": "package",
+   "name": "compound-engineering",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "codex:dev": "bun run scripts/codex-dev.ts",
+     "dev": "bun run src/index.ts",
+     "convert": "bun run src/index.ts convert",
+     "cleanup": "bun run src/index.ts cleanup",
+     "list": "bun run src/index.ts list",
+     "cli:install": "bun run src/index.ts install",
+     "test": "bun run scripts/run-tests.ts",
+     "typecheck": "tsc --noEmit",
+     "test:acpx-contract": "bun scripts/test-acpx-contract.ts",
+     "acpx:bump": "bun run scripts/bump-acpx-pin.ts",
+     "test:skill-guards": "bun run scripts/run-tests.ts skill-conventions codex-skill-prompt-budget repo-local-ce-skill-work contract",
+     "test:skill-eval-cell": "bun tests/skill-eval-cell/run.ts",
+     "test:skill-eval-pack": "bun tests/skill-eval-cell/pack.ts",
+     "test:skill-eval-judge": "bun tests/skill-eval-cell/judge.ts",
+     "plugin:validate": "claude plugin validate --strict .claude-plugin/marketplace.json && claude plugin validate --strict .claude-plugin/plugin.json",
+     "release:preview": "bun run scripts/release/preview.ts",
+     "release:sync-metadata": "bun run scripts/release/sync-metadata.ts --write",
+     "release:validate": "bun run scripts/release/validate.ts",
+     "site:build": "cd site && bundle exec jekyll build --strict_front_matter",
+     "site:serve": "cd site && bundle exec jekyll serve --livereload",
+     "site:test": "cd site && bundle exec rake test",
+     "site:check": "cd site && LC_ALL=C.UTF-8 bundle exec htmlproofer _site --disable-external --allow-missing-href --no-enforce-https --swap-urls '^/compound-engineering/:/'"
+    },
+    "dependencies": {
+     "citty": "^0.1.6",
+     "js-yaml": "^4.1.0"
+    },
+    "devDependencies": {
+     "@semantic-release/changelog": "^6.0.3",
+     "@semantic-release/git": "^10.0.1",
+     "@types/js-yaml": "^4.0.9",
+     "bun-types": "^1.0.0",
+     "semantic-release": "^25.0.3",
+     "typescript": "^5.9"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "polish-host-with-riffrec",
+   "path": "tests/fixtures/ce-polish-live/project-with-riffrec/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite"
+    },
+    "dependencies": {
+     "react": "^19.0.0",
+     "react-dom": "^19.0.0",
+     "riffrec": "^0.6.0"
+    },
+    "devDependencies": {
+     "vite": "^6.0.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "polish-host-without-riffrec",
+   "path": "tests/fixtures/ce-polish-live/project-without-riffrec/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite"
+    },
+    "dependencies": {
+     "react": "^19.0.0",
+     "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+     "vite": "^6.0.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "meetbook",
+   "path": "tests/skill-eval-cell/fixtures/booking-zoom/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/*.test.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "event-registration-fixture",
+   "path": "tests/skill-eval-cell/fixtures/boundary-release-before-paid/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "review-ownership-fixture",
+   "path": "tests/skill-eval-cell/fixtures/code-review-live/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/compound-forms/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/compound-forms-lint/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test",
+     "lint": "node scripts/lint.mjs"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/compound-forms-lint-no-baseline/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test",
+     "lint": "node scripts/lint.mjs"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/compound-forms-no-standards/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "rates-service",
+   "path": "tests/skill-eval-cell/fixtures/compound-trigger-post/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "publishing-gate-fixture",
+   "path": "tests/skill-eval-cell/fixtures/cpp-project-publishing-gate/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledgerly",
+   "path": "tests/skill-eval-cell/fixtures/cpp-visual-app/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite --port 5173",
+     "build": "vite build",
+     "export": "node src/cli/export.js"
+    },
+    "dependencies": {
+     "react": "^19",
+     "react-dom": "^19"
+    },
+    "devDependencies": {
+     "vite": "^7"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledgerly",
+   "path": "tests/skill-eval-cell/fixtures/cpp-visual-app-askfirst/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite --port 5173",
+     "build": "vite build",
+     "export": "node src/cli/export.js"
+    },
+    "dependencies": {
+     "react": "^19",
+     "react-dom": "^19"
+    },
+    "devDependencies": {
+     "vite": "^7"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledgerly",
+   "path": "tests/skill-eval-cell/fixtures/cpp-visual-app-deployed/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite --port 5173",
+     "build": "vite build",
+     "export": "node src/cli/export.js"
+    },
+    "dependencies": {
+     "react": "^19",
+     "react-dom": "^19"
+    },
+    "devDependencies": {
+     "vite": "^7"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledgerly",
+   "path": "tests/skill-eval-cell/fixtures/cpp-visual-app-hostedshots/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "vite --port 5173",
+     "build": "vite build",
+     "export": "node src/cli/export.js"
+    },
+    "dependencies": {
+     "react": "^19",
+     "react-dom": "^19"
+    },
+    "devDependencies": {
+     "vite": "^7"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "seat-cap-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-caller-edits/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "order-sync-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-full-cause/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "order-sync-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-partial-cause/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "shop-admin",
+   "path": "tests/skill-eval-cell/fixtures/debug-sibling-sites/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node tests/orders.check.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "seat-cap-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-silent-fallback/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "price-cache-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-stale-price/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "price-cache-fixture",
+   "path": "tests/skill-eval-cell/fixtures/debug-stale-price-ttl/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "divergent-seat",
+   "path": "tests/skill-eval-cell/fixtures/divergent-seat/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/doc-review-caller/package.json",
+   "path": "tests/skill-eval-cell/fixtures/doc-review-caller/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jot",
+   "path": "tests/skill-eval-cell/fixtures/doc-review-depth-jot-assumptions/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": {
+     "jot": "src/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jot",
+   "path": "tests/skill-eval-cell/fixtures/doc-review-depth-jot-decisions/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": {
+     "jot": "src/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jot",
+   "path": "tests/skill-eval-cell/fixtures/doc-review-depth-jot-requirements/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": {
+     "jot": "src/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "meetbook",
+   "path": "tests/skill-eval-cell/fixtures/doc-review-depth-zoom-confirmation/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/*.test.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jot",
+   "path": "tests/skill-eval-cell/fixtures/ideate-jot/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test test/"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": {
+     "jot": "src/cli.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/implementation-ready-plan/package.json",
+   "path": "tests/skill-eval-cell/fixtures/implementation-ready-plan/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "shop",
+   "path": "tests/skill-eval-cell/fixtures/judged-shop/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "express": "^4",
+     "pg": "^8",
+     "hbs": "^4"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "acme-web",
+   "path": "tests/skill-eval-cell/fixtures/judged-webapp/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "react": "^19",
+     "react-dom": "^19"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "discounts",
+   "path": "tests/skill-eval-cell/fixtures/multi-guard-discount/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node tests/discount.check.js && node tests/percent-input.check.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "dedupe",
+   "path": "tests/skill-eval-cell/fixtures/optimize-live/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "billing",
+   "path": "tests/skill-eval-cell/fixtures/packs-money/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node tests/invoice-summary.check.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-ambiguous/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-ambiguous/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-blocked/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-blocked/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-complete/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-complete/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-explicit-superseded/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-explicit-superseded/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-partial/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-partial/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/plan-content-superseded/package.json",
+   "path": "tests/skill-eval-cell/fixtures/plan-content-superseded/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "listingwatch",
+   "path": "tests/skill-eval-cell/fixtures/plan-holdable-objective/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "weeklyreports",
+   "path": "tests/skill-eval-cell/fixtures/plan-infra-objective/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "plan-model-config",
+   "path": "tests/skill-eval-cell/fixtures/plan-model-config/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "acct-auth",
+   "path": "tests/skill-eval-cell/fixtures/pr-series-enabler/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "acct-auth",
+   "path": "tests/skill-eval-cell/fixtures/pr-series-slice/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jobs-service",
+   "path": "tests/skill-eval-cell/fixtures/refresh-forms/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "jobs-service",
+   "path": "tests/skill-eval-cell/fixtures/refresh-forms-no-standards/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "bun test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "counter-fixture",
+   "path": "tests/skill-eval-cell/fixtures/resolver-caller-publication/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tests/skill-eval-cell/fixtures/review-live/package.json",
+   "path": "tests/skill-eval-cell/fixtures/review-live/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "field-notes",
+   "path": "tests/skill-eval-cell/fixtures/review-prune-gate/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "react": "18.2.0",
+     "react-native": "0.74.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "trailhead",
+   "path": "tests/skill-eval-cell/fixtures/review-prune-routed/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {
+     "expo": "~51.0.0",
+     "expo-router": "~3.5.0",
+     "react": "18.2.0",
+     "react-native": "0.74.0"
+    },
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledger-tools",
+   "path": "tests/skill-eval-cell/fixtures/schedule-plans/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "seat-cap-fixture",
+   "path": "tests/skill-eval-cell/fixtures/seat-cap/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/setup-review-docs-codex/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/setup-review-recurrence/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/setup-review-recurrence-refresh/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "orders-service",
+   "path": "tests/skill-eval-cell/fixtures/setup-standards-bugbot/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledger-api",
+   "path": "tests/skill-eval-cell/fixtures/setup-standards-refresh/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "lint": "eslint .",
+     "test": "node --test"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tiny-auth",
+   "path": "tests/skill-eval-cell/fixtures/tiny-auth/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "tiny-lib",
+   "path": "tests/skill-eval-cell/fixtures/tiny-lib/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "ledger-tools",
+   "path": "tests/skill-eval-cell/fixtures/work-brief-limits/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "test": "node --test",
+     "docs": "node scripts/docs.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "compound-engineering-plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "compound-engineering",
+      "description": "Brainstorm, plan, debug, review, and compound learnings with AI agents",
+      "author": {
+       "name": "Kieran Klaassen and Trevin Chow"
+      },
+      "homepage": "https://github.com/EveryInc/compound-engineering-plugin",
+      "tags": [
+       "ai-powered",
+       "compound-engineering",
+       "workflow-automation",
+       "code-review",
+       "quality",
+       "knowledge-management"
+      ],
+      "source": "./"
+     }
+    ],
+    "owner": {
+     "name": "Kieran Klaassen and Trevin Chow"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 2227,
+  "bytes": 20144964,
+  "by_kind": {
+   "binary": 3,
+   "code": 6,
+   "config": 294,
+   "js": 639,
+   "markdown": 1084,
+   "other": 116,
+   "python": 52,
+   "shell": 33
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 111
+ },
+ "findings": [
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1802a62463d0506b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:de9b2ade2bb4b393",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5886507f426525d4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:99cad82a52f0879e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6baa74e36ea417b9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:620ef88a69102b5e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e6d5da0dd05da6bb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a9b61a2778bf9523",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0b28a922fd325df4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e319d1c61c9bc65d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fc167dcb2c196fd8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a7307fcae4b87269",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "DESTRUCT-GIT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a202de1aad56483f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b463d13fb347f25d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:54ef32b4282782c2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:573aac2766967d49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d38a31299f9eaa7f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0912427dfbdbd49d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4ed3dd3014a967f0",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bf0abf4fbb312b77",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:834e91c3fbbd3f12",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "TAMPER-CLAUDE-CONFIG",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6465576f46290642",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0cd17ceba4f5f749",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "EXFIL-PASTE-SITE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bc59704195f9383f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "EXFIL-PASTE-SITE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e285cfa001678e0a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b7889aeae27578d3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1324bc72ed24ceff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b3f0ecb78ecfb0ea",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ca827468122b71ef",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:43f87f59fb92de67",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5dab3019f9594a91",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:02d60a42c82819a5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:eaca2b4805bd2bff",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fd8f05860752645b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b2c92ed9e8624eac",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8a639bb450c4b199",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-036",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0e3bea5517bd84c1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-037",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:157504e9c241c175",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-038",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8d4f07f8d6f3e188",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-039",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:18575dc143d88775",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-040",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f6c08239daa0f455",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-041",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:86f2bf289f36bbf4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-042",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6fefbef7fd8ddd5b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-043",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e94962edb02b2bd3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-044",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e464d29aee7243b9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-045",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8c72df29f72f1ffd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-046",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PRIV-ESCALATE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4fc4ba83f15eb2b4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-047",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:604f1a4b5f8ce3cd",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-048",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:47ffce24b995c33d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-049",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fcd82d4ef7f294f9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-050",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:79bb1e655858103b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-051",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:71d632d3f47649b5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-052",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5e229aed1a1e06eb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-053",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7f8b9e9f1400fda7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-054",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4ce990c4c3307281",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-055",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:449f4a4f2ecbcf6d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-056",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-TOOL-POISONING",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:70d946ba2f171ed7",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-057",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-SECRET-ACCESS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cd112594277c14da",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-058",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-SECRET-ACCESS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cd63ec1c6760ca19",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-059",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c17fcedde44b5a34",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-060",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d95824846d622dea",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-061",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:21a9dc5d127fc4d8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-062",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:791b018785c41e73",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-063",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f890af1eea02a309",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-064",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a3f87afe8aab5e43",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-065",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3f9d0539e6cc6fc5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-066",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:76700666805fa65c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-067",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a1e0b7dfb9d7073c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-068",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7447717892c4cc53",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-069",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3b539572b244fa2d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-070",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-GIT-HOOKS",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9081f3f9eafa3b70",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-071",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e844c6098f2e473b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-072",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4d7ee0d9bf534bb6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-073",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7806e4147738a73e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-074",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TELEMETRY-SDK",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0ccd963e49a1ad44",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-075",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e3f0b57587eb037c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-076",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:01a61a29e0f6f456",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-077",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4d0322a9cb35d731",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-078",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6d11fd1e191ec0d1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-079",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8eb27cf948381a49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-080",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:df8a1cad9d5fd95e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-081",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b60a583032c1ad26",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-082",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3c0db6661ad99bac",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-083",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PERSIST-DETACHED",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:10f25e164eb36959",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-084",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc862cb62e4de2b5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-085",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:43e7e268254207e8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-086",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fe8a51f71f348a0a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-087",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:19918508fbabfd77",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-088",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9ca992472d93d8eb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-089",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:06a5b6fdb919aa3d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-090",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:64f0779efa27ebc1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-091",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2c730b5c281fdab8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-092",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a1a789d2c976965e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-093",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dcca0f843b51dd07",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-094",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5743d6318c11fd28",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-095",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:21fc9a992977baef",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-096",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a7062980c17c37d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-097",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5114e2150758872c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-098",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2149bd81f21a01c5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-099",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e0d45597cac848e2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-100",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "127.0.0.1": [
+    "skills/ce-brainstorm/scripts/light-webserver.js",
+    "skills/ce-prototype/scripts/light-webserver.js"
+   ],
+   "api.openai.com": [
+    "skills/ce-polish/scripts/live-endpoint.js",
+    "skills/ce-riffrec-feedback-analysis/scripts/analyze_riffrec_zip.py",
+    "skills/ce-sweep/scripts/analyze_riffrec_zip.py"
+   ],
+   "github.com": [
+    "site/_plugins/ce_sources.rb"
+   ]
+  },
+  "sensitive_paths": {
+   ".npmrc": [
+    "skills/ce-code-review/scripts/cross-model-adversarial-review.sh",
+    "skills/ce-doc-review/scripts/cross-model-doc-review.sh",
+    "skills/ce-pov/scripts/cross-model-pov.sh",
+    "skills/ce-setup/scripts/check-health",
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ]
+  },
+  "env_vars": {
+   "MANIFEST_RELATIVE_PATH": [
+    "scripts/release/validate.ts"
+   ],
+   "RESULT_PATH": [
+    "skills/ce-brainstorm/scripts/elevation-dispatch.sh",
+    "skills/ce-plan/scripts/elevation-dispatch.sh"
+   ],
+   "ANTIGRAVITY_HARNESS_PATH": [
+    "skills/ce-code-review/scripts/cross-model-adversarial-review.sh",
+    "skills/ce-doc-review/scripts/cross-model-doc-review.sh",
+    "skills/ce-pov/scripts/cross-model-pov.sh",
+    "skills/ce-setup/scripts/check-health",
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ],
+   "CROSS_MODEL_INLINE_MAX_TOKENS": [
+    "skills/ce-code-review/scripts/cross-model-adversarial-review.sh"
+   ],
+   "INLINE_MAX_TOKENS": [
+    "skills/ce-code-review/scripts/cross-model-adversarial-review.sh"
+   ],
+   "ESTIMATED_DIFF_TOKENS": [
+    "skills/ce-code-review/scripts/cross-model-adversarial-review.sh"
+   ],
+   "DOC_PATH": [
+    "skills/ce-doc-review/scripts/cross-model-doc-review.sh"
+   ],
+   "SCAN_PATHS": [
+    "skills/ce-optimize/scripts/parallel-probe.sh"
+   ],
+   "SIGNATURE_PATTERNS": [
+    "skills/ce-polish/scripts/detect-project-type.sh"
+   ],
+   "TARGET_PATH": [
+    "skills/ce-polish/scripts/detect-riffrec.sh",
+    "skills/ce-polish/scripts/resolve-package-manager.sh"
+   ],
+   "OPENAI_API_KEY": [
+    "skills/ce-polish/scripts/live-endpoint.js",
+    "skills/ce-riffrec-feedback-analysis/scripts/analyze_riffrec_zip.py",
+    "skills/ce-sweep/scripts/analyze_riffrec_zip.py"
+   ],
+   "LAUNCH_PATH": [
+    "skills/ce-polish/scripts/read-launch-json.sh"
+   ],
+   "PAYLOAD_PATH": [
+    "skills/ce-pov/scripts/cross-model-pov.sh"
+   ],
+   "CROSS_MODEL_INCLUDE_PATHS": [
+    "skills/ce-pov/scripts/cross-model-pov.sh"
+   ],
+   "CROSS_MODEL_EXCLUDE_PATHS": [
+    "skills/ce-pov/scripts/cross-model-pov.sh"
+   ],
+   "INCLUDE_PATHS": [
+    "skills/ce-pov/scripts/cross-model-pov.sh"
+   ],
+   "EXCLUDE_PATHS": [
+    "skills/ce-pov/scripts/cross-model-pov.sh"
+   ],
+   "DISPATCH_AUTHORIZATION": [
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ],
+   "OBSERVED_AUTH_DIGEST": [
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ],
+   "DISPATCH_WORKSPACE": [
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ],
+   "DISPATCH_PACKET": [
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ],
+   "DISPATCH_RESULT_DIR": [
+    "skills/ce-work/scripts/cross-model-work.sh"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 3,
+  "exfiltration": 2,
+  "network": 7,
+  "credentials": 11,
+  "secrets": 1,
+  "persistence": 16,
+  "config-tampering": 2,
+  "destructive": 1,
+  "privilege": 2,
+  "obfuscation": 3,
+  "surveillance": 0,
+  "prompt-injection": 25,
+  "permissions": 12,
+  "supply-chain": 15,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 26136,
+  "forks": 2068,
+  "open_issues": 81,
+  "contributors": "100+",
+  "created_at": "2025-10-09T19:43:46Z",
+  "pushed_at": "2026-11-17T07:12:01Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Official Compound Engineering plugin for Claude Code, Codex, Cursor, and more",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 100,
+  "counts": {
+   "critical": 0,
+   "high": 2,
+   "medium": 19,
+   "low": 49,
+   "info": 30
+  },
+  "active": 100,
+  "dismissed": 0,
+  "injection_guard": true,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-context-injection",
+  "disable-plugin",
+  "deny-secret-reads",
+  "sandbox-bash",
+  "ask-git-destructive",
+  "pin-mcp-version",
+  "pin-commit",
+  "protect-claude-config",
+  "deny-network-bash",
+  "lock-permission-mode",
+  "check-persistence",
+  "disable-hooks",
+  "deny-mcp-server",
+  "review-before-run",
+  "dependency-audit",
+  "rotate-secret"
+ ],
+ "settings_snippet": {}
+}

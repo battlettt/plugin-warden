@@ -6,14 +6,14 @@
   "url": "https://github.com/stripe/agent-toolkit",
   "ref": null,
   "subdir": null,
-  "commit": "17d0c774b7dcfcd8a55cb5a7cf9f3b809bc24a29",
+  "commit": "2f0d00c931e70c145f1033113aefde677ab15f87",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:05:03+00:00",
+ "generated_at": "2026-11-17T14:55:20+00:00",
  "plugins": [
   {
-   "name": "stripe__agent-toolkit@17d0c774b7dc",
+   "name": "stripe__agent-toolkit@2f0d00c931e7",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -23,7 +23,7 @@
    "name": "stripe",
    "path": "providers/claude/plugin",
    "source": "manifest",
-   "version": "0.12.0",
+   "version": "0.12.2",
    "description": "Stripe development plugin for Claude"
   }
  ],
@@ -39,9 +39,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "stripe__agent-toolkit@17d0c774b7dc",
+   "name": "stripe__agent-toolkit@2f0d00c931e7",
    "path": ".",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "connect-recommend",
    "path": "skills/connect-recommend/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "connect-required-verification-information",
    "path": "skills/connect-required-verification-information/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "metronome",
    "path": "skills/metronome/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stripe-apps",
    "path": "skills/stripe-apps/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "stripe-best-practices",
    "path": "skills/stripe-best-practices/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
@@ -101,18 +101,18 @@
    "kind": "skill",
    "name": "stripe-directory",
    "path": "skills/stripe-directory/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
    "kind": "skill",
    "name": "stripe-docs",
    "path": "skills/stripe-docs/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
@@ -123,7 +123,7 @@
    "kind": "skill",
    "name": "stripe-implementation-planner",
    "path": "skills/stripe-implementation-planner/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
@@ -134,7 +134,7 @@
    "kind": "skill",
    "name": "stripe-pay",
    "path": "skills/stripe-pay/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
@@ -145,18 +145,18 @@
    "kind": "skill",
    "name": "stripe-projects",
    "path": "skills/stripe-projects/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
    "kind": "skill",
    "name": "upgrade-stripe",
    "path": "skills/upgrade-stripe/SKILL.md",
-   "plugin": "stripe__agent-toolkit@17d0c774b7dc",
+   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
    "trigger": "",
    "details": {
     "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
@@ -170,7 +170,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.12.0",
+    "version": "0.12.2",
     "description": "Stripe development plugin for Claude",
     "author": {
      "name": "Stripe",
@@ -392,7 +392,7 @@
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -436,7 +436,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -507,7 +507,7 @@
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -551,7 +551,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -622,7 +622,7 @@
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -666,7 +666,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -737,7 +737,7 @@
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -781,7 +781,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -852,7 +852,7 @@
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -896,7 +896,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -1251,7 +1251,7 @@
       "name": "stripe",
       "source": "./providers/claude/plugin/",
       "description": "Stripe",
-      "version": "0.12.0",
+      "version": "0.12.2",
       "author": {
        "name": "Stripe"
       }
@@ -1266,7 +1266,7 @@
  ],
  "stats": {
   "files": 896,
-  "bytes": 23756398,
+  "bytes": 23757688,
   "by_kind": {
    "binary": 66,
    "code": 69,
@@ -1409,7 +1409,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:03bb68aaeade2688",
+   "snippet": "fp:249e69c40f5e75b3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1429,7 +1429,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:896b9a7fdfc70172",
+   "snippet": "fp:9cbc1a234e75cdd9",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1449,7 +1449,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:0ced7a0a031d3599",
+   "snippet": "fp:7d97750b26968f07",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1469,7 +1469,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:51a1b5c60b3f8f37",
+   "snippet": "fp:f14affa2fe4f5268",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1489,7 +1489,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:604cb2d5fc72c8c6",
+   "snippet": "fp:47a55d4185eb1e95",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1509,7 +1509,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:4677b334d4221352",
+   "snippet": "fp:aa6aefc3f5bfc6a3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1529,7 +1529,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:928b3d12594ce057",
+   "snippet": "fp:2814c7d62bf31af0",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1549,7 +1549,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:6df3093075b48ed0",
+   "snippet": "fp:16b27e646c7877b8",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1569,7 +1569,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:0d6d7aa4ee02f1ec",
+   "snippet": "fp:dea645a61e35020b",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1589,7 +1589,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:95c9b8a895eed9a4",
+   "snippet": "fp:60cb720d7d137b63",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1609,7 +1609,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:e8b2cba02b3faa6e",
+   "snippet": "fp:b64c90bb1b23f3fa",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1629,7 +1629,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:5254c2bb5f09e986",
+   "snippet": "fp:a0dc665302f336ac",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1883,6 +1883,106 @@
    "effective_severity": "low"
   },
   {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8e0990edc204c4f4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a5e045b47b4902ed",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3ac4c2a27f329b49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4de2b66793334c92",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RECON-NET-SCAN",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e39ce7a4c4738dec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
    "rule_id": "PRIV-SUDO",
    "title": "Withheld",
    "severity": "info",
@@ -1896,7 +1996,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-031",
+   "id": "F-036",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1916,7 +2016,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-032",
+   "id": "F-037",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1936,7 +2036,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-033",
+   "id": "F-038",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1956,7 +2056,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-034",
+   "id": "F-039",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1976,7 +2076,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-035",
+   "id": "F-040",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1996,7 +2096,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-036",
+   "id": "F-041",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2016,7 +2116,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-037",
+   "id": "F-042",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2036,7 +2136,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-038",
+   "id": "F-043",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2056,7 +2156,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-039",
+   "id": "F-044",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2165,7 +2265,7 @@
   "auto-execution": 0,
   "remote-code": 12,
   "exfiltration": 0,
-  "network": 1,
+  "network": 6,
   "credentials": 0,
   "secrets": 5,
   "persistence": 0,
@@ -2173,6 +2273,7 @@
   "destructive": 0,
   "privilege": 2,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 15,
   "permissions": 0,
   "supply-chain": 4,
@@ -2182,12 +2283,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 2063,
+  "stars": 2072,
   "forks": 385,
   "open_issues": 47,
   "contributors": "42",
   "created_at": "2024-11-11T17:13:41Z",
-  "pushed_at": "2026-11-15T00:33:34Z",
+  "pushed_at": "2026-11-17T00:30:44Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
@@ -2197,7 +2298,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "review",
   "label": "Review before installing",
@@ -2207,9 +2308,9 @@
    "high": 18,
    "medium": 7,
    "low": 5,
-   "info": 9
+   "info": 14
   },
-  "active": 39,
+  "active": 44,
   "dismissed": 0,
   "injection_guard": true,
   "reasons": []
@@ -2223,6 +2324,7 @@
   "disable-hooks",
   "deny-mcp-server",
   "dependency-audit",
+  "deny-network-bash",
   "sandbox-bash",
   "rotate-secret"
  ],

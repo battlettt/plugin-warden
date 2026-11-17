@@ -1,0 +1,206 @@
+{
+ "target": {
+  "display": "brave/brave-search-mcp-server",
+  "raw": "brave/brave-search-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/brave/brave-search-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "22c73b48ada01d0e7051573c85492db9b0404c3a",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-17T14:59:06+00:00",
+ "plugins": [
+  {
+   "name": "brave__brave-search-mcp-server@22c73b48ada0",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "brave__brave-search-mcp-server@22c73b48ada0",
+   "path": ".",
+   "plugin": "brave__brave-search-mcp-server@22c73b48ada0",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@brave/brave-search-mcp-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "shx rm -rf dist && tsc && shx chmod +x dist/*.js",
+     "prepare": "npm run format && npm run build",
+     "watch": "tsc --watch",
+     "format": "prettier --write \"src/**/*.ts\"",
+     "format:check": "prettier --check \"src/**/*.ts\"",
+     "test": "node --import tsx --test \"src/**/*.test.ts\"",
+     "test:docker": "docker build -t brave-search-mcp-server:test . && node --import tsx --test src/docker.e2e.ts",
+     "serve:http": "npm run build && node dist/index.js --transport http",
+     "inspector": "npx @modelcontextprotocol/inspector",
+     "inspector:http": "npx @modelcontextprotocol/inspector --transport http --server-url http://127.0.0.1:8080/mcp"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/sdk": "1.32.2",
+     "commander": "14.0.3",
+     "dotenv": "17.3.1",
+     "express": "5.2.1",
+     "zod": "4.6.7"
+    },
+    "devDependencies": {
+     "@types/express": "5.0.6",
+     "@types/node": "24.10.13",
+     "ajv": "8.20.0",
+     "prettier": "3.8.1",
+     "semver": "7.7.3",
+     "shx": "0.4.0",
+     "tsx": "4.22.4",
+     "typescript": "5.9.3"
+    },
+    "bin": {
+     "brave-search-mcp-server": "dist/index.js"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 77,
+  "bytes": 343688,
+  "by_kind": {
+   "config": 12,
+   "js": 56,
+   "markdown": 1,
+   "other": 8
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8ddc22c13dd357d6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.search.brave.com": [
+    "src/BraveAPI/index.ts"
+   ],
+   "bravesoftware.slack.com": [
+    "src/BraveAPI/index.ts"
+   ],
+   "docs.aws.amazon.com": [
+    "src/testUtils/agentCore.ts"
+   ],
+   "github.com": [
+    "src/BraveAPI/index.ts"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "BRAVE_API_KEY": [
+    "src/config.ts"
+   ],
+   "BRAVE_API_KEY_FILE": [
+    "src/config.ts"
+   ],
+   "API_KEY": [
+    "src/docker.e2e.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 1584,
+  "forks": 229,
+  "open_issues": 45,
+  "contributors": "21",
+  "created_at": "2025-06-12T18:09:34Z",
+  "pushed_at": "2026-11-17T11:02:37Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": null,
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 1,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 1,
+   "info": 0
+  },
+  "active": 1,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "review-before-run"
+ ],
+ "settings_snippet": {}
+}

@@ -1,0 +1,219 @@
+{
+ "target": {
+  "display": "kepano/obsidian-skills",
+  "raw": "kepano/obsidian-skills",
+  "kind": "github",
+  "url": "https://github.com/kepano/obsidian-skills",
+  "ref": null,
+  "subdir": null,
+  "commit": "caf3e98cd22d810db164f26c9a442f0a280daa43",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-17T14:52:44+00:00",
+ "plugins": [
+  {
+   "name": "obsidian",
+   "path": "plugins/obsidian",
+   "source": "manifest",
+   "version": "1.2.0",
+   "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates."
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "marketplace": 1,
+  "skill": 7
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "obsidian",
+   "path": "plugins/obsidian/.claude-plugin/plugin.json",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.2.0",
+    "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
+    "author": {
+     "name": "Obsidian",
+     "url": "https://obsidian.md/"
+    },
+    "repository": "https://github.com/obsidianmd/obsidian-skills",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "defuddle",
+   "path": "plugins/obsidian/skills/defuddle/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Extract clean Markdown from HTML pages with Defuddle CLI."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "json-canvas",
+   "path": "plugins/obsidian/skills/json-canvas/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "knap",
+   "path": "plugins/obsidian/skills/knap/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn JSON or CSV data into notes, batch-generate Markdown files, or format Defuddle "
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "obsidian-bases",
+   "path": "plugins/obsidian/skills/obsidian-bases/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, ta"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "obsidian-cli",
+   "path": "plugins/obsidian/skills/obsidian-cli/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "obsidian-headless",
+   "path": "plugins/obsidian/skills/obsidian-headless/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Sync and publish Obsidian vaults from the command line with Obsidian Headless (`ob`), without the desktop app. Use when the user wants to set up or run Obsidian Sync or Obsidian Publish on a server, i"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "obsidian-markdown",
+   "path": "plugins/obsidian/skills/obsidian-markdown/SKILL.md",
+   "plugin": "obsidian",
+   "trigger": "",
+   "details": {
+    "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wiki"
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "obsidian-skills",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "obsidian",
+      "source": "./plugins/obsidian",
+      "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
+      "version": "1.2.0"
+     }
+    ],
+    "owner": {
+     "name": "Obsidian",
+     "url": "https://obsidian.md/"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 28,
+  "bytes": 156829,
+  "by_kind": {
+   "binary": 1,
+   "config": 8,
+   "markdown": 14,
+   "other": 3,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 9
+ },
+ "findings": [],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 0,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 53030,
+  "forks": 3777,
+  "open_issues": 2,
+  "contributors": "25",
+  "created_at": "2026-01-02T21:45:11Z",
+  "pushed_at": "2026-11-16T20:55:45Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 0,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 0,
+   "info": 0
+  },
+  "active": 0,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [],
+ "settings_snippet": {}
+}

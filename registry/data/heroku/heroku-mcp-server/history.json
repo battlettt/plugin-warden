@@ -11,6 +11,16 @@
    "auto_runs": 0,
    "files": 88,
    "tool_version": "0.2.0"
+  },
+  {
+   "commit": "57c094c2a2e1b7b01f9ae8998bea3edc9fc214da",
+   "scanned_at": "2026-11-17T14:58:31+00:00",
+   "level": "low",
+   "score": 3,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 88,
+   "tool_version": "0.3.0"
   }
  ]
 }

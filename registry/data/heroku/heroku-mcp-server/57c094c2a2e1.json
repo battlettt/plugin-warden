@@ -1,0 +1,342 @@
+{
+ "target": {
+  "display": "heroku/heroku-mcp-server",
+  "raw": "heroku/heroku-mcp-server",
+  "kind": "github",
+  "url": "https://github.com/heroku/heroku-mcp-server",
+  "ref": null,
+  "subdir": null,
+  "commit": "57c094c2a2e1b7b01f9ae8998bea3edc9fc214da",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-17T14:58:31+00:00",
+ "plugins": [
+  {
+   "name": "heroku__heroku-mcp-server@57c094c2a2e1",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "bin": 1,
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "heroku__heroku-mcp-server@57c094c2a2e1",
+   "path": ".",
+   "plugin": "heroku__heroku-mcp-server@57c094c2a2e1",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "bin",
+   "name": "heroku-mcp-server.mjs",
+   "path": "bin/heroku-mcp-server.mjs",
+   "plugin": "heroku__heroku-mcp-server@57c094c2a2e1",
+   "trigger": "",
+   "details": {
+    "executable": true,
+    "kind": "js"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@heroku/mcp-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "rm -rf dist && tsc -p tsconfig.json && npm run exec-perms",
+     "build:dev": "rm -rf dist && tsc --sourceMap -p tsconfig.json && npm run exec-perms",
+     "build:watch": "tsc --sourceMap -p tsconfig.json -w",
+     "build:mcpb": "mcpb pack",
+     "start": "node bin/heroku-mcp-server.mjs",
+     "format": "prettier . --write --config ./.prettier.mjs",
+     "lint": "cd src && eslint ./",
+     "prepare": "husky",
+     "pretest": "npm run build",
+     "type-check": "tsc --noEmit",
+     "test": "nyc mocha --forbid-only",
+     "exec-perms": "shx chmod +x dist/*.js",
+     "test:watch": "nyc mocha --watch --forbid-only",
+     "prepublishOnly": "npm run build && npm run build:mcpb"
+    },
+    "dependencies": {
+     "@heroku-cli/schema": "^2.0.1",
+     "@modelcontextprotocol/sdk": "^1.26.0",
+     "cheerio": "^1.2.0",
+     "jsonschema": "^1.5.0",
+     "node-fetch": "^3.3.2",
+     "tar-stream": "^3.1.7",
+     "zod": "^4.6.7",
+     "zod-to-json-schema": "^3.25.1"
+    },
+    "devDependencies": {
+     "@anthropic-ai/mcpb": "^2.1.2",
+     "@eslint/eslintrc": "^3.3.3",
+     "@eslint/js": "^9.39.2",
+     "@types/chai": "^5.2.1",
+     "@types/mocha": "^10.0.10",
+     "@types/node": "^26.x",
+     "@types/shell-quote": "^1.7.5",
+     "@types/sinon": "^22.0.0",
+     "chai": "^6.2.2",
+     "eslint": "^9",
+     "eslint-config-oclif": "^6.0.144",
+     "eslint-plugin-mocha": "^11.2.0",
+     "husky": "^9.1.7",
+     "mocha": "^12.0.2",
+     "nyc": "^18.0.0",
+     "prettier": "^3.8.1",
+     "shell-quote": "^1.10.0",
+     "shx": "^0.4.0",
+     "sinon": "^22.1.0",
+     "tsx": "^4.21.0",
+     "typescript": "^5.9.3"
+    },
+    "bin": {
+     "heroku-mcp-server": "bin/heroku-mcp-server.mjs"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 88,
+  "bytes": 810372,
+  "by_kind": {
+   "binary": 1,
+   "config": 22,
+   "js": 51,
+   "markdown": 6,
+   "other": 8
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "EXFIL-CORRELATED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0dc01a937f615299",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:830b84bcef89fc98",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7825a36e0b4f0208",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "BIN-EXECUTABLE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cd303708d647ebd4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bc1f26406fa1c06e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8093b14187da96d6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {
+   "api.heroku.com": [
+    "src/tools/deploy-to-heroku.ts"
+   ],
+   "devcenter.heroku.com": [
+    "src/resources/dev-center-resource.ts",
+    "src/services/app-service.ts",
+    "src/services/app-setup-service.ts",
+    "src/services/build-service.ts",
+    "src/services/dyno-service.ts",
+    "src/services/source-service.ts"
+   ],
+   "github.com": [
+    "src/services/build-service.ts"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "HEROKU_API_KEY": [
+    "src/utils/generate-request-init.ts"
+   ]
+  },
+  "path_executables": [
+   "bin/heroku-mcp-server.mjs"
+  ],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 1,
+  "remote-code": 0,
+  "exfiltration": 1,
+  "network": 0,
+  "credentials": 1,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 3,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 82,
+  "forks": 30,
+  "open_issues": 12,
+  "contributors": "16",
+  "created_at": "2025-03-26T14:15:28Z",
+  "pushed_at": "2026-11-16T22:50:59Z",
+  "license": "Apache-2.0",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Heroku Platform MCP Server using the Heroku CLI",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "low",
+  "label": "Low risk",
+  "score": 3,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 0,
+   "low": 3,
+   "info": 3
+  },
+  "active": 6,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "deny-secret-reads",
+  "review-before-run",
+  "pin-mcp-version",
+  "pin-commit",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}
