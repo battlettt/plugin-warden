@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-code",
   "ref": null,
   "subdir": null,
-  "commit": "eba1240d09fd468b984a2a317c77cb48e1e51d2f",
+  "commit": "52dd3a11c3a87f79b06d353cdf8eea1bc52854dc",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-16T13:50:13+00:00",
+ "generated_at": "2026-11-18T14:20:58+00:00",
  "plugins": [
   {
    "name": "agents-md",
@@ -25,6 +25,13 @@
    "source": "manifest",
    "version": "0.1.0",
    "description": "The diff pane as a plugin: /diff opens the session's uncommitted changes beside the transcript, file by file with their hunks, refreshed as Claude edits and runs commands; the first edit opens it where the terminal is wide enough, and a file's ask button rides its hunks on the next prompt."
+  },
+  {
+   "name": "hipaa-default",
+   "path": "mods/hipaa-default",
+   "source": "manifest",
+   "version": "0.1.0",
+   "description": "For organizations under HIPAA: refuses a plugin's or a settings hook's own call to an MCP or connector tool that an administrator blocked, or to any tool, file or process where a managed deny rule covers the call, unless it is the organization's."
   },
   {
    "name": "privacy",
@@ -49,7 +56,7 @@
   }
  ],
  "component_counts": {
-  "manifest": 5,
+  "manifest": 6,
   "marketplace": 1
  },
  "components": [
@@ -93,6 +100,21 @@
     "source": "manifest",
     "version": "0.1.0",
     "description": "The diff pane as a plugin: /diff opens the session's uncommitted changes beside the transcript, file by file with their hunks, refreshed as Claude edits and runs commands; the first edit opens it where the terminal is wide enough, and a file's ask button rides its hunks on the next prompt.",
+    "author": {
+     "name": "Anthropic"
+    }
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "hipaa-default",
+   "path": "mods/hipaa-default/.claude-plugin/plugin.json",
+   "plugin": "hipaa-default",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "0.1.0",
+    "description": "For organizations under HIPAA: refuses a plugin's or a settings hook's own call to an MCP or connector tool that an administrator blocked, or to any tool, file or process where a managed deny rule covers the call, unless it is the organization's.",
     "author": {
      "name": "Anthropic"
     }
@@ -336,20 +358,20 @@
   }
  ],
  "stats": {
-  "files": 1556,
-  "bytes": 14857151,
+  "files": 1564,
+  "bytes": 15060962,
   "by_kind": {
    "binary": 1,
-   "config": 41,
-   "js": 1454,
-   "markdown": 22,
+   "config": 43,
+   "js": 1459,
+   "markdown": 23,
    "other": 28,
    "python": 2,
    "shell": 8
   },
   "vendored_files": 0,
-  "plugins": 5,
-  "components": 6
+  "plugins": 6,
+  "components": 7
  },
  "findings": [
   {
@@ -493,13 +515,13 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "rule_id": "TAMPER-SANDBOX-OFF",
    "title": "Withheld",
    "severity": "low",
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:442f94e9578d6d09",
+   "snippet": "fp:4e463eb7ce9e83bf",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -519,7 +541,7 @@
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:f753c744038022ae",
+   "snippet": "fp:442f94e9578d6d09",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -527,6 +549,26 @@
    "source": "static",
    "confidence": "high",
    "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f753c744038022ae",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -546,7 +588,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-010",
+   "id": "F-011",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -566,7 +608,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-011",
+   "id": "F-012",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -586,7 +628,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-012",
+   "id": "F-013",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -606,7 +648,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-013",
+   "id": "F-014",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -626,7 +668,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-014",
+   "id": "F-015",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -646,7 +688,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-015",
+   "id": "F-016",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -666,7 +708,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-016",
+   "id": "F-017",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -686,7 +728,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-017",
+   "id": "F-018",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -706,7 +748,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-018",
+   "id": "F-019",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -726,7 +768,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-019",
+   "id": "F-020",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -746,7 +788,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-020",
+   "id": "F-021",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -766,7 +808,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-021",
+   "id": "F-022",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -786,7 +828,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-022",
+   "id": "F-023",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -806,7 +848,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-023",
+   "id": "F-024",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -826,7 +868,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-024",
+   "id": "F-025",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -898,7 +940,7 @@
   "obfuscation": 1,
   "surveillance": 0,
   "prompt-injection": 3,
-  "permissions": 5,
+  "permissions": 6,
   "supply-chain": 1,
   "integrity": 0,
   "impersonation": 1,
@@ -908,12 +950,12 @@
   "12 marketplace plugin(s) live in other repositories and were not scanned here: agent-sdk-dev (https://github.com/anthropics/claude-plugins-official.git); code-review (https://github.com/anthropics/claude-plugins-official.git); commit-commands (https://github.com/anthropics/claude-plugins-official.git); explanatory-output-style (https://github.com/anthropics/claude-plugins-official.git); feature-dev (https://github.com/anthropics/claude-plugins-official.git); frontend-design (https://github.com/anthropics/claude-plugins-official.git); hookify (https://github.com/anthropics/claude-plugins-official.git); learning-output-style (https://github.com/anthropics/claude-plugins-official.git); plugin-dev (https://github.com/anthropics/claude-plugins-official.git); pr-review-toolkit (https://github.com/anthropics/claude-plugins-official.git); ralph-loop (https://github.com/anthropics/claude-plugins-official.git); security-guidance (https://github.com/anthropics/claude-plugins-official.git)"
  ],
  "metadata": {
-  "stars": 155865,
-  "forks": 25018,
-  "open_issues": 16954,
+  "stars": 156126,
+  "forks": 25029,
+  "open_issues": 17108,
   "contributors": "56",
   "created_at": "2025-02-22T17:41:21Z",
-  "pushed_at": "2026-11-15T23:10:55Z",
+  "pushed_at": "2026-11-18T11:10:30Z",
   "license": null,
   "archived": false,
   "owner_type": "Organization",
@@ -934,10 +976,10 @@
    "critical": 0,
    "high": 0,
    "medium": 4,
-   "low": 15,
+   "low": 16,
    "info": 5
   },
-  "active": 24,
+  "active": 25,
   "dismissed": 0,
   "injection_guard": false,
   "reasons": []
@@ -949,6 +991,7 @@
   "disable-plugin",
   "deny-secret-reads",
   "review-context-injection",
+  "protect-claude-config",
   "review-before-run",
   "pin-commit",
   "sandbox-bash"

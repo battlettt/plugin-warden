@@ -6,11 +6,11 @@
   "url": "https://github.com/wshobson/agents",
   "ref": null,
   "subdir": null,
-  "commit": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+  "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-07T21:39:29+00:00",
+ "generated_at": "2026-11-18T14:21:10+00:00",
  "plugins": [
   {
    "name": "accessibility-compliance",
@@ -440,13 +440,6 @@
    "description": "ML model training pipelines, hyperparameter tuning, model deployment automation, experiment tracking, and MLOps workflows"
   },
   {
-   "name": "meigen-ai-design",
-   "path": "plugins/meigen-ai-design",
-   "source": "manifest",
-   "version": "1.0.10",
-   "description": "AI image generation with creative workflow orchestration, parallel multi-direction output, prompt engineering, and a 1,300+ curated inspiration library. Requires MeiGen MCP server (supports MeiGen Cloud, local ComfyUI, and OpenAI-compatible APIs)."
-  },
-  {
    "name": "multi-platform-apps",
    "path": "plugins/multi-platform-apps",
    "source": "manifest",
@@ -471,7 +464,7 @@
    "name": "payment-processing",
    "path": "plugins/payment-processing",
    "source": "manifest",
-   "version": "1.2.3",
+   "version": "1.2.4",
    "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance"
   },
   {
@@ -485,7 +478,7 @@
    "name": "plugin-eval",
    "path": "plugins/plugin-eval",
    "source": "manifest",
-   "version": "0.1.4",
+   "version": "0.1.5",
    "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills"
   },
   {
@@ -499,7 +492,7 @@
    "name": "protect-mcp",
    "path": "plugins/protect-mcp",
    "source": "manifest",
-   "version": "0.1.6",
+   "version": "0.2.0",
    "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 receipts independently verifiable offline."
   },
   {
@@ -527,7 +520,7 @@
    "name": "review-agent-governance",
    "path": "plugins/review-agent-governance",
    "source": "manifest",
-   "version": "0.1.6",
+   "version": "0.2.0",
    "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI config. Cedar-gated, receipt-signed, designed for the Hermes-style failure mode where a review bot posts without oversight."
   },
   {
@@ -569,7 +562,7 @@
    "name": "shell-scripting",
    "path": "plugins/shell-scripting",
    "source": "manifest",
-   "version": "1.2.4",
+   "version": "1.2.5",
    "description": "Production-grade Bash scripting with defensive programming, POSIX compliance, and comprehensive testing"
   },
   {
@@ -583,7 +576,7 @@
    "name": "signed-audit-trails",
    "path": "plugins/signed-audit-trails",
    "source": "manifest",
-   "version": "0.1.5",
+   "version": "0.2.0",
    "description": "Teaching skill: signed audit trails for Claude Code tool calls. Cookbook-style walkthrough of Cedar-gated tool calls with Ed25519 receipts, offline verification, and CI/CD integration. Pairs with the protect-mcp plugin."
   },
   {
@@ -658,10 +651,10 @@
   }
  ],
  "component_counts": {
-  "agent": 202,
-  "command": 105,
+  "agent": 199,
+  "command": 103,
   "hook": 4,
-  "manifest": 92,
+  "manifest": 91,
   "marketplace": 1,
   "package": 3,
   "skill": 185
@@ -4984,78 +4977,6 @@
   },
   {
    "kind": "manifest",
-   "name": "meigen-ai-design",
-   "path": "plugins/meigen-ai-design/.claude-plugin/plugin.json",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "source": "manifest",
-    "version": "1.0.10",
-    "description": "AI image generation with creative workflow orchestration, parallel multi-direction output, prompt engineering, and a 1,300+ curated inspiration library. Requires MeiGen MCP server (supports MeiGen Cloud, local ComfyUI, and OpenAI-compatible APIs).",
-    "author": {
-     "name": "MeiGen",
-     "url": "https://www.meigen.ai"
-    },
-    "license": "MIT"
-   }
-  },
-  {
-   "kind": "command",
-   "name": "find",
-   "path": "plugins/meigen-ai-design/commands/find.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Quick gallery search. Use when user runs /meigen-ai-design:find with keywords to browse inspiration."
-   }
-  },
-  {
-   "kind": "command",
-   "name": "gen",
-   "path": "plugins/meigen-ai-design/commands/gen.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Quick image generation. Use when user runs /meigen-ai-design:gen with a prompt. Skips intent assessment, generates directly."
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "gallery-researcher",
-   "path": "plugins/meigen-ai-design/agents/gallery-researcher.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Gallery search and inspiration agent. Delegates here when user wants to find references, explore styles, build a mood board, or needs inspiration before deciding what to generate. Searches the MeiG",
-    "model": "haiku",
-    "tools": "mcp__meigen__search_gallery, mcp__meigen__get_inspiration"
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "image-generator",
-   "path": "plugins/meigen-ai-design/agents/image-generator.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Image generation executor agent. Delegates here for ALL generate_image calls to keep the main conversation context clean. Spawn one per image; for parallel generation, spawn multiple in a single re",
-    "model": "inherit",
-    "tools": "mcp__meigen__generate_image"
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "prompt-crafter",
-   "path": "plugins/meigen-ai-design/agents/prompt-crafter.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Batch prompt writing agent. Delegates here when you need to write multiple distinct prompts at once \u2014 for parallel image generation (e.g., \"5 logo concepts\"), serial-to-parallel workflows (e.g., ge",
-    "model": "haiku"
-   }
-  },
-  {
-   "kind": "manifest",
    "name": "multi-platform-apps",
    "path": "plugins/multi-platform-apps/.claude-plugin/plugin.json",
    "plugin": "multi-platform-apps",
@@ -5353,7 +5274,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
     "author": {
      "name": "Seth Hobson",
@@ -5480,7 +5401,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills"
    }
   },
@@ -5633,7 +5554,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 receipts independently verifiable offline.",
     "author": {
      "name": "Tom Farley",
@@ -6095,7 +6016,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI config. Cedar-gated, receipt-signed, designed for the Hermes-style failure mode where a review bot posts without oversight.",
     "author": {
      "name": "Tom Farley",
@@ -6145,7 +6066,7 @@
    "plugin": "review-agent-governance",
    "trigger": "",
    "details": {
-    "description": "\"List the review actions that the review-governance policy blocked in this session. protect-mcp 0.7.4 writes no receipt for a denied call, so the list comes from the session, not from ./review-receipt"
+    "description": "\"List the review actions that the review-governance policy blocked in this session. protect-mcp 0.32.4 writes no receipt for a denied call, so the list comes from the session, not from ./review-receip"
    }
   },
   {
@@ -6495,7 +6416,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "Production-grade Bash scripting with defensive programming, POSIX compliance, and comprehensive testing",
     "author": {
      "name": "Ryan Snodgrass",
@@ -6678,7 +6599,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.5",
+    "version": "0.2.0",
     "description": "Teaching skill: signed audit trails for Claude Code tool calls. Cookbook-style walkthrough of Cedar-gated tool calls with Ed25519 receipts, offline verification, and CI/CD integration. Pairs with the protect-mcp plugin.",
     "author": {
      "name": "Tom Farley",
@@ -8252,7 +8173,7 @@
       "name": "payment-processing",
       "source": "./plugins/payment-processing",
       "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "author": {
        "name": "Seth Hobson",
        "email": "seth@major7apps.com"
@@ -8395,7 +8316,7 @@
       "name": "shell-scripting",
       "source": "./plugins/shell-scripting",
       "description": "Production-grade Bash scripting with defensive programming, POSIX compliance, and comprehensive testing",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "author": {
        "name": "Ryan Snodgrass",
        "url": "https://github.com/rsnodgrass"
@@ -8509,19 +8430,6 @@
       "category": "languages"
      },
      {
-      "name": "meigen-ai-design",
-      "source": "./plugins/meigen-ai-design",
-      "description": "AI image generation with creative workflow orchestration, prompt engineering, and curated inspiration library via MCP server",
-      "version": "1.0.10",
-      "author": {
-       "name": "MeiGen",
-       "url": "https://github.com/jau123"
-      },
-      "homepage": "https://github.com/jau123/MeiGen-AI-Design-MCP",
-      "license": "MIT",
-      "category": "creative"
-     },
-     {
       "name": "brand-landingpage",
       "source": "./plugins/brand-landingpage",
       "description": "Guides developers from brand discovery through iterative design to deployment-ready HTML via Stitch.",
@@ -8537,7 +8445,7 @@
       "name": "plugin-eval",
       "source": "./plugins/plugin-eval",
       "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "author": {
        "name": "Seth Hobson"
       },
@@ -8604,7 +8512,7 @@
       "name": "protect-mcp",
       "source": "./plugins/protect-mcp",
       "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 decisions are policy-gated before they run and every decision produces a tamper-evident receipt verifiable offline.",
-      "version": "0.1.6",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8627,7 +8535,7 @@
       "name": "signed-audit-trails",
       "source": "./plugins/signed-audit-trails",
       "description": "Teaching skill: cookbook-style walkthrough for signed audit trails on every Claude Code tool call. Cedar policy, Ed25519 receipts, offline verification, CI/CD integration, SLSA composition. Pairs with the protect-mcp runtime plugin.",
-      "version": "0.1.5",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8651,7 +8559,7 @@
       "name": "review-agent-governance",
       "source": "./plugins/review-agent-governance",
       "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI configuration. Joins protect-mcp and signed-audit-trails in the governance category; composes with protect-mcp for runtime enforcement.",
-      "version": "0.1.6",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8750,1011 +8658,741 @@
   }
  ],
  "stats": {
-  "files": 1172,
-  "bytes": 8249308,
+  "files": 1166,
+  "bytes": 8276061,
   "by_kind": {
    "code": 2,
-   "config": 273,
-   "markdown": 794,
+   "config": 271,
+   "js": 2,
+   "markdown": 788,
    "other": 21,
    "python": 72,
    "shell": 10
   },
   "vendored_files": 0,
-  "plugins": 92,
-  "components": 592
+  "plugins": 91,
+  "components": 586
  },
  "findings": [
   {
-   "rule_id": "GITLEAKS-curl-auth-header",
-   "title": "Gitleaks: Discovered a potential authorization token provided in a curl command header, which could compromise the curl accessed resource.",
-   "severity": "high",
-   "category": "secrets",
-   "path": "plugins/code-documentation/commands/doc-generate.md",
-   "line": 563,
-   "snippet": "fp:d4e1f5ff084db962",
-   "message": "Gitleaks matched a credential pattern. Secrets in public repositories should be treated as leaked.",
-   "fix": "Remove the secret from the code and history, then rotate it.",
-   "precautions": [
-    "rotate-secret"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "gitleaks",
-   "confidence": "medium",
-   "id": "F-001",
-   "verdict": "false_positive",
-   "agent_severity": null,
-   "rationale": "plugins/code-documentation/commands/doc-generate.md:563-565 is a doc template that emits a curl example with the literal placeholder 'Bearer YOUR_API_KEY'; no real token.",
-   "effective_severity": "high"
-  },
-  {
-   "rule_id": "GITLEAKS-curl-auth-header",
-   "title": "Gitleaks: Discovered a potential authorization token provided in a curl command header, which could compromise the curl accessed resource.",
-   "severity": "high",
-   "category": "secrets",
-   "path": "plugins/documentation-generation/commands/doc-generate.md",
-   "line": 563,
-   "snippet": "fp:54308d698397f6e4",
-   "message": "Gitleaks matched a credential pattern. Secrets in public repositories should be treated as leaked.",
-   "fix": "Remove the secret from the code and history, then rotate it.",
-   "precautions": [
-    "rotate-secret"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "gitleaks",
-   "confidence": "medium",
-   "id": "F-002",
-   "verdict": "false_positive",
-   "agent_severity": null,
-   "rationale": "Duplicate of the same doc-generate.md template in plugins/documentation-generation (line 563-565); header value is the placeholder 'YOUR_API_KEY'.",
-   "effective_severity": "high"
-  },
-  {
    "rule_id": "DESTRUCT-RM-HOME",
-   "title": "Recursive delete of the home or root folder",
+   "title": "Withheld",
    "severity": "medium",
    "category": "destructive",
-   "path": "plugins/protect-mcp/test/run-tests.sh",
-   "line": 85,
+   "path": "",
+   "line": null,
    "snippet": "fp:0722e2b9f09cb995",
-   "message": "One run deletes every file you own.",
-   "fix": "Remove it.",
-   "precautions": [
-    "disable-plugin"
-   ],
-   "context": [
-    "test, example, docs or CI file"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-003",
-   "verdict": "false_positive",
+   "id": "F-001",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "plugins/protect-mcp/test/run-tests.sh:78-85 feeds a fixture containing 'rm -rf /' to the policy evaluator and asserts it is denied with exit 2; nothing is deleted. Test file, not run by any hook.",
+   "rationale": "",
    "effective_severity": "medium"
   },
   {
    "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent team-debugger may run any shell command without asking",
+   "title": "Withheld",
    "severity": "medium",
    "category": "permissions",
-   "path": "plugins/agent-teams/agents/team-debugger.md",
-   "line": 4,
+   "path": "",
+   "line": null,
    "snippet": "fp:427f904824c194ae",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-004",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/agent-teams/agents/team-debugger.md:4 'tools:' frontmatter only restricts which tools the subagent may use; Bash calls still go through the user's normal permission prompts.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent team-implementer may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/agent-teams/agents/team-implementer.md",
-   "line": 4,
-   "snippet": "fp:70a7b25d5ddc0f49",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-005",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/agent-teams/agents/team-implementer.md:4 agent tools list is an allowlist, not a pre-approval; Bash remains subject to permission settings.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent team-lead may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/agent-teams/agents/team-lead.md",
-   "line": 4,
-   "snippet": "fp:1a953495d876d903",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-006",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/agent-teams/agents/team-lead.md:4 agent tools list restricts tools; does not bypass permission prompts.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent team-reviewer may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/agent-teams/agents/team-reviewer.md",
-   "line": 4,
-   "snippet": "fp:15db41f1ef27992b",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-007",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/agent-teams/agents/team-reviewer.md:4 agent tools allowlist; Bash still prompts per user settings.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent conductor-validator may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/conductor/agents/conductor-validator.md",
-   "line": 4,
-   "snippet": "fp:e181bb72a19fdc23",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-008",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/conductor/agents/conductor-validator.md:4 agent tools allowlist (Read, Glob, Grep, Bash); not a permission grant.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent code-review-preshipment may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/operating-kit/agents/code-review-preshipment.md",
-   "line": 5,
-   "snippet": "fp:d592f1100248c24f",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-009",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/operating-kit/agents/code-review-preshipment.md:5 agent tools allowlist; Bash still subject to permission prompts.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent deploy-with-verification may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/operating-kit/agents/deploy-with-verification.md",
-   "line": 5,
-   "snippet": "fp:f3473d7b550e5bd8",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-010",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/operating-kit/agents/deploy-with-verification.md:5 agent tools allowlist. Agent runs user-filled {{DEPLOY_COMMAND}} placeholders (lines 25-43); Bash still goes through permissions. Worth noting it deploys to production when invoked.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent prod-logs-health-check may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/operating-kit/agents/prod-logs-health-check.md",
-   "line": 5,
-   "snippet": "fp:3ad465eb55db5d87",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-011",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/operating-kit/agents/prod-logs-health-check.md:5 agent tools allowlist; not a pre-approval.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent session-end may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/operating-kit/agents/session-end.md",
-   "line": 5,
-   "snippet": "fp:2a99858ddcf368a2",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-012",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/operating-kit/agents/session-end.md:5 agent tools allowlist; not a pre-approval.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent session-start may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/operating-kit/agents/session-start.md",
-   "line": 5,
-   "snippet": "fp:7c903532ab34b171",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-013",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/operating-kit/agents/session-start.md:5 agent tools allowlist; not a pre-approval.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Agent social-publishing-publisher may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/social-publishing/agents/social-publishing-publisher.md",
-   "line": 10,
-   "snippet": "fp:232e1994958fce0d",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-014",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/social-publishing/agents/social-publishing-publisher.md:10 tools allowlist; agent instructs confirming schedule with the user before submitting (line 47). Requires user-provided SOCIALCLAW_API_KEY; posts to third-party API only when invoked.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Command business-case may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/startup-business-analyst/commands/business-case.md",
-   "line": 4,
-   "snippet": "fp:aca378c00a296554",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-015",
-   "verdict": "confirmed",
-   "agent_severity": "low",
-   "rationale": "plugins/startup-business-analyst/commands/business-case.md:3-4 allowed-tools includes unscoped \"Bash\" plus WebFetch, which pre-approves any shell command while the user-invoked command runs. A business-doc generator does not need arbitrary Bash. Only active on explicit invocation.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Command financial-projections may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/startup-business-analyst/commands/financial-projections.md",
-   "line": 4,
-   "snippet": "fp:4ac96a62dc208354",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-016",
-   "verdict": "confirmed",
-   "agent_severity": "low",
-   "rationale": "plugins/startup-business-analyst/commands/financial-projections.md:3-4 same unscoped Bash in allowed-tools; pre-approves shell during user-invoked command.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "BROAD-TOOL-GRANT",
-   "title": "Command market-opportunity may run any shell command without asking",
-   "severity": "medium",
-   "category": "permissions",
-   "path": "plugins/startup-business-analyst/commands/market-opportunity.md",
-   "line": 4,
-   "snippet": "fp:1b769a7650073ea4",
-   "message": "An unscoped Bash grant pre-approves every shell command while this component runs.",
-   "fix": "Scope it, for example Bash(git status:*).",
-   "precautions": [
-    "sandbox-bash"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-017",
-   "verdict": "confirmed",
-   "agent_severity": "low",
-   "rationale": "plugins/startup-business-analyst/commands/market-opportunity.md:3-4 same unscoped Bash in allowed-tools; pre-approves shell during user-invoked command.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "HOOK-ALL-TOOLS",
-   "title": "PreToolUse hook sees every tool call",
-   "severity": "low",
-   "category": "auto-execution",
-   "path": "plugins/protect-mcp/hooks/hooks.json",
-   "line": null,
-   "snippet": "fp:b348065cc7e1e70a",
-   "message": "With no matcher, the hook receives the input of every tool call, including file contents and shell commands.",
-   "fix": "Narrow the matcher to the tools the hook needs.",
-   "precautions": [
-    "disable-hooks"
-   ],
-   "context": [
-    "hook PreToolUse",
-    "runs automatically"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-018",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "plugins/protect-mcp/hooks/hooks.json:5 matcher '.*' runs evaluate.sh before every tool call; evaluate.sh:16-33 passes the full tool_input to `npx protect-mcp@0.32.4` when a ./protect.cedar exists. Intended design for a policy gate, but it is a third-party npm package seeing every tool input.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "HOOK-ALL-TOOLS",
-   "title": "PostToolUse hook sees every tool call",
-   "severity": "low",
-   "category": "auto-execution",
-   "path": "plugins/protect-mcp/hooks/hooks.json",
-   "line": null,
-   "snippet": "fp:e9cf1b3d41f02e69",
-   "message": "With no matcher, the hook receives the input of every tool call, including file contents and shell commands.",
-   "fix": "Narrow the matcher to the tools the hook needs.",
-   "precautions": [
-    "disable-hooks"
-   ],
-   "context": [
-    "hook PostToolUse",
-    "runs automatically"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-019",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "plugins/protect-mcp/hooks/hooks.json:16 matcher '.*' runs sign.sh after every tool call; sign.sh:18-20 always executes `npx protect-mcp@0.7.4 sign` (no policy check), passing only the tool name and writing receipts to ./receipts/ in the project with key ./protect-mcp.key.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "HOOK-ALL-TOOLS",
-   "title": "PreToolUse hook sees every tool call",
-   "severity": "low",
-   "category": "auto-execution",
-   "path": "plugins/review-agent-governance/hooks/hooks.json",
-   "line": null,
-   "snippet": "fp:23a85d6b0fb36c7b",
-   "message": "With no matcher, the hook receives the input of every tool call, including file contents and shell commands.",
-   "fix": "Narrow the matcher to the tools the hook needs.",
-   "precautions": [
-    "disable-hooks"
-   ],
-   "context": [
-    "hook PreToolUse",
-    "runs automatically"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-020",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "plugins/review-agent-governance/hooks/hooks.json:5 matcher '.*'; evaluate.sh:38 sends every tool name+input to npx protect-mcp@0.32.4 when a policy file exists. Intended gate behaviour.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "HOOK-ALL-TOOLS",
-   "title": "PostToolUse hook sees every tool call",
-   "severity": "low",
-   "category": "auto-execution",
-   "path": "plugins/review-agent-governance/hooks/hooks.json",
-   "line": null,
-   "snippet": "fp:4e54c59a061ecd9b",
-   "message": "With no matcher, the hook receives the input of every tool call, including file contents and shell commands.",
-   "fix": "Narrow the matcher to the tools the hook needs.",
-   "precautions": [
-    "disable-hooks"
-   ],
-   "context": [
-    "hook PostToolUse",
-    "runs automatically"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-021",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "plugins/review-agent-governance/hooks/hooks.json:16 matcher '.*'; sign.sh:18-20 runs npx protect-mcp@0.7.4 sign on every tool call unconditionally, writing ./review-receipts/.",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "ENV-DUMP",
-   "title": "Collects the whole environment",
-   "severity": "low",
-   "category": "credentials",
-   "path": "tools/install_antigravity.py",
-   "line": 30,
-   "snippet": "fp:4249ebf9fade6139",
-   "message": "Environment variables usually hold API keys and tokens. Bundling all of them is how credential stealers work.",
-   "fix": "Read only the specific variables the plugin needs.",
-   "precautions": [
-    "deny-secret-reads",
-    "sandbox-bash"
-   ],
-   "context": [
-    "not run by any hook, server, command or skill found in the plugin"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-022",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "tools/install_antigravity.py:30-33 copies os.environ only to look up ANTIGRAVITY_CONFIG_DIR for the install path; nothing is sent anywhere. Repo-level installer, not loaded by any plugin.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "ENV-DUMP",
-   "title": "Collects the whole environment",
-   "severity": "low",
-   "category": "credentials",
-   "path": "tools/install_copilot.py",
-   "line": 34,
-   "snippet": "fp:c7a394bbdd0728fa",
-   "message": "Environment variables usually hold API keys and tokens. Bundling all of them is how credential stealers work.",
-   "fix": "Read only the specific variables the plugin needs.",
-   "precautions": [
-    "deny-secret-reads",
-    "sandbox-bash"
-   ],
-   "context": [
-    "not run by any hook, server, command or skill found in the plugin"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-023",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "tools/install_copilot.py:34-37 reads COPILOT_CONFIG_DIR / XDG_CONFIG_HOME from env to pick a config dir; no transmission.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "ENV-DUMP",
-   "title": "Collects the whole environment",
-   "severity": "low",
-   "category": "credentials",
-   "path": "tools/install_pi.py",
-   "line": 37,
-   "snippet": "fp:269fcfc9374b7417",
-   "message": "Environment variables usually hold API keys and tokens. Bundling all of them is how credential stealers work.",
-   "fix": "Read only the specific variables the plugin needs.",
-   "precautions": [
-    "deny-secret-reads",
-    "sandbox-bash"
-   ],
-   "context": [
-    "not run by any hook, server, command or skill found in the plugin"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-024",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "tools/install_pi.py:37-40 reads PI_CODING_AGENT_DIR from env to pick a config dir; no transmission.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "EXFIL-KNOWN-SINK",
-   "title": "Sends data to a known exfiltration service",
-   "severity": "low",
-   "category": "exfiltration",
-   "path": "plugins/ui-design/skills/interaction-design/references/microinteraction-patterns.md",
-   "line": 304,
-   "snippet": "fp:dc7c3b8396caaa37",
-   "message": "These services are commonly used to receive stolen data because they need no account and are hard to trace.",
-   "fix": "Remove the call, or replace it with the project's own documented endpoint.",
-   "precautions": [
-    "disable-plugin",
-    "deny-network-bash"
-   ],
-   "context": [
-    "documentation (not loaded by Claude Code)"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-025",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/ui-design/skills/interaction-design/references/microinteraction-patterns.md:304 is a React toast example rendering {toast.message}; no network sink at all.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/backend-development/skills/workflow-orchestration-patterns/SKILL.md",
-   "line": 95,
-   "snippet": "fp:627ff574aec7645b",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a skill"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-026",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "workflow-orchestration-patterns/SKILL.md:95 'Determinism is non-negotiable for workflows' is a Temporal engineering principle, not an instruction-priority claim.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/brand-landingpage/skills/brand-landingpage/SKILL.md",
-   "line": 89,
-   "snippet": "fp:96ef953b9f63a53d",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a skill"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-027",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "brand-landingpage/SKILL.md:89 'These four are non-negotiable' refers to required interview fields before moving phases.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/llm-finetuning/agents/llm-finetuning-architect.md",
-   "line": 30,
-   "snippet": "fp:052f0eb236723c3f",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict. Also on lines 72, 104.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-028",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "llm-finetuning-architect.md:30 'Non-Negotiables' heading lists eval-gate workflow rules (e.g. baseline file must exist); no override of user instructions.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/llm-finetuning/commands/finetune.md",
-   "line": 172,
-   "snippet": "fp:ca834c08de8be6aa",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a command"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-029",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "finetune.md:172 'Commit both files before launching \u2014 non-negotiable' is a reproducibility step, not a priority claim over the user.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/pptx-deck-creation/agents/pptx-deck-creation-builder.md",
-   "line": 11,
-   "snippet": "fp:3da126b16947f878",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-030",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "pptx-deck-creation-builder.md:11 'Non-negotiable rules' are deck-quality rules (keep reference decks read-only, etc.).",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/ship-mate/agents/implement.md",
-   "line": 11,
-   "snippet": "fp:8b5cb3454f14fa4a",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "loaded by Claude Code as a agent"
-   ],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-031",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "ship-mate/agents/implement.md:11 says AGENTS.md and the architect plan are 'non-negotiable' for scope; it adds security rules (lines 22-27) and does not override user instructions.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-CONCEAL",
-   "title": "Tells Claude to hide actions from the user",
-   "severity": "low",
-   "category": "prompt-injection",
-   "path": "plugins/superself/README.md",
-   "line": 5,
-   "snippet": "fp:45ba3f7f976bd427",
-   "message": "Instructions to keep the user in the dark are a strong sign of a malicious prompt.",
-   "fix": "Remove the instruction.",
-   "precautions": [
-    "disable-plugin"
-   ],
-   "context": [
-    "documentation (not loaded by Claude Code)"
-   ],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-032",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/superself/README.md:5 says the skill 'never runs it ... without asking the user first' \u2014 the opposite of concealment. README is documentation.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "GITLEAKS-generic-api-key",
-   "title": "Gitleaks: Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
-   "severity": "low",
-   "category": "secrets",
-   "path": "plugins/plugin-eval/src/plugin_eval/layers/static.py",
-   "line": 385,
-   "snippet": "fp:66802f44f42bbda6",
-   "message": "Gitleaks matched a credential pattern. Secrets in public repositories should be treated as leaked.",
-   "fix": "Remove the secret from the code and history, then rotate it.",
-   "precautions": [
-    "rotate-secret"
-   ],
-   "context": [
-    "not run by any hook, server, command or skill found in the plugin"
-   ],
-   "source": "gitleaks",
-   "confidence": "medium",
-   "id": "F-033",
-   "verdict": "false_positive",
-   "agent_severity": "info",
-   "rationale": "plugins/plugin-eval/src/plugin_eval/layers/static.py:385 is a docstring 'Score token efficiency: MUST/NEVER/ALWAYS density'; gitleaks matched the word 'token'.",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "MARKETPLACE-UNPINNED",
-   "title": "1 marketplace plugin(s) are not pinned to a commit",
-   "severity": "low",
-   "category": "supply-chain",
-   "path": ".claude-plugin/marketplace.json",
-   "line": null,
-   "snippet": "fp:28a0ba2205d1c74c",
-   "message": "Each update installs whatever the upstream repository holds at that moment.",
-   "fix": "Pin each source with a full commit sha.",
-   "precautions": [
-    "pin-commit"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-034",
-   "verdict": "confirmed",
+   "id": "F-002",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": ".claude-plugin/marketplace.json:1115-1120 lists pensyve from https://github.com/major7apps/pensyve.git with no sha, so installing it pulls whatever is on the default branch; it ships lifecycle hooks per its description (line 1121). deja-vu is pinned (line 1138). Neither external plugin was scanned here.",
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:70a7b25d5ddc0f49",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1a953495d876d903",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:15db41f1ef27992b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e181bb72a19fdc23",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d592f1100248c24f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f3473d7b550e5bd8",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3ad465eb55db5d87",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2a99858ddcf368a2",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7c903532ab34b171",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:232e1994958fce0d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:aca378c00a296554",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4ac96a62dc208354",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "BROAD-TOOL-GRANT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1b769a7650073ea4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-ALL-TOOLS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b348065cc7e1e70a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-ALL-TOOLS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e9cf1b3d41f02e69",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-ALL-TOOLS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:23a85d6b0fb36c7b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-ALL-TOOLS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4e54c59a061ecd9b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4249ebf9fade6139",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c7a394bbdd0728fa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "ENV-DUMP",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:269fcfc9374b7417",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "EXFIL-KNOWN-SINK",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "exfiltration",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dc7c3b8396caaa37",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:627ff574aec7645b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:96ef953b9f63a53d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:052f0eb236723c3f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ca834c08de8be6aa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3da126b16947f878",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:8b5cb3454f14fa4a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-CONCEAL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:45ba3f7f976bd427",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "MARKETPLACE-UNPINNED",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:28a0ba2205d1c74c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
    "effective_severity": "low"
   },
   {
    "rule_id": "DESTRUCT-GIT",
-   "title": "Force-pushes or hard-resets git state",
+   "title": "Withheld",
    "severity": "info",
    "category": "destructive",
-   "path": "plugins/review-agent-governance/test/run-tests.sh",
-   "line": 122,
+   "path": "",
+   "line": null,
    "snippet": "fp:ce9d6178703b7b3b",
-   "message": "These commands throw away uncommitted work or rewrite shared history.",
-   "fix": "Make the step opt-in and ask before running it.",
-   "precautions": [
-    "ask-git-destructive"
-   ],
-   "context": [
-    "test, example, docs or CI file"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-035",
-   "verdict": "false_positive",
+   "id": "F-032",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "plugins/review-agent-governance/test/run-tests.sh:122 passes a 'git push --force' string as a payload to check_deny, asserting the policy blocks it; nothing is pushed.",
+   "rationale": "",
    "effective_severity": "info"
   },
   {
    "rule_id": "PROMPT-PRIORITY",
-   "title": "Claims priority over your own instructions",
+   "title": "Withheld",
    "severity": "info",
    "category": "prompt-injection",
-   "path": "plugins/brand-landingpage/skills/brand-landingpage/references/interview-framework.md",
-   "line": 50,
+   "path": "",
+   "line": null,
    "snippet": "fp:f698aa754ed652fb",
-   "message": "Strong priority language makes the plugin's instructions win over yours when they conflict.",
-   "fix": "Soften the wording, or state that user instructions take precedence.",
-   "precautions": [
-    "review-context-injection"
-   ],
-   "context": [
-    "documentation (not loaded by Claude Code)"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-036",
-   "verdict": "false_positive",
+   "id": "F-033",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "interview-framework.md:50 'These four are non-negotiable' refers to required interview fields.",
+   "rationale": "",
    "effective_severity": "info"
   },
   {
    "rule_id": "RCE-UNPINNED-RUNNER",
-   "title": "Runs a package straight from a registry without a version pin",
+   "title": "Withheld",
    "severity": "info",
    "category": "supply-chain",
-   "path": "plugins/protect-mcp/test/run-tests.sh",
-   "line": 26,
+   "path": "",
+   "line": null,
    "snippet": "fp:8d4198589c85659b",
-   "message": "Every run downloads the newest published version, so a compromised or typosquatted release runs on your machine without any change to the plugin.",
-   "fix": "Pin the package to an exact version, for example `npx -y package@1.2.3`, or vendor it.",
-   "precautions": [
-    "pin-mcp-version",
-    "pin-commit"
-   ],
-   "context": [
-    "test, example, docs or CI file"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-037",
-   "verdict": "false_positive",
+   "id": "F-034",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "plugins/protect-mcp/test/run-tests.sh uses npx --yes protect-mcp@0.32.4 (version-pinned, see line 80) in a dev test script not run by any hook.",
+   "rationale": "",
    "effective_severity": "info"
   },
   {
    "rule_id": "RCE-UNPINNED-RUNNER",
-   "title": "Runs a package straight from a registry without a version pin",
+   "title": "Withheld",
    "severity": "info",
    "category": "supply-chain",
-   "path": "tools/tests/test_adapters.py",
-   "line": 221,
+   "path": "",
+   "line": null,
    "snippet": "fp:a53d1e5456e8f411",
-   "message": "Every run downloads the newest published version, so a compromised or typosquatted release runs on your machine without any change to the plugin.",
-   "fix": "Pin the package to an exact version, for example `npx -y package@1.2.3`, or vendor it.",
-   "precautions": [
-    "pin-mcp-version",
-    "pin-commit"
-   ],
-   "context": [
-    "test, example, docs or CI file"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-038",
-   "verdict": "false_positive",
+   "id": "F-035",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "tools/tests/test_adapters.py is a repo developer test, not loaded by Claude Code or any plugin hook.",
+   "rationale": "",
    "effective_severity": "info"
   },
   {
    "rule_id": "RCE-UNPINNED-RUNNER",
-   "title": "Runs a package straight from a registry without a version pin",
+   "title": "Withheld",
    "severity": "info",
    "category": "supply-chain",
-   "path": "tools/tests/test_cli_smoke.py",
-   "line": 425,
+   "path": "",
+   "line": null,
    "snippet": "fp:6b18f3faa0eeb158",
-   "message": "Every run downloads the newest published version, so a compromised or typosquatted release runs on your machine without any change to the plugin. Also on lines 481, 494, 505.",
-   "fix": "Pin the package to an exact version, for example `npx -y package@1.2.3`, or vendor it.",
-   "precautions": [
-    "pin-mcp-version",
-    "pin-commit"
-   ],
-   "context": [
-    "test, example, docs or CI file"
-   ],
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-039",
-   "verdict": "false_positive",
+   "id": "F-036",
+   "verdict": "unreviewed",
    "agent_severity": null,
-   "rationale": "tools/tests/test_cli_smoke.py is a repo developer test, not loaded by Claude Code or any plugin hook.",
+   "rationale": "",
    "effective_severity": "info"
-  },
-  {
-   "rule_id": "AGENT-SUPPLY-CHAIN",
-   "title": "Hooks download and run an npm package from the registry on every tool call",
-   "severity": "medium",
-   "category": "supply-chain",
-   "path": "plugins/protect-mcp/hooks/sign.sh",
-   "line": 18,
-   "snippet": "fp:9bfa0903a782abc2",
-   "message": "The PostToolUse hook (matcher '.*') runs `npx protect-mcp@0.7.4` after every single tool call, with no policy-file check, so npx fetches and executes third-party npm code on first use and on every call afterward. The PreToolUse hook (evaluate.sh:33) does the same with protect-mcp@0.32.4 and passes the full tool_input JSON as a command-line argument, which is visible to other local processes via `ps`. Versions are pinned but there is no integrity hash, so the code that runs is whatever npm serves for that version. The review-agent-governance plugin has identical hooks (its sign.sh:18, evaluate.sh:38). It also uses two different protect-mcp versions.",
-   "fix": "Install protect-mcp locally from a lockfile with integrity hashes and call the local binary. Pass tool_input over stdin, not argv. Skip signing when no key or policy is set up.",
-   "precautions": [
-    "review-before-run",
-    "dependency-audit",
-    "disable-hooks"
-   ],
-   "context": [],
-   "source": "agent",
-   "confidence": "medium",
-   "id": "A-001",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "Found by the agent while reading the code.",
-   "effective_severity": "medium"
-  },
-  {
-   "rule_id": "AGENT-INTEGRITY",
-   "title": "Governance gate is bypassed by a file in the working directory that the agent itself can create",
-   "severity": "low",
-   "category": "integrity",
-   "path": "plugins/review-agent-governance/hooks/evaluate.sh",
-   "line": 10,
-   "snippet": "fp:1de8e42e5c631280",
-   "message": "The plugin says it requires a human approval signal before PR reviews or merges. In practice, any file named ./.review-approved in the current directory skips the policy check entirely (lines 10-12), and the agent can create that file with Write or `touch` unless the policy explicitly forbids it. With no ./review-governance.cedar file present, every call is allowed (lines 15-17). Same fail-open for protect-mcp when ./protect.cedar is missing (protect-mcp/hooks/evaluate.sh:10-12). Users may think they are protected when they are not.",
-   "fix": "Keep the approval flag outside the agent-writable project (or require a signed token), make sure the policy denies writes to the flag path, and fail closed when the policy is missing.",
-   "precautions": [
-    "review-before-run"
-   ],
-   "context": [],
-   "source": "agent",
-   "confidence": "medium",
-   "id": "A-002",
-   "verdict": "confirmed",
-   "agent_severity": null,
-   "rationale": "Found by the agent while reading the code.",
-   "effective_severity": "low"
   }
  ],
  "surface": {
@@ -9816,16 +9454,17 @@
   "exfiltration": 1,
   "network": 0,
   "credentials": 3,
-  "secrets": 3,
+  "secrets": 0,
   "persistence": 0,
   "config-tampering": 0,
   "destructive": 2,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 8,
   "permissions": 14,
-  "supply-chain": 5,
-  "integrity": 1,
+  "supply-chain": 4,
+  "integrity": 0,
   "impersonation": 0,
   "vulnerable-dependency": 0
  },
@@ -9833,12 +9472,12 @@
   "2 marketplace plugin(s) live in other repositories and were not scanned here: pensyve (https://github.com/major7apps/pensyve.git); deja-vu (https://github.com/vshulcz/deja-vu.git)"
  ],
  "metadata": {
-  "stars": 42284,
-  "forks": 4469,
-  "open_issues": 6,
-  "contributors": "90",
+  "stars": 42651,
+  "forks": 4509,
+  "open_issues": 7,
+  "contributors": "93",
   "created_at": "2025-07-24T23:28:14Z",
-  "pushed_at": "2026-11-05T15:57:30Z",
+  "pushed_at": "2026-11-18T13:13:28Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",
@@ -9846,78 +9485,35 @@
   "signals": [],
   "error": null
  },
- "scanners": {
-  "gitleaks": "ran (3 hits)",
-  "osv-scanner": "ran (0 advisories)",
-  "semgrep": "ran (0 hits)"
- },
- "agent": {
-  "model": "claude-opus-5-5",
-  "effort": "high",
-  "summary": "wshobson/agents is a marketplace of 92 Claude Code plugins. Almost all of it is Markdown: agents, skills and slash commands that give Claude instructions and templates for development, DevOps, docs, business analysis and similar work. Only two plugins run anything automatically: protect-mcp and review-agent-governance. Each registers PreToolUse and PostToolUse hooks with matcher '.*', so they fire on every tool call. They read the hook JSON with node. If a Cedar policy file exists in the project, they pass the tool name and full input to `npx protect-mcp@0.32.4 evaluate`. After every tool call, policy or not, they run `npx protect-mcp@0.7.4 sign`, which writes signed receipts to ./receipts/ or ./review-receipts/ using a key file in the project directory (protect-mcp/hooks/sign.sh:18-20). I found no exfiltration, no credential harvesting, no writes to ~/.claude or shell profiles, and no hidden network calls in plugin code. The main risk is supply chain: an npm package is fetched and run on every tool call. Versions are pinned but not integrity-checked, and tool inputs travel in argv, where other local processes can read them with `ps` (A-001). The review-governance gate is weaker than advertised: a ./.review-approved file in the project skips it entirely, and with no policy file every call is allowed (A-002). Confirmed lower-risk items: three startup-business-analyst commands pre-approve unscoped Bash in allowed-tools (F-015 to F-017), and the external 'pensyve' marketplace entry is not pinned to a commit and was not scanned here (F-034). Dismissed as false positives: both gitleaks 'secrets' (the placeholder YOUR_API_KEY and a docstring), the 'rm -rf /' and force-push matches (test fixtures checking that the policy denies them), the env-dump matches in tools/install_*.py (they only look up a config-dir variable), the exfil sink (a React toast example), every 'non-negotiable' prompt-priority match (ordinary engineering wording), the superself 'conceal' match (the text says it asks the user first), and the agent `tools:` lists (those restrict tools; they don't skip permission prompts).",
-  "top_risks": [
-   "protect-mcp and review-agent-governance hooks run `npx protect-mcp` from the npm registry on every tool call (pinned version, no integrity hash), and pass tool inputs in argv where other local processes can read them (A-001, F-018 to F-021)",
-   "The review-agent-governance gate is skipped by a ./.review-approved file the agent can create, and allows every call when no policy file exists, so its protection is weaker than advertised (A-002)",
-   "startup-business-analyst commands pre-approve unscoped Bash plus WebFetch while they run (F-015 to F-017)",
-   "The external pensyve plugin in the marketplace is not pinned to a commit and was not scanned; it ships its own lifecycle hooks (F-034)"
-  ],
-  "recommendation": "install_with_precautions",
-  "completed": true,
-  "reviewed": 39,
-  "new_findings": 2,
-  "rejected_tool_calls": 0,
-  "tool_calls": {
-   "get_overview": 1,
-   "list_findings": 1,
-   "Read": 15,
-   "Glob": 2,
-   "Grep": 6,
-   "get_finding": 8,
-   "record_verdicts": 2,
-   "report_new_finding": 2,
-   "submit_assessment": 1
-  },
-  "turns": 39,
-  "cost_usd": 0.6584,
-  "duration_s": 101.1,
-  "stop": "completed",
-  "auth_source": "ANTHROPIC_API_KEY",
-  "session_id": "a71c334b-05a6-4011-b63a-f4fc26059ce2",
-  "usage": {
-   "input_tokens": 34,
-   "output_tokens": 11315,
-   "cache_read_input_tokens": 705720,
-   "cache_creation_input_tokens": 58157
-  },
-  "errors": []
- },
- "tool_version": "0.1.0",
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
  "verdict": {
-  "level": "caution",
-  "label": "Install with precautions",
-  "score": 14,
+  "level": "review",
+  "label": "Review before installing",
+  "score": 85,
   "counts": {
    "critical": 0,
    "high": 0,
-   "medium": 1,
-   "low": 9,
-   "info": 0
+   "medium": 15,
+   "low": 16,
+   "info": 5
   },
-  "active": 10,
-  "dismissed": 31,
+  "active": 36,
+  "dismissed": 0,
   "injection_guard": false,
-  "reasons": [
-   "A-001 Hooks download and run an npm package from the registry on every tool call",
-   "F-015 Command business-case may run any shell command without asking",
-   "F-016 Command financial-projections may run any shell command without asking"
-  ]
+  "reasons": []
  },
  "recommended_precautions": [
-  "disable-hooks",
-  "review-before-run",
-  "dependency-audit",
+  "disable-plugin",
   "sandbox-bash",
-  "pin-commit"
+  "disable-hooks",
+  "deny-secret-reads",
+  "deny-network-bash",
+  "review-context-injection",
+  "pin-commit",
+  "ask-git-destructive",
+  "pin-mcp-version"
  ],
  "settings_snippet": {}
 }

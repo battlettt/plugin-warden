@@ -6,11 +6,11 @@
   "url": "https://github.com/kepano/obsidian-skills",
   "ref": null,
   "subdir": null,
-  "commit": "398127736bd4ba42d767b1419fee1a927508370b",
+  "commit": "1c3f6df5683588e39b12462a75d1d0fcf550f955",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:00:47+00:00",
+ "generated_at": "2026-11-18T14:30:43+00:00",
  "plugins": [
   {
    "name": "obsidian",
@@ -137,14 +137,14 @@
   }
  ],
  "stats": {
-  "files": 24,
-  "bytes": 154544,
+  "files": 28,
+  "bytes": 156856,
   "by_kind": {
    "binary": 1,
-   "config": 6,
+   "config": 8,
    "markdown": 14,
-   "other": 2,
-   "shell": 1
+   "other": 3,
+   "shell": 2
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -172,6 +172,7 @@
   "destructive": 0,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 0,
   "permissions": 0,
   "supply-chain": 0,
@@ -181,12 +182,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 52613,
-  "forks": 3746,
+  "stars": 53149,
+  "forks": 3777,
   "open_issues": 2,
   "contributors": "25",
   "created_at": "2026-01-02T21:45:11Z",
-  "pushed_at": "2026-11-11T16:12:33Z",
+  "pushed_at": "2026-11-17T22:37:17Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
@@ -196,7 +197,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "low",
   "label": "Low risk",

@@ -6,14 +6,14 @@
   "url": "https://github.com/microsoft/playwright-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
+  "commit": "16347fa7f878b33442b4b9d5ed34b76a99a5266c",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:01:36+00:00",
+ "generated_at": "2026-11-18T14:31:24+00:00",
  "plugins": [
   {
-   "name": "microsoft__playwright-mcp@78eca85361ef",
+   "name": "microsoft__playwright-mcp@16347fa7f878",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "microsoft__playwright-mcp@78eca85361ef",
+   "name": "microsoft__playwright-mcp@16347fa7f878",
    "path": ".",
-   "plugin": "microsoft__playwright-mcp@78eca85361ef",
+   "plugin": "microsoft__playwright-mcp@16347fa7f878",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -74,7 +74,7 @@
  ],
  "stats": {
   "files": 44,
-  "bytes": 229849,
+  "bytes": 234772,
   "by_kind": {
    "config": 13,
    "js": 14,
@@ -135,6 +135,9 @@
    "github.com": [
     "utils/docker/publish_docker.sh"
    ],
+   "nodejs.org": [
+    "roll.js"
+   ],
    "portal.microsofticm.com": [
     "utils/docker/publish_docker.sh"
    ]
@@ -164,6 +167,7 @@
   "destructive": 0,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 0,
   "permissions": 0,
   "supply-chain": 0,
@@ -173,12 +177,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 39655,
-  "forks": 3436,
-  "open_issues": 6,
-  "contributors": "70",
+  "stars": 39841,
+  "forks": 3451,
+  "open_issues": 0,
+  "contributors": "71",
   "created_at": "2025-03-21T17:48:36Z",
-  "pushed_at": "2026-11-13T14:49:49Z",
+  "pushed_at": "2026-11-17T21:54:10Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
@@ -188,7 +192,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",

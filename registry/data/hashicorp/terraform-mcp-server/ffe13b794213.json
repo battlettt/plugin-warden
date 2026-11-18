@@ -6,14 +6,14 @@
   "url": "https://github.com/hashicorp/terraform-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "3e38ca6943992c108b7b83c3a06b0c1b6f4902ac",
+  "commit": "ffe13b794213caef56407b7f16809003882cccce",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:06:47+00:00",
+ "generated_at": "2026-11-18T14:35:35+00:00",
  "plugins": [
   {
-   "name": "hashicorp__terraform-mcp-server@3e38ca694399",
+   "name": "hashicorp__terraform-mcp-server@ffe13b794213",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -26,9 +26,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "hashicorp__terraform-mcp-server@3e38ca694399",
+   "name": "hashicorp__terraform-mcp-server@ffe13b794213",
    "path": ".",
-   "plugin": "hashicorp__terraform-mcp-server@3e38ca694399",
+   "plugin": "hashicorp__terraform-mcp-server@ffe13b794213",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -37,7 +37,7 @@
  ],
  "stats": {
   "files": 441,
-  "bytes": 2207440,
+  "bytes": 2219040,
   "by_kind": {
    "code": 376,
    "config": 24,
@@ -179,6 +179,7 @@
   "destructive": 0,
   "privilege": 1,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 0,
   "permissions": 0,
   "supply-chain": 0,
@@ -189,11 +190,11 @@
  "notes": [],
  "metadata": {
   "stars": 1562,
-  "forks": 202,
-  "open_issues": 36,
+  "forks": 201,
+  "open_issues": 40,
   "contributors": "33",
   "created_at": "2025-04-19T19:49:09Z",
-  "pushed_at": "2026-11-13T18:28:45Z",
+  "pushed_at": "2026-11-17T19:03:19Z",
   "license": "MPL-2.0",
   "archived": false,
   "owner_type": "Organization",
@@ -203,7 +204,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "low",
   "label": "Low risk",

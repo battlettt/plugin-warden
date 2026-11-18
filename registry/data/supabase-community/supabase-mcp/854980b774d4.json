@@ -6,14 +6,14 @@
   "url": "https://github.com/supabase-community/supabase-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "9092ab9055509fcdfbedcb75edf02d9412feed37",
+  "commit": "854980b774d4f44c8d7d9d83149d93084d375473",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:05:13+00:00",
+ "generated_at": "2026-11-18T14:33:52+00:00",
  "plugins": [
   {
-   "name": "supabase-community__supabase-mcp@9092ab905550",
+   "name": "supabase-community__supabase-mcp@854980b774d4",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -22,14 +22,14 @@
  ],
  "component_counts": {
   "manifest": 1,
-  "package": 4
+  "package": 5
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "supabase-community__supabase-mcp@9092ab905550",
+   "name": "supabase-community__supabase-mcp@854980b774d4",
    "path": ".",
-   "plugin": "supabase-community__supabase-mcp@9092ab905550",
+   "plugin": "supabase-community__supabase-mcp@854980b774d4",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -44,17 +44,19 @@
    "details": {
     "ecosystem": "npm",
     "scripts": {
-     "build": "pnpm --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest build",
+     "build": "pnpm --filter \"@supabase/mcp-server-supabase...\" --filter \"@supabase/mcp-server-postgrest...\" build",
      "test": "pnpm --parallel --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest test",
      "test:coverage": "pnpm --filter @supabase/mcp-server-supabase test:coverage",
      "test:packed-platform-consumer": "node scripts/test-packed-platform-consumer.mjs",
      "format": "biome check --write .",
      "format:check": "biome check .",
-     "dev:http": "node scripts/dev-http.mjs"
+     "dev:http": "node scripts/dev-http.mjs",
+     "inspector": "mcp-inspector --web --transport http --server-url 'http://127.0.0.1:3111/mcp?experimental_apps=true' --header \"Authorization: Bearer $SUPABASE_ACCESS_TOKEN\" --protocol-era modern"
     },
     "dependencies": {},
     "devDependencies": {
      "@biomejs/biome": "1.9.4",
+     "@modelcontextprotocol/inspector": "^2.15.0",
      "pkg-pr-new": "^0.0.68",
      "supabase": "^2.1.1"
     },
@@ -137,7 +139,9 @@
      "@ai-sdk/mcp": "catalog:",
      "@electric-sql/pglite": "^0.2.17",
      "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/ext-apps": "^2.0.4",
      "@modelcontextprotocol/server": "catalog:",
+     "@supabase/mcp-ui": "workspace:*",
      "@total-typescript/tsconfig": "^1.0.4",
      "@types/common-tags": "^1.8.4",
      "@types/node": "^22.8.6",
@@ -160,6 +164,40 @@
     "bin": {
      "mcp-server-supabase": "./dist/cli.js"
     }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@supabase/mcp-ui",
+   "path": "packages/mcp-ui/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "vite build --app",
+     "build:watch": "vite build --app --watch",
+     "typecheck": "tsc --noEmit",
+     "prebuild": "pnpm typecheck"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/client": "catalog:",
+     "@modelcontextprotocol/core": "^2.0.0",
+     "@modelcontextprotocol/ext-apps": "^2.0.4",
+     "react": "^19.0.0",
+     "react-dom": "^19.0.0",
+     "zod": "^4.2.0"
+    },
+    "devDependencies": {
+     "@total-typescript/tsconfig": "^1.0.4",
+     "@types/react": "^19.0.0",
+     "@types/react-dom": "^19.0.0",
+     "@vitejs/plugin-react": "^6.0.0",
+     "typescript": "^5.6.3",
+     "vite": "^8.0.0",
+     "vite-plugin-singlefile": "^2.3.0"
+    },
+    "bin": null
    }
   },
   {
@@ -196,18 +234,18 @@
   }
  ],
  "stats": {
-  "files": 172,
-  "bytes": 2220707,
+  "files": 186,
+  "bytes": 2342636,
   "by_kind": {
-   "config": 24,
-   "js": 124,
-   "markdown": 11,
-   "other": 12,
+   "config": 26,
+   "js": 134,
+   "markdown": 12,
+   "other": 13,
    "shell": 1
   },
   "vendored_files": 0,
   "plugins": 1,
-  "components": 5
+  "components": 6
  },
  "findings": [
   {
@@ -311,6 +349,26 @@
    "effective_severity": "low"
   },
   {
+   "rule_id": "DEP-NO-LOCKFILE",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7af39aff9f8e6c22",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
    "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
@@ -324,7 +382,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-006",
+   "id": "F-007",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -344,7 +402,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-007",
+   "id": "F-008",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -362,6 +420,7 @@
     "packages/mcp-server-supabase/src/platform/feedback.ts"
    ],
    "api.supabase.com": [
+    "packages/mcp-server-supabase/scripts/generate-management-api-types.mjs",
     "packages/mcp-server-supabase/src/transports/local-http-entry.ts"
    ],
    "api.supabase.green": [
@@ -407,21 +466,22 @@
   "destructive": 0,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 0,
   "permissions": 0,
-  "supply-chain": 3,
+  "supply-chain": 4,
   "integrity": 0,
   "impersonation": 0,
   "vulnerable-dependency": 0
  },
  "notes": [],
  "metadata": {
-  "stars": 3014,
-  "forks": 433,
-  "open_issues": 129,
-  "contributors": "37",
+  "stars": 3018,
+  "forks": 437,
+  "open_issues": 128,
+  "contributors": "38",
   "created_at": "2024-12-20T23:52:42Z",
-  "pushed_at": "2026-11-14T06:13:35Z",
+  "pushed_at": "2026-11-18T14:00:00Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
@@ -431,19 +491,19 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",
-  "score": 9,
+  "score": 10,
   "counts": {
    "critical": 0,
    "high": 0,
    "medium": 1,
-   "low": 4,
+   "low": 5,
    "info": 2
   },
-  "active": 7,
+  "active": 8,
   "dismissed": 0,
   "injection_guard": false,
   "reasons": []

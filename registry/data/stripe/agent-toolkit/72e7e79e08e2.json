@@ -6,14 +6,14 @@
   "url": "https://github.com/stripe/agent-toolkit",
   "ref": null,
   "subdir": null,
-  "commit": "9d6c33b367f2c823cb3c88d991cafdd3402ceeb0",
+  "commit": "72e7e79e08e245063e87d61f60340e55e54c68f4",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-16T13:54:52+00:00",
+ "generated_at": "2026-11-18T14:33:43+00:00",
  "plugins": [
   {
-   "name": "stripe__agent-toolkit@9d6c33b367f2",
+   "name": "stripe__agent-toolkit@72e7e79e08e2",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -23,7 +23,7 @@
    "name": "stripe",
    "path": "providers/claude/plugin",
    "source": "manifest",
-   "version": "0.12.1",
+   "version": "0.13.0",
    "description": "Stripe development plugin for Claude"
   }
  ],
@@ -34,14 +34,14 @@
   "marketplace": 1,
   "mcp_server": 2,
   "package": 13,
-  "skill": 66
+  "skill": 72
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "stripe__agent-toolkit@9d6c33b367f2",
+   "name": "stripe__agent-toolkit@72e7e79e08e2",
    "path": ".",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "connect-recommend",
    "path": "skills/connect-recommend/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "connect-required-verification-information",
    "path": "skills/connect-required-verification-information/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "metronome",
    "path": "skills/metronome/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stripe-apps",
    "path": "skills/stripe-apps/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "stripe-best-practices",
    "path": "skills/stripe-best-practices/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
@@ -99,20 +99,30 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "skills/stripe-directory/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
    "kind": "skill",
    "name": "stripe-docs",
    "path": "skills/stripe-docs/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
@@ -123,7 +133,7 @@
    "kind": "skill",
    "name": "stripe-implementation-planner",
    "path": "skills/stripe-implementation-planner/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
@@ -134,7 +144,7 @@
    "kind": "skill",
    "name": "stripe-pay",
    "path": "skills/stripe-pay/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
@@ -145,18 +155,18 @@
    "kind": "skill",
    "name": "stripe-projects",
    "path": "skills/stripe-projects/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
    "kind": "skill",
    "name": "upgrade-stripe",
    "path": "skills/upgrade-stripe/SKILL.md",
-   "plugin": "stripe__agent-toolkit@9d6c33b367f2",
+   "plugin": "stripe__agent-toolkit@72e7e79e08e2",
    "trigger": "",
    "details": {
     "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
@@ -170,7 +180,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.12.1",
+    "version": "0.13.0",
     "description": "Stripe development plugin for Claude",
     "author": {
      "name": "Stripe",
@@ -386,13 +396,23 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/claude/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/claude/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "stripe",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -436,7 +456,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -501,13 +521,23 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/agent-plugins/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/agent-plugins/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -551,7 +581,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -616,13 +646,23 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/antigravity/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/antigravity/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -666,7 +706,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -731,13 +771,23 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/cursor/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/cursor/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -781,7 +831,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -846,13 +896,23 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/grok/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/grok/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
    }
   },
   {
@@ -896,7 +956,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://cli.stripe.com/install.sh | sh) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -1251,7 +1311,7 @@
       "name": "stripe",
       "source": "./providers/claude/plugin/",
       "description": "Stripe",
-      "version": "0.12.1",
+      "version": "0.13.0",
       "author": {
        "name": "Stripe"
       }
@@ -1265,21 +1325,21 @@
   }
  ],
  "stats": {
-  "files": 896,
-  "bytes": 23756398,
+  "files": 926,
+  "bytes": 24104662,
   "by_kind": {
    "binary": 66,
    "code": 69,
    "config": 53,
    "js": 229,
-   "markdown": 274,
+   "markdown": 304,
    "other": 145,
    "python": 18,
    "shell": 42
   },
   "vendored_files": 0,
   "plugins": 2,
-  "components": 93
+  "components": 99
  },
  "findings": [
   {
@@ -1409,7 +1469,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:03bb68aaeade2688",
+   "snippet": "fp:249e69c40f5e75b3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1429,7 +1489,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:896b9a7fdfc70172",
+   "snippet": "fp:9cbc1a234e75cdd9",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1449,7 +1509,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:0ced7a0a031d3599",
+   "snippet": "fp:7d97750b26968f07",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1469,7 +1529,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:51a1b5c60b3f8f37",
+   "snippet": "fp:f14affa2fe4f5268",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1489,7 +1549,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:604cb2d5fc72c8c6",
+   "snippet": "fp:47a55d4185eb1e95",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1509,7 +1569,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:4677b334d4221352",
+   "snippet": "fp:aa6aefc3f5bfc6a3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1529,7 +1589,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:928b3d12594ce057",
+   "snippet": "fp:2814c7d62bf31af0",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1549,7 +1609,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:6df3093075b48ed0",
+   "snippet": "fp:16b27e646c7877b8",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1569,7 +1629,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:0d6d7aa4ee02f1ec",
+   "snippet": "fp:dea645a61e35020b",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1589,7 +1649,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:95c9b8a895eed9a4",
+   "snippet": "fp:60cb720d7d137b63",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1609,7 +1669,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:e8b2cba02b3faa6e",
+   "snippet": "fp:b64c90bb1b23f3fa",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1629,7 +1689,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:5254c2bb5f09e986",
+   "snippet": "fp:a0dc665302f336ac",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -2283,12 +2343,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 2066,
+  "stars": 2072,
   "forks": 385,
   "open_issues": 47,
   "contributors": "42",
   "created_at": "2024-11-11T17:13:41Z",
-  "pushed_at": "2026-11-16T00:36:51Z",
+  "pushed_at": "2026-11-18T10:55:41Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

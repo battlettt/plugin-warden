@@ -6,11 +6,11 @@
   "url": "https://github.com/chromedevtools/chrome-devtools-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "86a1c239cb5a7f2cb1b06d6c4dec8c4fe457478b",
+  "commit": "4559cd54992c447a735df3be651840d21754831b",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-16T13:54:29+00:00",
+ "generated_at": "2026-11-18T14:31:35+00:00",
  "plugins": [
   {
    "name": "chrome-devtools-mcp",
@@ -185,7 +185,7 @@
     "dependencies": {},
     "devDependencies": {
      "@blackwell-systems/gcf": "^2.2.2",
-     "@google/genai": "^2.0.1",
+     "@google/genai": "^3.0.0",
      "@modelcontextprotocol/client": "2.4.0",
      "@modelcontextprotocol/core": "2.4.0",
      "@modelcontextprotocol/server": "2.4.0",
@@ -244,7 +244,7 @@
  ],
  "stats": {
   "files": 404,
-  "bytes": 14776239,
+  "bytes": 14790658,
   "by_kind": {
    "binary": 2,
    "config": 36,
@@ -683,12 +683,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 57458,
-  "forks": 4840,
-  "open_issues": 128,
+  "stars": 58165,
+  "forks": 4874,
+  "open_issues": 138,
   "contributors": "100+",
   "created_at": "2025-09-11T10:39:55Z",
-  "pushed_at": "2026-11-16T13:40:03Z",
+  "pushed_at": "2026-11-18T13:33:59Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
