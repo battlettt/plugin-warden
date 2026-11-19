@@ -6,14 +6,14 @@
   "url": "https://github.com/github/github-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "67d4dc489700ec955ad255d098396dd86c729523",
+  "commit": "df32d7ec5786e0e71932767fce9982409cbaec40",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-16T13:54:08+00:00",
+ "generated_at": "2026-11-19T14:38:35+00:00",
  "plugins": [
   {
-   "name": "github__github-mcp-server@67d4dc489700",
+   "name": "github__github-mcp-server@df32d7ec5786",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "github__github-mcp-server@67d4dc489700",
+   "name": "github__github-mcp-server@df32d7ec5786",
    "path": ".",
-   "plugin": "github__github-mcp-server@67d4dc489700",
+   "plugin": "github__github-mcp-server@df32d7ec5786",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -258,11 +258,11 @@
   }
  ],
  "stats": {
-  "files": 729,
-  "bytes": 7467633,
+  "files": 734,
+  "bytes": 7541041,
   "by_kind": {
    "binary": 64,
-   "code": 329,
+   "code": 334,
    "config": 27,
    "js": 14,
    "markdown": 72,
@@ -475,12 +475,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34520,
-  "forks": 5358,
-  "open_issues": 465,
+  "stars": 34584,
+  "forks": 5370,
+  "open_issues": 469,
   "contributors": "100+",
   "created_at": "2025-03-04T16:42:04Z",
-  "pushed_at": "2026-11-16T13:45:56Z",
+  "pushed_at": "2026-11-19T05:48:59Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

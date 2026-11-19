@@ -6,14 +6,14 @@
   "url": "https://github.com/stripe/agent-toolkit",
   "ref": null,
   "subdir": null,
-  "commit": "2f0d00c931e70c145f1033113aefde677ab15f87",
+  "commit": "801ec2174acd581f71f99cf8df5383063824a1bc",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-17T14:55:20+00:00",
+ "generated_at": "2026-11-19T14:40:43+00:00",
  "plugins": [
   {
-   "name": "stripe__agent-toolkit@2f0d00c931e7",
+   "name": "stripe__agent-toolkit@801ec2174acd",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -23,7 +23,7 @@
    "name": "stripe",
    "path": "providers/claude/plugin",
    "source": "manifest",
-   "version": "0.12.2",
+   "version": "0.14.0",
    "description": "Stripe development plugin for Claude"
   }
  ],
@@ -39,9 +39,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "stripe__agent-toolkit@2f0d00c931e7",
+   "name": "stripe__agent-toolkit@801ec2174acd",
    "path": ".",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "connect-recommend",
    "path": "skills/connect-recommend/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "connect-required-verification-information",
    "path": "skills/connect-required-verification-information/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "metronome",
    "path": "skills/metronome/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stripe-apps",
    "path": "skills/stripe-apps/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "stripe-best-practices",
    "path": "skills/stripe-best-practices/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
@@ -99,9 +99,19 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "skills/stripe-directory/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
@@ -112,7 +122,7 @@
    "kind": "skill",
    "name": "stripe-docs",
    "path": "skills/stripe-docs/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
@@ -123,7 +133,7 @@
    "kind": "skill",
    "name": "stripe-implementation-planner",
    "path": "skills/stripe-implementation-planner/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
@@ -134,7 +144,7 @@
    "kind": "skill",
    "name": "stripe-pay",
    "path": "skills/stripe-pay/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
@@ -145,21 +155,11 @@
    "kind": "skill",
    "name": "stripe-projects",
    "path": "skills/stripe-projects/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
+   "plugin": "stripe__agent-toolkit@801ec2174acd",
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
     "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
-   }
-  },
-  {
-   "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "skills/upgrade-stripe/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2f0d00c931e7",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
    }
   },
   {
@@ -170,7 +170,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.12.2",
+    "version": "0.14.0",
     "description": "Stripe development plugin for Claude",
     "author": {
      "name": "Stripe",
@@ -386,6 +386,16 @@
   },
   {
    "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/claude/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "stripe",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
+   }
+  },
+  {
+   "kind": "skill",
    "name": "stripe-directory",
    "path": "providers/claude/plugin/skills/stripe-directory/SKILL.md",
    "plugin": "stripe",
@@ -441,16 +451,6 @@
   },
   {
    "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "providers/claude/plugin/skills/upgrade-stripe/SKILL.md",
-   "plugin": "stripe",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
-   }
-  },
-  {
-   "kind": "skill",
    "name": "connect-recommend",
    "path": "providers/agent-plugins/plugin/skills/connect-recommend/SKILL.md",
    "plugin": "",
@@ -497,6 +497,16 @@
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/agent-plugins/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
    }
   },
   {
@@ -556,16 +566,6 @@
   },
   {
    "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "providers/agent-plugins/plugin/skills/upgrade-stripe/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
-   }
-  },
-  {
-   "kind": "skill",
    "name": "connect-recommend",
    "path": "providers/antigravity/plugin/skills/connect-recommend/SKILL.md",
    "plugin": "",
@@ -612,6 +612,16 @@
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/antigravity/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
    }
   },
   {
@@ -671,16 +681,6 @@
   },
   {
    "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "providers/antigravity/plugin/skills/upgrade-stripe/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
-   }
-  },
-  {
-   "kind": "skill",
    "name": "connect-recommend",
    "path": "providers/cursor/plugin/skills/connect-recommend/SKILL.md",
    "plugin": "",
@@ -727,6 +727,16 @@
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/cursor/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
    }
   },
   {
@@ -786,16 +796,6 @@
   },
   {
    "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "providers/cursor/plugin/skills/upgrade-stripe/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
-   }
-  },
-  {
-   "kind": "skill",
    "name": "connect-recommend",
    "path": "providers/grok/plugin/skills/connect-recommend/SKILL.md",
    "plugin": "",
@@ -842,6 +842,16 @@
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/grok/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted page in Claude on the web or desktop "
    }
   },
   {
@@ -897,16 +907,6 @@
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
     "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
-   }
-  },
-  {
-   "kind": "skill",
-   "name": "upgrade-stripe",
-   "path": "providers/grok/plugin/skills/upgrade-stripe/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs"
    }
   },
   {
@@ -1251,7 +1251,7 @@
       "name": "stripe",
       "source": "./providers/claude/plugin/",
       "description": "Stripe",
-      "version": "0.12.2",
+      "version": "0.14.0",
       "author": {
        "name": "Stripe"
       }
@@ -1265,14 +1265,14 @@
   }
  ],
  "stats": {
-  "files": 896,
-  "bytes": 23757688,
+  "files": 920,
+  "bytes": 24049612,
   "by_kind": {
    "binary": 66,
    "code": 69,
    "config": 53,
    "js": 229,
-   "markdown": 274,
+   "markdown": 298,
    "other": 145,
    "python": 18,
    "shell": 42
@@ -2283,12 +2283,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 2072,
-  "forks": 385,
+  "stars": 2074,
+  "forks": 384,
   "open_issues": 47,
   "contributors": "42",
   "created_at": "2024-11-11T17:13:41Z",
-  "pushed_at": "2026-11-17T00:30:44Z",
+  "pushed_at": "2026-11-19T00:30:41Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
