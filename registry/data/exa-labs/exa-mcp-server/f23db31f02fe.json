@@ -6,24 +6,24 @@
   "url": "https://github.com/exa-labs/exa-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "93c0d5e1fecfc1ec9bf70fa9f3633962a1f2fa8a",
+  "commit": "f23db31f02fe69b65bf2adf4df4f60c265445cb8",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:07:21+00:00",
+ "generated_at": "2026-11-20T14:26:27+00:00",
  "plugins": [
   {
    "name": "exa",
    "path": ".",
    "source": "manifest",
-   "version": "3.4.3",
+   "version": "3.5.1",
    "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills."
   },
   {
    "name": "exa",
    "path": "plugins/exa",
    "source": "manifest",
-   "version": "3.4.3",
+   "version": "3.5.1",
    "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills."
   }
  ],
@@ -43,7 +43,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "3.4.3",
+    "version": "3.5.1",
     "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills.",
     "author": {
      "name": "Exa",
@@ -94,7 +94,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "3.4.3",
+    "version": "3.5.1",
     "description": "Exa web search, content fetching, and multi-step research via MCP tools and skills.",
     "author": {
      "name": "Exa",
@@ -205,7 +205,7 @@
       "name": "exa",
       "source": "./plugins/exa",
       "description": "Connect AI agents to Exa for web search, content fetching, and multi-step research.",
-      "version": "3.4.3",
+      "version": "3.5.1",
       "author": {
        "name": "Exa",
        "email": "hello@exa.ai"
@@ -242,7 +242,7 @@
  ],
  "stats": {
   "files": 110,
-  "bytes": 726250,
+  "bytes": 727345,
   "by_kind": {
    "binary": 1,
    "config": 18,
@@ -446,6 +446,7 @@
   "destructive": 0,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 2,
   "permissions": 0,
   "supply-chain": 1,
@@ -455,12 +456,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 5234,
-  "forks": 414,
-  "open_issues": 8,
+  "stars": 5248,
+  "forks": 413,
+  "open_issues": 7,
   "contributors": "32",
   "created_at": "2024-11-27T23:38:35Z",
-  "pushed_at": "2026-11-05T23:18:45Z",
+  "pushed_at": "2026-11-19T20:39:59Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
@@ -470,7 +471,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",

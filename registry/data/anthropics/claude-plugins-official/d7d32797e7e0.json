@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-plugins-official",
   "ref": null,
   "subdir": null,
-  "commit": "e6143c9807a001832badb63e89d58ffe25d542ec",
+  "commit": "d7d32797e7e02708d0bb00ffe8b8f2397dc1aea6",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:20:39+00:00",
+ "generated_at": "2026-11-20T14:10:42+00:00",
  "plugins": [
   {
    "name": "asana",
@@ -30,7 +30,7 @@
    "name": "discord",
    "path": "external_plugins/discord",
    "source": "manifest",
-   "version": "0.0.5",
+   "version": "0.0.6",
    "description": "Discord channel for Claude Code \u2014 messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /discord:access."
   },
   {
@@ -163,7 +163,7 @@
    "name": "code-modernization",
    "path": "plugins/code-modernization",
    "source": "manifest",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "description": "Guided modernization for any legacy codebase: start with /modernize, get an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old. Includes security hardening, a one-page report, specialist agents, and an optional live progress pane (early access)."
   },
   {
@@ -401,7 +401,7 @@
    "name": "theme-examples",
    "path": "plugins/theme-examples",
    "source": "manifest",
-   "version": "0.4.3",
+   "version": "0.4.4",
    "description": "An example plugin to read, copy and change: twenty animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand."
   },
   {
@@ -482,7 +482,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Discord channel for Claude Code \u2014 messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /discord:access."
    }
   },
@@ -1563,7 +1563,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Guided modernization for any legacy codebase: start with /modernize, get an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old. Includes security hardening, a one-page report, specialist agents, and an optional live progress pane (early access).",
     "author": {
      "name": "Anthropic",
@@ -1811,7 +1811,7 @@
    "plugin": "code-modernization",
    "trigger": "",
    "details": {
-    "description": "Same-stack version uplift (e.g. .NET Framework 4.8 to .NET 8, Java 8 to 17) \u2014 keep the code, fix the version deltas, prove nothing changed"
+    "description": "Same-stack version uplift (e.g. .NET Framework to modern .NET, Java 8 to the current LTS) \u2014 keep the code, fix the version deltas, prove nothing changed"
    }
   },
   {
@@ -1918,7 +1918,7 @@
    "plugin": "code-modernization",
    "trigger": "",
    "details": {
-    "description": "Identifies the breaking changes between two versions of the SAME stack (e.g. .NET Framework 4.8 \u2192 .NET 8, Java 8 \u2192 17/21, Spring Boot 2 \u2192 3) that actually bite a given codebase, and drives the ecosyst",
+    "description": "Identifies the breaking changes between two versions of the SAME stack (e.g. .NET Framework \u2192 modern .NET, Java 8 \u2192 a current LTS, Spring Boot 2 \u2192 the current release) that actually bite a given codeb",
     "tools": "Read, Glob, Grep, Bash"
    }
   },
@@ -3477,7 +3477,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "description": "An example plugin to read, copy and change: twenty animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand.",
     "author": {
      "name": "Anthropic",
@@ -4664,7 +4664,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/coderabbitai/skills.git",
-       "sha": "3e8763d24d543b48615b82535d02288de3ddae40"
+       "sha": "45bd1ae2c471cd861b8b6903f7dcab7c57aa0e59"
       },
       "homepage": "https://github.com/coderabbitai/skills"
      },
@@ -4915,7 +4915,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/datadog-labs/claude-code-plugin.git",
-       "sha": "195f570c002beab3d7bd342739034d0019aa4863"
+       "sha": "a1603119c813f528b2d925a0ccadd73bf930550b"
       },
       "homepage": "https://www.datadoghq.com/"
      },
@@ -5164,7 +5164,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/figma/mcp-server-guide.git",
-       "sha": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5"
+       "sha": "43a06ff1738935ad5c3d9b0437b5373aaf45cdc3"
       },
       "homepage": "https://github.com/figma/mcp-server-guide"
      },
@@ -6563,7 +6563,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/postmanlabs/postman-plugin.git",
-       "sha": "1fdd3f1e2736c7cb83780a221cb9f83641215ab7"
+       "sha": "d1f1cb9d0fba1c7442469fa68e14846ec966daf0"
       },
       "homepage": "https://github.com/postmanlabs/postman-plugin"
      },
@@ -8048,13 +8048,13 @@
   }
  ],
  "stats": {
-  "files": 773,
-  "bytes": 16725981,
+  "files": 774,
+  "bytes": 16737621,
   "by_kind": {
    "binary": 21,
    "config": 100,
    "js": 74,
-   "markdown": 336,
+   "markdown": 337,
    "other": 70,
    "python": 151,
    "shell": 21
@@ -11858,12 +11858,12 @@
   "261 marketplace plugin(s) live in other repositories and were not scanned here: 42crunch-api-security-testing (https://github.com/42Crunch-AI/claude-plugins.git); adobe-for-creativity (https://github.com/adobe/skills.git); agentforce-adlc (https://github.com/SalesforceAIResearch/agentforce-adlc.git); ai-plugins (https://github.com/endorlabs/ai-plugins.git); aikido (https://github.com/AikidoSec/aikido-claude-plugin.git); airtable (https://github.com/Airtable/skills.git); airwallex-agentos (https://github.com/airwallex/airwallex-marketplace.git); aiven (https://github.com/aiven/aiven-ai-plugins.git); alloydb (https://github.com/gemini-cli-extensions/alloydb.git); alloydb-omni (https://github.com/gemini-cli-extensions/alloydb-omni.git); altimate-code (https://github.com/AltimateAI/altimate-claude-plugin.git); amazon-location-service (https://github.com/awslabs/agent-plugins.git); amd-skills (https://github.com/amd/skills.git); amplitude (https://github.com/amplitude/mcp-marketplace.git); apollo (https://github.com/apolloio/apollo-mcp-plugin.git)"
  ],
  "metadata": {
-  "stars": 47626,
-  "forks": 4944,
-  "open_issues": 1313,
-  "contributors": "48",
+  "stars": 47788,
+  "forks": 4955,
+  "open_issues": 1320,
+  "contributors": "49",
   "created_at": "2025-11-20T18:36:20Z",
-  "pushed_at": "2026-11-18T10:33:54Z",
+  "pushed_at": "2026-11-20T07:30:18Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

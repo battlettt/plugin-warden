@@ -6,14 +6,14 @@
   "url": "https://github.com/haris-musa/excel-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "cef40a4e6321d0216376704ac6a410709a435b09",
+  "commit": "ae8db9709f765032a6008caa0b16d5c3f699b48c",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-16T13:57:14+00:00",
+ "generated_at": "2026-11-20T14:28:09+00:00",
  "plugins": [
   {
-   "name": "haris-musa__excel-mcp-server@cef40a4e6321",
+   "name": "haris-musa__excel-mcp-server@ae8db9709f76",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "haris-musa__excel-mcp-server@cef40a4e6321",
+   "name": "haris-musa__excel-mcp-server@ae8db9709f76",
    "path": ".",
-   "plugin": "haris-musa__excel-mcp-server@cef40a4e6321",
+   "plugin": "haris-musa__excel-mcp-server@ae8db9709f76",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -47,14 +47,14 @@
   }
  ],
  "stats": {
-  "files": 423,
-  "bytes": 6305844,
+  "files": 428,
+  "bytes": 6364330,
   "by_kind": {
-   "binary": 16,
+   "binary": 17,
    "config": 13,
    "markdown": 8,
    "other": 24,
-   "python": 362
+   "python": 366
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -360,12 +360,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 4309,
-  "forks": 487,
-  "open_issues": 4,
-  "contributors": "12",
+  "stars": 4317,
+  "forks": 488,
+  "open_issues": 0,
+  "contributors": "13",
   "created_at": "2025-02-12T06:39:48Z",
-  "pushed_at": "2026-11-15T19:18:12Z",
+  "pushed_at": "2026-11-20T09:48:18Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",

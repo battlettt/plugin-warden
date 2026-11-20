@@ -6,14 +6,14 @@
   "url": "https://github.com/github/github-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "4e6e6c053e48aac182f7768162fef2ad42fe7d5f",
+  "commit": "c855185f60cd35c6c533bd5699911f4c4fdbf1e7",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:31:07+00:00",
+ "generated_at": "2026-11-20T14:21:08+00:00",
  "plugins": [
   {
-   "name": "github__github-mcp-server@4e6e6c053e48",
+   "name": "github__github-mcp-server@c855185f60cd",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "github__github-mcp-server@4e6e6c053e48",
+   "name": "github__github-mcp-server@c855185f60cd",
    "path": ".",
-   "plugin": "github__github-mcp-server@4e6e6c053e48",
+   "plugin": "github__github-mcp-server@c855185f60cd",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -239,10 +239,10 @@
      "@primer/primitives": "^11.10.0",
      "@primer/react": "^38.40.1",
      "react": "^19.3.0",
-     "react-dom": "^19.3.0",
+     "react-dom": "^19.3.1",
      "react-markdown": "^10.1.0",
      "remark-gfm": "^4.0.1",
-     "zod": "^4.2.0"
+     "zod": "^4.6.6"
     },
     "devDependencies": {
      "@types/node": "^26.6.5",
@@ -250,7 +250,7 @@
      "@types/react-dom": "^19.3.0",
      "@vitejs/plugin-react": "^6.1.2",
      "typescript": "^7.0.2",
-     "vite": "^8.3.2",
+     "vite": "^8.3.5",
      "vite-plugin-singlefile": "^2.3.4"
     },
     "bin": null
@@ -258,15 +258,15 @@
   }
  ],
  "stats": {
-  "files": 727,
-  "bytes": 7457299,
+  "files": 743,
+  "bytes": 7652714,
   "by_kind": {
    "binary": 64,
-   "code": 329,
+   "code": 340,
    "config": 27,
    "js": 14,
    "markdown": 72,
-   "other": 210,
+   "other": 215,
    "shell": 11
   },
   "vendored_files": 0,
@@ -475,12 +475,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34562,
-  "forks": 5370,
-  "open_issues": 465,
+  "stars": 34615,
+  "forks": 5377,
+  "open_issues": 447,
   "contributors": "100+",
   "created_at": "2025-03-04T16:42:04Z",
-  "pushed_at": "2026-11-18T14:21:25Z",
+  "pushed_at": "2026-11-19T18:56:49Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

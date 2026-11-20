@@ -6,11 +6,11 @@
   "url": "https://github.com/kepano/obsidian-skills",
   "ref": null,
   "subdir": null,
-  "commit": "caf3e98cd22d810db164f26c9a442f0a280daa43",
+  "commit": "462a27fa456e43a68bd645fef457217326bfd369",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-17T14:52:44+00:00",
+ "generated_at": "2026-11-20T14:20:56+00:00",
  "plugins": [
   {
    "name": "obsidian",
@@ -138,7 +138,7 @@
  ],
  "stats": {
   "files": 28,
-  "bytes": 156829,
+  "bytes": 157233,
   "by_kind": {
    "binary": 1,
    "config": 8,
@@ -182,12 +182,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 53030,
-  "forks": 3777,
-  "open_issues": 2,
+  "stars": 53283,
+  "forks": 3791,
+  "open_issues": 3,
   "contributors": "25",
   "created_at": "2026-01-02T21:45:11Z",
-  "pushed_at": "2026-11-16T20:55:45Z",
+  "pushed_at": "2026-11-19T15:06:02Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

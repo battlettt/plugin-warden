@@ -51,6 +51,16 @@
    "auto_runs": 0,
    "files": 3920,
    "tool_version": "0.3.0"
+  },
+  {
+   "commit": "b9dc168c64f489aa9786ea492db9dfa985f1ed1b",
+   "scanned_at": "2026-11-20T14:22:09+00:00",
+   "level": "review",
+   "score": 95,
+   "reviewed": false,
+   "auto_runs": 0,
+   "files": 3922,
+   "tool_version": "0.3.0"
   }
  ]
 }

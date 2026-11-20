@@ -6,14 +6,14 @@
   "url": "https://github.com/neondatabase/mcp-server-neon",
   "ref": null,
   "subdir": null,
-  "commit": "c471dd1153d45f1a2946aaab6e2248116969e74b",
+  "commit": "a7c11580da748b3c95ca1d8ce7adbedeaca2e439",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-17T14:57:59+00:00",
+ "generated_at": "2026-11-20T14:26:33+00:00",
  "plugins": [
   {
-   "name": "neondatabase__mcp-server-neon@c471dd1153d4",
+   "name": "neondatabase__mcp-server-neon@a7c11580da74",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -23,27 +23,17 @@
  "component_counts": {
   "manifest": 1,
   "package": 2,
-  "skill": 6
+  "skill": 5
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "neondatabase__mcp-server-neon@c471dd1153d4",
+   "name": "neondatabase__mcp-server-neon@a7c11580da74",
    "path": ".",
-   "plugin": "neondatabase__mcp-server-neon@c471dd1153d4",
+   "plugin": "neondatabase__mcp-server-neon@a7c11580da74",
    "trigger": "",
    "details": {
     "source": "fallback"
-   }
-  },
-  {
-   "kind": "skill",
-   "name": "claimable-postgres",
-   "path": ".agents/skills/claimable-postgres/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Provision instant temporary Postgres databases via Claimable Postgres by Neon (neon.new) with no login, signup, or credit card. Supports REST API, CLI, and SDK. Use when users ask for a quick Postg"
    }
   },
   {
@@ -131,9 +121,9 @@
      "@effect/opentelemetry": "4.1.2",
      "@modelcontextprotocol/sdk": "1.25.3",
      "@modelcontextprotocol/server": "2.0.0",
-     "@neon/effect": "0.5.2",
-     "@neon/sdk": "7.13.1",
-     "@neon/tools": "2.15.0",
+     "@neon/effect": "0.5.3",
+     "@neon/sdk": "7.14.0",
+     "@neon/tools": "2.17.1",
      "@neondatabase/serverless": "1.0.0",
      "@opentelemetry/api": "1.9.1",
      "@segment/analytics-node": "2.2.1",
@@ -203,18 +193,18 @@
   }
  ],
  "stats": {
-  "files": 529,
-  "bytes": 5496252,
+  "files": 531,
+  "bytes": 5862474,
   "by_kind": {
-   "binary": 48,
+   "binary": 52,
    "config": 18,
    "js": 376,
-   "markdown": 46,
-   "other": 41
+   "markdown": 45,
+   "other": 40
   },
   "vendored_files": 0,
   "plugins": 1,
-  "components": 9
+  "components": 8
  },
  "findings": [
   {
@@ -1352,6 +1342,10 @@
    ],
    "REDIS_TRANSIENT_KEY_PREFIX": [
     "mcp/oauth/refresh-lock-store.ts"
+   ],
+   "REDACTED_SECRET": [
+    "mcp/tools/grant-filter.ts",
+    "mcp/utils/secrets.ts"
    ]
   },
   "path_executables": [],
@@ -1379,12 +1373,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 666,
-  "forks": 135,
-  "open_issues": 51,
+  "stars": 667,
+  "forks": 133,
+  "open_issues": 53,
   "contributors": "27",
   "created_at": "2024-11-29T19:08:55Z",
-  "pushed_at": "2026-11-17T06:45:38Z",
+  "pushed_at": "2026-11-20T06:54:44Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

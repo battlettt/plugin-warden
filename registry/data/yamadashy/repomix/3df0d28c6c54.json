@@ -1,0 +1,1387 @@
+{
+ "target": {
+  "display": "yamadashy/repomix",
+  "raw": "yamadashy/repomix",
+  "kind": "github",
+  "url": "https://github.com/yamadashy/repomix",
+  "ref": null,
+  "subdir": null,
+  "commit": "3df0d28c6c54b52e99362e84728a28f56f7bb763",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-20T14:27:04+00:00",
+ "plugins": [
+  {
+   "name": "yamadashy__repomix@3df0d28c6c54",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  },
+  {
+   "name": "repomix-commands",
+   "path": ".claude/plugins/repomix-commands",
+   "source": "manifest",
+   "version": "1.0.2",
+   "description": "Slash commands for quick Repomix operations. Pack local and remote repositories with simple commands like /pack-local and /pack-remote."
+  },
+  {
+   "name": "repomix-explorer",
+   "path": ".claude/plugins/repomix-explorer",
+   "source": "manifest",
+   "version": "1.1.0",
+   "description": "AI-powered repository analysis agent using Repomix CLI. Analyzes local and remote repositories intelligently by running repomix commands, then reading and searching the generated output files to answer questions about code structure, patterns, and content."
+  },
+  {
+   "name": "repomix-mcp",
+   "path": ".claude/plugins/repomix-mcp",
+   "source": "manifest",
+   "version": "1.0.1",
+   "description": "Repomix MCP server for AI-powered codebase analysis. Pack local/remote repositories and search or read the generated outputs. Foundation plugin that enables all Repomix features in Claude Code."
+  }
+ ],
+ "component_counts": {
+  "agent": 1,
+  "bin": 1,
+  "command": 4,
+  "manifest": 4,
+  "marketplace": 1,
+  "mcp_server": 1,
+  "package": 6,
+  "skill": 6
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "yamadashy__repomix@3df0d28c6c54",
+   "path": ".",
+   "plugin": "yamadashy__repomix@3df0d28c6c54",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "repomix-explorer",
+   "path": "skills/repomix-explorer/SKILL.md",
+   "plugin": "yamadashy__repomix@3df0d28c6c54",
+   "trigger": "",
+   "details": {
+    "description": "| Analyze or explore a codebase (remote or local repository) by packing it with the Repomix CLI, then reading and searching the generated output. Use when the user wants a high-level understanding of "
+   }
+  },
+  {
+   "kind": "bin",
+   "name": "repomix.cjs",
+   "path": "bin/repomix.cjs",
+   "plugin": "yamadashy__repomix@3df0d28c6c54",
+   "trigger": "",
+   "details": {
+    "executable": true,
+    "kind": "js"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "repomix-commands",
+   "path": ".claude/plugins/repomix-commands/.claude-plugin/plugin.json",
+   "plugin": "repomix-commands",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.2",
+    "description": "Slash commands for quick Repomix operations. Pack local and remote repositories with simple commands like /pack-local and /pack-remote.",
+    "author": {
+     "name": "yamadashy"
+    },
+    "repository": "https://github.com/yamadashy/repomix",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "pack-local",
+   "path": ".claude/plugins/repomix-commands/commands/pack-local.md",
+   "plugin": "repomix-commands",
+   "trigger": "",
+   "details": {
+    "description": "Pack local codebase with Repomix"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "pack-remote",
+   "path": ".claude/plugins/repomix-commands/commands/pack-remote.md",
+   "plugin": "repomix-commands",
+   "trigger": "",
+   "details": {
+    "description": "Pack and analyze a remote GitHub repository"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "repomix-explorer",
+   "path": ".claude/plugins/repomix-explorer/.claude-plugin/plugin.json",
+   "plugin": "repomix-explorer",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.1.0",
+    "description": "AI-powered repository analysis agent using Repomix CLI. Analyzes local and remote repositories intelligently by running repomix commands, then reading and searching the generated output files to answer questions about code structure, patterns, and content.",
+    "author": {
+     "name": "yamadashy"
+    },
+    "repository": "https://github.com/yamadashy/repomix",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "explore-local",
+   "path": ".claude/plugins/repomix-explorer/commands/explore-local.md",
+   "plugin": "repomix-explorer",
+   "trigger": "",
+   "details": {
+    "description": "Explore and analyze a local codebase"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "explore-remote",
+   "path": ".claude/plugins/repomix-explorer/commands/explore-remote.md",
+   "plugin": "repomix-explorer",
+   "trigger": "",
+   "details": {
+    "description": "Explore and analyze a remote GitHub repository"
+   }
+  },
+  {
+   "kind": "agent",
+   "name": "explorer",
+   "path": ".claude/plugins/repomix-explorer/agents/explorer.md",
+   "plugin": "repomix-explorer",
+   "trigger": "",
+   "details": {
+    "description": "Use this agent when the user wants to analyze or explore a codebase (remote repository or local repository) using Repomix. This includes scenarios like:\\n\\n- User asks to analyze a GitHub repository: ",
+    "model": "inherit"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "repomix-mcp",
+   "path": ".claude/plugins/repomix-mcp/.claude-plugin/plugin.json",
+   "plugin": "repomix-mcp",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "1.0.1",
+    "description": "Repomix MCP server for AI-powered codebase analysis. Pack local/remote repositories and search or read the generated outputs. Foundation plugin that enables all Repomix features in Claude Code.",
+    "author": {
+     "name": "yamadashy"
+    },
+    "repository": "https://github.com/yamadashy/repomix",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "repomix",
+   "path": ".claude/plugins/repomix-mcp/.mcp.json",
+   "plugin": "repomix-mcp",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "-y",
+     "repomix@latest",
+     "--mcp"
+    ]
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "repomix",
+   "path": ".agents/clawhub/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "| Pack and analyze codebases into AI-friendly single files using Repomix. Use when the user wants to explore repositories, analyze code structure, find patterns, check token counts, or prepare codebas"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "agent-carnet",
+   "path": ".agents/skills/agent-carnet/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "\"Use this skill when the user asks to save, recall, find, or organize notes. Triggers on: 'remember this', 'save this', 'note this', 'what did we discuss about...', 'check the notebook', 'find in carn"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "contextual-commit",
+   "path": ".agents/skills/contextual-commit/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Write contextual commits that capture intent, decisions, and constraints alongside code changes. Use when committing code, finishing a task, or when the user asks to commit. Extends Conventional Co"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "browser-extension-developer",
+   "path": "browser/.claude/skills/browser-extension-developer/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Use this skill when developing or maintaining browser extension code in the `browser/` directory, including Chrome/Firefox/Edge compatibility, content scripts, background scripts, or i18n updates."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "website-maintainer",
+   "path": "website/.claude/skills/website-maintainer/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Use this skill when working on the Repomix documentation website in `website/` directory, including VitePress configuration, multi-language content, or translation workflows."
+   }
+  },
+  {
+   "kind": "package",
+   "name": "repomix",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepare": "npm run build",
+     "build": "rimraf lib && tsc -p tsconfig.build.json",
+     "build-bun": "bun run build",
+     "lint": "node --run lint-biome && node --run lint-oxlint && node --run lint-ts && node --run lint-secretlint",
+     "lint-biome": "biome check --write",
+     "lint-oxlint": "oxlint --fix",
+     "lint-ts": "tsc --noEmit",
+     "lint-secretlint": "secretlint \"**/*\" --secretlintignore .gitignore",
+     "test": "vitest",
+     "test-coverage": "vitest run --coverage",
+     "repomix": "node --run build && node --enable-source-maps --trace-warnings bin/repomix.cjs",
+     "repomix-src": "node --run repomix -- --include 'src,tests'",
+     "repomix-website": "node --run repomix -- --include 'website'",
+     "time-node": "node --run build && time node bin/repomix.cjs",
+     "time-bun": "bun run build && time bun bin/repomix.cjs",
+     "bench": "node --run build && hyperfine --warmup 2 --runs 10 'node bin/repomix.cjs'",
+     "bench:cores": "node --run build && bash scripts/bench-cores.sh",
+     "memory-check": "node --run repomix -- --verbose | grep Memory",
+     "memory-check-one-file": "node --run repomix -- --verbose --include 'package.json' | grep Memory",
+     "website": "docker compose -f website/compose.yml build --no-cache && docker compose -f website/compose.yml up",
+     "website-bundle": "docker compose -f website/compose.bundle.yml build --no-cache && docker compose -f website/compose.bundle.yml up",
+     "website-generate-schema": "tsx website/client/scripts/generateSchema.ts",
+     "pinact-run": "pinact run",
+     "pinact-check": "pinact run --check"
+    },
+    "dependencies": {
+     "@clack/prompts": "^0.11.0",
+     "@modelcontextprotocol/server": "^2.4.0",
+     "@repomix/strip-comments": "^2.4.2",
+     "@repomix/tree-sitter-wasms": "^0.1.17",
+     "@secretlint/core": "^13.1.0",
+     "@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
+     "chokidar": "^6.0.0",
+     "commander": "^15.1.0",
+     "fast-xml-builder": "^1.3.1",
+     "git-url-parse": "^16.1.0",
+     "globby": "^16.2.4",
+     "gpt-tokenizer": "^4.1.0",
+     "iconv-lite": "^0.7.0",
+     "is-binary-path": "^3.0.0",
+     "isbinaryfile": "^5.0.2",
+     "jiti": "^2.7.0",
+     "jschardet": "^4.1.0",
+     "json5": "^2.2.3",
+     "minimatch": "^11.0.5",
+     "picocolors": "^1.1.1",
+     "picospinner": "^3.1.2",
+     "tar": "^7.5.22",
+     "tinyclip": "^1.0.3",
+     "tinypool": "^2.2.0",
+     "valibot": "^1.5.0",
+     "web-tree-sitter": "^0.27.2",
+     "zod": "^4.6.7"
+    },
+    "devDependencies": {
+     "@biomejs/biome": "^2.6.6",
+     "@secretlint/types": "^13.1.0",
+     "@types/node": "^26.6.6",
+     "@types/strip-comments": "^2.0.4",
+     "@valibot/to-json-schema": "^1.8.0",
+     "@vitest/coverage-v8": "^5.1.0",
+     "@xmldom/xmldom": "^0.9.9",
+     "git-up": "^8.1.1",
+     "oxlint": "^1.92.0",
+     "rimraf": "^6.1.4",
+     "secretlint": "^13.1.0",
+     "tsx": "^4.23.15",
+     "typescript": "^7.0.2",
+     "vite": "^8.3.6",
+     "vitest": "^5.1.0"
+    },
+    "bin": "./bin/repomix.cjs"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "repomix",
+   "path": "browser/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "prepare": "wxt prepare",
+     "dev": "wxt",
+     "dev:firefox": "wxt -b firefox",
+     "build": "wxt build",
+     "build:chrome": "wxt build -b chrome",
+     "build:firefox": "wxt build -b firefox",
+     "build:edge": "wxt build -b edge",
+     "build-all": "node --run build:chrome && node --run build:firefox && node --run build:edge",
+     "zip": "wxt zip",
+     "zip:chrome": "wxt zip -b chrome",
+     "zip:firefox": "wxt zip -b firefox",
+     "zip:edge": "wxt zip -b edge",
+     "generate-icons": "tsx scripts/generate-icons.ts",
+     "lint": "node --run lint-tsc",
+     "lint-tsc": "tsc --noEmit",
+     "test": "vitest",
+     "archive": "git archive HEAD -o ./storage/source.zip"
+    },
+    "dependencies": {},
+    "devDependencies": {
+     "@types/chrome": "^0.3.7",
+     "@types/node": "^26.6.6",
+     "jsdom": "^31.0.0",
+     "sharp": "^0.35.5",
+     "tsx": "^4.23.15",
+     "typescript": "^7.0.2",
+     "vitest": "^5.1.0",
+     "wxt": "^0.21.5"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@repomix/memory-benchmarks",
+   "path": "scripts/memory/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc",
+     "build:repomix": "cd ../.. && node --run build",
+     "build:all": "node --run build:repomix && node --run build",
+     "clean": "rm -rf dist",
+     "test": "node --run build:all && node --expose-gc dist/memory-test.js",
+     "test:full": "node --run build:all && node --expose-gc dist/memory-test.js --full",
+     "test:continuous": "node --run build:all && node --expose-gc dist/memory-test.js --continuous"
+    },
+    "dependencies": {
+     "@types/asciichart": "^1.5.8",
+     "asciichart": "^1.5.25",
+     "repomix": "file:../.."
+    },
+    "devDependencies": {
+     "@types/node": "^26.6.6",
+     "typescript": "^7.0.2"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "simple-project",
+   "path": "tests/integration-tests/fixtures/packager/inputs/simple-project/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "start": "node src/index.js"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "repomix-website-client",
+   "path": "website/client/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "docs:dev": "vitepress dev",
+     "docs:build": "vitepress build",
+     "docs:preview": "vitepress preview",
+     "lint": "node --run lint-tsc",
+     "lint-tsc": "tsc --noEmit"
+    },
+    "dependencies": {
+     "fflate": "^0.8.3",
+     "isbot": "^5.2.2",
+     "lucide-vue-next": "^1.0.0",
+     "vue3-ace-editor": "^2.2.4"
+    },
+    "devDependencies": {
+     "@types/gtag.js": "^0.0.20",
+     "@types/node": "^26.6.6",
+     "rollup-plugin-visualizer": "^7.1.2",
+     "typescript": "^7.0.2",
+     "vite-plugin-pwa": "^2.0.0",
+     "vitepress": "^1.6.4",
+     "vitepress-plugin-llms": "^1.14.0",
+     "wrangler": "^4.158.0"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "repomix-website-server",
+   "path": "website/server/package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "dev": "PORT=8080 tsx watch src/index.ts",
+     "build": "tsc",
+     "bundle": "node scripts/bundle.mjs",
+     "lint": "node --run lint-tsc",
+     "lint-tsc": "tsc --noEmit -p tsconfig.test.json",
+     "test": "vitest",
+     "start": "node dist/index.js",
+     "start:bundle": "node dist-bundled/server.mjs",
+     "clean": "rimraf dist dist-bundled",
+     "cloud-deploy": "gcloud builds submit --config=cloudbuild.yaml ."
+    },
+    "dependencies": {
+     "@hono/node-server": "^2.1.6",
+     "@upstash/ratelimit": "^2.2.0",
+     "@upstash/redis": "^1.41.0",
+     "fflate": "^0.8.3",
+     "hono": "^4.13.17",
+     "isbot": "^5.2.2",
+     "repomix": "github:yamadashy/repomix#main",
+     "valibot": "^1.5.0",
+     "winston": "^3.19.0"
+    },
+    "devDependencies": {
+     "@swc/core": "^1.16.22",
+     "@types/node": "^26.6.6",
+     "rimraf": "^6.1.4",
+     "tsx": "^4.23.15",
+     "typescript": "^7.0.2",
+     "vitest": "^5.1.0",
+     "rolldown": "^1.3.0",
+     "rollup-plugin-swc3": "^0.12.1"
+    },
+    "bin": null
+   }
+  },
+  {
+   "kind": "marketplace",
+   "name": "repomix",
+   "path": ".claude-plugin/marketplace.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "plugins": [
+     {
+      "name": "repomix-mcp",
+      "source": "./.claude/plugins/repomix-mcp",
+      "category": "integration"
+     },
+     {
+      "name": "repomix-commands",
+      "source": "./.claude/plugins/repomix-commands",
+      "category": "productivity"
+     },
+     {
+      "name": "repomix-explorer",
+      "source": "./.claude/plugins/repomix-explorer",
+      "category": "productivity"
+     }
+    ],
+    "owner": {
+     "name": "yamadashy"
+    }
+   }
+  }
+ ],
+ "stats": {
+  "files": 1373,
+  "bytes": 9451576,
+  "by_kind": {
+   "binary": 23,
+   "code": 41,
+   "config": 114,
+   "js": 430,
+   "markdown": 562,
+   "other": 194,
+   "python": 7,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 4,
+  "components": 24
+ },
+ "findings": [
+  {
+   "rule_id": "TAMPER-OTHER-PLUGINS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:58d2413d88669801",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9f468147c5683054",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b19f6ed99c5090f1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PRIV-SECURITY-TOOLS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:50d6f3b1f58115b6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-UNPINNED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e466fab890a9ae64",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "DEP-GIT-SOURCE",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:dd6ebcce6cf5bfa4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9cbf87a52a8ad671",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:014a838a239e0451",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-SSH-KEYS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:190b181d82e58364",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d49efe9d99e2f3e9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:421e4d2ef562c020",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "OBF-ENCODED-BLOB",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b680e31fdb3bbcd1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-GITHUB",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c04b0138cf282031",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-SLACK",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:03e7d190d16fbf38",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-SLACK",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9daecd7813b678f4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-SLACK",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0e803fa0f6f6051b",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-PRIVATE-KEY",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e58d3445b7b0e5f6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:405d544386cda629",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c5a999320db6e671",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b8162befba1a2306",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5e96e0efa143a38d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "BIN-EXECUTABLE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6d1e2151d6753301",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-022",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TAMPER-GIT-HOOKS",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:c8d19d1f4b459603",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TELEMETRY-SDK",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1e7814ae9c8703f3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bd859ff3bc2c655d",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:beefe52c0bc379e5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6b25d8c73494abf9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-027",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "TELEMETRY-SDK",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0c4287c29a24cdb9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-028",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7e544aefeaec0cf3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-029",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:fbc0137f837a2916",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-030",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "OBF-ENCODED-BLOB",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4dbc3a30e81ef71e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-031",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "OBF-ENCODED-BLOB",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "obfuscation",
+   "path": "",
+   "line": null,
+   "snippet": "fp:e37382577c27a675",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-032",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:434b55725b844419",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-033",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cbe72108d8d2c482",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-034",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7ecbb438d4a64d18",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-035",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "npx -y repomix@latest --mcp",
+    "type": "MCP server",
+    "plugin": "repomix-mcp",
+    "file": ".claude/plugins/repomix-mcp/.mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "repomix",
+    "kind": "MCP server",
+    "launch": "npx -y repomix@latest --mcp",
+    "file": ".claude/plugins/repomix-mcp/.mcp.json"
+   }
+  ],
+  "hosts": {
+   "api.github.com": [
+    ".devcontainer/init-firewall.sh"
+   ],
+   "api.repomix.com": [
+    "website/client/components/api/client.ts"
+   ],
+   "challenges.cloudflare.com": [
+    "website/server/src/middlewares/turnstile.ts"
+   ],
+   "repomix.com": [
+    "src/mcp/mcpServer.ts"
+   ]
+  },
+  "sensitive_paths": {},
+  "env_vars": {
+   "INPUT_SVG_PATH": [
+    "browser/scripts/generate-icons.ts"
+   ],
+   "VALID_NAME_PATTERN": [
+    "src/core/git/gitRemoteUrl.ts"
+   ],
+   "EXPLICIT_URL_NAME_PATTERN": [
+    "src/core/git/gitRemoteUrl.ts"
+   ],
+   "REPOMIX_WORKER_PATH": [
+    "src/shared/processConcurrency.ts"
+   ],
+   "CREDENTIAL_QUERY_KEYS": [
+    "src/shared/urlRedact.ts"
+   ],
+   "VITE_TURNSTILE_SITE_KEY": [
+    "website/client/.vitepress/config.ts"
+   ],
+   "CLOUDFLARE_ORIGIN_SECRET": [
+    "website/server/src/middlewares/cloudflareGuard.ts"
+   ],
+   "TURNSTILE_SECRET_KEY": [
+    "website/server/src/middlewares/turnstile.ts"
+   ],
+   "UPSTASH_REDIS_REST_TOKEN": [
+    "website/server/src/utils/dailyRateLimit.ts"
+   ]
+  },
+  "path_executables": [
+   "bin/repomix.cjs"
+  ],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 1,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 7,
+  "credentials": 7,
+  "secrets": 5,
+  "persistence": 0,
+  "config-tampering": 2,
+  "destructive": 0,
+  "privilege": 1,
+  "obfuscation": 3,
+  "surveillance": 0,
+  "prompt-injection": 1,
+  "permissions": 0,
+  "supply-chain": 8,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 29351,
+  "forks": 1649,
+  "open_issues": 169,
+  "contributors": "84",
+  "created_at": "2024-07-13T07:11:32Z",
+  "pushed_at": "2026-11-20T14:25:41Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "\ud83d\udce6 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file. Perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like Claude, ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 40,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 6,
+   "low": 15,
+   "info": 14
+  },
+  "active": 35,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "protect-claude-config",
+  "disable-plugin",
+  "deny-network-bash",
+  "pin-mcp-version",
+  "deny-mcp-server",
+  "dependency-audit",
+  "deny-secret-reads",
+  "review-before-run",
+  "rotate-secret",
+  "pin-commit",
+  "check-persistence",
+  "disable-hooks",
+  "sandbox-bash",
+  "lock-permission-mode"
+ ],
+ "settings_snippet": {}
+}

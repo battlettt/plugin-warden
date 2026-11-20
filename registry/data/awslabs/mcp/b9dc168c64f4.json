@@ -6,14 +6,14 @@
   "url": "https://github.com/awslabs/mcp",
   "ref": null,
   "subdir": null,
-  "commit": "6b8a6f7878f1a4d151ca8af6f597440f19b6a47f",
+  "commit": "b9dc168c64f489aa9786ea492db9dfa985f1ed1b",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:31:45+00:00",
+ "generated_at": "2026-11-20T14:22:09+00:00",
  "plugins": [
   {
-   "name": "awslabs__mcp@6b8a6f7878f1",
+   "name": "awslabs__mcp@b9dc168c64f4",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "awslabs__mcp@6b8a6f7878f1",
+   "name": "awslabs__mcp@b9dc168c64f4",
    "path": ".",
-   "plugin": "awslabs__mcp@6b8a6f7878f1",
+   "plugin": "awslabs__mcp@b9dc168c64f4",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -788,15 +788,15 @@
   }
  ],
  "stats": {
-  "files": 3919,
-  "bytes": 76462130,
+  "files": 3922,
+  "bytes": 76524639,
   "by_kind": {
    "binary": 13,
    "config": 218,
    "js": 4,
    "markdown": 495,
    "other": 479,
-   "python": 2624,
+   "python": 2627,
    "shell": 86
   },
   "vendored_files": 0,
@@ -3928,12 +3928,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 9932,
-  "forks": 1884,
-  "open_issues": 284,
+  "stars": 9940,
+  "forks": 1891,
+  "open_issues": 290,
   "contributors": "100+",
   "created_at": "2025-03-21T00:39:00Z",
-  "pushed_at": "2026-11-18T00:41:52Z",
+  "pushed_at": "2026-11-20T13:19:14Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

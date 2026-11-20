@@ -6,11 +6,11 @@
   "url": "https://github.com/vercel/vercel-plugin",
   "ref": null,
   "subdir": null,
-  "commit": "8a9039d656df8a3260bf6651a8e4c62af3d9294d",
+  "commit": "8bb46159108f0cd6a749959b20c1411257411090",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:30:45+00:00",
+ "generated_at": "2026-11-20T14:20:58+00:00",
  "plugins": [
   {
    "name": "vercel",
@@ -28,7 +28,7 @@
   "marketplace": 1,
   "mcp_server": 1,
   "package": 1,
-  "skill": 55
+  "skill": 56
  },
  "components": [
   {
@@ -317,6 +317,16 @@
    "trigger": "",
    "details": {
     "description": "Build multi-platform chat bots with Chat SDK (`chat` npm package). Use when developers want to scaffold a bot with create-chat-sdk, build a Slack, Teams, Google Chat, Discord, Telegram, GitHub, Linear"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "client-side-security",
+   "path": "skills/client-side-security/SKILL.md",
+   "plugin": "vercel",
+   "trigger": "",
+   "details": {
+    "description": "\"Protect what runs in your users' browsers on Vercel with a Content-Security-Policy header and Page Integrity script monitoring. Use when adding or debugging a CSP, choosing where to set it (Next.js p"
    }
   },
   {
@@ -832,18 +842,18 @@
   }
  ],
  "stats": {
-  "files": 535,
-  "bytes": 3556841,
+  "files": 538,
+  "bytes": 3571134,
   "by_kind": {
    "binary": 1,
    "config": 33,
-   "js": 141,
-   "markdown": 314,
-   "other": 46
+   "js": 142,
+   "markdown": 315,
+   "other": 47
   },
   "vendored_files": 0,
   "plugins": 1,
-  "components": 72
+  "components": 73
  },
  "findings": [
   {
@@ -1739,12 +1749,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 338,
-  "forks": 81,
-  "open_issues": 62,
+  "stars": 340,
+  "forks": 82,
+  "open_issues": 68,
   "contributors": "53",
   "created_at": "2026-03-04T16:46:22Z",
-  "pushed_at": "2026-11-18T10:01:53Z",
+  "pushed_at": "2026-11-20T10:11:57Z",
   "license": "NOASSERTION",
   "archived": false,
   "owner_type": "Organization",

@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-code",
   "ref": null,
   "subdir": null,
-  "commit": "52dd3a11c3a87f79b06d353cdf8eea1bc52854dc",
+  "commit": "16043fc1342dbd65c13a94621af692c02086f978",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:20:58+00:00",
+ "generated_at": "2026-11-20T14:11:02+00:00",
  "plugins": [
   {
    "name": "agents-md",
@@ -25,6 +25,13 @@
    "source": "manifest",
    "version": "0.1.0",
    "description": "The diff pane as a plugin: /diff opens the session's uncommitted changes beside the transcript, file by file with their hunks, refreshed as Claude edits and runs commands; the first edit opens it where the terminal is wide enough, and a file's ask button rides its hunks on the next prompt."
+  },
+  {
+   "name": "easel",
+   "path": "mods/easel",
+   "source": "manifest",
+   "version": "0.1.0",
+   "description": "Draws charts in the transcript: a chart tool for Claude, and automatic charts for MCP results that are metrics over time"
   },
   {
    "name": "hipaa-default",
@@ -56,7 +63,7 @@
   }
  ],
  "component_counts": {
-  "manifest": 6,
+  "manifest": 7,
   "marketplace": 1
  },
  "components": [
@@ -102,6 +109,37 @@
     "description": "The diff pane as a plugin: /diff opens the session's uncommitted changes beside the transcript, file by file with their hunks, refreshed as Claude edits and runs commands; the first edit opens it where the terminal is wide enough, and a file's ask button rides its hunks on the next prompt.",
     "author": {
      "name": "Anthropic"
+    }
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "easel",
+   "path": "mods/easel/.claude-plugin/plugin.json",
+   "plugin": "easel",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "0.1.0",
+    "description": "Draws charts in the transcript: a chart tool for Claude, and automatic charts for MCP results that are metrics over time",
+    "author": {
+     "name": "Anthropic"
+    },
+    "userConfig": {
+     "autoCharts": {
+      "type": "boolean",
+      "title": "Auto charts",
+      "description": "Draw a chart under an MCP result that is metrics over time, without being asked. Off: only the charts Claude asks for.",
+      "required": false,
+      "default": true
+     },
+     "autoChartSkip": {
+      "type": "string",
+      "title": "Auto charts: servers to skip",
+      "description": "MCP servers whose results never get an auto chart, separated by commas. A server is named as its tools name it: \"grafana\" for mcp__grafana__query.",
+      "required": false,
+      "default": ""
+     }
     }
    }
   },
@@ -358,20 +396,20 @@
   }
  ],
  "stats": {
-  "files": 1564,
-  "bytes": 15060962,
+  "files": 3366,
+  "bytes": 15820340,
   "by_kind": {
    "binary": 1,
-   "config": 43,
-   "js": 1459,
-   "markdown": 23,
+   "config": 45,
+   "js": 3258,
+   "markdown": 24,
    "other": 28,
    "python": 2,
    "shell": 8
   },
   "vendored_files": 0,
-  "plugins": 6,
-  "components": 7
+  "plugins": 7,
+  "components": 8
  },
  "findings": [
   {
@@ -481,7 +519,7 @@
    "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:d9734fe1143d321a",
+   "snippet": "fp:3f107cc867d28c30",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -495,13 +533,13 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "rule_id": "HIDDEN-UNICODE",
    "title": "Withheld",
    "severity": "low",
-   "category": "permissions",
+   "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:70d1b39d74b27afa",
+   "snippet": "fp:6e6129148e2a7b5c",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -515,13 +553,13 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "TAMPER-SANDBOX-OFF",
+   "rule_id": "HIDDEN-UNICODE",
    "title": "Withheld",
    "severity": "low",
-   "category": "permissions",
+   "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:4e463eb7ce9e83bf",
+   "snippet": "fp:d9734fe1143d321a",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -541,7 +579,7 @@
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:442f94e9578d6d09",
+   "snippet": "fp:70d1b39d74b27afa",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -549,6 +587,46 @@
    "source": "static",
    "confidence": "high",
    "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-SANDBOX-OFF",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:4e463eb7ce9e83bf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "TAMPER-BYPASS-PERMISSIONS",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "permissions",
+   "path": "",
+   "line": null,
+   "snippet": "fp:442f94e9578d6d09",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -568,7 +646,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-010",
+   "id": "F-012",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -588,7 +666,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-011",
+   "id": "F-013",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -608,7 +686,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-012",
+   "id": "F-014",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -628,7 +706,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-013",
+   "id": "F-015",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -648,7 +726,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-014",
+   "id": "F-016",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -661,14 +739,14 @@
    "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:85c6e401e52a92c3",
+   "snippet": "fp:7713dee5481a22bc",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-015",
+   "id": "F-017",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -688,7 +766,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-016",
+   "id": "F-018",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -708,7 +786,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-017",
+   "id": "F-019",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -728,7 +806,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-018",
+   "id": "F-020",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -748,7 +826,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-019",
+   "id": "F-021",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -768,7 +846,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-020",
+   "id": "F-022",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -788,7 +866,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-021",
+   "id": "F-023",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -808,7 +886,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-022",
+   "id": "F-024",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -828,7 +906,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-023",
+   "id": "F-025",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -848,7 +926,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-024",
+   "id": "F-026",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -868,7 +946,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-025",
+   "id": "F-027",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -906,6 +984,9 @@
     "mods/sec-default/hooks/early-run/is-settings-file.ts",
     "mods/types/claude-code.d.ts"
    ],
+   "GCLOUD": [
+    "mods/sec-default/hooks/policy/cloud-variables.ts"
+   ],
    ".claude.json": [
     "mods/telemetry/hooks/context/identity/global-config-path/global-config-path.ts",
     "mods/types/claude-code.d.ts"
@@ -937,7 +1018,7 @@
   "config-tampering": 0,
   "destructive": 0,
   "privilege": 1,
-  "obfuscation": 1,
+  "obfuscation": 3,
   "surveillance": 0,
   "prompt-injection": 3,
   "permissions": 6,
@@ -950,12 +1031,12 @@
   "12 marketplace plugin(s) live in other repositories and were not scanned here: agent-sdk-dev (https://github.com/anthropics/claude-plugins-official.git); code-review (https://github.com/anthropics/claude-plugins-official.git); commit-commands (https://github.com/anthropics/claude-plugins-official.git); explanatory-output-style (https://github.com/anthropics/claude-plugins-official.git); feature-dev (https://github.com/anthropics/claude-plugins-official.git); frontend-design (https://github.com/anthropics/claude-plugins-official.git); hookify (https://github.com/anthropics/claude-plugins-official.git); learning-output-style (https://github.com/anthropics/claude-plugins-official.git); plugin-dev (https://github.com/anthropics/claude-plugins-official.git); pr-review-toolkit (https://github.com/anthropics/claude-plugins-official.git); ralph-loop (https://github.com/anthropics/claude-plugins-official.git); security-guidance (https://github.com/anthropics/claude-plugins-official.git)"
  ],
  "metadata": {
-  "stars": 156126,
-  "forks": 25029,
-  "open_issues": 17108,
+  "stars": 156411,
+  "forks": 25064,
+  "open_issues": 16526,
   "contributors": "56",
   "created_at": "2025-02-22T17:41:21Z",
-  "pushed_at": "2026-11-18T11:10:30Z",
+  "pushed_at": "2026-11-20T07:56:59Z",
   "license": null,
   "archived": false,
   "owner_type": "Organization",
@@ -976,10 +1057,10 @@
    "critical": 0,
    "high": 0,
    "medium": 4,
-   "low": 16,
+   "low": 18,
    "info": 5
   },
-  "active": 25,
+  "active": 27,
   "dismissed": 0,
   "injection_guard": false,
   "reasons": []
