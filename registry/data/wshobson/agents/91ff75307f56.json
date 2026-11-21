@@ -6,11 +6,11 @@
   "url": "https://github.com/wshobson/agents",
   "ref": null,
   "subdir": null,
-  "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+  "commit": "91ff75307f5668916f3eb77d5ba556266c961376",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T01:35:23+00:00",
+ "generated_at": "2026-11-21T13:37:04+00:00",
  "plugins": [
   {
    "name": "accessibility-compliance",
@@ -359,7 +359,7 @@
    "name": "game-development",
    "path": "plugins/game-development",
    "source": "manifest",
-   "version": "1.2.4",
+   "version": "1.2.5",
    "description": "Unity game development with C# scripting, Minecraft server plugin development with Bukkit/Spigot APIs"
   },
   {
@@ -440,13 +440,6 @@
    "description": "ML model training pipelines, hyperparameter tuning, model deployment automation, experiment tracking, and MLOps workflows"
   },
   {
-   "name": "meigen-ai-design",
-   "path": "plugins/meigen-ai-design",
-   "source": "manifest",
-   "version": "1.0.10",
-   "description": "AI image generation with creative workflow orchestration, parallel multi-direction output, prompt engineering, and a 1,300+ curated inspiration library. Requires MeiGen MCP server (supports MeiGen Cloud, local ComfyUI, and OpenAI-compatible APIs)."
-  },
-  {
    "name": "multi-platform-apps",
    "path": "plugins/multi-platform-apps",
    "source": "manifest",
@@ -471,7 +464,7 @@
    "name": "payment-processing",
    "path": "plugins/payment-processing",
    "source": "manifest",
-   "version": "1.2.3",
+   "version": "1.2.4",
    "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance"
   },
   {
@@ -485,7 +478,7 @@
    "name": "plugin-eval",
    "path": "plugins/plugin-eval",
    "source": "manifest",
-   "version": "0.1.4",
+   "version": "0.1.5",
    "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills"
   },
   {
@@ -499,7 +492,7 @@
    "name": "protect-mcp",
    "path": "plugins/protect-mcp",
    "source": "manifest",
-   "version": "0.1.6",
+   "version": "0.2.0",
    "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 receipts independently verifiable offline."
   },
   {
@@ -527,7 +520,7 @@
    "name": "review-agent-governance",
    "path": "plugins/review-agent-governance",
    "source": "manifest",
-   "version": "0.1.6",
+   "version": "0.2.0",
    "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI config. Cedar-gated, receipt-signed, designed for the Hermes-style failure mode where a review bot posts without oversight."
   },
   {
@@ -583,7 +576,7 @@
    "name": "signed-audit-trails",
    "path": "plugins/signed-audit-trails",
    "source": "manifest",
-   "version": "0.1.5",
+   "version": "0.2.0",
    "description": "Teaching skill: signed audit trails for Claude Code tool calls. Cookbook-style walkthrough of Cedar-gated tool calls with Ed25519 receipts, offline verification, and CI/CD integration. Pairs with the protect-mcp plugin."
   },
   {
@@ -658,10 +651,10 @@
   }
  ],
  "component_counts": {
-  "agent": 202,
-  "command": 105,
+  "agent": 199,
+  "command": 103,
   "hook": 4,
-  "manifest": 92,
+  "manifest": 91,
   "marketplace": 1,
   "package": 3,
   "skill": 185
@@ -3998,7 +3991,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "Unity game development with C# scripting, Minecraft server plugin development with Bukkit/Spigot APIs",
     "author": {
      "name": "Seth Hobson",
@@ -4984,78 +4977,6 @@
   },
   {
    "kind": "manifest",
-   "name": "meigen-ai-design",
-   "path": "plugins/meigen-ai-design/.claude-plugin/plugin.json",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "source": "manifest",
-    "version": "1.0.10",
-    "description": "AI image generation with creative workflow orchestration, parallel multi-direction output, prompt engineering, and a 1,300+ curated inspiration library. Requires MeiGen MCP server (supports MeiGen Cloud, local ComfyUI, and OpenAI-compatible APIs).",
-    "author": {
-     "name": "MeiGen",
-     "url": "https://www.meigen.ai"
-    },
-    "license": "MIT"
-   }
-  },
-  {
-   "kind": "command",
-   "name": "find",
-   "path": "plugins/meigen-ai-design/commands/find.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Quick gallery search. Use when user runs /meigen-ai-design:find with keywords to browse inspiration."
-   }
-  },
-  {
-   "kind": "command",
-   "name": "gen",
-   "path": "plugins/meigen-ai-design/commands/gen.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Quick image generation. Use when user runs /meigen-ai-design:gen with a prompt. Skips intent assessment, generates directly."
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "gallery-researcher",
-   "path": "plugins/meigen-ai-design/agents/gallery-researcher.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Gallery search and inspiration agent. Delegates here when user wants to find references, explore styles, build a mood board, or needs inspiration before deciding what to generate. Searches the MeiG",
-    "model": "haiku",
-    "tools": "mcp__meigen__search_gallery, mcp__meigen__get_inspiration"
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "image-generator",
-   "path": "plugins/meigen-ai-design/agents/image-generator.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Image generation executor agent. Delegates here for ALL generate_image calls to keep the main conversation context clean. Spawn one per image; for parallel generation, spawn multiple in a single re",
-    "model": "inherit",
-    "tools": "mcp__meigen__generate_image"
-   }
-  },
-  {
-   "kind": "agent",
-   "name": "prompt-crafter",
-   "path": "plugins/meigen-ai-design/agents/prompt-crafter.md",
-   "plugin": "meigen-ai-design",
-   "trigger": "",
-   "details": {
-    "description": ">- Batch prompt writing agent. Delegates here when you need to write multiple distinct prompts at once \u2014 for parallel image generation (e.g., \"5 logo concepts\"), serial-to-parallel workflows (e.g., ge",
-    "model": "haiku"
-   }
-  },
-  {
-   "kind": "manifest",
    "name": "multi-platform-apps",
    "path": "plugins/multi-platform-apps/.claude-plugin/plugin.json",
    "plugin": "multi-platform-apps",
@@ -5353,7 +5274,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
     "author": {
      "name": "Seth Hobson",
@@ -5480,7 +5401,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills"
    }
   },
@@ -5633,7 +5554,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 receipts independently verifiable offline.",
     "author": {
      "name": "Tom Farley",
@@ -6095,7 +6016,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI config. Cedar-gated, receipt-signed, designed for the Hermes-style failure mode where a review bot posts without oversight.",
     "author": {
      "name": "Tom Farley",
@@ -6145,7 +6066,7 @@
    "plugin": "review-agent-governance",
    "trigger": "",
    "details": {
-    "description": "\"List the review actions that the review-governance policy blocked in this session. protect-mcp 0.7.4 writes no receipt for a denied call, so the list comes from the session, not from ./review-receipt"
+    "description": "\"List the review actions that the review-governance policy blocked in this session. protect-mcp 0.32.4 writes no receipt for a denied call, so the list comes from the session, not from ./review-receip"
    }
   },
   {
@@ -6678,7 +6599,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.1.5",
+    "version": "0.2.0",
     "description": "Teaching skill: signed audit trails for Claude Code tool calls. Cookbook-style walkthrough of Cedar-gated tool calls with Ed25519 receipts, offline verification, and CI/CD integration. Pairs with the protect-mcp plugin.",
     "author": {
      "name": "Tom Farley",
@@ -8252,7 +8173,7 @@
       "name": "payment-processing",
       "source": "./plugins/payment-processing",
       "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "author": {
        "name": "Seth Hobson",
        "email": "seth@major7apps.com"
@@ -8265,7 +8186,7 @@
       "name": "game-development",
       "source": "./plugins/game-development",
       "description": "Unity game development with C# scripting, Minecraft server plugin development with Bukkit/Spigot APIs",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "author": {
        "name": "Seth Hobson",
        "email": "seth@major7apps.com"
@@ -8509,19 +8430,6 @@
       "category": "languages"
      },
      {
-      "name": "meigen-ai-design",
-      "source": "./plugins/meigen-ai-design",
-      "description": "AI image generation with creative workflow orchestration, prompt engineering, and curated inspiration library via MCP server",
-      "version": "1.0.10",
-      "author": {
-       "name": "MeiGen",
-       "url": "https://github.com/jau123"
-      },
-      "homepage": "https://github.com/jau123/MeiGen-AI-Design-MCP",
-      "license": "MIT",
-      "category": "creative"
-     },
-     {
       "name": "brand-landingpage",
       "source": "./plugins/brand-landingpage",
       "description": "Guides developers from brand discovery through iterative design to deployment-ready HTML via Stitch.",
@@ -8537,7 +8445,7 @@
       "name": "plugin-eval",
       "source": "./plugins/plugin-eval",
       "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "author": {
        "name": "Seth Hobson"
       },
@@ -8604,7 +8512,7 @@
       "name": "protect-mcp",
       "source": "./plugins/protect-mcp",
       "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 decisions are policy-gated before they run and every decision produces a tamper-evident receipt verifiable offline.",
-      "version": "0.1.6",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8627,7 +8535,7 @@
       "name": "signed-audit-trails",
       "source": "./plugins/signed-audit-trails",
       "description": "Teaching skill: cookbook-style walkthrough for signed audit trails on every Claude Code tool call. Cedar policy, Ed25519 receipts, offline verification, CI/CD integration, SLSA composition. Pairs with the protect-mcp runtime plugin.",
-      "version": "0.1.5",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8651,7 +8559,7 @@
       "name": "review-agent-governance",
       "source": "./plugins/review-agent-governance",
       "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI configuration. Joins protect-mcp and signed-audit-trails in the governance category; composes with protect-mcp for runtime enforcement.",
-      "version": "0.1.6",
+      "version": "0.2.0",
       "author": {
        "name": "Tom Farley",
        "email": "tommy@scopeblind.com",
@@ -8750,19 +8658,20 @@
   }
  ],
  "stats": {
-  "files": 1172,
-  "bytes": 8251082,
+  "files": 1166,
+  "bytes": 8276320,
   "by_kind": {
    "code": 2,
-   "config": 273,
-   "markdown": 794,
+   "config": 271,
+   "js": 2,
+   "markdown": 788,
    "other": 21,
    "python": 72,
    "shell": 10
   },
   "vendored_files": 0,
-  "plugins": 92,
-  "components": 592
+  "plugins": 91,
+  "components": 586
  },
  "findings": [
   {
@@ -9551,6 +9460,7 @@
   "destructive": 2,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 8,
   "permissions": 14,
   "supply-chain": 4,
@@ -9562,12 +9472,12 @@
   "2 marketplace plugin(s) live in other repositories and were not scanned here: pensyve (https://github.com/major7apps/pensyve.git); deja-vu (https://github.com/vshulcz/deja-vu.git)"
  ],
  "metadata": {
-  "stars": 42515,
-  "forks": 4493,
-  "open_issues": 14,
-  "contributors": "91",
+  "stars": 42764,
+  "forks": 4519,
+  "open_issues": 3,
+  "contributors": "94",
   "created_at": "2025-07-24T23:28:14Z",
-  "pushed_at": "2026-11-09T01:08:33Z",
+  "pushed_at": "2026-11-21T13:07:49Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",
@@ -9577,7 +9487,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.1.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "review",
   "label": "Review before installing",

@@ -6,11 +6,11 @@
   "url": "https://github.com/everyinc/compound-engineering-plugin",
   "ref": null,
   "subdir": null,
-  "commit": "8f7614639e7f3792a6f9337d8742a80a232bd596",
+  "commit": "58d1a83d9207c96c9fb4934589b8b5967849dfdb",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:21:22+00:00",
+ "generated_at": "2026-11-21T13:37:19+00:00",
  "plugins": [
   {
    "name": "compound-engineering",
@@ -1584,15 +1584,15 @@
   }
  ],
  "stats": {
-  "files": 2227,
-  "bytes": 20146722,
+  "files": 2234,
+  "bytes": 20167371,
   "by_kind": {
    "binary": 3,
    "code": 6,
    "config": 294,
-   "js": 639,
-   "markdown": 1084,
-   "other": 116,
+   "js": 643,
+   "markdown": 1086,
+   "other": 117,
    "python": 52,
    "shell": 33
   },
@@ -3729,12 +3729,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 26143,
-  "forks": 2067,
-  "open_issues": 80,
+  "stars": 26178,
+  "forks": 2065,
+  "open_issues": 81,
   "contributors": "100+",
   "created_at": "2025-10-09T19:43:46Z",
-  "pushed_at": "2026-11-18T07:55:46Z",
+  "pushed_at": "2026-11-20T19:47:07Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

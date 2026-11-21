@@ -6,14 +6,14 @@
   "url": "https://github.com/firecrawl/firecrawl-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "ee37cc5468841094b4b2c285c2cd4d984909e5f3",
+  "commit": "cdd5b56e85b0e6c4e6a02adb32760c98e4797474",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:36:04+00:00",
+ "generated_at": "2026-11-21T13:54:33+00:00",
  "plugins": [
   {
-   "name": "firecrawl__firecrawl-mcp-server@ee37cc546884",
+   "name": "firecrawl__firecrawl-mcp-server@cdd5b56e85b0",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "firecrawl__firecrawl-mcp-server@ee37cc546884",
+   "name": "firecrawl__firecrawl-mcp-server@cdd5b56e85b0",
    "path": ".",
-   "plugin": "firecrawl__firecrawl-mcp-server@ee37cc546884",
+   "plugin": "firecrawl__firecrawl-mcp-server@cdd5b56e85b0",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -95,7 +95,7 @@
  ],
  "stats": {
   "files": 139,
-  "bytes": 4792482,
+  "bytes": 4793177,
   "by_kind": {
    "binary": 3,
    "config": 27,
@@ -538,12 +538,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 7853,
-  "forks": 938,
-  "open_issues": 201,
+  "stars": 7871,
+  "forks": 942,
+  "open_issues": 200,
   "contributors": "36",
   "created_at": "2024-12-06T07:50:27Z",
-  "pushed_at": "2026-11-18T13:54:27Z",
+  "pushed_at": "2026-11-21T12:43:08Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

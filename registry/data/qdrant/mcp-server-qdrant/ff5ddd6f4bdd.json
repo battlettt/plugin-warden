@@ -6,14 +6,14 @@
   "url": "https://github.com/qdrant/mcp-server-qdrant",
   "ref": null,
   "subdir": null,
-  "commit": "9cfd5f1584e4de45517c335c2bb69f7a53e44055",
+  "commit": "ff5ddd6f4bddd937331695a8873582c6cdf01775",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-15T02:07:19+00:00",
+ "generated_at": "2026-11-21T13:54:28+00:00",
  "plugins": [
   {
-   "name": "qdrant__mcp-server-qdrant@9cfd5f1584e4",
+   "name": "qdrant__mcp-server-qdrant@ff5ddd6f4bdd",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "qdrant__mcp-server-qdrant@9cfd5f1584e4",
+   "name": "qdrant__mcp-server-qdrant@ff5ddd6f4bdd",
    "path": ".",
-   "plugin": "qdrant__mcp-server-qdrant@9cfd5f1584e4",
+   "plugin": "qdrant__mcp-server-qdrant@ff5ddd6f4bdd",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -58,13 +58,13 @@
   }
  ],
  "stats": {
-  "files": 37,
-  "bytes": 968586,
+  "files": 38,
+  "bytes": 972101,
   "by_kind": {
    "config": 8,
    "markdown": 2,
    "other": 5,
-   "python": 22
+   "python": 23
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -133,6 +133,7 @@
   "destructive": 0,
   "privilege": 0,
   "obfuscation": 0,
+  "surveillance": 0,
   "prompt-injection": 0,
   "permissions": 0,
   "supply-chain": 0,
@@ -142,12 +143,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 1570,
+  "stars": 1575,
   "forks": 310,
-  "open_issues": 82,
-  "contributors": "13",
+  "open_issues": 71,
+  "contributors": "15",
   "created_at": "2024-12-02T12:07:39Z",
-  "pushed_at": "2026-11-10T10:43:48Z",
+  "pushed_at": "2026-11-20T15:56:55Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
@@ -157,7 +158,7 @@
  },
  "scanners": {},
  "agent": null,
- "tool_version": "0.2.0",
+ "tool_version": "0.3.0",
  "verdict": {
   "level": "review",
   "label": "Review before installing",

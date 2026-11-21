@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-plugins-official",
   "ref": null,
   "subdir": null,
-  "commit": "df9699a55c56707e9948a32951ea356638ea8519",
+  "commit": "73c8cf3ea7e296057b467990f2f5d61b4c922260",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-19T14:32:35+00:00",
+ "generated_at": "2026-11-21T13:36:13+00:00",
  "plugins": [
   {
    "name": "asana",
@@ -163,7 +163,7 @@
    "name": "code-modernization",
    "path": "plugins/code-modernization",
    "source": "manifest",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "description": "Guided modernization for any legacy codebase: start with /modernize, get an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old. Includes security hardening, a one-page report, specialist agents, and an optional live progress pane (early access)."
   },
   {
@@ -373,7 +373,7 @@
    "name": "security-guidance",
    "path": "plugins/security-guidance",
    "source": "manifest",
-   "version": "2.0.20",
+   "version": "2.0.21",
    "description": "Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25+ other vulnerability classes."
   },
   {
@@ -401,8 +401,8 @@
    "name": "theme-examples",
    "path": "plugins/theme-examples",
    "source": "manifest",
-   "version": "0.4.3",
-   "description": "An example plugin to read, copy and change: twenty animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand."
+   "version": "0.6.0",
+   "description": "An example plugin to read, copy and change: thirty-eight animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand."
   },
   {
    "name": "typescript-lsp",
@@ -1563,7 +1563,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Guided modernization for any legacy codebase: start with /modernize, get an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old. Includes security hardening, a one-page report, specialist agents, and an optional live progress pane (early access).",
     "author": {
      "name": "Anthropic",
@@ -1811,7 +1811,7 @@
    "plugin": "code-modernization",
    "trigger": "",
    "details": {
-    "description": "Same-stack version uplift (e.g. .NET Framework 4.8 to .NET 8, Java 8 to 17) \u2014 keep the code, fix the version deltas, prove nothing changed"
+    "description": "Same-stack version uplift (e.g. .NET Framework to modern .NET, Java 8 to the current LTS) \u2014 keep the code, fix the version deltas, prove nothing changed"
    }
   },
   {
@@ -1918,7 +1918,7 @@
    "plugin": "code-modernization",
    "trigger": "",
    "details": {
-    "description": "Identifies the breaking changes between two versions of the SAME stack (e.g. .NET Framework 4.8 \u2192 .NET 8, Java 8 \u2192 17/21, Spring Boot 2 \u2192 3) that actually bite a given codebase, and drives the ecosyst",
+    "description": "Identifies the breaking changes between two versions of the SAME stack (e.g. .NET Framework \u2192 modern .NET, Java 8 \u2192 a current LTS, Spring Boot 2 \u2192 the current release) that actually bite a given codeb",
     "tools": "Read, Glob, Grep, Bash"
    }
   },
@@ -3272,7 +3272,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "2.0.20",
+    "version": "2.0.21",
     "description": "Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25+ other vulnerability classes.",
     "author": {
      "name": "David Dworken",
@@ -3477,8 +3477,8 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.4.3",
-    "description": "An example plugin to read, copy and change: twenty animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand.",
+    "version": "0.6.0",
+    "description": "An example plugin to read, copy and change: thirty-eight animated backdrops behind the chat in the desktop app, with frosted-glass panels: one per project or per session. /custom-theme list names them. Fireworks go off over the theme when Claude says \"merged\"; /fireworks sets them off by hand.",
     "author": {
      "name": "Anthropic",
      "email": "support@anthropic.com"
@@ -3682,7 +3682,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/AikidoSec/aikido-claude-plugin.git",
-       "sha": "75e45f337568bf3e0f5d99bc1b41d8844492df19"
+       "sha": "e72df7749ff54736bc1a6b57acff0c7799c9bda7"
       },
       "homepage": "https://github.com/AikidoSec/aikido-claude-plugin"
      },
@@ -4915,7 +4915,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/datadog-labs/claude-code-plugin.git",
-       "sha": "195f570c002beab3d7bd342739034d0019aa4863"
+       "sha": "a1603119c813f528b2d925a0ccadd73bf930550b"
       },
       "homepage": "https://www.datadoghq.com/"
      },
@@ -7075,7 +7075,7 @@
      {
       "name": "security-guidance",
       "description": "Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25+ other vulnerability classes.",
-      "version": "2.0.20",
+      "version": "2.0.21",
       "author": {
        "name": "Anthropic",
        "email": "support@anthropic.com"
@@ -7510,7 +7510,7 @@
      },
      {
       "name": "theme-examples",
-      "description": "An example plugin to read, copy and change: twenty animated backdrops behind the chat in the Claude desktop app, with frosted-glass panels, one per project or per session. Needs a version of Claude Desktop that draws a plugin's backdrop.",
+      "description": "An example plugin to read, copy and change: thirty-eight animated backdrops behind the chat in the Claude desktop app, with frosted-glass panels, one per project or per session. Needs a version of Claude Desktop that draws a plugin's backdrop.",
       "author": {
        "name": "Anthropic",
        "email": "support@anthropic.com"
@@ -8048,15 +8048,15 @@
   }
  ],
  "stats": {
-  "files": 773,
-  "bytes": 16729376,
+  "files": 796,
+  "bytes": 17895883,
   "by_kind": {
    "binary": 21,
    "config": 100,
-   "js": 74,
-   "markdown": 336,
+   "js": 94,
+   "markdown": 337,
    "other": 70,
-   "python": 151,
+   "python": 153,
    "shell": 21
   },
   "vendored_files": 0,
@@ -11858,12 +11858,12 @@
   "261 marketplace plugin(s) live in other repositories and were not scanned here: 42crunch-api-security-testing (https://github.com/42Crunch-AI/claude-plugins.git); adobe-for-creativity (https://github.com/adobe/skills.git); agentforce-adlc (https://github.com/SalesforceAIResearch/agentforce-adlc.git); ai-plugins (https://github.com/endorlabs/ai-plugins.git); aikido (https://github.com/AikidoSec/aikido-claude-plugin.git); airtable (https://github.com/Airtable/skills.git); airwallex-agentos (https://github.com/airwallex/airwallex-marketplace.git); aiven (https://github.com/aiven/aiven-ai-plugins.git); alloydb (https://github.com/gemini-cli-extensions/alloydb.git); alloydb-omni (https://github.com/gemini-cli-extensions/alloydb-omni.git); altimate-code (https://github.com/AltimateAI/altimate-claude-plugin.git); amazon-location-service (https://github.com/awslabs/agent-plugins.git); amd-skills (https://github.com/amd/skills.git); amplitude (https://github.com/amplitude/mcp-marketplace.git); apollo (https://github.com/apolloio/apollo-mcp-plugin.git)"
  ],
  "metadata": {
-  "stars": 47698,
-  "forks": 4944,
-  "open_issues": 1314,
-  "contributors": "48",
+  "stars": 47880,
+  "forks": 4970,
+  "open_issues": 1326,
+  "contributors": "49",
   "created_at": "2025-11-20T18:36:20Z",
-  "pushed_at": "2026-11-19T12:15:10Z",
+  "pushed_at": "2026-11-21T07:27:49Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

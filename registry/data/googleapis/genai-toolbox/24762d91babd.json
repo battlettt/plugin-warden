@@ -6,14 +6,14 @@
   "url": "https://github.com/googleapis/genai-toolbox",
   "ref": null,
   "subdir": null,
-  "commit": "9a8a4f090c124dd6e9e0b41eefcd1ce222a68830",
+  "commit": "24762d91babd43d91afc3daeeece1cb446266c54",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-19T14:42:31+00:00",
+ "generated_at": "2026-11-21T13:55:31+00:00",
  "plugins": [
   {
-   "name": "googleapis__genai-toolbox@9a8a4f090c12",
+   "name": "googleapis__genai-toolbox@24762d91babd",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -29,9 +29,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "googleapis__genai-toolbox@9a8a4f090c12",
+   "name": "googleapis__genai-toolbox@24762d91babd",
    "path": ".",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -41,7 +41,7 @@
    "kind": "skill",
    "name": "docsite-link-sweep",
    "path": "skills/maintainer/docsite-link-sweep/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Sweep the googleapis/mcp-toolbox docs for broken and non-canonical links, report each finding with its cause, and apply the safe class of internal link fixes. CI does not check links on this repo, "
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "fix-failing-tests",
    "path": "skills/maintainer/fix-failing-tests/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Diagnose a failing test in the googleapis/mcp-toolbox repo and land a fix by reasoning from the actual error: read the failure, reproduce it, shrink it until the cause is forced into the open, then"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "reproduce-bug",
    "path": "skills/maintainer/reproduce-bug/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Reproduce a reported bug in googleapis/mcp-toolbox and decide whether it is real, delivering an evidence-backed verdict: confirmed, already fixed, misconfiguration, client-side, works as intended, "
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "review-prs",
    "path": "skills/maintainer/review-prs/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Review a GitHub pull request in the googleapis/mcp-toolbox repo against the team's reviewer checklist: PR title/description conventions, linked issue, logic errors and unhandled edge cases, breakin"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stale-sweep",
    "path": "skills/maintainer/stale-sweep/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Sweep the googleapis/mcp-toolbox repo for issues and PRs with no real activity in N days (default 60), sort each by whose silence it is (the author's, ours, or nobody's), and draft the nudge or clo"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "triage-issues",
    "path": "skills/maintainer/triage-issues/SKILL.md",
-   "plugin": "googleapis__genai-toolbox@9a8a4f090c12",
+   "plugin": "googleapis__genai-toolbox@24762d91babd",
    "trigger": "",
    "details": {
     "description": ">- Triage GitHub issues in the googleapis/mcp-toolbox repo: propose the correct labels (type / priority / product / status), check for duplicates, verify a bug has enough info to act on, and draft a t"
@@ -316,11 +316,11 @@
     "ecosystem": "npm",
     "scripts": {},
     "dependencies": {
-     "@toolbox-sdk/server-darwin-arm64": "1.17.0",
-     "@toolbox-sdk/server-darwin-x64": "1.17.0",
-     "@toolbox-sdk/server-linux-x64": "1.17.0",
-     "@toolbox-sdk/server-win32-arm64": "1.17.0",
-     "@toolbox-sdk/server-win32-x64": "1.17.0"
+     "@toolbox-sdk/server-darwin-arm64": "1.18.0",
+     "@toolbox-sdk/server-darwin-x64": "1.18.0",
+     "@toolbox-sdk/server-linux-x64": "1.18.0",
+     "@toolbox-sdk/server-win32-arm64": "1.18.0",
+     "@toolbox-sdk/server-win32-x64": "1.18.0"
     },
     "devDependencies": {},
     "bin": {
@@ -430,11 +430,11 @@
   }
  ],
  "stats": {
-  "files": 2136,
-  "bytes": 32705477,
+  "files": 2137,
+  "bytes": 32724911,
   "by_kind": {
    "binary": 43,
-   "code": 1089,
+   "code": 1090,
    "config": 138,
    "js": 31,
    "markdown": 709,
@@ -1251,12 +1251,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 16908,
-  "forks": 1804,
-  "open_issues": 412,
+  "stars": 16922,
+  "forks": 1807,
+  "open_issues": 413,
   "contributors": "100+",
   "created_at": "2024-06-07T20:52:54Z",
-  "pushed_at": "2026-11-19T08:44:58Z",
+  "pushed_at": "2026-11-20T22:05:29Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

@@ -6,14 +6,14 @@
   "url": "https://github.com/supabase-community/supabase-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "133b9f15e119135d3c2b362706d9ce3ef2014e99",
+  "commit": "efe189fe02eb8d0d06eb272eab55e729ca5c70e9",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-19T14:40:51+00:00",
+ "generated_at": "2026-11-21T13:52:09+00:00",
  "plugins": [
   {
-   "name": "supabase-community__supabase-mcp@133b9f15e119",
+   "name": "supabase-community__supabase-mcp@efe189fe02eb",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -22,17 +22,28 @@
  ],
  "component_counts": {
   "manifest": 1,
-  "package": 5
+  "package": 5,
+  "skill": 1
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "supabase-community__supabase-mcp@133b9f15e119",
+   "name": "supabase-community__supabase-mcp@efe189fe02eb",
    "path": ".",
-   "plugin": "supabase-community__supabase-mcp@133b9f15e119",
+   "plugin": "supabase-community__supabase-mcp@efe189fe02eb",
    "trigger": "",
    "details": {
     "source": "fallback"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "mcp-ui-css",
+   "path": "packages/mcp-ui/.agents/skills/mcp-ui-css/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "| Guide for authoring CSS in packages/mcp-ui (the MCP Apps views): native stylesheets organized in cascade layers, specificity capped with :where(), colours from Studio's semantic tokens (bridged from"
    }
   },
   {
@@ -45,20 +56,24 @@
     "ecosystem": "npm",
     "scripts": {
      "build": "pnpm --filter \"@supabase/mcp-server-supabase...\" --filter \"@supabase/mcp-server-postgrest...\" build",
-     "test": "pnpm --parallel --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest test",
+     "test": "pnpm --parallel --filter @supabase/mcp-utils --filter @supabase/mcp-server-supabase --filter @supabase/mcp-server-postgrest --filter @supabase/mcp-ui test",
      "test:coverage": "pnpm --filter @supabase/mcp-server-supabase test:coverage",
      "test:packed-platform-consumer": "node scripts/test-packed-platform-consumer.mjs",
      "format": "biome check --write .",
      "format:check": "biome check .",
      "dev:http": "node scripts/dev-http.mjs",
-     "inspector": "mcp-inspector --web --transport http --server-url 'http://127.0.0.1:3111/mcp?experimental_apps=true' --header \"Authorization: Bearer $SUPABASE_ACCESS_TOKEN\" --protocol-era modern"
+     "dev:mock": "node scripts/dev-mock.mjs",
+     "inspector": "mcp-inspector --web --transport http --server-url \"http://127.0.0.1:3111/mcp?experimental_apps=true${MCP_QUERY:+&$MCP_QUERY}\" --header \"Authorization: Bearer $SUPABASE_ACCESS_TOKEN\" --protocol-era modern",
+     "mock-api": "pnpm --filter @supabase/mcp-server-supabase mock-api"
     },
     "dependencies": {},
     "devDependencies": {
      "@biomejs/biome": "1.9.4",
      "@modelcontextprotocol/inspector": "^2.15.0",
+     "concurrently": "^10.0.7",
      "pkg-pr-new": "^0.0.68",
-     "supabase": "^2.1.1"
+     "supabase": "^2.1.1",
+     "wait-on": "^9.5.1"
     },
     "bin": null
    }
@@ -123,6 +138,8 @@
      "test:e2e": "vitest --project e2e",
      "test:integration": "vitest --project integration",
      "test:coverage": "vitest --coverage",
+     "mock-api": "tsx dev/mock-api.ts",
+     "typecheck:dev": "tsc --noEmit -p dev/tsconfig.json",
      "generate:management-api-types": "node scripts/generate-management-api-types.mjs"
     },
     "dependencies": {
@@ -178,24 +195,31 @@
      "build": "vite build --app",
      "build:watch": "vite build --app --watch",
      "typecheck": "tsc --noEmit",
-     "prebuild": "pnpm typecheck"
+     "prebuild": "pnpm typecheck && pnpm lint:css",
+     "lint:css": "node scripts/check-css.mjs",
+     "test": "vitest"
     },
     "dependencies": {
      "@modelcontextprotocol/client": "catalog:",
      "@modelcontextprotocol/core": "^2.0.0",
      "@modelcontextprotocol/ext-apps": "^2.0.4",
-     "react": "^19.0.0",
-     "react-dom": "^19.0.0",
+     "react": "^19.2.0",
+     "react-dom": "^19.2.0",
      "zod": "^4.2.0"
     },
     "devDependencies": {
+     "@supabase/mcp-utils": "workspace:^",
+     "@testing-library/react": "^16.3.0",
      "@total-typescript/tsconfig": "^1.0.4",
-     "@types/react": "^19.0.0",
-     "@types/react-dom": "^19.0.0",
+     "@types/react": "^19.2.0",
+     "@types/react-dom": "^19.2.0",
      "@vitejs/plugin-react": "^6.0.0",
+     "happy-dom": "^20.0.0",
+     "lightningcss": "^1.33.0",
      "typescript": "^5.6.3",
      "vite": "^8.0.0",
-     "vite-plugin-singlefile": "^2.3.0"
+     "vite-plugin-singlefile": "^2.3.0",
+     "vitest": "^2.1.9"
     },
     "bin": null
    }
@@ -234,18 +258,18 @@
   }
  ],
  "stats": {
-  "files": 186,
-  "bytes": 2351451,
+  "files": 225,
+  "bytes": 2628358,
   "by_kind": {
-   "config": 26,
-   "js": 134,
-   "markdown": 12,
-   "other": 13,
+   "config": 27,
+   "js": 162,
+   "markdown": 14,
+   "other": 21,
    "shell": 1
   },
   "vendored_files": 0,
   "plugins": 1,
-  "components": 6
+  "components": 7
  },
  "findings": [
   {
@@ -275,7 +299,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:a6fd67d5ead35203",
+   "snippet": "fp:cc30ac137fbfb2ef",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -283,6 +307,26 @@
    "source": "static",
    "confidence": "medium",
    "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a6fd67d5ead35203",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-003",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -302,7 +346,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-003",
+   "id": "F-004",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -322,7 +366,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-004",
+   "id": "F-005",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -342,7 +386,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-005",
+   "id": "F-006",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -362,7 +406,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-006",
+   "id": "F-007",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -382,7 +426,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-007",
+   "id": "F-008",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -402,7 +446,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-008",
+   "id": "F-009",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -449,6 +493,9 @@
    ],
    "SUPABASE_ACCESS_TOKEN": [
     "packages/mcp-server-supabase/src/cli.ts"
+   ],
+   "MOCK_TOKEN": [
+    "scripts/dev-mock.mjs"
    ]
   },
   "path_executables": [],
@@ -460,7 +507,7 @@
   "exfiltration": 0,
   "network": 2,
   "credentials": 0,
-  "secrets": 2,
+  "secrets": 3,
   "persistence": 0,
   "config-tampering": 0,
   "destructive": 0,
@@ -476,12 +523,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 3019,
-  "forks": 437,
-  "open_issues": 130,
+  "stars": 3022,
+  "forks": 439,
+  "open_issues": 133,
   "contributors": "38",
   "created_at": "2024-12-20T23:52:42Z",
-  "pushed_at": "2026-11-19T08:00:47Z",
+  "pushed_at": "2026-11-21T06:14:05Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
@@ -495,15 +542,15 @@
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",
-  "score": 10,
+  "score": 11,
   "counts": {
    "critical": 0,
    "high": 0,
    "medium": 1,
-   "low": 5,
+   "low": 6,
    "info": 2
   },
-  "active": 8,
+  "active": 9,
   "dismissed": 0,
   "injection_guard": false,
   "reasons": []
