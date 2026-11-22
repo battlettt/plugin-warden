@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-code",
   "ref": null,
   "subdir": null,
-  "commit": "16043fc1342dbd65c13a94621af692c02086f978",
+  "commit": "1006c2e4f783f016963fb290d3eb4afaa2d448b1",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-20T14:11:02+00:00",
+ "generated_at": "2026-11-22T13:27:51+00:00",
  "plugins": [
   {
    "name": "agents-md",
@@ -396,12 +396,12 @@
   }
  ],
  "stats": {
-  "files": 3366,
-  "bytes": 15820340,
+  "files": 3367,
+  "bytes": 15894771,
   "by_kind": {
    "binary": 1,
    "config": 45,
-   "js": 3258,
+   "js": 3259,
    "markdown": 24,
    "other": 28,
    "python": 2,
@@ -1031,12 +1031,12 @@
   "12 marketplace plugin(s) live in other repositories and were not scanned here: agent-sdk-dev (https://github.com/anthropics/claude-plugins-official.git); code-review (https://github.com/anthropics/claude-plugins-official.git); commit-commands (https://github.com/anthropics/claude-plugins-official.git); explanatory-output-style (https://github.com/anthropics/claude-plugins-official.git); feature-dev (https://github.com/anthropics/claude-plugins-official.git); frontend-design (https://github.com/anthropics/claude-plugins-official.git); hookify (https://github.com/anthropics/claude-plugins-official.git); learning-output-style (https://github.com/anthropics/claude-plugins-official.git); plugin-dev (https://github.com/anthropics/claude-plugins-official.git); pr-review-toolkit (https://github.com/anthropics/claude-plugins-official.git); ralph-loop (https://github.com/anthropics/claude-plugins-official.git); security-guidance (https://github.com/anthropics/claude-plugins-official.git)"
  ],
  "metadata": {
-  "stars": 156411,
-  "forks": 25064,
-  "open_issues": 16526,
+  "stars": 156646,
+  "forks": 25085,
+  "open_issues": 16000,
   "contributors": "56",
   "created_at": "2025-02-22T17:41:21Z",
-  "pushed_at": "2026-11-20T07:56:59Z",
+  "pushed_at": "2026-11-22T02:33:17Z",
   "license": null,
   "archived": false,
   "owner_type": "Organization",
