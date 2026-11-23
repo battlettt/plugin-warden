@@ -6,14 +6,14 @@
   "url": "https://github.com/davila7/claude-code-templates",
   "ref": null,
   "subdir": null,
-  "commit": "2fbe86762ebc872fadc5495f3ae4171e27a5e4d8",
+  "commit": "c1bc5c1df4ff0bffb9a04d8f7790543681232423",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:41:32+00:00",
+ "generated_at": "2026-11-23T16:17:02+00:00",
  "plugins": [
   {
-   "name": "davila7__claude-code-templates@2fbe86762ebc",
+   "name": "davila7__claude-code-templates@c1bc5c1df4ff",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -389,9 +389,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "davila7__claude-code-templates@2fbe86762ebc",
+   "name": "davila7__claude-code-templates@c1bc5c1df4ff",
    "path": ".",
-   "plugin": "davila7__claude-code-templates@2fbe86762ebc",
+   "plugin": "davila7__claude-code-templates@c1bc5c1df4ff",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -401,7 +401,7 @@
    "kind": "mcp_server",
    "name": "linear",
    "path": ".mcp.json",
-   "plugin": "davila7__claude-code-templates@2fbe86762ebc",
+   "plugin": "davila7__claude-code-templates@c1bc5c1df4ff",
    "trigger": "",
    "details": {
     "command": "npx",
@@ -416,7 +416,7 @@
    "kind": "mcp_server",
    "name": "neon",
    "path": ".mcp.json",
-   "plugin": "davila7__claude-code-templates@2fbe86762ebc",
+   "plugin": "davila7__claude-code-templates@c1bc5c1df4ff",
    "trigger": "",
    "details": {
     "type": "http",
@@ -12771,6 +12771,8 @@
      "@types/react-dom": "^19.2.3",
      "astro": "^5.17.2",
      "gpt-tokenizer": "^3.4.0",
+     "highlight.js": "11.11.1",
+     "lowlight": "3.3.0",
      "marked": "^17.0.4",
      "react": "^19.2.4",
      "react-dom": "^19.2.4",
@@ -12826,13 +12828,13 @@
   }
  ],
  "stats": {
-  "files": 10213,
-  "bytes": 144779081,
+  "files": 10222,
+  "bytes": 144886090,
   "by_kind": {
    "binary": 158,
    "code": 19,
-   "config": 2695,
-   "js": 540,
+   "config": 2699,
+   "js": 545,
    "markdown": 4232,
    "other": 1567,
    "python": 911,
@@ -16150,7 +16152,7 @@
    "category": "impersonation",
    "path": "",
    "line": null,
-   "snippet": "fp:77cd25429222fae2",
+   "snippet": "fp:434b49e16e407805",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -19370,14 +19372,14 @@
     "when": "session start",
     "what": "npx -y mcp-remote https://mcp.linear.app/mcp",
     "type": "MCP server",
-    "plugin": "davila7__claude-code-templates@2fbe86762ebc",
+    "plugin": "davila7__claude-code-templates@c1bc5c1df4ff",
     "file": ".mcp.json"
    },
    {
     "when": "session start",
     "what": "https://mcp.neon.tech/mcp",
     "type": "MCP server",
-    "plugin": "davila7__claude-code-templates@2fbe86762ebc",
+    "plugin": "davila7__claude-code-templates@c1bc5c1df4ff",
     "file": ".mcp.json"
    }
   ],
@@ -19773,10 +19775,12 @@
     "cloudflare-workers/mcp/src/index.ts"
    ],
    ".bashrc": [
-    "cli-tool/components/skills/scientific/biomni/scripts/setup_environment.py"
+    "cli-tool/components/skills/scientific/biomni/scripts/setup_environment.py",
+    "dashboard/src/lib/code-language.ts"
    ],
    ".zshrc": [
-    "cli-tool/components/skills/scientific/biomni/scripts/setup_environment.py"
+    "cli-tool/components/skills/scientific/biomni/scripts/setup_environment.py",
+    "dashboard/src/lib/code-language.ts"
    ]
   },
   "env_vars": {
@@ -19981,12 +19985,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34055,
-  "forks": 4075,
-  "open_issues": 551,
+  "stars": 34131,
+  "forks": 4102,
+  "open_issues": 570,
   "contributors": "100+",
   "created_at": "2025-07-04T01:26:26Z",
-  "pushed_at": "2026-11-21T05:26:34Z",
+  "pushed_at": "2026-11-23T04:21:06Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",

@@ -6,11 +6,11 @@
   "url": "https://github.com/chromedevtools/chrome-devtools-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "437f394edcb0708d60637bcd326c59b4351f35ef",
+  "commit": "7bcb86d3867314bac31870593659075d1f1b9d32",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:49:04+00:00",
+ "generated_at": "2026-11-23T16:23:42+00:00",
  "plugins": [
   {
    "name": "chrome-devtools-mcp",
@@ -189,7 +189,7 @@
      "@modelcontextprotocol/client": "2.4.0",
      "@modelcontextprotocol/core": "2.4.0",
      "@modelcontextprotocol/server": "2.4.0",
-     "@stylistic/eslint-plugin": "^5.4.0",
+     "@stylistic/eslint-plugin": "^6.0.0",
      "@toon-format/toon": "^4.1.0",
      "@types/node": "^26.0.0",
      "@types/semver": "^7.7.1",
@@ -244,7 +244,7 @@
  ],
  "stats": {
   "files": 409,
-  "bytes": 14852293,
+  "bytes": 14882640,
   "by_kind": {
    "binary": 2,
    "config": 36,
@@ -703,12 +703,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 58624,
-  "forks": 4895,
-  "open_issues": 138,
+  "stars": 58985,
+  "forks": 4922,
+  "open_issues": 119,
   "contributors": "100+",
   "created_at": "2025-09-11T10:39:55Z",
-  "pushed_at": "2026-11-21T11:30:19Z",
+  "pushed_at": "2026-11-23T16:03:36Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

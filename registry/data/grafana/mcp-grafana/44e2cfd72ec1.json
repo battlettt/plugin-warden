@@ -1,206 +1,197 @@
 {
  "target": {
-  "display": "neondatabase/mcp-server-neon",
-  "raw": "neondatabase/mcp-server-neon",
+  "display": "grafana/mcp-grafana",
+  "raw": "grafana/mcp-grafana",
   "kind": "github",
-  "url": "https://github.com/neondatabase/mcp-server-neon",
+  "url": "https://github.com/grafana/mcp-grafana",
   "ref": null,
   "subdir": null,
-  "commit": "fe57db188ac781de5d971fee1e22b31d84826163",
+  "commit": "44e2cfd72ec14697fec8e3d67cebb0fb6b17be33",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:54:42+00:00",
+ "generated_at": "2026-11-23T16:28:13+00:00",
  "plugins": [
   {
-   "name": "neondatabase__mcp-server-neon@fe57db188ac7",
+   "name": "grafana",
    "path": ".",
-   "source": "fallback",
-   "version": null,
-   "description": null
+   "source": "manifest",
+   "version": "0.7.6",
+   "description": "A Model Context Protocol (MCP) server for Grafana providing access to dashboards, datasources, and querying capabilities"
   }
  ],
  "component_counts": {
   "manifest": 1,
-  "package": 2,
-  "skill": 5
+  "mcp_server": 1,
+  "package": 3,
+  "skill": 3
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "neondatabase__mcp-server-neon@fe57db188ac7",
-   "path": ".",
-   "plugin": "neondatabase__mcp-server-neon@fe57db188ac7",
+   "name": "grafana",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "grafana",
    "trigger": "",
    "details": {
-    "source": "fallback"
+    "source": "manifest",
+    "version": "0.7.6",
+    "description": "A Model Context Protocol (MCP) server for Grafana providing access to dashboards, datasources, and querying capabilities",
+    "author": {
+     "name": "Grafana Labs"
+    },
+    "repository": "https://github.com/grafana/mcp-grafana",
+    "license": "Apache-2.0"
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "grafana",
+   "path": ".claude-plugin/plugin.json",
+   "plugin": "grafana",
+   "trigger": "",
+   "details": {
+    "command": "node",
+    "args": [
+     "${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs"
+    ]
    }
   },
   {
    "kind": "skill",
-   "name": "effect-program-design",
-   "path": ".agents/skills/effect-program-design/SKILL.md",
+   "name": "draft-release",
+   "path": ".claude/skills/draft-release/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
-    "description": ">- Design, write, review, and test production Effect v4 programs: deep services and layers, schemas, tagged errors, observability, Config, persistence, resources, concurrency, schedules, workers, stre"
+    "description": "Draft a new release. Bumps version, generates CHANGELOG.md from git history, and creates a PR.",
+    "allowed-tools": "Bash(git *), Bash(gh *), Bash(date *), Read, Write, Edit, Glob"
    }
   },
   {
    "kind": "skill",
-   "name": "install-anti-slop",
-   "path": ".agents/skills/install-anti-slop/SKILL.md",
+   "name": "frontend-testing-strategy",
+   "path": ".claude/skills/frontend-testing-strategy/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
-    "description": "Install, configure, update, or upgrade vendored anti-slop Oxlint plugins. Use when adding anti-slop, picking up upstream rules or fixes, or migrating an existing installation while preserving local cu"
+    "description": "Write and review meaningful frontend unit, component, and E2E tests; diagnose weak assertions and flaky async tests. Read repository testing guidance for commands and fixtures."
    }
   },
   {
    "kind": "skill",
-   "name": "logging-best-practices",
-   "path": ".agents/skills/logging-best-practices/SKILL.md",
+   "name": "panel-testing-strategy",
+   "path": ".claude/skills/panel-testing-strategy/SKILL.md",
    "plugin": "",
    "trigger": "",
    "details": {
-    "description": "Logging best practices focused on wide events (canonical log lines) for powerful debugging and analytics"
-   }
-  },
-  {
-   "kind": "skill",
-   "name": "working-with-effect",
-   "path": ".agents/skills/working-with-effect/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- This repo's rules for Effect v4 code, on top of the vendored effect-program-design skill: how Effect code reaches Sentry, which files may run effects, the tool-error contract, test placement, and w"
-   }
-  },
-  {
-   "kind": "skill",
-   "name": "working-with-oxlint",
-   "path": ".agents/skills/working-with-oxlint/SKILL.md",
-   "plugin": "",
-   "trigger": "",
-   "details": {
-    "description": ">- Setting up and running Oxlint in a TypeScript repo: type-aware linting with oxlint-tsgolint, the strict all-categories config with a shrink-only lint baseline (Matt Pocock's sandcastle), Effect rul"
+    "description": "Test visualization data, rendering, interactions, and accessibility with deterministic fixtures. Use alongside frontend-testing-strategy for chart and panel changes."
    }
   },
   {
    "kind": "package",
-   "name": "@neondatabase/mcp-server-neon",
-   "path": "package.json",
+   "name": "tests/pyproject.toml",
+   "path": "tests/pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@mcp-grafana/mcp-apps",
+   "path": "ui/mcp-apps/package.json",
    "plugin": "",
    "trigger": "",
    "details": {
     "ecosystem": "npm",
     "scripts": {
-     "dev": "next dev",
-     "build": "next build",
-     "start": "next start",
-     "lint": "tsx scripts/lint-ratchet.ts",
-     "lint:shrink": "tsx scripts/lint-ratchet.ts --shrink",
-     "lint:adopt": "tsx scripts/lint-ratchet.ts --adopt",
-     "lint:report": "tsx scripts/lint-ratchet.ts --report",
-     "lint:fix": "NODE_OPTIONS=--experimental-strip-types effect-tsgo oxlint --type-aware --fix && prettier -w .",
-     "typecheck": "tsc --noEmit",
-     "fmt": "prettier -w .",
-     "fmt:check": "prettier --check .",
-     "knip": "knip",
-     "knip:fix": "knip --fix",
-     "test": "pnpm test:unit && pnpm test:integration && pnpm test:e2e",
-     "test:unit": "vitest run --exclude \"**/*.integration.test.ts\" --exclude \"**/*.e2e.test.ts\"",
-     "test:integration": "vitest run mcp/__tests__/*.integration.test.ts --testTimeout=30000 --hookTimeout=30000",
-     "test:e2e:mcp": "vitest run mcp/__tests__/*.e2e.test.ts",
-     "test:e2e:live": "vitest run mcp/__tests__/live/*.e2e.test.ts",
-     "test:e2e:web": "tsx scripts/e2e-setup.ts && playwright test",
-     "test:ci": "pnpm test:unit && pnpm test:integration && pnpm test:e2e:mcp",
-     "test:e2e": "pnpm test:e2e:mcp && pnpm test:e2e:web"
+     "renderer": "node scripts/renderer.mjs",
+     "build": "npm run renderer && npm run build:lib && npm run build:apps",
+     "build:lib": "vite build && tsc -p tsconfig.build.json",
+     "build:apps": "npm run renderer && vite build --config viz-renderer.vite.config.ts && vite build --config grafana.vite.config.ts",
+     "build:preview": "npm run renderer && vite build --config preview/vite.config.ts",
+     "dev": "node harness/dev.mjs",
+     "typecheck": "npm run renderer && tsc --noEmit",
+     "test": "vitest run",
+     "test:e2e": "tsc --noEmit -p e2e/tsconfig.json && playwright test",
+     "test:e2e:visual": "npm run test:e2e -- --grep \"visual smoke\"",
+     "dev:components": "npm run renderer && vite --config preview/vite.config.ts"
     },
     "dependencies": {
-     "@effect/opentelemetry": "4.1.2",
-     "@modelcontextprotocol/sdk": "1.25.3",
-     "@modelcontextprotocol/server": "2.0.0",
-     "@neon/effect": "0.5.7",
-     "@neon/sdk": "7.15.0",
-     "@neon/tools": "2.19.0",
-     "@neondatabase/serverless": "1.0.0",
-     "@opentelemetry/api": "1.9.1",
-     "@segment/analytics-node": "2.2.1",
-     "@sentry/node": "10.78.0",
-     "@vercel/functions": "3.3.4",
-     "effect": "4.1.2",
-     "he": "1.2.0",
-     "jose": "6.2.2",
-     "keyv": "5.3.2",
-     "marked": "18.1.2",
-     "mcp-handler": "2.1.0",
-     "next": "16.1.1",
-     "oauth2-server": "3.1.1",
-     "openid-client": "6.3.4",
-     "pg": "8.14.0",
-     "react": "19.2.3",
-     "react-dom": "19.2.3",
-     "redis": "4.6.0",
-     "winston": "3.17.0",
-     "winston-transport": "4.9.0",
-     "zod": "4.6.5",
-     "zod-to-json-schema": "3.25.2"
+     "@emotion/css": "11.13.5",
+     "@fontsource/inter": "^5.3.0",
+     "@modelcontextprotocol/client": "2.4.0",
+     "@modelcontextprotocol/core": "2.4.0",
+     "@modelcontextprotocol/ext-apps": "2.0.4",
+     "echarts": "^6.1.0",
+     "lucide-react": "^1.0.0",
+     "zod": "^4.2.0"
     },
     "devDependencies": {
-     "@effect/tsgo": "0.67.1",
-     "@modelcontextprotocol/client": "2.0.0",
-     "@oxlint/plugins": "1.91.0",
-     "@playwright/test": "1.58.2",
-     "@tailwindcss/postcss": "4.1.7",
-     "@types/he": "1.2.3",
-     "@types/node": "20.17.48",
-     "@types/oauth2-server": "3.0.18",
-     "@types/pg": "8.20.0",
-     "@types/react": "19.2.7",
-     "@types/react-dom": "19.1.5",
-     "dotenv": "17.2.4",
-     "knip": "5.83.1",
-     "oxlint": "1.91.0",
-     "oxlint-tsgolint": "7.0.2005",
-     "prettier": "3.8.1",
-     "tailwindcss": "4.1.7",
-     "tsx": "4.21.0",
-     "typescript": "5.8.3",
-     "vitest": "4.0.18"
+     "@grafana/data": "13.3.1",
+     "@grafana/ui": "13.3.1",
+     "@grafana/viz-contract": "1.11.0",
+     "@playwright/test": "1.65.1",
+     "@testing-library/react": "16.3.3",
+     "@testing-library/user-event": "^14.6.1",
+     "@types/node": "^26.0.0",
+     "@types/react": "19.3.0",
+     "@types/react-dom": "19.3.0",
+     "@types/semver": "7.8.0",
+     "cors": "2.8.5",
+     "express": "5.1.0",
+     "jsdom": "^31.0.0",
+     "react": "19.3.1",
+     "react-dom": "19.3.1",
+     "react-inlinesvg": "4.6.0",
+     "semver": "7.8.6",
+     "sigstore": "5.0.1",
+     "typescript": "~7.0.0",
+     "vite": "^8.3.4",
+     "vite-plugin-singlefile": "^2.3.0",
+     "vitest": "^5.0.0"
     },
     "bin": null
    }
   },
   {
    "kind": "package",
-   "name": "oxlint-plugin-jev",
-   "path": ".agents/skills/install-anti-slop/assets/oxlint-plugin-jev/package.json",
+   "name": "@mcp-grafana/panel-viewer-app",
+   "path": "ui/panel-viewer/package.json",
    "plugin": "",
    "trigger": "",
    "details": {
     "ecosystem": "npm",
-    "scripts": {},
-    "dependencies": {
-     "@ai-sdk/typesafe-ai": "^3.0.40",
-     "ai": "^7.0.173",
-     "synckit": "^0.11.13",
-     "zod": "^4.6.7"
+    "scripts": {
+     "build": "INPUT=mcp-app.html vite build",
+     "dev": "vite --open /mcp-app.html"
     },
-    "devDependencies": {},
+    "dependencies": {
+     "@modelcontextprotocol/ext-apps": "^2.0.3"
+    },
+    "devDependencies": {
+     "typescript": "^7.0.0",
+     "vite": "^8.3.4",
+     "vite-plugin-singlefile": "^2.3.3"
+    },
     "bin": null
    }
   }
  ],
  "stats": {
-  "files": 544,
-  "bytes": 5917264,
+  "files": 807,
+  "bytes": 13966243,
   "by_kind": {
-   "binary": 52,
-   "config": 18,
-   "js": 389,
-   "markdown": 45,
-   "other": 40
+   "binary": 44,
+   "code": 384,
+   "config": 124,
+   "js": 125,
+   "markdown": 69,
+   "other": 41,
+   "python": 7,
+   "shell": 13
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -208,19 +199,19 @@
  },
  "findings": [
   {
-   "rule_id": "TAMPER-OTHER-PLUGINS",
+   "rule_id": "EXFIL-DNS",
    "title": "Withheld",
    "severity": "medium",
-   "category": "config-tampering",
+   "category": "exfiltration",
    "path": "",
    "line": null,
-   "snippet": "fp:118c75f7ddbd86f1",
+   "snippet": "fp:e7c35efed225eb88",
    "message": "",
    "fix": "",
    "precautions": [],
    "context": [],
    "source": "static",
-   "confidence": "high",
+   "confidence": "medium",
    "id": "F-001",
    "verdict": "unreviewed",
    "agent_severity": null,
@@ -228,13 +219,13 @@
    "effective_severity": "medium"
   },
   {
-   "rule_id": "TAMPER-OTHER-PLUGINS",
+   "rule_id": "NET-AUTORUN",
    "title": "Withheld",
-   "severity": "low",
-   "category": "config-tampering",
+   "severity": "medium",
+   "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:b88a67aedcc40cbc",
+   "snippet": "fp:48226029a28d2043",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -245,16 +236,16 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "low"
+   "effective_severity": "medium"
   },
   {
-   "rule_id": "CRED-CLOUD-METADATA",
+   "rule_id": "HIDDEN-UNICODE",
    "title": "Withheld",
-   "severity": "low",
-   "category": "credentials",
+   "severity": "medium",
+   "category": "obfuscation",
    "path": "",
    "line": null,
-   "snippet": "fp:36eb398f55e800da",
+   "snippet": "fp:af290a1a5d0b6e6b",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -265,16 +256,16 @@
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
-   "effective_severity": "low"
+   "effective_severity": "medium"
   },
   {
-   "rule_id": "EXFIL-CORRELATED",
+   "rule_id": "PERSIST-LAUNCH",
    "title": "Withheld",
    "severity": "low",
-   "category": "exfiltration",
+   "category": "persistence",
    "path": "",
    "line": null,
-   "snippet": "fp:8c0405c1a5406301",
+   "snippet": "fp:1d7eb6821b834b90",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -288,13 +279,13 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "DEP-NO-LOCKFILE",
+   "rule_id": "PRIV-TLS-OFF",
    "title": "Withheld",
    "severity": "low",
-   "category": "supply-chain",
+   "category": "privilege",
    "path": "",
    "line": null,
-   "snippet": "fp:3604d4e8bb7c522c",
+   "snippet": "fp:04571a424e0f2b5e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -314,7 +305,7 @@
    "category": "supply-chain",
    "path": "",
    "line": null,
-   "snippet": "fp:f7f57786cde1190d",
+   "snippet": "fp:e69dcc9a9c4aeb44",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -328,33 +319,33 @@
    "effective_severity": "low"
   },
   {
-   "rule_id": "RCE-UNPINNED-RUNNER",
-   "title": "Withheld",
-   "severity": "low",
-   "category": "supply-chain",
-   "path": "",
-   "line": null,
-   "snippet": "fp:6767a36e074f9445",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-007",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "low"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:7ee3afd4f4302fcc",
+   "snippet": "fp:4d60b242c9b7d8b5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:2e3b883167c91a2c",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -374,7 +365,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:acb9121e3cae78ec",
+   "snippet": "fp:3c903c4f978b4bba",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -394,7 +385,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:c2826b179397a4c1",
+   "snippet": "fp:faf6347a2f9a2fab",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -408,13 +399,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:ec3f4bb4db7ab605",
+   "snippet": "fp:37924581f0947a44",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -428,13 +419,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:395d01fb7eaab6ca",
+   "snippet": "fp:7033a06ca38e8fae",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -448,13 +439,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:1e33abd698c4713b",
+   "snippet": "fp:fe696c49782e697e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -468,13 +459,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:88afa507532fe099",
+   "snippet": "fp:e71ca5bf26083cf3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -494,7 +485,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:4a59250849f98404",
+   "snippet": "fp:966ea8ba0b820d45",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -508,13 +499,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:85f2be72c745fcc0",
+   "snippet": "fp:1312f21a015eac1a",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -534,7 +525,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:c21218ae16d93eaf",
+   "snippet": "fp:1d07e2818c54a70d",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -554,7 +545,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:fe59972dc869e2e5",
+   "snippet": "fp:56c5d9d719e65852",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -574,7 +565,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:639cfae4431c70c0",
+   "snippet": "fp:502188483e65f6a7",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -594,7 +585,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:08583c6bbd3d9d81",
+   "snippet": "fp:5b06f6f222ec0efc",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -608,13 +599,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:7bcfc2899873ff4c",
+   "snippet": "fp:b895d260baf598f5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -628,13 +619,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:2a22ebdc7f781139",
+   "snippet": "fp:bb0abfe6cc6fa79e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -654,7 +645,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:2aaa78de6e6489e2",
+   "snippet": "fp:58b95a670d994f40",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -674,7 +665,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:6a62417e27453f73",
+   "snippet": "fp:584d7d442b66bb01",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -688,13 +679,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:5d43f1bac7aa0734",
+   "snippet": "fp:0ce8658ec0da4dc7",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -708,13 +699,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:e392ab53acf4ac64",
+   "snippet": "fp:dbf18bba8180f0f2",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -734,7 +725,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:6c6eb71c6c422e33",
+   "snippet": "fp:fd16ed053c56dec5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -748,13 +739,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:573fd423709c643d",
+   "snippet": "fp:b33f16fc3f3384e2",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -774,7 +765,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:169839d669d947ba",
+   "snippet": "fp:a25ecca4c21104be",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -794,7 +785,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:a42bb3a952e1676b",
+   "snippet": "fp:5292bf3f5430919d",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -808,13 +799,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:4d0e5e4ae5b532be",
+   "snippet": "fp:10d8d4328560e9c2",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -834,7 +825,7 @@
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:2f05fdaa929b587b",
+   "snippet": "fp:7e9e4d37034f381b",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -848,13 +839,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:41c03744970ee075",
+   "snippet": "fp:41af2db81cf8cf8e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -868,13 +859,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:6f6f138ca385aeb7",
+   "snippet": "fp:81181b6a0c583d25",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -888,13 +879,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "NET-CLEARTEXT",
    "title": "Withheld",
    "severity": "info",
    "category": "network",
    "path": "",
    "line": null,
-   "snippet": "fp:886ac879c251833e",
+   "snippet": "fp:37955b8c36c40706",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -908,13 +899,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:2cbcf4ce5ca9efc3",
+   "snippet": "fp:440a83c93097c636",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -928,13 +919,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:73f2319dc08078f0",
+   "snippet": "fp:a224cf0d2f1b7fb7",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -948,13 +939,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:95faa7b0737256e7",
+   "snippet": "fp:be31c4cfa6b8b08f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -968,13 +959,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:d722b351f9898ee4",
+   "snippet": "fp:559019e28f417539",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -988,13 +979,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:1571e1c4d8866215",
+   "snippet": "fp:efcd2f4d25e68a6e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1008,13 +999,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:d8977b8021368083",
+   "snippet": "fp:55647cde1560ab52",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1028,13 +1019,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:d03cf9ff2090dfee",
+   "snippet": "fp:91e5bea5939bb981",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1048,13 +1039,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:4c6fe100774b4aca",
+   "snippet": "fp:db06a58889632cf5",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1068,13 +1059,13 @@
    "effective_severity": "info"
   },
   {
-   "rule_id": "TELEMETRY-SDK",
+   "rule_id": "SECRET-GENERIC",
    "title": "Withheld",
    "severity": "info",
-   "category": "network",
+   "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:44ba59e5b9065745",
+   "snippet": "fp:618a9b78a2ff22e3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1086,346 +1077,57 @@
    "agent_severity": null,
    "rationale": "",
    "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:82af9b5b1762a28a",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-045",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:e47df1b95bd67a22",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-046",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:34ca3d96e694f39d",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-047",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:bb5d0bdbd88d0446",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-048",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:0bd6a6e861c0b683",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-049",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "TELEMETRY-SDK",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "network",
-   "path": "",
-   "line": null,
-   "snippet": "fp:6b3fa38b1ed72d49",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-050",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "PROMPT-PRIORITY",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "prompt-injection",
-   "path": "",
-   "line": null,
-   "snippet": "fp:0a3620f367e73752",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-051",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:1395f70615d29328",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-052",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:3886b74f88a3bd5a",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-053",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SECRET-GENERIC",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "secrets",
-   "path": "",
-   "line": null,
-   "snippet": "fp:4fbbf07aa28c3522",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "medium",
-   "id": "F-054",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "RCE-UNPINNED-RUNNER",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "supply-chain",
-   "path": "",
-   "line": null,
-   "snippet": "fp:c8c0a04993352ef8",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-055",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
-  },
-  {
-   "rule_id": "SPY-CLIPBOARD",
-   "title": "Withheld",
-   "severity": "info",
-   "category": "surveillance",
-   "path": "",
-   "line": null,
-   "snippet": "fp:45b289ee4dfe45bd",
-   "message": "",
-   "fix": "",
-   "precautions": [],
-   "context": [],
-   "source": "static",
-   "confidence": "high",
-   "id": "F-056",
-   "verdict": "unreviewed",
-   "agent_severity": null,
-   "rationale": "",
-   "effective_severity": "info"
   }
  ],
  "surface": {
-  "auto_runs": [],
-  "processes": [],
+  "auto_runs": [
+   {
+    "when": "session start",
+    "what": "node ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs",
+    "type": "MCP server",
+    "plugin": "grafana",
+    "file": ".claude-plugin/plugin.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "grafana",
+    "kind": "MCP server",
+    "launch": "node ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/install-binary.mjs",
+    "file": ".claude-plugin/plugin.json"
+   }
+  ],
   "hosts": {
-   "instagres.com": [
-    "e2e/provision-oauth-db.ts"
+   "127.0.0.1": [
+    "ui/mcp-apps/harness/vite.config.ts"
    ],
-   "neon.com": [
-    "mcp/oauth/auth-complete-page.ts"
+   "api.github.com": [
+    ".claude-plugin/install-binary.mjs"
+   ],
+   "github.com": [
+    "client_cache.go",
+    "mcpgrafana.go",
+    ".claude-plugin/install-binary.mjs"
+   ],
+   "grafana.com": [
+    "mcpgrafana.go"
+   ],
+   "raw.githubusercontent.com": [
+    "ui/mcp-apps/harness/basic-host/start.mjs"
    ]
   },
   "sensitive_paths": {
-   "Cookies": [
-    "app/api/authorize/route.ts",
-    "app/callback/route.ts",
-    "mcp/oauth/browser-binding.ts"
-   ],
-   "CookieS": [
-    "app/api/authorize/route.ts",
-    "mcp/oauth/browser-binding.ts"
-   ],
-   "cookieS": [
-    "app/api/authorize/route.ts",
-    "app/callback/route.ts",
-    "mcp/oauth/browser-binding.ts"
-   ],
    "cookies": [
-    "app/api/authorize/route.ts",
-    "app/callback/route.ts",
-    "mcp/oauth/browser-binding.ts",
-    "mcp/oauth/consent-canonical-url.ts",
-    "mcp/sentry/instrument.ts"
+    "tools/datasources.go"
    ]
   },
   "env_vars": {
-   "FEEDBACK_FIXTURE_PATH": [
-    "e2e/docs-fixture.ts"
+   "GITHUB_TOKEN": [
+    ".claude-plugin/install-binary.mjs",
+    "ui/mcp-apps/scripts/renderer.mjs"
    ],
-   "SITE_SEARCH_FIXTURE_PATH": [
-    "e2e/docs-fixture.ts"
-   ],
-   "OAUTH_DATABASE_URL": [
-    "e2e/global-setup.ts",
-    "e2e/provision-oauth-db.ts",
-    "mcp/oauth/auth-transaction-store.ts",
-    "mcp/oauth/kv-store.ts",
-    "mcp/oauth/refresh-lock.ts"
-   ],
-   "UPSTREAM_OAUTH_HOST": [
-    "lib/config.ts"
-   ],
-   "CLIENT_SECRET": [
-    "lib/config.ts"
-   ],
-   "ANALYTICS_WRITE_KEY": [
-    "lib/config.ts"
-   ],
-   "SERVER_CARD_PATH": [
-    "lib/server-metadata.ts"
-   ],
-   "API_KEY_URL": [
-    "lib/landing/content.ts"
-   ],
-   "HERO_VIDEO_PATH": [
-    "lib/landing/hero-video.ts"
-   ],
-   "MARKDOWN_PATH": [
-    "lib/landing/index.ts",
-    "lib/landing/page.ts"
-   ],
-   "LINE_INTERSECTION_PATH": [
-    "lib/landing/page.ts"
-   ],
-   "OAUTH_PAGE_FONT_LINKS": [
-    "lib/landing/page.ts",
-    "mcp/oauth/auth-complete-page.ts",
-    "mcp/oauth/consent-dialog.ts"
-   ],
-   "PROTECTED_RESOURCE_METADATA_PATH": [
-    "lib/oauth/protected-resource-metadata.ts"
-   ],
-   "OAUTH_PAGE_BASE_CSS": [
-    "mcp/oauth/auth-complete-page.ts",
-    "mcp/oauth/consent-dialog.ts"
-   ],
-   "OAUTH_PAGE_CONNECTION_ICONS": [
-    "mcp/oauth/auth-complete-page.ts",
-    "mcp/oauth/consent-dialog.ts"
-   ],
-   "REDIS_LOCK_KEY_PREFIX": [
-    "mcp/oauth/refresh-lock-store.ts"
-   ],
-   "REDIS_TRANSIENT_KEY_PREFIX": [
-    "mcp/oauth/refresh-lock-store.ts"
-   ],
-   "REDACTED_SECRET": [
-    "mcp/tools/grant-filter.ts",
-    "mcp/utils/secrets.ts"
+   "INFLUXDB_TOKEN": [
+    "testdata/influxdb-seed.sh"
    ]
   },
   "path_executables": [],
@@ -1435,34 +1137,34 @@
   "auto-execution": 0,
   "remote-code": 0,
   "exfiltration": 1,
-  "network": 43,
-  "credentials": 1,
-  "secrets": 3,
-  "persistence": 0,
-  "config-tampering": 2,
+  "network": 30,
+  "credentials": 0,
+  "secrets": 9,
+  "persistence": 1,
+  "config-tampering": 0,
   "destructive": 0,
-  "privilege": 0,
-  "obfuscation": 0,
-  "surveillance": 1,
-  "prompt-injection": 1,
+  "privilege": 1,
+  "obfuscation": 1,
+  "surveillance": 0,
+  "prompt-injection": 0,
   "permissions": 0,
-  "supply-chain": 4,
+  "supply-chain": 1,
   "integrity": 0,
   "impersonation": 0,
   "vulnerable-dependency": 0
  },
  "notes": [],
  "metadata": {
-  "stars": 667,
-  "forks": 133,
-  "open_issues": 53,
-  "contributors": "27",
-  "created_at": "2024-11-29T19:08:55Z",
-  "pushed_at": "2026-11-21T03:55:35Z",
-  "license": "MIT",
+  "stars": 3695,
+  "forks": 504,
+  "open_issues": 105,
+  "contributors": "100+",
+  "created_at": "2024-12-24T15:44:23Z",
+  "pushed_at": "2026-11-23T16:22:14Z",
+  "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
-  "description": "MCP server for interacting with Neon Management API and databases",
+  "description": "MCP server for Grafana",
   "signals": [],
   "error": null
  },
@@ -1472,30 +1174,27 @@
  "verdict": {
   "level": "caution",
   "label": "Install with precautions",
-  "score": 11,
+  "score": 18,
   "counts": {
    "critical": 0,
    "high": 0,
-   "medium": 1,
-   "low": 6,
-   "info": 49
+   "medium": 3,
+   "low": 3,
+   "info": 38
   },
-  "active": 56,
+  "active": 44,
   "dismissed": 0,
-  "injection_guard": false,
+  "injection_guard": true,
   "reasons": []
  },
  "recommended_precautions": [
-  "protect-claude-config",
   "disable-plugin",
-  "deny-network-bash",
-  "deny-secret-reads",
-  "dependency-audit",
+  "sandbox-bash",
+  "disable-hooks",
+  "review-context-injection",
+  "check-persistence",
   "pin-mcp-version",
   "pin-commit",
-  "disable-hooks",
-  "sandbox-bash",
-  "review-context-injection",
   "rotate-secret"
  ],
  "settings_snippet": {}

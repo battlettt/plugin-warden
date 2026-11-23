@@ -6,14 +6,14 @@
   "url": "https://github.com/upstash/context7",
   "ref": null,
   "subdir": null,
-  "commit": "f1872ebb2f3d943b293bb86fdc0c2905988820d9",
+  "commit": "11cb18d81c93bffe6c9c662ec7cb605f34ea6946",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-19T14:38:50+00:00",
+ "generated_at": "2026-11-23T16:23:33+00:00",
  "plugins": [
   {
-   "name": "upstash__context7@f1872ebb2f3d",
+   "name": "upstash__context7@11cb18d81c93",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -37,9 +37,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "upstash__context7@f1872ebb2f3d",
+   "name": "upstash__context7@11cb18d81c93",
    "path": ".",
-   "plugin": "upstash__context7@f1872ebb2f3d",
+   "plugin": "upstash__context7@11cb18d81c93",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -49,7 +49,7 @@
    "kind": "skill",
    "name": "context7-cli",
    "path": "skills/context7-cli/SKILL.md",
-   "plugin": "upstash__context7@f1872ebb2f3d",
+   "plugin": "upstash__context7@11cb18d81c93",
    "trigger": "",
    "details": {
     "description": "Use the ctx7 CLI to fetch library documentation and configure Context7 MCP. Activate when the user mentions \"ctx7\" or \"context7\", needs current docs for any library, or needs to set up Context7 for th"
@@ -59,7 +59,7 @@
    "kind": "skill",
    "name": "context7-mcp",
    "path": "skills/context7-mcp/SKILL.md",
-   "plugin": "upstash__context7@f1872ebb2f3d",
+   "plugin": "upstash__context7@11cb18d81c93",
    "trigger": "",
    "details": {
     "description": "This skill should be used when the user asks about libraries, frameworks, API references, or needs code examples. Activates for setup questions, code generation involving libraries, or mentions of spe"
@@ -69,7 +69,7 @@
    "kind": "skill",
    "name": "find-docs",
    "path": "skills/find-docs/SKILL.md",
-   "plugin": "upstash__context7@f1872ebb2f3d",
+   "plugin": "upstash__context7@11cb18d81c93",
    "trigger": "",
    "details": {
     "description": ">- Retrieves up-to-date documentation, API references, and code examples for any developer technology. Use this skill whenever the user asks about a specific library, framework, SDK, CLI tool, or clou"
@@ -355,6 +355,7 @@
     "ecosystem": "npm",
     "scripts": {
      "build": "tsc && chmod 755 dist/index.js",
+     "build:skill": "node scripts/build-skill.mjs",
      "test": "pnpm exec vitest run",
      "typecheck": "tsc --noEmit",
      "lint": "eslint .",
@@ -535,13 +536,13 @@
   }
  ],
  "stats": {
-  "files": 628,
-  "bytes": 26676791,
+  "files": 641,
+  "bytes": 27310413,
   "by_kind": {
-   "binary": 127,
+   "binary": 131,
    "config": 65,
-   "js": 204,
-   "markdown": 198,
+   "js": 208,
+   "markdown": 203,
    "other": 34
   },
   "vendored_files": 0,
@@ -1187,12 +1188,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 65112,
-  "forks": 3272,
-  "open_issues": 55,
+  "stars": 65333,
+  "forks": 3266,
+  "open_issues": 54,
   "contributors": "100+",
   "created_at": "2025-03-26T23:40:39Z",
-  "pushed_at": "2026-11-19T13:44:00Z",
+  "pushed_at": "2026-11-23T13:55:48Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

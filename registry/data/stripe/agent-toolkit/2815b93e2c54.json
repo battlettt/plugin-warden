@@ -6,14 +6,14 @@
   "url": "https://github.com/stripe/agent-toolkit",
   "ref": null,
   "subdir": null,
-  "commit": "119bc4a8de4eb4370db1f5838275bc9e7a0d8e4a",
+  "commit": "2815b93e2c54a87bd9b146df62704a0e84930929",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-20T14:24:08+00:00",
+ "generated_at": "2026-11-23T16:26:13+00:00",
  "plugins": [
   {
-   "name": "stripe__agent-toolkit@119bc4a8de4e",
+   "name": "stripe__agent-toolkit@2815b93e2c54",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -23,7 +23,7 @@
    "name": "stripe",
    "path": "providers/claude/plugin",
    "source": "manifest",
-   "version": "0.15.0",
+   "version": "0.15.3",
    "description": "Stripe development plugin for Claude"
   }
  ],
@@ -34,14 +34,14 @@
   "marketplace": 1,
   "mcp_server": 2,
   "package": 13,
-  "skill": 66
+  "skill": 77
  },
  "components": [
   {
    "kind": "manifest",
-   "name": "stripe__agent-toolkit@119bc4a8de4e",
+   "name": "stripe__agent-toolkit@2815b93e2c54",
    "path": ".",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "connect-recommend",
    "path": "skills/connect-recommend/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "connect-required-verification-information",
    "path": "skills/connect-required-verification-information/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "metronome",
    "path": "skills/metronome/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stripe-apps",
    "path": "skills/stripe-apps/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "stripe-best-practices",
    "path": "skills/stripe-best-practices/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
@@ -101,7 +101,7 @@
    "kind": "skill",
    "name": "stripe-bfcm-dashboard",
    "path": "skills/stripe-bfcm-dashboard/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted dashboard or artifact where the agent"
@@ -111,7 +111,7 @@
    "kind": "skill",
    "name": "stripe-directory",
    "path": "skills/stripe-directory/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
@@ -122,7 +122,7 @@
    "kind": "skill",
    "name": "stripe-docs",
    "path": "skills/stripe-docs/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
@@ -133,7 +133,7 @@
    "kind": "skill",
    "name": "stripe-implementation-planner",
    "path": "skills/stripe-implementation-planner/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
@@ -144,7 +144,7 @@
    "kind": "skill",
    "name": "stripe-pay",
    "path": "skills/stripe-pay/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
@@ -155,11 +155,11 @@
    "kind": "skill",
    "name": "stripe-projects",
    "path": "skills/stripe-projects/SKILL.md",
-   "plugin": "stripe__agent-toolkit@119bc4a8de4e",
+   "plugin": "stripe__agent-toolkit@2815b93e2c54",
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -170,7 +170,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.15.0",
+    "version": "0.15.3",
     "description": "Stripe development plugin for Claude",
     "author": {
      "name": "Stripe",
@@ -446,7 +446,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -561,7 +561,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -676,7 +676,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -791,7 +791,122 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-recommend",
+   "path": "providers/gemini/plugin/skills/connect-recommend/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "connect-required-verification-information",
+   "path": "providers/gemini/plugin/skills/connect-required-verification-information/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "metronome",
+   "path": "providers/gemini/plugin/skills/metronome/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-apps",
+   "path": "providers/gemini/plugin/skills/stripe-apps/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-best-practices",
+   "path": "providers/gemini/plugin/skills/stripe-best-practices/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-bfcm-dashboard",
+   "path": "providers/gemini/plugin/skills/stripe-bfcm-dashboard/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted dashboard or artifact where the agent"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-directory",
+   "path": "providers/gemini/plugin/skills/stripe-directory/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(npx skills add https://docs.stripe.com *) - Skill - Read"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-docs",
+   "path": "providers/gemini/plugin/skills/stripe-docs/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
+    "allowed-tools": "- Bash(stripe docs *) - Bash(stripe login) - Bash(stripe version)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-implementation-planner",
+   "path": "providers/gemini/plugin/skills/stripe-implementation-planner/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
+    "allowed-tools": "- Bash(which stripe) - Bash(stripe --version) - Bash(stripe tools plan *) - Bash(stripe sandbox create *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-pay",
+   "path": "providers/gemini/plugin/skills/stripe-pay/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
+    "allowed-tools": "- Bash(stripe directory *) - Bash(stripe pay *) - Bash(stripe whoami *)"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "stripe-projects",
+   "path": "providers/gemini/plugin/skills/stripe-projects/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -906,7 +1021,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
    }
   },
   {
@@ -1251,7 +1366,7 @@
       "name": "stripe",
       "source": "./providers/claude/plugin/",
       "description": "Stripe",
-      "version": "0.15.0",
+      "version": "0.15.3",
       "author": {
        "name": "Stripe"
       }
@@ -1265,21 +1380,21 @@
   }
  ],
  "stats": {
-  "files": 914,
-  "bytes": 24102982,
+  "files": 958,
+  "bytes": 24636592,
   "by_kind": {
    "binary": 66,
    "code": 69,
-   "config": 53,
+   "config": 55,
    "js": 229,
-   "markdown": 292,
-   "other": 145,
+   "markdown": 333,
+   "other": 146,
    "python": 18,
    "shell": 42
   },
   "vendored_files": 0,
   "plugins": 2,
-  "components": 93
+  "components": 104
  },
  "findings": [
   {
@@ -1369,7 +1484,7 @@
    "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:3a0392658587c1a3",
+   "snippet": "fp:ffea32b32e27660e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1389,7 +1504,7 @@
    "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:359f0f5ae0f2d163",
+   "snippet": "fp:3a0392658587c1a3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1403,13 +1518,13 @@
    "effective_severity": "high"
   },
   {
-   "rule_id": "RCE-PIPE-SHELL",
+   "rule_id": "PROMPT-REMOTE-INSTRUCTIONS",
    "title": "Withheld",
    "severity": "high",
-   "category": "remote-code",
+   "category": "prompt-injection",
    "path": "",
    "line": null,
-   "snippet": "fp:249e69c40f5e75b3",
+   "snippet": "fp:359f0f5ae0f2d163",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1429,7 +1544,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:9cbc1a234e75cdd9",
+   "snippet": "fp:249e69c40f5e75b3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1449,7 +1564,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:7d97750b26968f07",
+   "snippet": "fp:9cbc1a234e75cdd9",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1469,7 +1584,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:f14affa2fe4f5268",
+   "snippet": "fp:7d97750b26968f07",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1489,7 +1604,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:47a55d4185eb1e95",
+   "snippet": "fp:f14affa2fe4f5268",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1509,7 +1624,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:aa6aefc3f5bfc6a3",
+   "snippet": "fp:47a55d4185eb1e95",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1529,7 +1644,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:2814c7d62bf31af0",
+   "snippet": "fp:aa6aefc3f5bfc6a3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1549,7 +1664,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:16b27e646c7877b8",
+   "snippet": "fp:2814c7d62bf31af0",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1569,7 +1684,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:dea645a61e35020b",
+   "snippet": "fp:16b27e646c7877b8",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1589,7 +1704,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:60cb720d7d137b63",
+   "snippet": "fp:a8cf5f09735d363d",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1609,7 +1724,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:b64c90bb1b23f3fa",
+   "snippet": "fp:300db230f52e8cf3",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1629,7 +1744,7 @@
    "category": "remote-code",
    "path": "",
    "line": null,
-   "snippet": "fp:a0dc665302f336ac",
+   "snippet": "fp:dea645a61e35020b",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1637,6 +1752,66 @@
    "source": "static",
    "confidence": "high",
    "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:60cb720d7d137b63",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b64c90bb1b23f3fa",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:a0dc665302f336ac",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-021",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1656,7 +1831,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-019",
+   "id": "F-022",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1676,7 +1851,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-020",
+   "id": "F-023",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1696,7 +1871,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-021",
+   "id": "F-024",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1716,7 +1891,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-022",
+   "id": "F-025",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1736,7 +1911,27 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-023",
+   "id": "F-026",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PROMPT-SKIP-CONFIRM",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:7ec1e85d6db9c492",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-027",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1756,7 +1951,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-024",
+   "id": "F-028",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1776,7 +1971,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-025",
+   "id": "F-029",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1796,7 +1991,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-026",
+   "id": "F-030",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1816,7 +2011,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-027",
+   "id": "F-031",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1836,7 +2031,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-028",
+   "id": "F-032",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1856,7 +2051,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-029",
+   "id": "F-033",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1876,7 +2071,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-030",
+   "id": "F-034",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1896,7 +2091,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-031",
+   "id": "F-035",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1916,7 +2111,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-032",
+   "id": "F-036",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1936,7 +2131,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-033",
+   "id": "F-037",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1956,7 +2151,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-034",
+   "id": "F-038",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1976,7 +2171,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-035",
+   "id": "F-039",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1996,7 +2191,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-036",
+   "id": "F-040",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2016,7 +2211,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-037",
+   "id": "F-041",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2036,7 +2231,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-038",
+   "id": "F-042",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2056,7 +2251,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-039",
+   "id": "F-043",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2076,7 +2271,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-040",
+   "id": "F-044",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2096,7 +2291,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-041",
+   "id": "F-045",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2116,7 +2311,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-042",
+   "id": "F-046",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2136,7 +2331,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-043",
+   "id": "F-047",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2156,7 +2351,7 @@
    "context": [],
    "source": "static",
    "confidence": "medium",
-   "id": "F-044",
+   "id": "F-048",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -2263,7 +2458,7 @@
  },
  "coverage": {
   "auto-execution": 0,
-  "remote-code": 12,
+  "remote-code": 14,
   "exfiltration": 0,
   "network": 6,
   "credentials": 0,
@@ -2274,7 +2469,7 @@
   "privilege": 2,
   "obfuscation": 0,
   "surveillance": 0,
-  "prompt-injection": 15,
+  "prompt-injection": 17,
   "permissions": 0,
   "supply-chain": 4,
   "integrity": 0,
@@ -2283,12 +2478,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 2075,
-  "forks": 384,
-  "open_issues": 47,
+  "stars": 2084,
+  "forks": 388,
+  "open_issues": 50,
   "contributors": "42",
   "created_at": "2024-11-11T17:13:41Z",
-  "pushed_at": "2026-11-20T00:28:45Z",
+  "pushed_at": "2026-11-23T00:33:41Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
@@ -2305,12 +2500,12 @@
   "score": 100,
   "counts": {
    "critical": 0,
-   "high": 18,
-   "medium": 7,
+   "high": 21,
+   "medium": 8,
    "low": 5,
    "info": 14
   },
-  "active": 44,
+  "active": 48,
   "dismissed": 0,
   "injection_guard": true,
   "reasons": []
