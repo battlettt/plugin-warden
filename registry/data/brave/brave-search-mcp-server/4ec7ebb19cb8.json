@@ -6,14 +6,14 @@
   "url": "https://github.com/brave/brave-search-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "e08f5af01fffb0d208995f052239d024a3721212",
+  "commit": "4ec7ebb19cb86044357d0a4b1ccccdbd81cf5246",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:37:36+00:00",
+ "generated_at": "2026-11-24T16:17:05+00:00",
  "plugins": [
   {
-   "name": "brave__brave-search-mcp-server@e08f5af01fff",
+   "name": "brave__brave-search-mcp-server@4ec7ebb19cb8",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "brave__brave-search-mcp-server@e08f5af01fff",
+   "name": "brave__brave-search-mcp-server@4ec7ebb19cb8",
    "path": ".",
-   "plugin": "brave__brave-search-mcp-server@e08f5af01fff",
+   "plugin": "brave__brave-search-mcp-server@4ec7ebb19cb8",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -44,7 +44,7 @@
    "details": {
     "ecosystem": "npm",
     "scripts": {
-     "build": "shx rm -rf dist && tsc && shx chmod +x dist/*.js",
+     "build": "node scripts/build.js",
      "prepare": "npm run format && npm run build",
      "watch": "tsc --watch",
      "format": "prettier --write \"src/**/*.ts\"",
@@ -59,6 +59,7 @@
      "@modelcontextprotocol/sdk": "1.32.2",
      "commander": "14.0.3",
      "dotenv": "17.3.1",
+     "eventsource-parser": "3.1.1",
      "express": "5.2.1",
      "zod": "4.6.7"
     },
@@ -68,7 +69,6 @@
      "ajv": "8.20.0",
      "prettier": "3.8.1",
      "semver": "7.7.3",
-     "shx": "0.4.0",
      "tsx": "4.22.4",
      "typescript": "5.9.3"
     },
@@ -79,13 +79,13 @@
   }
  ],
  "stats": {
-  "files": 77,
-  "bytes": 343688,
+  "files": 98,
+  "bytes": 416174,
   "by_kind": {
-   "config": 12,
-   "js": 56,
+   "config": 13,
+   "js": 72,
    "markdown": 1,
-   "other": 8
+   "other": 12
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -117,9 +117,6 @@
   "auto_runs": [],
   "processes": [],
   "hosts": {
-   "api.search.brave.com": [
-    "src/BraveAPI/index.ts"
-   ],
    "bravesoftware.slack.com": [
     "src/BraveAPI/index.ts"
    ],
@@ -140,6 +137,9 @@
    ],
    "API_KEY": [
     "src/docker.e2e.ts"
+   ],
+   "CHAT_COMPLETIONS_PATH": [
+    "src/BraveAPI/chatCompletions.ts"
    ]
   },
   "path_executables": [],
@@ -167,12 +167,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 1584,
-  "forks": 231,
+  "stars": 1592,
+  "forks": 236,
   "open_issues": 46,
   "contributors": "21",
   "created_at": "2025-06-12T18:09:34Z",
-  "pushed_at": "2026-11-17T15:30:37Z",
+  "pushed_at": "2026-11-24T15:32:24Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

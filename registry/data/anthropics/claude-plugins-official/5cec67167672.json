@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-plugins-official",
   "ref": null,
   "subdir": null,
-  "commit": "73c8cf3ea7e296057b467990f2f5d61b4c922260",
+  "commit": "5cec6716767283f4675a05f5f8855b5b49c81783",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:36:13+00:00",
+ "generated_at": "2026-11-24T16:00:34+00:00",
  "plugins": [
   {
    "name": "asana",
@@ -7741,7 +7741,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/vercel/vercel-plugin.git",
-       "sha": "882e66c2698689324c341b7bb8fd8beb92c27bf6"
+       "sha": "50af4780eed8b2f69bc2290d20c670744f1e739c"
       },
       "homepage": "https://github.com/vercel/vercel-plugin"
      },
@@ -7794,7 +7794,7 @@
       "source": {
        "source": "url",
        "url": "https://github.com/wix/skills.git",
-       "sha": "8fc544d319c4a4dfc7ccf3ba4adf328e1fa9866f"
+       "sha": "e2bc48ebb04d355aaa413cfdd55574ed6d0df969"
       },
       "homepage": "https://dev.wix.com/docs/wix-cli/guides/development/about-wix-skills"
      },
@@ -8048,15 +8048,15 @@
   }
  ],
  "stats": {
-  "files": 796,
-  "bytes": 17895883,
+  "files": 797,
+  "bytes": 17912540,
   "by_kind": {
    "binary": 21,
    "config": 100,
    "js": 94,
    "markdown": 337,
    "other": 70,
-   "python": 153,
+   "python": 154,
    "shell": 21
   },
   "vendored_files": 0,
@@ -11858,12 +11858,12 @@
   "261 marketplace plugin(s) live in other repositories and were not scanned here: 42crunch-api-security-testing (https://github.com/42Crunch-AI/claude-plugins.git); adobe-for-creativity (https://github.com/adobe/skills.git); agentforce-adlc (https://github.com/SalesforceAIResearch/agentforce-adlc.git); ai-plugins (https://github.com/endorlabs/ai-plugins.git); aikido (https://github.com/AikidoSec/aikido-claude-plugin.git); airtable (https://github.com/Airtable/skills.git); airwallex-agentos (https://github.com/airwallex/airwallex-marketplace.git); aiven (https://github.com/aiven/aiven-ai-plugins.git); alloydb (https://github.com/gemini-cli-extensions/alloydb.git); alloydb-omni (https://github.com/gemini-cli-extensions/alloydb-omni.git); altimate-code (https://github.com/AltimateAI/altimate-claude-plugin.git); amazon-location-service (https://github.com/awslabs/agent-plugins.git); amd-skills (https://github.com/amd/skills.git); amplitude (https://github.com/amplitude/mcp-marketplace.git); apollo (https://github.com/apolloio/apollo-mcp-plugin.git)"
  ],
  "metadata": {
-  "stars": 47880,
-  "forks": 4970,
-  "open_issues": 1326,
+  "stars": 48100,
+  "forks": 5017,
+  "open_issues": 1333,
   "contributors": "49",
   "created_at": "2025-11-20T18:36:20Z",
-  "pushed_at": "2026-11-21T07:27:49Z",
+  "pushed_at": "2026-11-24T01:44:15Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",
