@@ -6,17 +6,17 @@
   "url": "https://github.com/vercel/vercel-plugin",
   "ref": null,
   "subdir": null,
-  "commit": "8bb46159108f0cd6a749959b20c1411257411090",
+  "commit": "5e43a50cf5d4d10a02f1c20aaf634a202d3d0753",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-20T14:20:58+00:00",
+ "generated_at": "2026-11-25T16:01:07+00:00",
  "plugins": [
   {
    "name": "vercel",
    "path": ".",
    "source": "manifest",
-   "version": "0.56.0",
+   "version": "0.57.0",
    "description": "Build and deploy web apps and agents"
   }
  ],
@@ -39,7 +39,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.56.0",
+    "version": "0.57.0",
     "description": "Build and deploy web apps and agents",
     "author": {
      "name": "Vercel",
@@ -636,7 +636,7 @@
    "plugin": "vercel",
    "trigger": "",
    "details": {
-    "description": "Creates isolated Linux MicroVMs using Vercel Sandbox SDK. Use when building code execution environments, running untrusted code, spinning up dev servers, testing in isolation, or when the user mention"
+    "description": "Creates isolated Linux MicroVMs using Vercel Sandbox SDK. Use when building code execution environments, running untrusted code, spinning up dev servers, testing in isolation, streaming a sandbox desk"
    }
   },
   {
@@ -843,7 +843,7 @@
  ],
  "stats": {
   "files": 538,
-  "bytes": 3571134,
+  "bytes": 3580584,
   "by_kind": {
    "binary": 1,
    "config": 33,
@@ -1749,12 +1749,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 340,
-  "forks": 82,
-  "open_issues": 68,
+  "stars": 350,
+  "forks": 84,
+  "open_issues": 74,
   "contributors": "53",
   "created_at": "2026-03-04T16:46:22Z",
-  "pushed_at": "2026-11-20T10:11:57Z",
+  "pushed_at": "2026-11-24T18:01:10Z",
   "license": "NOASSERTION",
   "archived": false,
   "owner_type": "Organization",

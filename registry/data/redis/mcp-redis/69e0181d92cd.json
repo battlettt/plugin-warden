@@ -6,14 +6,14 @@
   "url": "https://github.com/redis/mcp-redis",
   "ref": null,
   "subdir": null,
-  "commit": "aec3c1806f5132998d8c3f8053d9e5ed09c5954e",
+  "commit": "69e0181d92cdc81acdb9fa7cc62b5597f5ec3850",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:28:42+00:00",
+ "generated_at": "2026-11-25T16:08:28+00:00",
  "plugins": [
   {
-   "name": "redis__mcp-redis@aec3c1806f51",
+   "name": "redis__mcp-redis@69e0181d92cd",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "redis__mcp-redis@aec3c1806f51",
+   "name": "redis__mcp-redis@69e0181d92cd",
    "path": ".",
-   "plugin": "redis__mcp-redis@aec3c1806f51",
+   "plugin": "redis__mcp-redis@69e0181d92cd",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -47,13 +47,13 @@
   }
  ],
  "stats": {
-  "files": 60,
-  "bytes": 957340,
+  "files": 61,
+  "bytes": 974822,
   "by_kind": {
    "config": 8,
    "markdown": 2,
    "other": 6,
-   "python": 44
+   "python": 45
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -133,10 +133,10 @@
  "metadata": {
   "stars": 644,
   "forks": 125,
-  "open_issues": 15,
-  "contributors": "27",
+  "open_issues": 6,
+  "contributors": "30",
   "created_at": "2025-04-02T08:42:13Z",
-  "pushed_at": "2026-11-23T16:25:39Z",
+  "pushed_at": "2026-11-25T12:15:55Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

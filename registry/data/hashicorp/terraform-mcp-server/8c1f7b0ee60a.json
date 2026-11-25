@@ -6,14 +6,14 @@
   "url": "https://github.com/hashicorp/terraform-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "b4c8016f241461d7e6734c4c041bd504974e83a3",
+  "commit": "8c1f7b0ee60a564e4b45eed2cdd9a613125a0c87",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:53:56+00:00",
+ "generated_at": "2026-11-25T16:07:43+00:00",
  "plugins": [
   {
-   "name": "hashicorp__terraform-mcp-server@b4c8016f2414",
+   "name": "hashicorp__terraform-mcp-server@8c1f7b0ee60a",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -26,9 +26,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "hashicorp__terraform-mcp-server@b4c8016f2414",
+   "name": "hashicorp__terraform-mcp-server@8c1f7b0ee60a",
    "path": ".",
-   "plugin": "hashicorp__terraform-mcp-server@b4c8016f2414",
+   "plugin": "hashicorp__terraform-mcp-server@8c1f7b0ee60a",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -37,7 +37,7 @@
  ],
  "stats": {
   "files": 444,
-  "bytes": 2231360,
+  "bytes": 2234795,
   "by_kind": {
    "code": 379,
    "config": 24,
@@ -189,12 +189,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 1561,
-  "forks": 201,
-  "open_issues": 43,
+  "stars": 1562,
+  "forks": 202,
+  "open_issues": 38,
   "contributors": "33",
   "created_at": "2025-04-19T19:49:09Z",
-  "pushed_at": "2026-11-20T17:06:07Z",
+  "pushed_at": "2026-11-25T12:13:46Z",
   "license": "MPL-2.0",
   "archived": false,
   "owner_type": "Organization",

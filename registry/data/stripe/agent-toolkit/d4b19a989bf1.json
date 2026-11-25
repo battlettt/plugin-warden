@@ -6,14 +6,14 @@
   "url": "https://github.com/stripe/agent-toolkit",
   "ref": null,
   "subdir": null,
-  "commit": "2815b93e2c54a87bd9b146df62704a0e84930929",
+  "commit": "d4b19a989bf12bdbd4d42de1f9bfd3aec56fd9da",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:26:13+00:00",
+ "generated_at": "2026-11-25T16:05:10+00:00",
  "plugins": [
   {
-   "name": "stripe__agent-toolkit@2815b93e2c54",
+   "name": "stripe__agent-toolkit@d4b19a989bf1",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -23,7 +23,7 @@
    "name": "stripe",
    "path": "providers/claude/plugin",
    "source": "manifest",
-   "version": "0.15.3",
+   "version": "0.15.5",
    "description": "Stripe development plugin for Claude"
   }
  ],
@@ -39,9 +39,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "stripe__agent-toolkit@2815b93e2c54",
+   "name": "stripe__agent-toolkit@d4b19a989bf1",
    "path": ".",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -51,7 +51,7 @@
    "kind": "skill",
    "name": "connect-recommend",
    "path": "skills/connect-recommend/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store,"
@@ -61,7 +61,7 @@
    "kind": "skill",
    "name": "connect-required-verification-information",
    "path": "skills/connect-required-verification-information/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or account requirements; when they need to compare requirements"
@@ -71,7 +71,7 @@
    "kind": "skill",
    "name": "metronome",
    "path": "skills/metronome/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products"
@@ -81,7 +81,7 @@
    "kind": "skill",
    "name": "stripe-apps",
    "path": "skills/stripe-apps/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. Use for custom Stripe Dashboard UI, stripe-app.yaml, @stripe/ui-extension-sdk, @stripe/ext"
@@ -91,7 +91,7 @@
    "kind": "skill",
    "name": "stripe-best-practices",
    "path": "skills/stripe-best-practices/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Conne"
@@ -101,7 +101,7 @@
    "kind": "skill",
    "name": "stripe-bfcm-dashboard",
    "path": "skills/stripe-bfcm-dashboard/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Builds a Black Friday and Cyber Monday (BFCM) season dashboard of payments, customers, and recurring revenue from the connected Stripe MCP account, as a hosted dashboard or artifact where the agent"
@@ -111,7 +111,7 @@
    "kind": "skill",
    "name": "stripe-directory",
    "path": "skills/stripe-directory/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage them \u2014 to pay, donate, subscribe, book, provision, or integra",
@@ -122,7 +122,7 @@
    "kind": "skill",
    "name": "stripe-docs",
    "path": "skills/stripe-docs/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentati",
@@ -133,7 +133,7 @@
    "kind": "skill",
    "name": "stripe-implementation-planner",
    "path": "skills/stripe-implementation-planner/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on t",
@@ -144,7 +144,7 @@
    "kind": "skill",
    "name": "stripe-pay",
    "path": "skills/stripe-pay/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": ">- Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay a Stripe business. Use Stripe Directory to find or verify",
@@ -155,11 +155,11 @@
    "kind": "skill",
    "name": "stripe-projects",
    "path": "skills/stripe-projects/SKILL.md",
-   "plugin": "stripe__agent-toolkit@2815b93e2c54",
+   "plugin": "stripe__agent-toolkit@d4b19a989bf1",
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -170,7 +170,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.15.3",
+    "version": "0.15.5",
     "description": "Stripe development plugin for Claude",
     "author": {
      "name": "Stripe",
@@ -446,7 +446,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -561,7 +561,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -676,7 +676,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -791,7 +791,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -906,7 +906,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -1021,7 +1021,7 @@
    "trigger": "",
    "details": {
     "description": "> Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis",
-    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Bash(curl -fsSL https://docs.stripe.com/projects/mcp.md) - Skill - Read"
+    "allowed-tools": "- Bash(stripe *) - Bash(which stripe) - Skill - Read"
    }
   },
   {
@@ -1366,7 +1366,7 @@
       "name": "stripe",
       "source": "./providers/claude/plugin/",
       "description": "Stripe",
-      "version": "0.15.3",
+      "version": "0.15.5",
       "author": {
        "name": "Stripe"
       }
@@ -1381,7 +1381,7 @@
  ],
  "stats": {
   "files": 958,
-  "bytes": 24636592,
+  "bytes": 24618141,
   "by_kind": {
    "binary": 66,
    "code": 69,
@@ -2478,12 +2478,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 2084,
-  "forks": 388,
-  "open_issues": 50,
+  "stars": 2092,
+  "forks": 393,
+  "open_issues": 53,
   "contributors": "42",
   "created_at": "2024-11-11T17:13:41Z",
-  "pushed_at": "2026-11-23T00:33:41Z",
+  "pushed_at": "2026-11-25T02:41:45Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

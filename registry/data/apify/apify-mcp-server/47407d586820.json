@@ -6,14 +6,14 @@
   "url": "https://github.com/apify/apify-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "aea00bc16768a81a4c0185aa23f31120f5045a50",
+  "commit": "47407d586820b75fe04a7a8b94c186fa2460ebd4",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:29:32+00:00",
+ "generated_at": "2026-11-25T16:08:45+00:00",
  "plugins": [
   {
-   "name": "apify__apify-mcp-server@aea00bc16768",
+   "name": "apify__apify-mcp-server@47407d586820",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -29,9 +29,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "apify__apify-mcp-server@aea00bc16768",
+   "name": "apify__apify-mcp-server@47407d586820",
    "path": ".",
-   "plugin": "apify__apify-mcp-server@aea00bc16768",
+   "plugin": "apify__apify-mcp-server@47407d586820",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -41,7 +41,7 @@
    "kind": "mcp_server",
    "name": "dev",
    "path": ".mcp.json",
-   "plugin": "apify__apify-mcp-server@aea00bc16768",
+   "plugin": "apify__apify-mcp-server@47407d586820",
    "trigger": "",
    "details": {
     "type": "http",
@@ -55,7 +55,7 @@
    "kind": "mcp_server",
    "name": "stdio",
    "path": ".mcp.json",
-   "plugin": "apify__apify-mcp-server@aea00bc16768",
+   "plugin": "apify__apify-mcp-server@47407d586820",
    "trigger": "",
    "details": {
     "command": "node",
@@ -72,7 +72,7 @@
    "kind": "mcp_server",
    "name": "stdio-full",
    "path": ".mcp.json",
-   "plugin": "apify__apify-mcp-server@aea00bc16768",
+   "plugin": "apify__apify-mcp-server@47407d586820",
    "trigger": "",
    "details": {
     "command": "node",
@@ -243,12 +243,12 @@
   }
  ],
  "stats": {
-  "files": 463,
-  "bytes": 5520832,
+  "files": 467,
+  "bytes": 5543961,
   "by_kind": {
    "binary": 10,
    "config": 42,
-   "js": 363,
+   "js": 367,
    "markdown": 28,
    "other": 19,
    "shell": 1
@@ -365,7 +365,7 @@
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:d45b5ed53a545645",
+   "snippet": "fp:94558934330c656a",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -845,7 +845,7 @@
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:5a029fde07c92837",
+   "snippet": "fp:37fa587404f23017",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -965,21 +965,21 @@
     "when": "session start",
     "what": "http://localhost:3001",
     "type": "MCP server",
-    "plugin": "apify__apify-mcp-server@aea00bc16768",
+    "plugin": "apify__apify-mcp-server@47407d586820",
     "file": ".mcp.json"
    },
    {
     "when": "session start",
     "what": "node dist/stdio.js",
     "type": "MCP server",
-    "plugin": "apify__apify-mcp-server@aea00bc16768",
+    "plugin": "apify__apify-mcp-server@47407d586820",
     "file": ".mcp.json"
    },
    {
     "when": "session start",
     "what": "node dist/stdio.js --tools=actors,docs,runs,storage,tasks,schedules,apify/rag-web-browser",
     "type": "MCP server",
-    "plugin": "apify__apify-mcp-server@aea00bc16768",
+    "plugin": "apify__apify-mcp-server@47407d586820",
     "file": ".mcp.json"
    }
   ],
@@ -1031,6 +1031,18 @@
    "APIFY_TOKEN": [
     "scripts/test_conformance.sh",
     "src/stdio.ts"
+   ],
+   "ACCESS_KEY_TOKEN_PREFIX_PATTERN": [
+    "src/utils/access_key_token_mask.ts"
+   ],
+   "MIN_MASKED_TOKEN_SECRET_LENGTH": [
+    "src/utils/access_key_token_mask.ts"
+   ],
+   "TOKEN_SECRET_LENGTH": [
+    "src/utils/access_key_token_mask.ts"
+   ],
+   "ACCESS_KEY_TOKEN_MASK": [
+    "src/utils/access_key_token_mask.ts"
    ]
   },
   "path_executables": [],
@@ -1058,12 +1070,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 17560,
-  "forks": 479,
-  "open_issues": 273,
+  "stars": 17851,
+  "forks": 486,
+  "open_issues": 277,
   "contributors": "55",
   "created_at": "2025-01-02T15:43:09Z",
-  "pushed_at": "2026-11-23T15:30:28Z",
+  "pushed_at": "2026-11-25T14:04:58Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

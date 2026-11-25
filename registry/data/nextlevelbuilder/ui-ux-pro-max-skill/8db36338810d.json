@@ -6,11 +6,11 @@
   "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
   "ref": null,
   "subdir": null,
-  "commit": "f823ab5fb970de820e5a0626a0786aba9aee0543",
+  "commit": "8db36338810d0942567b97ce439affd1619fcf31",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:23:08+00:00",
+ "generated_at": "2026-11-25T16:00:50+00:00",
  "plugins": [
   {
    "name": "ui-ux-pro-max",
@@ -348,13 +348,13 @@
   }
  ],
  "stats": {
-  "files": 747,
-  "bytes": 23005542,
+  "files": 750,
+  "bytes": 23023610,
   "by_kind": {
    "binary": 62,
    "config": 124,
-   "js": 75,
-   "markdown": 151,
+   "js": 76,
+   "markdown": 153,
    "other": 193,
    "python": 138,
    "shell": 4
@@ -934,12 +934,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 153174,
-  "forks": 16148,
-  "open_issues": 87,
+  "stars": 154065,
+  "forks": 16225,
+  "open_issues": 90,
   "contributors": "100+",
   "created_at": "2025-11-30T11:36:31Z",
-  "pushed_at": "2026-11-23T16:06:28Z",
+  "pushed_at": "2026-11-24T19:05:41Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

@@ -6,14 +6,14 @@
   "url": "https://github.com/github/github-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "9a72d8d38fec18c207cd924b33aa0eb3e186252c",
+  "commit": "7edc2dd123a8923db389de8772170663cb2d8e17",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:48:40+00:00",
+ "generated_at": "2026-11-25T16:01:18+00:00",
  "plugins": [
   {
-   "name": "github__github-mcp-server@9a72d8d38fec",
+   "name": "github__github-mcp-server@7edc2dd123a8",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "github__github-mcp-server@9a72d8d38fec",
+   "name": "github__github-mcp-server@7edc2dd123a8",
    "path": ".",
-   "plugin": "github__github-mcp-server@9a72d8d38fec",
+   "plugin": "github__github-mcp-server@7edc2dd123a8",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -258,15 +258,15 @@
   }
  ],
  "stats": {
-  "files": 745,
-  "bytes": 7653442,
+  "files": 746,
+  "bytes": 7677175,
   "by_kind": {
    "binary": 64,
    "code": 340,
    "config": 29,
    "js": 14,
    "markdown": 72,
-   "other": 215,
+   "other": 216,
    "shell": 11
   },
   "vendored_files": 0,
@@ -475,12 +475,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34641,
-  "forks": 5386,
-  "open_issues": 449,
+  "stars": 34747,
+  "forks": 5419,
+  "open_issues": 464,
   "contributors": "100+",
   "created_at": "2025-03-04T16:42:04Z",
-  "pushed_at": "2026-11-21T08:39:12Z",
+  "pushed_at": "2026-11-25T15:57:44Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
