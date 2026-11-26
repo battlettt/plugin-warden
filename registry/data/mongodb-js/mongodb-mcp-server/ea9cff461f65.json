@@ -6,14 +6,14 @@
   "url": "https://github.com/mongodb-js/mongodb-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "1832d8ba5b16bf80dd098224da6e8758d336660f",
+  "commit": "ea9cff461f65b1853cb9bf6dfa824b3320f51883",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-24T16:15:12+00:00",
+ "generated_at": "2026-11-26T15:39:53+00:00",
  "plugins": [
   {
-   "name": "mongodb-js__mongodb-mcp-server@1832d8ba5b16",
+   "name": "mongodb-js__mongodb-mcp-server@ea9cff461f65",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "mongodb-js__mongodb-mcp-server@1832d8ba5b16",
+   "name": "mongodb-js__mongodb-mcp-server@ea9cff461f65",
    "path": ".",
-   "plugin": "mongodb-js__mongodb-mcp-server@1832d8ba5b16",
+   "plugin": "mongodb-js__mongodb-mcp-server@ea9cff461f65",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -40,7 +40,7 @@
    "kind": "skill",
    "name": "mongodb-mcp-v3-migration",
    "path": "skills/mongodb-mcp-v3-migration/SKILL.md",
-   "plugin": "mongodb-js__mongodb-mcp-server@1832d8ba5b16",
+   "plugin": "mongodb-js__mongodb-mcp-server@ea9cff461f65",
    "trigger": "",
    "details": {
     "description": "> Migrates external consumer code from the mongodb-mcp-server v1/v2 single-package API to the v3 scoped-package structure. In v3, mongodb-mcp-server is a binary-only package (npx / MCPB); library embe"
@@ -1003,12 +1003,12 @@
   }
  ],
  "stats": {
-  "files": 821,
-  "bytes": 8768778,
+  "files": 825,
+  "bytes": 8783548,
   "by_kind": {
    "binary": 1,
-   "config": 136,
-   "js": 635,
+   "config": 137,
+   "js": 638,
    "markdown": 24,
    "other": 19,
    "shell": 6
@@ -2169,12 +2169,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 1164,
+  "stars": 1165,
   "forks": 298,
   "open_issues": 27,
   "contributors": "57",
   "created_at": "2025-04-04T14:10:44Z",
-  "pushed_at": "2026-11-24T14:54:52Z",
+  "pushed_at": "2026-11-26T13:16:34Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

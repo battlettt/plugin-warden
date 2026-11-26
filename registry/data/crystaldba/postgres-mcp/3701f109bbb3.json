@@ -1,0 +1,217 @@
+{
+ "target": {
+  "display": "crystaldba/postgres-mcp",
+  "raw": "crystaldba/postgres-mcp",
+  "kind": "github",
+  "url": "https://github.com/crystaldba/postgres-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "3701f109bbb33f6191d6b40f4a2e1e90caeb6ea5",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-26T15:41:03+00:00",
+ "plugins": [
+  {
+   "name": "crystaldba__postgres-mcp@3701f109bbb3",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 1
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "crystaldba__postgres-mcp@3701f109bbb3",
+   "path": ".",
+   "plugin": "crystaldba__postgres-mcp@3701f109bbb3",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 67,
+  "bytes": 917650,
+  "by_kind": {
+   "binary": 1,
+   "config": 5,
+   "markdown": 4,
+   "other": 9,
+   "python": 46,
+   "shell": 2
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 2
+ },
+ "findings": [
+  {
+   "rule_id": "DEP-TYPOSQUAT",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:0335af7ee0309776",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "PRIV-SUDO",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "privilege",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5940d178daf0d520",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:36138ee5833403e4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bcc0a341be2e1edf",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 1,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 0,
+  "privilege": 1,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 2,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 3499,
+  "forks": 399,
+  "open_issues": 98,
+  "contributors": "10",
+  "created_at": "2025-03-24T18:28:53Z",
+  "pushed_at": "2026-11-26T08:36:29Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "Postgres MCP Pro provides configurable read/write access and performance analysis for you and your AI agents.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 8,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 3,
+   "info": 0
+  },
+  "active": 4,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "dependency-audit",
+  "review-before-run",
+  "sandbox-bash",
+  "pin-commit",
+  "pin-mcp-version"
+ ],
+ "settings_snippet": {}
+}

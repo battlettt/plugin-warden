@@ -6,11 +6,11 @@
   "url": "https://github.com/anthropics/claude-code",
   "ref": null,
   "subdir": null,
-  "commit": "112541d8e85f32512d6169612ab4af30935d96b2",
+  "commit": "a3b7a20a282a7b75ed68c2f8a0d0ecc822171c3e",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-24T16:00:59+00:00",
+ "generated_at": "2026-11-26T15:29:46+00:00",
  "plugins": [
   {
    "name": "agents-md",
@@ -405,12 +405,12 @@
   }
  ],
  "stats": {
-  "files": 3394,
-  "bytes": 16035237,
+  "files": 3426,
+  "bytes": 16209754,
   "by_kind": {
    "binary": 1,
    "config": 45,
-   "js": 3286,
+   "js": 3318,
    "markdown": 24,
    "other": 28,
    "python": 2,
@@ -448,7 +448,7 @@
    "category": "permissions",
    "path": "",
    "line": null,
-   "snippet": "fp:54eaa79a7db304d3",
+   "snippet": "fp:3f614b7a45cf0ff8",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1060,12 +1060,12 @@
   "12 marketplace plugin(s) live in other repositories and were not scanned here: agent-sdk-dev (https://github.com/anthropics/claude-plugins-official.git); code-review (https://github.com/anthropics/claude-plugins-official.git); commit-commands (https://github.com/anthropics/claude-plugins-official.git); explanatory-output-style (https://github.com/anthropics/claude-plugins-official.git); feature-dev (https://github.com/anthropics/claude-plugins-official.git); frontend-design (https://github.com/anthropics/claude-plugins-official.git); hookify (https://github.com/anthropics/claude-plugins-official.git); learning-output-style (https://github.com/anthropics/claude-plugins-official.git); plugin-dev (https://github.com/anthropics/claude-plugins-official.git); pr-review-toolkit (https://github.com/anthropics/claude-plugins-official.git); ralph-loop (https://github.com/anthropics/claude-plugins-official.git); security-guidance (https://github.com/anthropics/claude-plugins-official.git)"
  ],
  "metadata": {
-  "stars": 156920,
-  "forks": 25103,
-  "open_issues": 16100,
+  "stars": 157179,
+  "forks": 25131,
+  "open_issues": 16368,
   "contributors": "56",
   "created_at": "2025-02-22T17:41:21Z",
-  "pushed_at": "2026-11-24T14:49:35Z",
+  "pushed_at": "2026-11-26T14:34:10Z",
   "license": null,
   "archived": false,
   "owner_type": "Organization",

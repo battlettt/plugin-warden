@@ -6,14 +6,14 @@
   "url": "https://github.com/supabase-community/supabase-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "56093a69247a6831b23f8653d337a9f0139f2842",
+  "commit": "0716cc2b22d7d71ba74eae670f69bfdfd61ae78e",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-24T16:13:50+00:00",
+ "generated_at": "2026-11-26T15:38:39+00:00",
  "plugins": [
   {
-   "name": "supabase-community__supabase-mcp@56093a69247a",
+   "name": "supabase-community__supabase-mcp@0716cc2b22d7",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "supabase-community__supabase-mcp@56093a69247a",
+   "name": "supabase-community__supabase-mcp@0716cc2b22d7",
    "path": ".",
-   "plugin": "supabase-community__supabase-mcp@56093a69247a",
+   "plugin": "supabase-community__supabase-mcp@0716cc2b22d7",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -258,11 +258,11 @@
   }
  ],
  "stats": {
-  "files": 225,
-  "bytes": 2663899,
+  "files": 228,
+  "bytes": 2776043,
   "by_kind": {
-   "config": 27,
-   "js": 162,
+   "config": 28,
+   "js": 164,
    "markdown": 14,
    "other": 21,
    "shell": 1
@@ -523,12 +523,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 3025,
-  "forks": 441,
-  "open_issues": 135,
-  "contributors": "40",
+  "stars": 3023,
+  "forks": 444,
+  "open_issues": 106,
+  "contributors": "43",
   "created_at": "2024-12-20T23:52:42Z",
-  "pushed_at": "2026-11-24T11:50:21Z",
+  "pushed_at": "2026-11-26T13:58:06Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

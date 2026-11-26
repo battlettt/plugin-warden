@@ -6,17 +6,17 @@
   "url": "https://github.com/vercel/vercel-plugin",
   "ref": null,
   "subdir": null,
-  "commit": "50af4780eed8b2f69bc2290d20c670744f1e739c",
+  "commit": "f9dd827b1b4cd806f6ea5cffae5c68de67674e87",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:23:22+00:00",
+ "generated_at": "2026-11-26T15:38:10+00:00",
  "plugins": [
   {
    "name": "vercel",
    "path": ".",
    "source": "manifest",
-   "version": "0.56.0",
+   "version": "0.57.0",
    "description": "Build and deploy web apps and agents"
   }
  ],
@@ -39,7 +39,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "0.56.0",
+    "version": "0.57.0",
     "description": "Build and deploy web apps and agents",
     "author": {
      "name": "Vercel",
@@ -843,7 +843,7 @@
  ],
  "stats": {
   "files": 538,
-  "bytes": 3580584,
+  "bytes": 3592377,
   "by_kind": {
    "binary": 1,
    "config": 33,
@@ -1749,12 +1749,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 348,
-  "forks": 82,
-  "open_issues": 73,
+  "stars": 351,
+  "forks": 84,
+  "open_issues": 65,
   "contributors": "53",
   "created_at": "2026-03-04T16:46:22Z",
-  "pushed_at": "2026-11-23T13:07:54Z",
+  "pushed_at": "2026-11-26T12:32:32Z",
   "license": "NOASSERTION",
   "archived": false,
   "owner_type": "Organization",

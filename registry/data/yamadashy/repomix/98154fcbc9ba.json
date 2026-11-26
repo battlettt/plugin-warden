@@ -6,14 +6,14 @@
   "url": "https://github.com/yamadashy/repomix",
   "ref": null,
   "subdir": null,
-  "commit": "f0bcc08ab07d2dff2415fa40fb26d07eaf55b4ff",
+  "commit": "98154fcbc9ba0d212d7f5649a7a463b128e58c09",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:54:56+00:00",
+ "generated_at": "2026-11-26T15:41:08+00:00",
  "plugins": [
   {
-   "name": "yamadashy__repomix@f0bcc08ab07d",
+   "name": "yamadashy__repomix@98154fcbc9ba",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -54,9 +54,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "yamadashy__repomix@f0bcc08ab07d",
+   "name": "yamadashy__repomix@98154fcbc9ba",
    "path": ".",
-   "plugin": "yamadashy__repomix@f0bcc08ab07d",
+   "plugin": "yamadashy__repomix@98154fcbc9ba",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -66,7 +66,7 @@
    "kind": "skill",
    "name": "repomix-explorer",
    "path": "skills/repomix-explorer/SKILL.md",
-   "plugin": "yamadashy__repomix@f0bcc08ab07d",
+   "plugin": "yamadashy__repomix@98154fcbc9ba",
    "trigger": "",
    "details": {
     "description": "| Analyze or explore a codebase (remote or local repository) by packing it with the Repomix CLI, then reading and searching the generated output. Use when the user wants a high-level understanding of "
@@ -76,7 +76,7 @@
    "kind": "bin",
    "name": "repomix.cjs",
    "path": "bin/repomix.cjs",
-   "plugin": "yamadashy__repomix@f0bcc08ab07d",
+   "plugin": "yamadashy__repomix@98154fcbc9ba",
    "trigger": "",
    "details": {
     "executable": true,
@@ -266,7 +266,7 @@
      "lint-biome": "biome check --write",
      "lint-oxlint": "oxlint --fix",
      "lint-ts": "tsc --noEmit",
-     "lint-secretlint": "secretlint \"**/*\" --secretlintignore .gitignore",
+     "lint-secretlint": "secretlint \"**/*\"",
      "test": "vitest",
      "test-coverage": "vitest run --coverage",
      "repomix": "node --run build && node --enable-source-maps --trace-warnings bin/repomix.cjs",
@@ -289,23 +289,22 @@
      "@modelcontextprotocol/server": "^2.4.0",
      "@repomix/strip-comments": "^2.4.2",
      "@repomix/tree-sitter-wasms": "^0.1.17",
-     "@secretlint/core": "^13.1.0",
-     "@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
+     "@secretlint/core": "^14.0.1",
      "chokidar": "^6.0.0",
      "commander": "^15.1.0",
      "git-url-parse": "^16.1.0",
      "globby": "^16.2.4",
-     "gpt-tokenizer": "^4.1.0",
+     "gpt-tokenizer": "^4.1.2",
      "iconv-lite": "^0.7.0",
      "is-binary-path": "^3.0.0",
      "isbinaryfile": "^5.0.2",
      "jiti": "^2.7.0",
      "jschardet": "^4.1.0",
      "json5": "^2.2.3",
-     "minimatch": "^11.0.5",
+     "minimatch": "^11.0.8",
      "picocolors": "^1.1.1",
      "picospinner": "^3.1.2",
-     "tar": "^7.5.22",
+     "tar": "^7.5.23",
      "tinyclip": "^1.0.3",
      "tinypool": "^2.2.0",
      "valibot": "^1.5.0",
@@ -313,20 +312,20 @@
      "zod": "^4.6.7"
     },
     "devDependencies": {
-     "@biomejs/biome": "^2.6.6",
-     "@secretlint/types": "^13.1.0",
+     "@biomejs/biome": "^2.6.8",
+     "@secretlint/types": "^14.0.1",
      "@types/node": "^26.6.6",
      "@types/strip-comments": "^2.0.4",
      "@valibot/to-json-schema": "^1.8.0",
      "@vitest/coverage-v8": "^5.1.0",
      "@xmldom/xmldom": "^0.9.9",
      "git-up": "^8.1.1",
-     "oxlint": "^1.92.0",
+     "oxlint": "^1.93.0",
      "rimraf": "^6.1.4",
-     "secretlint": "^13.1.0",
+     "secretlint": "^14.0.1",
      "tsx": "^4.23.15",
      "typescript": "^7.0.2",
-     "vite": "^8.3.6",
+     "vite": "^8.3.8",
      "vitest": "^5.1.0"
     },
     "bin": "./bin/repomix.cjs"
@@ -363,7 +362,7 @@
     "devDependencies": {
      "@types/chrome": "^0.3.7",
      "@types/node": "^26.6.6",
-     "jsdom": "^31.0.0",
+     "jsdom": "^31.0.1",
      "sharp": "^0.35.5",
      "tsx": "^4.23.15",
      "typescript": "^7.0.2",
@@ -435,19 +434,19 @@
     },
     "dependencies": {
      "fflate": "^0.8.3",
-     "isbot": "^5.2.2",
+     "isbot": "^5.2.3",
      "lucide-vue-next": "^1.0.0",
      "vue3-ace-editor": "^2.2.4"
     },
     "devDependencies": {
      "@types/gtag.js": "^0.0.20",
      "@types/node": "^26.6.6",
-     "rollup-plugin-visualizer": "^7.1.2",
+     "rollup-plugin-visualizer": "^7.1.3",
      "typescript": "^7.0.2",
      "vite-plugin-pwa": "^2.0.0",
      "vitepress": "^1.6.4",
-     "vitepress-plugin-llms": "^1.14.0",
-     "wrangler": "^4.158.0"
+     "vitepress-plugin-llms": "^1.15.0",
+     "wrangler": "^4.162.0"
     },
     "bin": null
    }
@@ -473,12 +472,12 @@
      "cloud-deploy": "gcloud builds submit --config=cloudbuild.yaml ."
     },
     "dependencies": {
-     "@hono/node-server": "^2.1.6",
-     "@upstash/ratelimit": "^2.2.0",
+     "@hono/node-server": "^2.1.8",
+     "@upstash/ratelimit": "^2.2.1",
      "@upstash/redis": "^1.41.0",
      "fflate": "^0.8.3",
-     "hono": "^4.13.17",
-     "isbot": "^5.2.2",
+     "hono": "^4.13.18",
+     "isbot": "^5.2.3",
      "repomix": "github:yamadashy/repomix#main",
      "valibot": "^1.5.0",
      "winston": "^3.19.0"
@@ -490,7 +489,7 @@
      "tsx": "^4.23.15",
      "typescript": "^7.0.2",
      "vitest": "^5.1.0",
-     "rolldown": "^1.3.0",
+     "rolldown": "^1.3.2",
      "rollup-plugin-swc3": "^0.12.1"
     },
     "bin": null
@@ -527,13 +526,13 @@
   }
  ],
  "stats": {
-  "files": 1375,
-  "bytes": 9467653,
+  "files": 1374,
+  "bytes": 9444423,
   "by_kind": {
    "binary": 23,
    "code": 41,
    "config": 114,
-   "js": 432,
+   "js": 431,
    "markdown": 562,
    "other": 194,
    "python": 7,
@@ -1334,12 +1333,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 29364,
-  "forks": 1651,
-  "open_issues": 174,
+  "stars": 29447,
+  "forks": 1659,
+  "open_issues": 176,
   "contributors": "84",
   "created_at": "2024-07-13T07:11:32Z",
-  "pushed_at": "2026-11-21T09:06:03Z",
+  "pushed_at": "2026-11-26T12:44:42Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",

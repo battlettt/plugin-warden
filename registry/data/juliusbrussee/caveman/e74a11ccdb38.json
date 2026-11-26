@@ -6,11 +6,11 @@
   "url": "https://github.com/juliusbrussee/caveman",
   "ref": null,
   "subdir": null,
-  "commit": "b89752f6bca5a26bfde8b019813554241800ca99",
+  "commit": "e74a11ccdb38b98d15c9f9545787c907dd15f0ab",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:22:08+00:00",
+ "generated_at": "2026-11-26T15:37:03+00:00",
  "plugins": [
   {
    "name": "caveman",
@@ -865,7 +865,7 @@
  ],
  "stats": {
   "files": 1885,
-  "bytes": 23809710,
+  "bytes": 23810668,
   "by_kind": {
    "binary": 66,
    "code": 712,
@@ -5642,12 +5642,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 122356,
-  "forks": 7141,
-  "open_issues": 86,
+  "stars": 123013,
+  "forks": 7198,
+  "open_issues": 114,
   "contributors": "100+",
   "created_at": "2026-04-04T10:03:00Z",
-  "pushed_at": "2026-11-23T05:09:14Z",
+  "pushed_at": "2026-11-26T08:48:02Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "User",

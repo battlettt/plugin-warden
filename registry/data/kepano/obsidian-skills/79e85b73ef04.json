@@ -6,17 +6,17 @@
   "url": "https://github.com/kepano/obsidian-skills",
   "ref": null,
   "subdir": null,
-  "commit": "462a27fa456e43a68bd645fef457217326bfd369",
+  "commit": "79e85b73ef041fdfb6437ab3824e2fe29eda9244",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-20T14:20:56+00:00",
+ "generated_at": "2026-11-26T15:38:08+00:00",
  "plugins": [
   {
    "name": "obsidian",
    "path": "plugins/obsidian",
    "source": "manifest",
-   "version": "1.2.0",
+   "version": "1.2.3",
    "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates."
   }
  ],
@@ -34,7 +34,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.0",
+    "version": "1.2.3",
     "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
     "author": {
      "name": "Obsidian",
@@ -126,7 +126,7 @@
       "name": "obsidian",
       "source": "./plugins/obsidian",
       "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
-      "version": "1.2.0"
+      "version": "1.2.3"
      }
     ],
     "owner": {
@@ -137,11 +137,11 @@
   }
  ],
  "stats": {
-  "files": 28,
-  "bytes": 157233,
+  "files": 29,
+  "bytes": 159057,
   "by_kind": {
    "binary": 1,
-   "config": 8,
+   "config": 9,
    "markdown": 14,
    "other": 3,
    "shell": 2
@@ -182,16 +182,16 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 53283,
-  "forks": 3791,
-  "open_issues": 3,
+  "stars": 53889,
+  "forks": 3837,
+  "open_issues": 5,
   "contributors": "25",
   "created_at": "2026-01-02T21:45:11Z",
-  "pushed_at": "2026-11-19T15:06:02Z",
+  "pushed_at": "2026-11-25T20:12:50Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
-  "description": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
+  "description": "Teach your agent to use Obsidian and open formats including Markdown, Bases, JSON Canvas.",
   "signals": [],
   "error": null
  },

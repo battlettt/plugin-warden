@@ -1,0 +1,300 @@
+{
+ "target": {
+  "display": "zcaceres/markdownify-mcp",
+  "raw": "zcaceres/markdownify-mcp",
+  "kind": "github",
+  "url": "https://github.com/zcaceres/markdownify-mcp",
+  "ref": null,
+  "subdir": null,
+  "commit": "c41b5e84d7b1b4821fee59d3b88d9d7aade56581",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-26T15:42:11+00:00",
+ "plugins": [
+  {
+   "name": "zcaceres__markdownify-mcp@c41b5e84d7b1",
+   "path": ".",
+   "source": "fallback",
+   "version": null,
+   "description": null
+  }
+ ],
+ "component_counts": {
+  "manifest": 1,
+  "package": 2
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "zcaceres__markdownify-mcp@c41b5e84d7b1",
+   "path": ".",
+   "plugin": "zcaceres__markdownify-mcp@c41b5e84d7b1",
+   "trigger": "",
+   "details": {
+    "source": "fallback"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "mcp-markdownify-server",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "build": "tsc && chmod +x dist/*.js",
+     "dev": "tsc --watch",
+     "format": "biome check --write .",
+     "lint": "biome check .",
+     "preinstall": "node preinstall.js",
+     "prepublishOnly": "bun run build",
+     "start": "bun dist/index.js",
+     "test": "bun test",
+     "test:watch": "bun test --watch"
+    },
+    "dependencies": {
+     "@modelcontextprotocol/sdk": "^1.32.2",
+     "repomix": "^1.18.1",
+     "zod": "^4.6.7"
+    },
+    "devDependencies": {
+     "@biomejs/biome": "^2.6.9",
+     "@types/node": "^22.20.5",
+     "typescript": "^7.0.2"
+    },
+    "bin": {
+     "mcp-markdownify-server": "dist/index.js"
+    }
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 35,
+  "bytes": 1880739,
+  "by_kind": {
+   "binary": 1,
+   "config": 6,
+   "js": 11,
+   "markdown": 2,
+   "other": 12,
+   "shell": 3
+  },
+  "vendored_files": 0,
+  "plugins": 1,
+  "components": 3
+ },
+ "findings": [
+  {
+   "rule_id": "DESTRUCT-RM-HOME",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "destructive",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f819b33b71de8c24",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "CRED-CLOUD-METADATA",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "credentials",
+   "path": "",
+   "line": null,
+   "snippet": "fp:52ceb20371c68b5a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:d625a6a84e0bd450",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:db18732252509dc6",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-CLEARTEXT",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:976cc1d3b58bf2f1",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "NET-RAW-IP",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "network",
+   "path": "",
+   "line": null,
+   "snippet": "fp:75259a2393b6d28a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [],
+  "processes": [],
+  "hosts": {},
+  "sensitive_paths": {},
+  "env_vars": {
+   "MARKITDOWN_PATH": [
+    "src/utils.ts"
+   ],
+   "REPOMIX_PATH": [
+    "src/utils.ts"
+   ],
+   "MD_ALLOWED_PATHS": [
+    "src/utils.ts"
+   ]
+  },
+  "path_executables": [],
+  "context_injection": []
+ },
+ "coverage": {
+  "auto-execution": 0,
+  "remote-code": 0,
+  "exfiltration": 0,
+  "network": 3,
+  "credentials": 1,
+  "secrets": 0,
+  "persistence": 0,
+  "config-tampering": 0,
+  "destructive": 1,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 0,
+  "permissions": 0,
+  "supply-chain": 1,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 3008,
+  "forks": 253,
+  "open_issues": 3,
+  "contributors": "10",
+  "created_at": "2024-12-18T21:14:52Z",
+  "pushed_at": "2026-11-25T22:42:40Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "User",
+  "description": "A Model Context Protocol server for converting almost anything to Markdown",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "caution",
+  "label": "Install with precautions",
+  "score": 7,
+  "counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 2,
+   "info": 3
+  },
+  "active": 6,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "disable-plugin",
+  "deny-network-bash",
+  "review-before-run",
+  "sandbox-bash"
+ ],
+ "settings_snippet": {}
+}

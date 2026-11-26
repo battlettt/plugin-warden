@@ -6,14 +6,14 @@
   "url": "https://github.com/firecrawl/firecrawl-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "aaff86f3cad60c89021d4307e6e146d92fa03c05",
+  "commit": "29ce9caad65f881927f5efaf79be305756742f55",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-24T16:16:06+00:00",
+ "generated_at": "2026-11-26T15:40:35+00:00",
  "plugins": [
   {
-   "name": "firecrawl__firecrawl-mcp-server@aaff86f3cad6",
+   "name": "firecrawl__firecrawl-mcp-server@29ce9caad65f",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "firecrawl__firecrawl-mcp-server@aaff86f3cad6",
+   "name": "firecrawl__firecrawl-mcp-server@29ce9caad65f",
    "path": ".",
-   "plugin": "firecrawl__firecrawl-mcp-server@aaff86f3cad6",
+   "plugin": "firecrawl__firecrawl-mcp-server@29ce9caad65f",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -56,14 +56,14 @@
      "publish-beta": "npm run build && npm publish --tag beta"
     },
     "dependencies": {
-     "@modelcontextprotocol/server": "2.3.1",
+     "@modelcontextprotocol/server": "2.4.0",
      "firecrawl": "4.51.0",
      "hono": "^4.12.27",
      "xsschema": "^0.4.4",
      "zod": "^4.2.1"
     },
     "devDependencies": {
-     "@modelcontextprotocol/client": "2.3.1",
+     "@modelcontextprotocol/client": "2.4.0",
      "@modelcontextprotocol/sdk": "1.32.1",
      "@types/node": "^24.3.1",
      "@typescript-eslint/eslint-plugin": "8.48.1",
@@ -94,12 +94,12 @@
   }
  ],
  "stats": {
-  "files": 140,
-  "bytes": 4808299,
+  "files": 142,
+  "bytes": 4827267,
   "by_kind": {
    "binary": 3,
    "config": 27,
-   "js": 98,
+   "js": 100,
    "markdown": 5,
    "other": 5,
    "shell": 2
@@ -538,12 +538,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 7899,
-  "forks": 946,
-  "open_issues": 198,
+  "stars": 7923,
+  "forks": 949,
+  "open_issues": 197,
   "contributors": "36",
   "created_at": "2024-12-06T07:50:27Z",
-  "pushed_at": "2026-11-24T08:08:30Z",
+  "pushed_at": "2026-11-26T15:33:12Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
