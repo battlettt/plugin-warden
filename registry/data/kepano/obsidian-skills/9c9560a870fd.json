@@ -6,17 +6,17 @@
   "url": "https://github.com/kepano/obsidian-skills",
   "ref": null,
   "subdir": null,
-  "commit": "b110b2f8e9eb1f287892f937050dfd40af862cbb",
+  "commit": "9c9560a870fd490b0e1a847f2c8401a50e2d931d",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-21T13:48:28+00:00",
+ "generated_at": "2026-11-27T15:30:33+00:00",
  "plugins": [
   {
    "name": "obsidian",
    "path": "plugins/obsidian",
    "source": "manifest",
-   "version": "1.2.1",
+   "version": "1.2.3",
    "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates."
   }
  ],
@@ -34,7 +34,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "1.2.1",
+    "version": "1.2.3",
     "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
     "author": {
      "name": "Obsidian",
@@ -126,7 +126,7 @@
       "name": "obsidian",
       "source": "./plugins/obsidian",
       "description": "Work with local Obsidian vaults using the Obsidian CLI and skills for Markdown, Bases, Canvas, Sync and Publish, web extraction, and templates.",
-      "version": "1.2.1"
+      "version": "1.2.3"
      }
     ],
     "owner": {
@@ -137,11 +137,11 @@
   }
  ],
  "stats": {
-  "files": 28,
-  "bytes": 157258,
+  "files": 29,
+  "bytes": 159284,
   "by_kind": {
    "binary": 1,
-   "config": 8,
+   "config": 9,
    "markdown": 14,
    "other": 3,
    "shell": 2
@@ -182,12 +182,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 53348,
-  "forks": 3797,
-  "open_issues": 3,
+  "stars": 54239,
+  "forks": 3860,
+  "open_issues": 5,
   "contributors": "25",
   "created_at": "2026-01-02T21:45:11Z",
-  "pushed_at": "2026-11-20T19:22:47Z",
+  "pushed_at": "2026-11-26T17:50:16Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",

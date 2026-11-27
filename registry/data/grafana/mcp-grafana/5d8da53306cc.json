@@ -6,11 +6,11 @@
   "url": "https://github.com/grafana/mcp-grafana",
   "ref": null,
   "subdir": null,
-  "commit": "4a4a8a83787e2a6f4e9a88fe13bf5afebaf709b0",
+  "commit": "5d8da53306cc16307eff77347eea8cf70e381af2",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-25T16:07:52+00:00",
+ "generated_at": "2026-11-27T15:33:03+00:00",
  "plugins": [
   {
    "name": "grafana",
@@ -181,11 +181,11 @@
   }
  ],
  "stats": {
-  "files": 810,
-  "bytes": 14023016,
+  "files": 811,
+  "bytes": 14023773,
   "by_kind": {
    "binary": 44,
-   "code": 387,
+   "code": 388,
    "config": 124,
    "js": 125,
    "markdown": 69,
@@ -1175,12 +1175,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 3699,
-  "forks": 504,
-  "open_issues": 105,
+  "stars": 3706,
+  "forks": 508,
+  "open_issues": 101,
   "contributors": "100+",
   "created_at": "2024-12-24T15:44:23Z",
-  "pushed_at": "2026-11-25T13:55:11Z",
+  "pushed_at": "2026-11-27T14:35:22Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

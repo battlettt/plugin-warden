@@ -6,14 +6,14 @@
   "url": "https://github.com/upstash/context7",
   "ref": null,
   "subdir": null,
-  "commit": "6335fd8458bb942205c24c8b89e8bc97b0950804",
+  "commit": "17839096a0efe61b4b8a88cc20a8147784234cfa",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-25T16:01:42+00:00",
+ "generated_at": "2026-11-27T15:31:17+00:00",
  "plugins": [
   {
-   "name": "upstash__context7@6335fd8458bb",
+   "name": "upstash__context7@17839096a0ef",
    "path": ".",
    "source": "layout",
    "version": null,
@@ -37,9 +37,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "upstash__context7@6335fd8458bb",
+   "name": "upstash__context7@17839096a0ef",
    "path": ".",
-   "plugin": "upstash__context7@6335fd8458bb",
+   "plugin": "upstash__context7@17839096a0ef",
    "trigger": "",
    "details": {
     "source": "layout"
@@ -49,7 +49,7 @@
    "kind": "skill",
    "name": "context7-cli",
    "path": "skills/context7-cli/SKILL.md",
-   "plugin": "upstash__context7@6335fd8458bb",
+   "plugin": "upstash__context7@17839096a0ef",
    "trigger": "",
    "details": {
     "description": "Use the ctx7 CLI to fetch library documentation and configure Context7 MCP. Activate when the user mentions \"ctx7\" or \"context7\", needs current docs for any library, or needs to set up Context7 for th"
@@ -59,7 +59,7 @@
    "kind": "skill",
    "name": "context7-mcp",
    "path": "skills/context7-mcp/SKILL.md",
-   "plugin": "upstash__context7@6335fd8458bb",
+   "plugin": "upstash__context7@17839096a0ef",
    "trigger": "",
    "details": {
     "description": "This skill should be used when the user asks about libraries, frameworks, API references, or needs code examples. Activates for setup questions, code generation involving libraries, or mentions of spe"
@@ -69,7 +69,7 @@
    "kind": "skill",
    "name": "find-docs",
    "path": "skills/find-docs/SKILL.md",
-   "plugin": "upstash__context7@6335fd8458bb",
+   "plugin": "upstash__context7@17839096a0ef",
    "trigger": "",
    "details": {
     "description": ">- Retrieves up-to-date documentation, API references, and code examples for any developer technology. Use this skill whenever the user asks about a specific library, framework, SDK, CLI tool, or clou"
@@ -536,13 +536,13 @@
   }
  ],
  "stats": {
-  "files": 649,
-  "bytes": 28498067,
+  "files": 660,
+  "bytes": 28597615,
   "by_kind": {
    "binary": 138,
    "config": 65,
-   "js": 209,
-   "markdown": 203,
+   "js": 217,
+   "markdown": 206,
    "other": 34
   },
   "vendored_files": 0,
@@ -937,7 +937,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:14ffe6e26ffc0403",
+   "snippet": "fp:45a14a03ef1d7704",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -957,7 +957,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:41e57d5715a0cb96",
+   "snippet": "fp:42b4ffb8a524415f",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -977,7 +977,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:6d4fa6d92337c41e",
+   "snippet": "fp:91145fb4c01b672a",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -997,7 +997,7 @@
    "category": "secrets",
    "path": "",
    "line": null,
-   "snippet": "fp:70b331c3d319a8c9",
+   "snippet": "fp:41e57d5715a0cb96",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -1005,6 +1005,46 @@
    "source": "static",
    "confidence": "medium",
    "id": "F-023",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:6d4fa6d92337c41e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-024",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "SECRET-GENERIC",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "secrets",
+   "path": "",
+   "line": null,
+   "snippet": "fp:70b331c3d319a8c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-025",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1024,7 +1064,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-024",
+   "id": "F-026",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1044,7 +1084,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-025",
+   "id": "F-027",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1064,7 +1104,7 @@
    "context": [],
    "source": "static",
    "confidence": "high",
-   "id": "F-026",
+   "id": "F-028",
    "verdict": "unreviewed",
    "agent_severity": null,
    "rationale": "",
@@ -1168,9 +1208,6 @@
    "MCP_CLIENT_IP_ASSERTION_KEY": [
     "packages/mcp/src/lib/encryption.ts"
    ],
-   "SNAPSHOT_PATH": [
-    "packages/mcp/src/lib/experimental-tools-snapshot.ts"
-   ],
    "MCP_AUTH_ENFORCEMENT": [
     "packages/mcp/src/lib/mcp-http-auth.ts"
    ],
@@ -1186,6 +1223,9 @@
    "AUTH_CHECK_PATH": [
     "packages/mcp/src/lib/oauth-token-validation.ts"
    ],
+   "TEAM_SKILLS_FILE_PATH": [
+    "packages/mcp/src/lib/team-skills-snapshot.ts"
+   ],
    "API_KEY_PREFIX": [
     "packages/sdk/src/client.ts"
    ]
@@ -1199,7 +1239,7 @@
   "exfiltration": 0,
   "network": 4,
   "credentials": 3,
-  "secrets": 6,
+  "secrets": 8,
   "persistence": 1,
   "config-tampering": 1,
   "destructive": 0,
@@ -1215,12 +1255,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 65446,
-  "forks": 3270,
-  "open_issues": 60,
+  "stars": 65547,
+  "forks": 3276,
+  "open_issues": 55,
   "contributors": "100+",
   "created_at": "2025-03-26T23:40:39Z",
-  "pushed_at": "2026-11-25T13:54:02Z",
+  "pushed_at": "2026-11-27T14:32:56Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
@@ -1240,9 +1280,9 @@
    "high": 0,
    "medium": 2,
    "low": 12,
-   "info": 12
+   "info": 14
   },
-  "active": 26,
+  "active": 28,
   "dismissed": 0,
   "injection_guard": true,
   "reasons": []

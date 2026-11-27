@@ -1,0 +1,1189 @@
+{
+ "target": {
+  "display": "superclaude-org/superclaude_framework",
+  "raw": "superclaude-org/superclaude_framework",
+  "kind": "github",
+  "url": "https://github.com/superclaude-org/superclaude_framework",
+  "ref": null,
+  "subdir": null,
+  "commit": "82caa9e669217854692c8f9041e96503f39aff24",
+  "marketplace": null
+ },
+ "root": "",
+ "generated_at": "2026-11-27T15:30:14+00:00",
+ "plugins": [
+  {
+   "name": "SuperClaude-Org__SuperClaude_Framework@82caa9e66921",
+   "path": ".",
+   "source": "layout",
+   "version": null,
+   "description": null
+  },
+  {
+   "name": "superclaude",
+   "path": "plugins/superclaude",
+   "source": "manifest",
+   "version": "4.3.1",
+   "description": "AI-enhanced development framework for Claude Code \u2014 30 commands, 20 agents, 7 modes, confidence checks, parallel execution, and reflexion-based learning"
+  }
+ ],
+ "component_counts": {
+  "command": 30,
+  "hook": 3,
+  "manifest": 2,
+  "mcp_server": 4,
+  "package": 3,
+  "skill": 9
+ },
+ "components": [
+  {
+   "kind": "manifest",
+   "name": "SuperClaude-Org__SuperClaude_Framework@82caa9e66921",
+   "path": ".",
+   "plugin": "SuperClaude-Org__SuperClaude_Framework@82caa9e66921",
+   "trigger": "",
+   "details": {
+    "source": "layout"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Confidence Check",
+   "path": "skills/confidence-check/SKILL.md",
+   "plugin": "SuperClaude-Org__SuperClaude_Framework@82caa9e66921",
+   "trigger": "",
+   "details": {
+    "description": "Pre-implementation confidence assessment (\u226590% required). Use before starting any implementation to verify readiness with duplicate check, architecture compliance, official docs verification, OSS refe"
+   }
+  },
+  {
+   "kind": "manifest",
+   "name": "superclaude",
+   "path": "plugins/superclaude/.claude-plugin/plugin.json",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "source": "manifest",
+    "version": "4.3.1",
+    "description": "AI-enhanced development framework for Claude Code \u2014 30 commands, 20 agents, 7 modes, confidence checks, parallel execution, and reflexion-based learning",
+    "author": {
+     "name": "SuperClaude Org",
+     "url": "https://github.com/SuperClaude-Org"
+    },
+    "repository": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+    "license": "MIT"
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "SessionStart[0.0]",
+   "path": "plugins/superclaude/hooks/hooks.json",
+   "plugin": "superclaude",
+   "trigger": "SessionStart",
+   "details": {
+    "matcher": null,
+    "type": "command",
+    "command": "${CLAUDE_PLUGIN_ROOT}/scripts/session-init.sh",
+    "timeout": 10000
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "Stop[0.0]",
+   "path": "plugins/superclaude/hooks/hooks.json",
+   "plugin": "superclaude",
+   "trigger": "Stop",
+   "details": {
+    "matcher": null,
+    "type": "prompt",
+    "prompt": "Before ending, check if there are uncommitted changes or incomplete tasks. If so, briefly note what remains to be done."
+   }
+  },
+  {
+   "kind": "hook",
+   "name": "PostToolUse[0.0]",
+   "path": "plugins/superclaude/hooks/hooks.json",
+   "plugin": "superclaude",
+   "trigger": "PostToolUse",
+   "details": {
+    "matcher": "Write|Edit",
+    "type": "prompt",
+    "prompt": "Verify the edit was correct: check for syntax errors, missing imports, or broken logic in the changed file. If issues found, fix them immediately."
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "context7",
+   "path": "plugins/superclaude/.mcp.json",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "-y",
+     "@upstash/context7-mcp@latest"
+    ]
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sequential-thinking",
+   "path": "plugins/superclaude/.mcp.json",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "-y",
+     "@modelcontextprotocol/server-sequential-thinking"
+    ]
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "context7",
+   "path": "plugins/superclaude/.mcp.json",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "-y",
+     "@upstash/context7-mcp@latest"
+    ]
+   }
+  },
+  {
+   "kind": "mcp_server",
+   "name": "sequential-thinking",
+   "path": "plugins/superclaude/.mcp.json",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "command": "npx",
+    "args": [
+     "-y",
+     "@modelcontextprotocol/server-sequential-thinking"
+    ]
+   }
+  },
+  {
+   "kind": "command",
+   "name": "agent",
+   "path": "plugins/superclaude/commands/agent.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "command",
+   "name": "analyze",
+   "path": "plugins/superclaude/commands/analyze.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Comprehensive code analysis across quality, security, performance, and architecture domains\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "brainstorm",
+   "path": "plugins/superclaude/commands/brainstorm.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Interactive requirements discovery through Socratic dialogue and systematic exploration\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "build",
+   "path": "plugins/superclaude/commands/build.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Build, compile, and package projects with intelligent error handling and optimization\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "business-panel",
+   "path": "plugins/superclaude/commands/business-panel.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {}
+  },
+  {
+   "kind": "command",
+   "name": "cleanup",
+   "path": "plugins/superclaude/commands/cleanup.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Systematically clean up code, remove dead code, and optimize project structure\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "design",
+   "path": "plugins/superclaude/commands/design.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Design system architecture, APIs, and component interfaces with comprehensive specifications\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "document",
+   "path": "plugins/superclaude/commands/document.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Generate focused documentation for components, functions, APIs, and features\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "estimate",
+   "path": "plugins/superclaude/commands/estimate.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Provide development estimates for tasks, features, or projects with intelligent analysis\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "explain",
+   "path": "plugins/superclaude/commands/explain.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Provide clear explanations of code, concepts, and system behavior with educational clarity\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "git",
+   "path": "plugins/superclaude/commands/git.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Git operations with intelligent commit messages and workflow optimization\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "help",
+   "path": "plugins/superclaude/commands/help.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"List all available /sc commands and their functionality\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "implement",
+   "path": "plugins/superclaude/commands/implement.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Feature and code implementation with intelligent persona activation and MCP integration\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "improve",
+   "path": "plugins/superclaude/commands/improve.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Apply systematic improvements to code quality, performance, and maintainability\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "index-repo",
+   "path": "plugins/superclaude/commands/index-repo.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Repository Indexing - 94% token reduction (58K \u2192 3K)"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "index",
+   "path": "plugins/superclaude/commands/index.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Generate comprehensive project documentation and knowledge base with intelligent organization\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "load",
+   "path": "plugins/superclaude/commands/load.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Session lifecycle management with Serena MCP integration for project context loading\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "pm",
+   "path": "plugins/superclaude/commands/pm.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Project Manager Agent - Default orchestration agent that coordinates all sub-agents and manages workflows seamlessly\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "recommend",
+   "path": "plugins/superclaude/commands/recommend.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Ultra-intelligent command recommendation engine - recommends the most suitable SuperClaude commands for any user input"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "reflect",
+   "path": "plugins/superclaude/commands/reflect.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Task reflection and validation using Serena MCP analysis capabilities\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "research",
+   "path": "plugins/superclaude/commands/research.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Deep web research with adaptive planning and intelligent search"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "save",
+   "path": "plugins/superclaude/commands/save.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Session lifecycle management with Serena MCP integration for session context persistence\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "sc",
+   "path": "plugins/superclaude/commands/sc.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "SuperClaude command dispatcher - Use /sc [command] to access all SuperClaude features"
+   }
+  },
+  {
+   "kind": "command",
+   "name": "select-tool",
+   "path": "plugins/superclaude/commands/select-tool.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Intelligent MCP tool selection based on complexity scoring and operation analysis\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "spawn",
+   "path": "plugins/superclaude/commands/spawn.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Meta-system task orchestration with intelligent breakdown and delegation\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "spec-panel",
+   "path": "plugins/superclaude/commands/spec-panel.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Multi-expert specification review and improvement using renowned specification and software engineering experts\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "task",
+   "path": "plugins/superclaude/commands/task.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Execute complex tasks with intelligent workflow management and delegation\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "test",
+   "path": "plugins/superclaude/commands/test.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Execute tests with coverage analysis and automated quality reporting\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "troubleshoot",
+   "path": "plugins/superclaude/commands/troubleshoot.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Diagnose and resolve issues in code, builds, deployments, and system behavior\""
+   }
+  },
+  {
+   "kind": "command",
+   "name": "workflow",
+   "path": "plugins/superclaude/commands/workflow.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "\"Generate structured implementation workflows from PRDs and feature requirements\""
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "brainstorm",
+   "path": "plugins/superclaude/skills/brainstorm/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Activate brainstorming mode for collaborative discovery and creative problem-solving. Use when users have vague requests, want to explore ideas, or need requirements discovery."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Confidence Check",
+   "path": "plugins/superclaude/skills/confidence-check/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Pre-implementation confidence assessment (\u226590% required). Use before starting any implementation to verify readiness with duplicate check, architecture compliance, official docs verification, OSS refe"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "deep-research",
+   "path": "plugins/superclaude/skills/deep-research/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Activate deep research mode for systematic investigation. Use when the user asks to research, investigate, explore, or needs current information with citations."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "pm",
+   "path": "plugins/superclaude/skills/pm/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Project management with PDCA cycles, confidence checks, and context persistence. Auto-activates at session start to restore context. Use for task planning, progress tracking, and structured developmen"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "token-efficiency",
+   "path": "plugins/superclaude/skills/token-efficiency/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Activate ultra-compressed output mode for maximum token efficiency. Use when context is running low, user requests brevity, or dealing with large-scale operations."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "troubleshoot",
+   "path": "plugins/superclaude/skills/troubleshoot/SKILL.md",
+   "plugin": "superclaude",
+   "trigger": "",
+   "details": {
+    "description": "Systematic troubleshooting with root cause analysis. Use when users report errors, bugs, or unexpected behavior. Never retry without understanding why."
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Confidence Check",
+   "path": ".claude/skills/confidence-check/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Pre-implementation confidence assessment (\u226590% required). Use before starting any implementation to verify readiness with duplicate check, architecture compliance, official docs verification, OSS refe",
+    "allowed-tools": "Read, Grep, Glob, WebFetch, WebSearch"
+   }
+  },
+  {
+   "kind": "skill",
+   "name": "Confidence Check",
+   "path": "src/superclaude/skills/confidence-check/SKILL.md",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "description": "Pre-implementation confidence assessment (\u226590% required). Use before starting any implementation to verify readiness with duplicate check, architecture compliance, official docs verification, OSS refe"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "@bifrost_inc/superclaude",
+   "path": "package.json",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "npm",
+    "scripts": {
+     "postinstall": "node ./bin/install.js",
+     "update": "node ./bin/update.js",
+     "lint": "eslint . --ext .js,.mjs,.cjs",
+     "test": "echo \"No tests defined yet\" && exit 0"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "bin": null
+   }
+  },
+  {
+   "kind": "package",
+   "name": "pyproject.toml",
+   "path": "pyproject.toml",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  },
+  {
+   "kind": "package",
+   "name": "setup.py",
+   "path": "setup.py",
+   "plugin": "",
+   "trigger": "",
+   "details": {
+    "ecosystem": "pypi"
+   }
+  }
+ ],
+ "stats": {
+  "files": 411,
+  "bytes": 2912080,
+  "by_kind": {
+   "config": 33,
+   "js": 4,
+   "markdown": 304,
+   "other": 11,
+   "python": 53,
+   "shell": 6
+  },
+  "vendored_files": 0,
+  "plugins": 2,
+  "components": 51
+ },
+ "findings": [
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "high",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:5b82f02ab083f87c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-001",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "high"
+  },
+  {
+   "rule_id": "TAMPER-OTHER-PLUGINS",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "config-tampering",
+   "path": "",
+   "line": null,
+   "snippet": "fp:ad076ecde559b048",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-002",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:21095b3036ac9f0f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-003",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "MCP-UNPINNED",
+   "title": "Withheld",
+   "severity": "medium",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:82f08fbd724c7bf4",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-004",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "medium"
+  },
+  {
+   "rule_id": "HOOK-MODEL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:781061d96cc0a4d3",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-005",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "HOOK-MODEL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "auto-execution",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b5047e568f7841c9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-006",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PERSIST-LAUNCH",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "persistence",
+   "path": "",
+   "line": null,
+   "snippet": "fp:84fd02596f8b249e",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-007",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:f79a9bc7f8e60580",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-008",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3a3b2ec21f448406",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-009",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:80bdf1c6b5f0ffa9",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-010",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9195ffcdd6be7a2c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-011",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:935169ffc422875c",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-012",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-PIPE-SHELL",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "remote-code",
+   "path": "",
+   "line": null,
+   "snippet": "fp:1b747145fafc0a01",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-013",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "NPM-INSTALL-SCRIPT",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:85643ae431ff24ec",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-014",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "RCE-UNPINNED-RUNNER",
+   "title": "Withheld",
+   "severity": "low",
+   "category": "supply-chain",
+   "path": "",
+   "line": null,
+   "snippet": "fp:bbab8dd097eba80a",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-015",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "low"
+  },
+  {
+   "rule_id": "PROMPT-PRIORITY",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:3af049a048a3d1ce",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "medium",
+   "id": "F-016",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:9511a71c4fdb5feb",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-017",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cbdbe26bc9a5157f",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-018",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:b037511d718f0ea5",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-019",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  },
+  {
+   "rule_id": "HIDDEN-UNICODE",
+   "title": "Withheld",
+   "severity": "info",
+   "category": "prompt-injection",
+   "path": "",
+   "line": null,
+   "snippet": "fp:cd165702e2cd8615",
+   "message": "",
+   "fix": "",
+   "precautions": [],
+   "context": [],
+   "source": "static",
+   "confidence": "high",
+   "id": "F-020",
+   "verdict": "unreviewed",
+   "agent_severity": null,
+   "rationale": "",
+   "effective_severity": "info"
+  }
+ ],
+ "surface": {
+  "auto_runs": [
+   {
+    "when": "SessionStart",
+    "what": "${CLAUDE_PLUGIN_ROOT}/scripts/session-init.sh",
+    "type": "command hook",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/hooks/hooks.json"
+   },
+   {
+    "when": "Stop",
+    "what": "Before ending, check if there are uncommitted changes or incomplete tasks. If so, briefly note what remains to be done.",
+    "type": "prompt hook",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/hooks/hooks.json"
+   },
+   {
+    "when": "PostToolUse (Write|Edit)",
+    "what": "Verify the edit was correct: check for syntax errors, missing imports, or broken logic in the changed file. If issues found, fix them immediately.",
+    "type": "prompt hook",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/hooks/hooks.json"
+   },
+   {
+    "when": "session start",
+    "what": "npx -y @upstash/context7-mcp@latest",
+    "type": "MCP server",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "type": "MCP server",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "npx -y @upstash/context7-mcp@latest",
+    "type": "MCP server",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "when": "session start",
+    "what": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "type": "MCP server",
+    "plugin": "superclaude",
+    "file": "plugins/superclaude/.mcp.json"
+   }
+  ],
+  "processes": [
+   {
+    "name": "context7",
+    "kind": "MCP server",
+    "launch": "npx -y @upstash/context7-mcp@latest",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "name": "sequential-thinking",
+    "kind": "MCP server",
+    "launch": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "name": "context7",
+    "kind": "MCP server",
+    "launch": "npx -y @upstash/context7-mcp@latest",
+    "file": "plugins/superclaude/.mcp.json"
+   },
+   {
+    "name": "sequential-thinking",
+    "kind": "MCP server",
+    "launch": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "file": "plugins/superclaude/.mcp.json"
+   }
+  ],
+  "hosts": {
+   "app.tavily.com": [
+    "src/superclaude/cli/install_mcp.py"
+   ],
+   "astral.sh": [
+    "install.sh"
+   ],
+   "docs.docker.com": [
+    "src/superclaude/cli/install_mcp.py"
+   ],
+   "git-scm.com": [
+    "install.sh"
+   ],
+   "github.com": [
+    "install.sh",
+    "src/superclaude/cli/install_mcp.py"
+   ],
+   "host.docker.internal": [
+    "src/superclaude/cli/install_mcp.py"
+   ],
+   "raw.githubusercontent.com": [
+    "src/superclaude/cli/install_mcp.py"
+   ],
+   "www.python.org": [
+    "install.sh"
+   ]
+  },
+  "sensitive_paths": {
+   ".bashrc": [
+    "install.sh"
+   ],
+   ".zshrc": [
+    "install.sh"
+   ]
+  },
+  "env_vars": {},
+  "path_executables": [],
+  "context_injection": [
+   "SessionStart hook in plugins/superclaude/hooks/hooks.json"
+  ]
+ },
+ "coverage": {
+  "auto-execution": 2,
+  "remote-code": 7,
+  "exfiltration": 0,
+  "network": 0,
+  "credentials": 0,
+  "secrets": 0,
+  "persistence": 1,
+  "config-tampering": 1,
+  "destructive": 0,
+  "privilege": 0,
+  "obfuscation": 0,
+  "surveillance": 0,
+  "prompt-injection": 5,
+  "permissions": 0,
+  "supply-chain": 4,
+  "integrity": 0,
+  "impersonation": 0,
+  "vulnerable-dependency": 0
+ },
+ "notes": [],
+ "metadata": {
+  "stars": 23949,
+  "forks": 1987,
+  "open_issues": 67,
+  "contributors": "46",
+  "created_at": "2025-06-22T12:03:53Z",
+  "pushed_at": "2026-11-27T10:05:56Z",
+  "license": "MIT",
+  "archived": false,
+  "owner_type": "Organization",
+  "description": "A configuration framework that enhances Claude Code with specialized commands, cognitive personas, and development methodologies.",
+  "signals": [],
+  "error": null
+ },
+ "scanners": {},
+ "agent": null,
+ "tool_version": "0.3.0",
+ "verdict": {
+  "level": "review",
+  "label": "Review before installing",
+  "score": 40,
+  "counts": {
+   "critical": 0,
+   "high": 1,
+   "medium": 3,
+   "low": 11,
+   "info": 5
+  },
+  "active": 20,
+  "dismissed": 0,
+  "injection_guard": false,
+  "reasons": []
+ },
+ "recommended_precautions": [
+  "pin-mcp-version",
+  "pin-commit",
+  "protect-claude-config",
+  "disable-plugin",
+  "review-before-run",
+  "deny-mcp-server",
+  "disable-hooks",
+  "check-persistence",
+  "review-context-injection"
+ ],
+ "settings_snippet": {}
+}

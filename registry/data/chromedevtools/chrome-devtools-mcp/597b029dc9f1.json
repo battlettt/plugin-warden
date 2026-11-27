@@ -6,11 +6,11 @@
   "url": "https://github.com/chromedevtools/chrome-devtools-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "aa8b35dded1be4401ce56c28a7ee451035579a71",
+  "commit": "597b029dc9f1c1bbb48b71dc3d8abf25efec6f8c",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-25T16:01:53+00:00",
+ "generated_at": "2026-11-27T15:31:26+00:00",
  "plugins": [
   {
    "name": "chrome-devtools-mcp",
@@ -243,14 +243,14 @@
   }
  ],
  "stats": {
-  "files": 414,
-  "bytes": 14963094,
+  "files": 422,
+  "bytes": 15061487,
   "by_kind": {
    "binary": 2,
    "config": 38,
-   "js": 304,
+   "js": 311,
    "markdown": 30,
-   "other": 40
+   "other": 41
   },
   "vendored_files": 0,
   "plugins": 1,
@@ -723,12 +723,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 59324,
-  "forks": 4886,
-  "open_issues": 119,
+  "stars": 59587,
+  "forks": 4902,
+  "open_issues": 111,
   "contributors": "100+",
   "created_at": "2025-09-11T10:39:55Z",
-  "pushed_at": "2026-11-25T15:52:39Z",
+  "pushed_at": "2026-11-27T14:34:29Z",
   "license": "Apache-2.0",
   "archived": false,
   "owner_type": "Organization",

@@ -6,14 +6,14 @@
   "url": "https://github.com/github/github-mcp-server",
   "ref": null,
   "subdir": null,
-  "commit": "c6b62954c062b3ad779f4e208716e09cb4a723e0",
+  "commit": "1a3b6a7a9151343200f3566ac24ea5db29f7319e",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-24T16:11:03+00:00",
+ "generated_at": "2026-11-27T15:30:58+00:00",
  "plugins": [
   {
-   "name": "github__github-mcp-server@c6b62954c062",
+   "name": "github__github-mcp-server@1a3b6a7a9151",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -28,9 +28,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "github__github-mcp-server@c6b62954c062",
+   "name": "github__github-mcp-server@1a3b6a7a9151",
    "path": ".",
-   "plugin": "github__github-mcp-server@c6b62954c062",
+   "plugin": "github__github-mcp-server@1a3b6a7a9151",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -234,7 +234,7 @@
     "dependencies": {
      "@github/markdown-toolbar-element": "^2.2.3",
      "@modelcontextprotocol/client": "^2.3.1",
-     "@modelcontextprotocol/ext-apps": "^2.0.3",
+     "@modelcontextprotocol/ext-apps": "^2.0.4",
      "@primer/octicons-react": "^19.40.0",
      "@primer/primitives": "^11.10.0",
      "@primer/react": "^38.40.1",
@@ -258,15 +258,15 @@
   }
  ],
  "stats": {
-  "files": 745,
-  "bytes": 7655118,
+  "files": 746,
+  "bytes": 7677175,
   "by_kind": {
    "binary": 64,
    "code": 340,
    "config": 29,
    "js": 14,
    "markdown": 72,
-   "other": 215,
+   "other": 216,
    "shell": 11
   },
   "vendored_files": 0,
@@ -475,12 +475,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34721,
-  "forks": 5418,
-  "open_issues": 462,
+  "stars": 34802,
+  "forks": 5430,
+  "open_issues": 486,
   "contributors": "100+",
   "created_at": "2025-03-04T16:42:04Z",
-  "pushed_at": "2026-11-24T15:18:16Z",
+  "pushed_at": "2026-11-27T13:10:50Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "Organization",
