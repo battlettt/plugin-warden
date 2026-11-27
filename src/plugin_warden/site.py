@@ -18,6 +18,7 @@ from typing import Any
 
 from . import __version__, registry, rules
 from .registry import Disclosure, Entry
+from .verdict import STAMPS
 
 SEVERITIES = ["critical", "high", "medium", "low", "info"]
 
@@ -68,147 +69,319 @@ def _n(value: int | None) -> str:
 
 
 # -------------------------------------------------------------------------- CSS
-CSS = """
-:root{--paper:#f4f1ea;--panel:#fbfaf6;--ink:#1a1814;--soft:#5f5a50;--rule:#d9d3c4;--wash:#ebe6da;--code:#efeadd;
---stamp:#b4320f;--stamp-ink:#fff8f2;--ok:#2c6a4b;--warn:#8f5a00;--bad:#b3261e;--mute:#6a6558;--link:#7a2408;
---serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
---sans:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#12110f;--panel:#1a1916;--ink:#ece7da;--soft:#aaa393;--rule:#33302a;--wash:#211f1b;--code:#201e1a;
---stamp:#ff7a4d;--stamp-ink:#1a0c05;--ok:#77d3a2;--warn:#f0c15a;--bad:#ff7a6e;--mute:#8d8778;--link:#ffab8a}}
-:root[data-theme="dark"]{--paper:#12110f;--panel:#1a1916;--ink:#ece7da;--soft:#aaa393;--rule:#33302a;--wash:#211f1b;--code:#201e1a;
---stamp:#ff7a4d;--stamp-ink:#1a0c05;--ok:#77d3a2;--warn:#f0c15a;--bad:#ff7a6e;--mute:#8d8778;--link:#ffab8a}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans)}
-a{color:var(--link);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:2px solid var(--stamp);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-code,pre,.mono{font-family:var(--mono)}code{font-size:.9em;background:var(--code);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
-pre{background:var(--code);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.55;margin:14px 0}
+CSS = r"""
+/* Customs inspection bay. Plugins arrive as cargo, the registry is an arrivals board, each entry is an inspection docket,
+   verdicts are rubber stamps. System fonts only: the site makes no third-party requests.
+   Shape rule: every surface is square; only physical objects (stamps, flap tiles) get a 3px corner.
+   Colour rule: signal amber is the one accent. Stamp inks (clear, cond, hold, refuse) carry verdict meaning only.
+   The board, x-ray and header are physical displays and stay dark in both themes. */
+:root{--paper:#e6e9e2;--sheet:#f5f6f1;--ink:#15181b;--soft:#464c52;--mute:#5a6168;--hair:#c2c7bd;--wash:#dcdfd6;--code:#eceee7;
+--grid:rgba(21,24,27,.045);--focus:#15181b;--under:#a87700;
+--signal:#f2b200;--board:#17191b;--board2:#212427;--bhair:#33383d;--led:#ffb81c;--btext:#e6e9e3;--bsoft:#a3aaaf;
+--clear:#1d6a43;--cond:#875400;--hold:#b3261e;--refuse:#b3261e;--refuse-ink:#fff6f3;--pend:#596067;
+--x-hook:#ff9d2e;--x-mcp:#5fa6ff;--x-lsp:#5fd394;--x-other:#c7ccd0;
+--display:"DIN Condensed","Bahnschrift","D-DIN Condensed","DIN Alternate","Roboto Condensed","Arial Narrow",sans-serif;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+--mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101214;--sheet:#171a1d;--ink:#e4e7e1;--soft:#adb3ac;--mute:#939aa0;--hair:#2d3236;--wash:#1c1f22;--code:#1c1f22;
+--grid:rgba(255,255,255,.028);--focus:#f2b200;--under:#f2b200;--board:#0a0b0c;--board2:#141618;--bhair:#272b2f;
+--clear:#62d394;--cond:#f0b54a;--hold:#ff7468;--refuse:#ff6a5c;--refuse-ink:#1a0806;--pend:#9ba2a9}}
+:root[data-theme="dark"]{--paper:#101214;--sheet:#171a1d;--ink:#e4e7e1;--soft:#adb3ac;--mute:#939aa0;--hair:#2d3236;--wash:#1c1f22;--code:#1c1f22;
+--grid:rgba(255,255,255,.028);--focus:#f2b200;--under:#f2b200;--board:#0a0b0c;--board2:#141618;--bhair:#272b2f;
+--clear:#62d394;--cond:#f0b54a;--hold:#ff7468;--refuse:#ff6a5c;--refuse-ink:#1a0806;--pend:#9ba2a9}
+.bay,.board,.xray,.flaps,.tape{--clear:#62d394;--cond:#f0b54a;--hold:#ff7468;--refuse:#ff6a5c;--refuse-ink:#1a0806;--pend:#a3aab0;--focus:#f2b200;--stampbg:var(--board)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:16px/1.6 var(--sans);background-color:var(--paper);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+a{color:var(--ink);text-decoration-color:var(--under);text-decoration-thickness:2px;text-underline-offset:3px}a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+code,pre,.mono{font-family:var(--mono)}code{font-size:.88em;background:var(--code);padding:1px 5px;overflow-wrap:anywhere}
+pre{background:var(--code);border:2px solid var(--ink);padding:14px 16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:14px 0}
 pre code{background:none;padding:0;font-size:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.012em;line-height:1.15;margin:0;text-wrap:balance}
-h1{font-size:clamp(2.1rem,5.2vw,3.6rem)}h2{font-size:clamp(1.55rem,3vw,2.15rem)}h3{font-size:1.2rem}
-p{margin:0 0 14px;max-width:68ch}.lede{font-size:1.16rem;color:var(--soft);max-width:60ch}
-.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stamp);margin-bottom:14px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--panel);padding:8px 12px;z-index:9}
+h1,h2{font-family:var(--display);font-stretch:condensed;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:.98;margin:0;text-wrap:balance}
+h3{font:650 1.08rem/1.3 var(--sans);margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.6vw,4.6rem)}h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+p{margin:0 0 14px;max-width:66ch;text-wrap:pretty;overflow-wrap:break-word}.lede{font-size:1.12rem;color:var(--soft);max-width:58ch}
+.lab{display:block;font:700 10.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--sheet);color:var(--ink);padding:8px 12px;z-index:9}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.nav{border-bottom:1px solid var(--rule);background:var(--paper)}
-.nav .wrap{display:flex;align-items:center;gap:22px;min-height:60px;flex-wrap:wrap}
-.brand{font:600 1.15rem var(--serif);color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;margin-right:auto}
-.brand i{width:22px;height:22px;border:2px solid var(--stamp);border-radius:50%;display:grid;place-items:center;font:700 11px var(--mono);color:var(--stamp);font-style:normal;transform:rotate(-8deg)}
-.nav a.l{color:var(--soft);text-decoration:none;font-size:.95rem;padding:6px 0}.nav a.l:hover,.nav a.l[aria-current]{color:var(--ink)}
-.nav a.l[aria-current]{box-shadow:0 2px 0 var(--stamp)}
-.tt{font:12px var(--mono);background:none;color:var(--soft);border:1px solid var(--rule);border-radius:6px;padding:5px 9px;cursor:pointer}
+/* header: the bay sign */
+.bay{background:var(--board);color:var(--btext)}
+.bay .wrap{display:flex;align-items:center;gap:6px 24px;min-height:66px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;color:var(--btext);text-decoration:none;margin-right:auto;font:700 1.5rem/1 var(--display);font-stretch:condensed;letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
+.brand i{font-style:normal;display:grid;place-items:center;width:31px;height:31px;border:2px solid var(--signal);color:var(--signal);font:800 15px/1 var(--mono);transform:rotate(-6deg);margin-top:-3px}
+.bay a.l{color:var(--bsoft);text-decoration:none;font:700 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:9px 0 7px;border-bottom:3px solid transparent}
+.bay a.l:hover{color:#fff}.bay a.l[aria-current]{color:#fff;border-bottom-color:var(--signal)}
+.tt{font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:none;color:var(--bsoft);border:1px solid #4a5056;padding:8px 10px;cursor:pointer}
+.tt:hover{color:#fff;border-color:var(--bsoft)}
+.hz{height:10px;background:repeating-linear-gradient(-45deg,var(--signal) 0 14px,#17191b 14px 28px)}
 
-.btn{display:inline-block;font:600 .95rem var(--sans);padding:11px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent}
-.btn.p{background:var(--ink);color:var(--paper)}.btn:hover{border-color:var(--stamp);color:var(--stamp)}.btn.p:hover{background:var(--stamp);color:var(--stamp-ink)}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 12.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:15px 20px;
+border:2px solid var(--ink);color:var(--ink);background:var(--sheet);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);white-space:nowrap}
+.btn.p{background:var(--signal);color:#15181b}
+.btn:hover{background:var(--ink);color:var(--paper)}.btn.p:hover{background:var(--signal);color:#15181b;box-shadow:6px 6px 0 var(--ink);transform:translate(-2px,-2px)}
+.btn:active,.btn.p:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
 
-.hero{padding:64px 0 48px}.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
-.slip{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px 20px 16px;position:relative;box-shadow:0 1px 0 var(--rule),6px 6px 0 var(--wash)}
-.slip h3{font:600 13px var(--mono);letter-spacing:.04em;margin-bottom:2px;overflow-wrap:anywhere}
-.slip .sub{font:12px var(--mono);color:var(--mute);margin-bottom:14px}
-.slip ol{list-style:none;margin:0;padding:0;border-top:1px dashed var(--rule)}
-.slip li{padding:9px 0;border-bottom:1px dashed var(--rule);font-size:13px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px}
-.slip li b{font:600 11px var(--mono);color:var(--stamp);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;padding-top:2px}
-.slip li code{background:none;padding:0;font-size:12.5px}
-.slip .foot{font:12px var(--mono);color:var(--mute);margin-top:12px}
-.stamp{position:absolute;top:-14px;right:14px;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);border:2px solid var(--stamp);border-radius:6px;padding:4px 9px;background:var(--panel);transform:rotate(3deg)}
+/* rubber stamps */
+.stamp{--stampbg:var(--sheet);position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:9px 16px 8px;color:var(--pend);
+border:3px solid currentColor;border-radius:3px;box-shadow:inset 0 0 0 2px var(--stampbg),inset 0 0 0 4px currentColor;
+font:700 1.55rem/1 var(--display);font-stretch:condensed;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-4deg);white-space:nowrap;text-align:center}
+.stamp small{font:700 10px/1.25 var(--mono);letter-spacing:.1em}
+.stamp::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;
+background:radial-gradient(circle at 18% 32%,var(--stampbg) 0 1.5px,transparent 2px),radial-gradient(circle at 63% 71%,var(--stampbg) 0 1px,transparent 1.6px),
+radial-gradient(circle at 82% 22%,var(--stampbg) 0 2px,transparent 2.6px),radial-gradient(circle at 41% 88%,var(--stampbg) 0 1px,transparent 1.5px);background-size:37px 23px,29px 31px,53px 41px,23px 19px}
+.stamp.low{color:var(--clear)}.stamp.caution{color:var(--cond)}.stamp.review{color:var(--hold)}
+.stamp.block{color:var(--refuse-ink);background:var(--refuse);border-color:var(--refuse);box-shadow:inset 0 0 0 2px var(--refuse),inset 0 0 0 4px var(--refuse-ink)}
+.stamp.block::after{display:none}
+.stamp.muted{border-style:dashed;box-shadow:none;font-size:1.2rem}
+.stamp.sm{font-size:1rem;padding:5px 9px 4px;border-width:2px;box-shadow:none;transform:rotate(-2deg);gap:2px}
+.stamp.sm small{font-size:9px}.stamp.sm::after{display:none}.stamp.sm.muted{font-size:.9rem}
 
-.band{border-top:1px solid var(--rule);padding:56px 0}.band.w{background:var(--wash)}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--rule);border-radius:10px;background:var(--panel);overflow:hidden}
-.stats div{padding:20px;border-right:1px solid var(--rule)}.stats div:last-child{border-right:0}
-.stats b{display:block;font:600 2.1rem/1 var(--serif);font-variant-numeric:tabular-nums}.stats span{font-size:.88rem;color:var(--soft)}
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:28px}
-.cols h3{margin-bottom:8px}.cols p{color:var(--soft);font-size:.97rem}
-.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}
-.job{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px;min-width:0}
-.job .k{font:600 12px var(--mono);color:var(--stamp);letter-spacing:.08em;text-transform:uppercase}
-.job h3{margin:6px 0 8px}.job p{color:var(--soft);font-size:.96rem;margin-bottom:8px}.job pre{margin:10px 0 0;font-size:12.5px}
-.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+/* hero */
+.hero{padding:56px 0 72px}.hero .wrap{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:56px;align-items:start}
+.kicker{display:inline-block;font:700 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:8px 11px 7px;margin-bottom:24px}
+.hero h1{font-size:clamp(2.7rem,5.9vw,5rem)}
+.hero .lede{margin-top:22px}
+.check{margin-top:30px;max-width:560px;border:2px solid var(--ink);background:var(--sheet);box-shadow:6px 6px 0 var(--wash)}
+.check label{display:block;font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-bottom:2px solid var(--ink);color:var(--ink)}
+.check .row{display:flex}.check input{flex:1;min-width:0;font:16px var(--mono);padding:14px;border:0;background:var(--sheet);color:var(--ink)}
+.check input:focus-visible{outline-offset:-3px}
+.check input::placeholder{color:var(--mute)}.check .row .btn{box-shadow:none;border-width:0 0 0 2px}.check .row .btn:active{transform:none}
+.check .out{padding:0 12px;font-size:.93rem;color:var(--soft)}.check .out:not(:empty){padding:10px 12px;border-top:1px dashed var(--hair)}
+.check .out ul{list-style:none;margin:0;padding:0}.check .out li{padding:3px 0}.check .out a{font:600 .9rem var(--mono)}
+.alt{margin-top:18px;font-size:.95rem;color:var(--soft)}
 
-table{width:100%;border-collapse:collapse;font-size:.92rem}
-th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;padding:10px 12px;border-bottom:1px solid var(--ink)}
-td{padding:11px 12px;border-bottom:1px solid var(--rule);vertical-align:top}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--rule);border-radius:10px}
-td a.repo{font-weight:600;text-decoration:none;color:var(--ink)}td a.repo:hover{color:var(--stamp)}td .d{color:var(--mute);font-size:.84rem;display:block;max-width:46ch}
-.tag{display:inline-block;font:600 11px var(--mono);letter-spacing:.04em;padding:3px 8px;border-radius:5px;border:1px solid var(--rule);color:var(--soft);white-space:nowrap}
-.tag.low{color:var(--ok);border-color:var(--ok)}.tag.caution{color:var(--warn);border-color:var(--warn)}.tag.review,.tag.block{color:var(--bad);border-color:var(--bad)}
-.tag.block{background:var(--bad);color:var(--paper)}.tag.muted{border-style:dashed}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.tools input,.tools select{font:15px var(--sans);padding:10px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);min-width:0}
-.tools input{flex:1 1 260px}.count{font:13px var(--mono);color:var(--mute);margin:0 0 10px}
+/* x-ray: what runs and when */
+.xray{position:relative;background:var(--board);color:var(--btext);border:2px solid var(--ink);padding:20px 20px 16px;overflow:hidden;
+background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:20px 20px}
+.xray .xh{display:flex;justify-content:space-between;gap:12px;align-items:start;padding-right:150px;min-height:56px}
+.xray .xh b{display:block;font:700 11px/1 var(--mono);letter-spacing:.16em;color:var(--led);margin-bottom:8px}
+.xray .xh strong{display:block;font:700 14px/1.3 var(--mono);overflow-wrap:anywhere}.xray .xh span{font:12px var(--mono);color:var(--bsoft)}
+.xray .stamp{position:absolute;top:18px;right:16px}
+.lanes{margin:16px 0 4px;border-top:1px solid var(--bhair)}
+.lane{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bhair)}
+.lane dt{font:700 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--bsoft)}.lane dt b{color:var(--btext);font-size:13px;margin-right:6px}
+.lane dd{margin:0;display:flex;flex-wrap:wrap;gap:3px}
+.blk{width:11px;height:24px;background:var(--x-other);opacity:.92}.blk.hook{background:var(--x-hook)}.blk.mcp{background:var(--x-mcp)}.blk.lsp{background:var(--x-lsp)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font:11px var(--mono);color:var(--bsoft);margin:12px 0 0;padding:0;list-style:none}
+.legend li{display:flex;align-items:center;gap:6px}.legend i{width:9px;height:14px;display:inline-block}
+.xitems{list-style:none;margin:14px 0 0;padding:0}.xitems li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:7px 0;font-size:12.5px;border-top:1px dashed var(--bhair)}
+.xitems b{font:700 10.5px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--led);white-space:nowrap}
+.xitems code{background:none;padding:0;color:var(--btext);font-size:12px}
+.xray .foot{font:12px var(--mono);color:var(--bsoft);margin-top:12px}.xray a{color:var(--btext);text-decoration-color:var(--led)}
+.xray::after{content:"";position:absolute;top:0;bottom:0;left:0;width:90px;pointer-events:none;opacity:0;
+background:linear-gradient(90deg,transparent,rgba(255,184,28,.16) 60%,rgba(255,184,28,.42) 96%,transparent)}
 
-.note{background:var(--wash);border-left:3px solid var(--stamp);padding:14px 16px;border-radius:0 8px 8px 0;margin:18px 0;font-size:.96rem}
-.note p:last-child{margin:0}
-.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--rule);border-radius:10px;background:var(--panel);overflow:hidden;margin:20px 0}
-.kv div{padding:14px 16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 -1px -1px 0}
-.kv b{display:block;font:600 1.5rem/1.1 var(--serif);font-variant-numeric:tabular-nums}.kv span{font-size:.82rem;color:var(--soft)}
-.sec{margin-top:40px}.sec h2{font-size:1.45rem;margin-bottom:12px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font:12.5px var(--mono);background:var(--code);border-radius:5px;padding:3px 8px;overflow-wrap:anywhere}
-.find{border:1px solid var(--rule);border-left:4px solid var(--mute);border-radius:8px;background:var(--panel);padding:14px 16px;margin:10px 0}
-.find.critical,.find.high{border-left-color:var(--bad)}.find.medium{border-left-color:var(--warn)}.find.low{border-left-color:var(--ok)}
-.find h3{font:600 1rem var(--sans);letter-spacing:0}.find .m{font:12px var(--mono);color:var(--mute);margin:4px 0 8px;overflow-wrap:anywhere}.find p{font-size:.94rem;margin-bottom:6px}
-.crumb{font:13px var(--mono);color:var(--mute);margin:28px 0 10px}.crumb a{color:var(--mute)}
-.title{display:flex;gap:16px;align-items:start;justify-content:space-between;flex-wrap:wrap}
-.title h1{font-size:clamp(1.7rem,4vw,2.5rem);overflow-wrap:anywhere}
+/* arrivals board: registry totals */
+.flaps{background:var(--board);color:var(--btext);border:2px solid var(--ink)}
+.flaps .fh{display:flex;justify-content:space-between;gap:12px;padding:11px 18px;border-bottom:1px solid var(--bhair);font:700 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--led)}
+.flaps .fh a{color:var(--bsoft);text-decoration-color:var(--led)}
+.flaps .fg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.flaps .fc{padding:20px 18px 18px;border-right:1px solid var(--bhair);min-width:0}.flaps .fc:last-child{border-right:0}
+.fl{display:flex;gap:4px;margin-bottom:12px}
+.fl i{position:relative;display:grid;place-items:center;width:.74em;height:1.08em;padding-top:.08em;background:var(--board2);border-radius:3px;font:700 clamp(2.3rem,4.4vw,3.5rem)/1 var(--display);font-style:normal;color:#f3f3ec;font-variant-numeric:tabular-nums}
+.fl i::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--board)}
+.flaps .fc>span:last-child{display:block;font-size:.9rem;color:var(--bsoft);line-height:1.45}
 
-.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px;align-items:start}
-.tier{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:24px;min-width:0}
-.tier.f{border:2px solid var(--ink)}.tier .price{font:600 2.4rem/1 var(--serif);margin:12px 0 4px}.tier .price small{font:400 .95rem var(--sans);color:var(--soft)}
-.tier ul{padding:0;margin:18px 0;list-style:none}.tier li{padding:7px 0 7px 22px;border-top:1px solid var(--rule);font-size:.94rem;position:relative}
-.tier li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:5px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
-.tier .btn{width:100%;text-align:center}
-.faq details{border-top:1px solid var(--rule);padding:14px 0}.faq summary{cursor:pointer;font-weight:600}.faq details p{margin:10px 0 0;color:var(--soft)}
+/* sections */
+.band{padding:72px 0}.band.w{background:var(--wash);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.band h2{margin-bottom:10px}
+.hidden{list-style:none;margin:34px 0 0;padding:0;counter-reset:h}
+.hidden li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;padding:26px 0;border-top:2px solid var(--ink)}
+.hidden li:last-child{border-bottom:2px solid var(--ink)}
+.hidden h3{font:700 clamp(1.5rem,2.6vw,2rem)/1 var(--display);font-stretch:condensed;text-transform:uppercase;letter-spacing:.01em;display:flex;gap:14px;align-items:baseline}
+.hidden h3::before{counter-increment:h;content:counter(h);flex:none;display:grid;place-items:center;width:1.4em;height:1.4em;padding-top:.12em;background:var(--signal);color:#15181b;font-size:.7em}
+.hidden p{color:var(--soft);margin:0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 
-.doc{display:grid;grid-template-columns:210px minmax(0,1fr);gap:44px;padding:40px 0 64px}
-.toc{position:sticky;top:20px;align-self:start;font-size:.92rem}.toc a{display:block;padding:5px 0;color:var(--soft);text-decoration:none}.toc a:hover{color:var(--ink)}
-.doc h2{margin:44px 0 12px;padding-top:8px;border-top:1px solid var(--rule)}.doc h2:first-of-type{margin-top:0;border:0;padding:0}.doc h3{margin:24px 0 8px}
-.doc ul,.doc ol{max-width:68ch;padding-left:22px}.doc li{margin-bottom:6px}.doc table{margin:14px 0}
+/* lanes of the procedure: tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2px solid var(--ink);margin-top:30px;background:var(--sheet)}
+.tab{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:14px 16px 12px;border:0;border-right:2px solid var(--ink);background:none;color:var(--ink);cursor:pointer;
+font:700 1.5rem/1 var(--display);font-stretch:condensed;text-transform:uppercase;letter-spacing:.03em;box-shadow:inset 0 5px 0 transparent}
+.tab:last-child{border-right:0}.tab small{font:700 10px/1 var(--mono);letter-spacing:.12em;color:var(--mute)}
+.tab:hover{background:var(--wash)}.tab[aria-selected=true]{background:var(--ink);color:var(--paper);box-shadow:inset 0 5px 0 var(--signal)}
+.tab[aria-selected=true] small{color:var(--paper);opacity:.75}
+.panel{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:36px;padding-top:30px;align-items:start}.panel[hidden]{display:none}
+.panel h3{font:700 1.9rem/1 var(--display);font-stretch:condensed;text-transform:uppercase;margin-bottom:14px}.panel p{color:var(--soft)}
+.panel .pw{margin:0}.panel pre{margin:0}.panel pre.tape{max-height:430px;overflow:auto}
+.cap{font:700 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+pre.tape{background:var(--board);color:#dfe3de;border-color:var(--ink);border-top:6px solid var(--signal)}
+.pw{position:relative;margin:14px 0}.pw pre{margin:0}
+.cp{position:absolute;top:8px;right:8px;font:700 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;border:1px solid var(--hair);background:var(--sheet);color:var(--soft);cursor:pointer}
+.cp:hover{color:var(--ink);border-color:var(--ink)}.tape+.cp{background:var(--board2);border-color:var(--bhair);color:var(--bsoft)}.tape+.cp:hover{color:#fff;border-color:var(--bsoft)}
 
-footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--soft);font-size:.9rem}
+/* tables and the departures board */
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th{font:700 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:left;padding:11px 12px;border-bottom:2px solid var(--ink)}
+td{padding:11px 12px;border-bottom:1px solid var(--hair);vertical-align:top}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;background:var(--sheet);border:2px solid var(--ink)}
+.board{background:var(--board);color:var(--btext);border:2px solid var(--ink)}
+.board .bh{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--bhair);font:700 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--led)}
+.board .bh span:last-child{color:var(--bsoft)}
+.board .tw{background:none;border:0}
+.board th{color:var(--bsoft);border-bottom:1px solid var(--bhair);background:var(--board2)}
+.board td{border-bottom:1px solid var(--bhair);font-family:var(--mono);font-size:.86rem}
+.board tbody tr:hover{background:rgba(255,255,255,.035)}
+.board td a.repo{color:var(--led);font-weight:700;text-decoration:none;font-size:.92rem;overflow-wrap:anywhere}.board td a.repo:hover{text-decoration:underline;text-decoration-color:var(--led)}
+.board td .d{display:block;color:var(--bsoft);font:.82rem/1.45 var(--sans);max-width:48ch;margin-top:3px}
+.board td.num{color:#f3f3ec;font-size:.95rem}.board td.z{color:#80878d}
+.board .when{white-space:nowrap;color:var(--bsoft);font-size:.8rem}
+.board .kind{color:var(--bsoft);font-size:.8rem;white-space:nowrap}
+.board th button{color:var(--bsoft)}.board th button:hover,.board th[aria-sort] button{color:var(--led)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 14px}
+.tools input{flex:1 1 280px;min-width:0;font:15px var(--mono);padding:13px 14px;border:2px solid var(--ink);background:var(--sheet);color:var(--ink)}
+.tools input::placeholder{color:var(--mute)}
+.count{font:700 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.fset{display:flex;flex-wrap:wrap;gap:0;align-items:stretch}.fset+.fset{margin-top:10px}
+.fset span{display:flex;align-items:center;font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);min-width:64px}
+.chipb{font:700 11.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:10px 13px;border:2px solid var(--ink);margin:0 -2px -2px 0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.chipb:hover{background:var(--wash)}.chipb[aria-pressed=true]{background:var(--ink);color:var(--paper);box-shadow:inset 0 -4px 0 var(--signal)}
+th button{all:unset;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit}th button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+th[aria-sort=ascending] button::after{content:" \2191"}th[aria-sort=descending] button::after{content:" \2193"}
+.none{padding:22px 16px;color:var(--bsoft);margin:0}
+
+/* notes: caution tape on the left edge */
+.note{position:relative;background:var(--sheet);border:2px solid var(--ink);padding:15px 18px 15px 34px;margin:22px 0;font-size:.97rem;max-width:860px}
+.note::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:repeating-linear-gradient(-45deg,var(--signal) 0 8px,#17191b 8px 16px)}
+.note p{max-width:none}.note p:last-child{margin:0}
+
+/* docket */
+.crumb{font:700 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:30px 0 14px;overflow-wrap:anywhere}.crumb a{color:var(--mute)}
+.docket{background:var(--sheet);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--wash);overflow:clip}
+.dk-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 18px;background:var(--ink);color:var(--paper);font:700 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.dk-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:26px 22px 22px}
+.dk-body h1{font:700 clamp(1.5rem,3.4vw,2.35rem)/1.15 var(--mono);text-transform:none;letter-spacing:-.02em;overflow-wrap:anywhere}
+.dk-body .lede{margin:12px 0 0;font-size:1.02rem}
+.dk-stamp{padding:6px 12px}.dk-stamp .stamp{font-size:2.2rem;padding:12px 22px 10px}.dk-stamp .stamp small{font-size:11px}.dk-stamp .stamp.muted{font-size:1.5rem}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:0;border-top:2px solid var(--ink)}
+.fields div{padding:11px 16px 12px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:0 -1px -1px 0;min-width:0}
+.fields dt{font:700 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.fields dd{margin:0;font:600 .92rem/1.35 var(--mono);overflow-wrap:anywhere}.fields dd code{background:none;padding:0;font-size:inherit}
+.kv{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:2px solid var(--ink);background:var(--sheet);margin:22px 0}
+.kv div{padding:16px 16px 14px;border-right:1px solid var(--hair);min-width:0}.kv div:last-child{border-right:0}
+.kv b{display:block;font:700 2.3rem/1 var(--display);font-stretch:condensed;font-variant-numeric:tabular-nums;margin-bottom:6px}.kv span{font-size:.8rem;color:var(--soft);line-height:1.35;display:block}
+.sec{margin-top:48px}.sec>h2,details.sec>summary h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px}
+.sec .lab{margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font:12.5px var(--mono);background:var(--sheet);border:1px solid var(--hair);padding:4px 9px;overflow-wrap:anywhere}
+details.sec>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+details.sec>summary::-webkit-details-marker{display:none}details.sec>summary h2{margin:0}
+details.sec>summary::after{content:"open";flex:none;font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border:2px solid var(--ink);padding:6px 8px}
+details.sec[open]>summary::after{content:"close"}details.sec[open]>summary{margin-bottom:16px}
+
+/* the x-ray on a docket */
+.scan{background:var(--board);color:var(--btext);border:2px solid var(--ink);position:relative;overflow:hidden;
+background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:20px 20px}
+.scan .sh{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 16px;border-bottom:1px solid var(--bhair);font:700 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--led)}
+.scan .legend{margin:0}
+.phase{display:grid;grid-template-columns:200px minmax(0,1fr);border-bottom:1px solid var(--bhair)}.phase:last-of-type{border-bottom:0}
+.phase h3{padding:16px;font:700 1.35rem/1 var(--display);font-stretch:condensed;text-transform:uppercase;letter-spacing:.04em;color:var(--btext);border-right:1px solid var(--bhair)}
+.phase h3 span{display:block;font:700 10.5px/1.3 var(--mono);letter-spacing:.1em;color:var(--led);margin-top:8px}
+.phase ol{list-style:none;margin:0;padding:6px 16px}
+.phase li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 14px;padding:10px 0;border-bottom:1px dashed var(--bhair)}.phase li:last-child{border-bottom:0}
+.phase .ty{display:flex;align-items:flex-start;gap:7px;font:700 10.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--bsoft)}
+.phase .ty i{flex:none;width:8px;height:15px;background:var(--x-other)}.phase .ty i.hook{background:var(--x-hook)}.phase .ty i.mcp{background:var(--x-mcp)}.phase .ty i.lsp{background:var(--x-lsp)}
+.phase code{background:none;padding:0;color:var(--btext);font-size:12.5px}
+.phase .wh{display:block;font:11.5px/1.5 var(--mono);color:var(--bsoft);margin-top:3px;overflow-wrap:anywhere}.phase .wh b{color:var(--led);font-weight:700}
+.scan .empty{padding:22px 16px;margin:0;color:var(--bsoft)}
+
+/* findings */
+.find{border:2px solid var(--ink);background:var(--sheet);margin:14px 0;display:grid;grid-template-columns:118px minmax(0,1fr)}
+.find .sv{padding:14px 12px;border-right:2px solid var(--ink);font:700 1.2rem/1 var(--display);font-stretch:condensed;letter-spacing:.06em;text-transform:uppercase;color:var(--pend)}
+.find.critical .sv{background:var(--refuse);color:var(--refuse-ink)}.find.high .sv{color:var(--hold)}.find.medium .sv{color:var(--cond)}.find.low .sv{color:var(--clear)}
+.find .fb{padding:14px 18px;min-width:0}
+.find h3{font:650 1rem/1.35 var(--sans)}.find .m{font:12px var(--mono);color:var(--mute);margin:5px 0 10px;overflow-wrap:anywhere}.find p{font-size:.94rem;margin-bottom:6px}
+
+/* pricing: a declaration form */
+.form{border:2px solid var(--ink);background:var(--sheet);margin-top:30px}
+.form .fh{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 18px;background:var(--ink);color:var(--paper);font:700 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,250px)) minmax(0,1fr)}
+.chooser>div,.chooser output{padding:14px 18px 16px;border-right:1px solid var(--hair)}.chooser output{border-right:0;display:flex;align-items:center;font-weight:600;background:var(--wash)}
+.chooser label{display:block;font:700 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.chooser input{width:100%;font:700 1.7rem/1 var(--display);padding:9px 10px 6px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:26px;border:2px solid var(--ink);background:var(--sheet)}
+.tier{position:relative;display:flex;flex-direction:column;padding:0;border-right:2px solid var(--ink);min-width:0}.tier:last-child{border-right:0}
+.tier .th{padding:16px 20px 14px;border-bottom:1px solid var(--hair)}
+.tier h3{font:700 2rem/1 var(--display);font-stretch:condensed;text-transform:uppercase;letter-spacing:.03em;margin-top:6px}
+.tier .fee{padding:16px 20px;border-bottom:1px solid var(--hair);background:var(--wash)}
+.tier .price{font:700 3.2rem/1 var(--display);font-stretch:condensed;margin-top:6px}.tier .price small{font:600 .85rem var(--mono);color:var(--soft);margin-left:4px}
+.tier .who{padding:14px 20px 0;color:var(--soft);font-size:.95rem;margin:0}
+.tier ul{list-style:none;margin:10px 0 18px;padding:0 20px;flex:1}
+.tier li{position:relative;padding:8px 0 8px 28px;border-top:1px dashed var(--hair);font-size:.93rem}.tier li:first-child{border-top:0}
+.tier li::before{content:"";position:absolute;left:0;top:11px;width:14px;height:14px;border:2px solid var(--ink)}
+.tier li::after{content:"";position:absolute;left:4px;top:13px;width:5px;height:8px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.tier .go{padding:0 20px 22px}.tier .btn{width:100%}
+.tier.pick{background:var(--paper);box-shadow:inset 0 6px 0 var(--signal)}
+.tier.pick::after{content:"fits";position:absolute;top:18px;right:16px;font:700 1.25rem/1 var(--display);font-stretch:condensed;letter-spacing:.1em;text-transform:uppercase;color:var(--clear);
+border:3px solid var(--clear);border-radius:3px;padding:6px 10px 4px;transform:rotate(6deg)}
+.faq{margin-top:56px;max-width:900px}.faq h2{margin-bottom:12px}
+.faq details{border-top:2px solid var(--ink);padding:16px 0}.faq details:last-child{border-bottom:2px solid var(--ink)}
+.faq summary{cursor:pointer;font-weight:650;display:flex;justify-content:space-between;gap:16px;list-style:none}.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:24px;height:24px;border:2px solid var(--ink);font:700 15px/1 var(--mono)}.faq details[open] summary::after{content:"\2212";background:var(--signal);color:#15181b}
+.faq details p{margin:12px 0 0;color:var(--soft)}
+
+/* docs: the manifest */
+.doc{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;padding:36px 0 72px;counter-reset:d}
+.toc{position:sticky;top:20px;align-self:start;border:2px solid var(--ink);background:var(--sheet);counter-reset:t;font-size:.9rem}
+.toc .lab{padding:10px 14px;background:var(--ink);color:var(--paper)}
+.toc a{display:flex;gap:10px;padding:7px 14px;color:var(--soft);text-decoration:none;border-top:1px solid var(--hair)}
+.toc a::before{counter-increment:t;content:counter(t,decimal-leading-zero);font:700 11px/1.7 var(--mono);color:var(--mute)}
+.toc a:hover{color:var(--ink);background:var(--wash)}.toc a[aria-current]{color:var(--ink);background:var(--wash);box-shadow:inset 4px 0 0 var(--signal)}
+.doc h2{display:flex;gap:14px;align-items:baseline;margin:56px 0 14px;padding-top:16px;border-top:2px solid var(--ink);scroll-margin-top:20px}
+.doc h2::before{counter-increment:d;content:counter(d,decimal-leading-zero);flex:none;font:700 12px/1 var(--mono);background:var(--signal);color:#15181b;padding:6px 7px 5px;transform:translateY(-.35em)}
+.doc h2:first-of-type{margin-top:0}.doc h3{margin:24px 0 8px}
+.doc ul,.doc ol{max-width:66ch;padding-left:22px}.doc li{margin-bottom:7px}.doc .tw{margin:14px 0}
+.doc .stamp.sm{margin:2px 0}
+
+/* services: one permit each */
+.svc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:2px solid var(--ink);background:var(--sheet);margin-top:28px}
+.svc>div{padding:24px 24px 22px;min-width:0}.svc>div:first-child{border-right:2px solid var(--ink)}
+.svc h2{font-size:2rem;margin:6px 0 12px}.svc .facts{font:12.5px/1.6 var(--mono);color:var(--mute);margin:14px 0}.svc .facts a{color:var(--mute)}
+.svc h3{font:700 10.5px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.svc ul{margin:0 0 22px;padding-left:18px}.svc li{margin-bottom:6px;font-size:.95rem}.svc .lim li{color:var(--soft)}.svc .price{font-weight:700;margin:0 0 16px}
+.svc .stamp{margin:4px 0 14px}
+
+/* 404 */
+.lost{padding:72px 0 96px}.lost h1{font-size:clamp(3rem,9vw,7rem)}.lost .stamp{margin:0 0 28px}
+
+footer{margin-top:24px;border-top:2px solid var(--ink);padding:28px 0 48px;color:var(--soft);font-size:.88rem;background:var(--paper)}
 footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}footer a{color:var(--soft)}footer p{margin:0 0 6px}
+footer b{font:700 1.1rem/1 var(--display);font-stretch:condensed;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);margin-right:4px}
 
-@media (max-width:860px){.hero{padding:40px 0 32px}.hero .wrap{grid-template-columns:minmax(0,1fr)}.cols,.tiers{grid-template-columns:minmax(0,1fr)}
-.jobs{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
-.doc{grid-template-columns:minmax(0,1fr);gap:8px}.toc{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;border-bottom:1px solid var(--rule);padding-bottom:12px}}
-@media (max-width:640px){.wrap{padding:0 16px}.nav .wrap{gap:14px;padding-top:8px;padding-bottom:8px}.band{padding:40px 0}
-.stack thead{display:none}.stack tr{display:block;padding:10px 4px;border-bottom:1px solid var(--rule)}.stack td{display:block;border:0;padding:3px 10px;text-align:left}
-.stack td.num{text-align:left}.stack td[data-l]::before{content:attr(data-l) ": ";font:600 11px var(--mono);color:var(--mute);text-transform:uppercase;letter-spacing:.05em}}
-.check{margin-top:26px;max-width:540px}.check label{display:block;font:600 .9rem var(--sans);margin-bottom:6px}
-.check .row{display:flex;gap:8px}.check input{flex:1;min-width:0;font:15px var(--mono);padding:11px 12px;border:1px solid var(--ink);border-radius:8px;background:var(--panel);color:var(--ink)}
-.check input::placeholder{color:var(--mute)}.check .out{margin-top:10px;font-size:.93rem;min-height:1.6em;color:var(--soft)}
-.check .out ul{list-style:none;margin:0;padding:0}.check .out li{padding:2px 0}.check .out a{font:600 .9rem var(--mono)}
-.alt{margin-top:14px;font-size:.93rem;color:var(--soft)}
-.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--ink);margin-top:26px}
-.tab{font:600 .95rem var(--sans);padding:10px 18px;border:1px solid transparent;border-bottom:0;border-radius:8px 8px 0 0;background:none;color:var(--soft);cursor:pointer}
-.tab:hover{color:var(--ink)}.tab[aria-selected=true]{background:var(--ink);color:var(--paper)}
-.panel{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;padding-top:26px;align-items:start}.panel[hidden]{display:none}
-.panel h3{font-size:1.45rem;margin-bottom:10px}.panel p{color:var(--soft)}.panel pre{margin:0;max-height:420px;overflow:auto}
-.cap{font:12px var(--mono);color:var(--mute);margin:0 0 8px}
-.pw{position:relative;margin:14px 0}.pw pre{margin:0}.panel .pw{margin:0}
-.cp{position:absolute;top:7px;right:7px;font:11px var(--mono);padding:4px 8px;border:1px solid var(--rule);border-radius:5px;background:var(--panel);color:var(--soft);cursor:pointer;opacity:.85}
-.cp:hover{color:var(--stamp);border-color:var(--stamp);opacity:1}
-.fset{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.fset+.fset{margin-top:8px}.fset span{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-right:4px}
-.chipb{font:600 12.5px var(--mono);padding:6px 11px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--soft);cursor:pointer}
-.chipb:hover{border-color:var(--ink);color:var(--ink)}.chipb[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-th button{all:unset;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit}th button:hover{color:var(--ink)}th button:focus-visible{outline:2px solid var(--stamp);outline-offset:2px}
-th[aria-sort] button{color:var(--ink)}th[aria-sort=ascending] button::after{content:" \2191"}th[aria-sort=descending] button::after{content:" \2193"}
-.none{padding:22px 16px;color:var(--soft)}
-details.sec>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:10px}details.sec>summary::-webkit-details-marker{display:none}
-details.sec>summary h2{margin:0}details.sec>summary::after{content:"show";font:12px var(--mono);color:var(--mute)}details.sec[open]>summary::after{content:"hide"}
-details.sec[open]>summary{margin-bottom:12px}
-.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,220px)) minmax(0,1fr);gap:20px;align-items:end;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:20px 24px;margin-top:28px}
-.chooser label{display:block;font:600 .88rem var(--sans);margin-bottom:6px}.chooser input{width:100%;font:16px var(--sans);padding:10px 12px;border:1px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink)}
-.chooser output{font-weight:600;padding-bottom:10px}.tier.pick{border:2px solid var(--stamp);padding:23px}.tier.pick h3::after{content:"fits";font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);border-radius:5px;padding:2px 7px;margin-left:10px;vertical-align:middle}
-.faq summary{display:flex;justify-content:space-between;gap:16px;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";font:400 1.3rem/1 var(--mono);color:var(--stamp)}.faq details[open] summary::after{content:"\2212"}
-.toc a[aria-current]{color:var(--ink);box-shadow:inset 2px 0 0 var(--stamp);padding-left:10px}
-.svc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;padding:36px 0;border-top:1px solid var(--rule);align-items:start}
-.svc h2{font-size:1.6rem;margin-bottom:10px}.svc .facts{font:13px var(--mono);color:var(--mute);margin:14px 0}.svc .facts a{color:var(--mute)}
-.svc h3{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}.svc ul{margin:0 0 20px;padding-left:18px}.svc li{margin-bottom:6px;font-size:.95rem}
-.svc .lim li{color:var(--soft)}.svc .price{font-weight:600;margin:0 0 14px}
-@media (max-width:860px){.panel,.svc{grid-template-columns:minmax(0,1fr);gap:18px}.chooser{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:640px){.check .row{flex-direction:column}.check .btn{text-align:center}.tab{padding:9px 12px}.toc a[aria-current]{box-shadow:0 2px 0 var(--stamp);padding-left:0}}
-@media (prefers-reduced-motion:no-preference){.btn,.nav a.l,.tab,.chipb,.cp{transition:color .15s,background-color .15s,border-color .15s}.btn:active,.chipb:active,.tab:active{transform:translateY(1px)}}
+@media (max-width:900px){.hero{padding:36px 0 48px}.hero .wrap{grid-template-columns:minmax(0,1fr);gap:40px}
+.flaps .fg{grid-template-columns:repeat(2,minmax(0,1fr))}.flaps .fc:nth-child(2){border-right:0}.flaps .fc:nth-child(-n+2){border-bottom:1px solid var(--bhair)}
+.hidden li{grid-template-columns:minmax(0,1fr);gap:12px}.panel,.svc{grid-template-columns:minmax(0,1fr);gap:20px}.svc>div:first-child{border-right:0;border-bottom:2px solid var(--ink)}
+.tiers{grid-template-columns:minmax(0,1fr)}.tier{border-right:0;border-bottom:2px solid var(--ink)}.tier:last-child{border-bottom:0}
+.chooser{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.chooser output{grid-column:1/-1;border-top:1px solid var(--hair)}.chooser>div:nth-child(2){border-right:0}
+.kv{grid-template-columns:repeat(3,minmax(0,1fr))}.kv div:nth-child(3){border-right:0}.kv div:nth-child(-n+3){border-bottom:1px solid var(--hair)}
+.doc{grid-template-columns:minmax(0,1fr);gap:24px}.toc{position:static}
+.phase{grid-template-columns:minmax(0,1fr)}.phase h3{border-right:0;border-bottom:1px solid var(--bhair);display:flex;justify-content:space-between;align-items:baseline;gap:10px}.phase h3 span{margin:0}}
+@media (max-width:640px){.wrap{padding:0 16px}.bay .wrap{padding-top:10px;padding-bottom:6px;gap:4px 16px}.brand{flex:1 0 calc(100% - 110px);margin-bottom:4px}.tt{order:1}.bay a.l{order:2;font-size:11px;letter-spacing:.1em}.kicker{font-size:10.5px;letter-spacing:.1em}
+.band{padding:52px 0}.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.tab:nth-child(2){border-right:0}.tab:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+.xray{padding:16px 14px 14px}.xray .xh{padding-right:0;flex-direction:column}.xray .stamp{position:static;align-self:flex-start;margin:4px 0 2px}
+.lane{grid-template-columns:minmax(0,1fr);gap:6px}.xitems li{grid-template-columns:minmax(0,1fr);gap:2px}
+.dk-body{grid-template-columns:minmax(0,1fr);gap:14px;padding:20px 16px 18px}.dk-stamp{padding:4px 2px}.dk-stamp .stamp{font-size:1.75rem}
+.kv{grid-template-columns:repeat(2,minmax(0,1fr))}.kv div{border-bottom:1px solid var(--hair)}.kv div:nth-child(3){border-right:1px solid var(--hair)}.kv div:nth-child(2n){border-right:0}.kv div:nth-last-child(-n+2){border-bottom:0}
+.phase li{grid-template-columns:minmax(0,1fr);gap:4px}
+.find{grid-template-columns:minmax(0,1fr)}.find .sv{border-right:0;border-bottom:2px solid var(--ink);padding:9px 14px 7px}
+.chooser{grid-template-columns:minmax(0,1fr)}.chooser>div{border-right:0;border-bottom:1px solid var(--hair)}.chooser output{border-top:0}
+.check .row{flex-direction:column}.check .row .btn{border-width:2px 0 0}
+.stack thead{display:none}.stack tr{display:block;padding:12px 4px;border-bottom:1px solid var(--hair)}.board .stack tr{border-bottom-color:var(--bhair)}
+.stack td{display:block;border:0;padding:3px 12px;text-align:left}.stack td.num{text-align:left}
+.stack td[data-l]::before{content:attr(data-l) ": ";font:700 10px var(--mono);color:var(--mute);text-transform:uppercase;letter-spacing:.08em}.board .stack td[data-l]::before{color:var(--bsoft)}
+.stack td:first-child::before{display:none}.board .stack td.num,.board .stack td.when{display:inline-block;padding:4px 4px 4px 12px}.btn{white-space:normal;text-align:center}}
+@media (prefers-reduced-motion:no-preference){
+.btn,.bay a.l,.tab,.chipb,.cp,.faq summary::after{transition:color .15s,background-color .15s,border-color .15s,box-shadow .15s,transform .15s}
+.fl i{animation:flap .55s cubic-bezier(.2,.8,.3,1) both;animation-delay:calc(var(--d,0) * 70ms + 150ms);transform-origin:50% 50%}
+@keyframes flap{0%{transform:perspective(300px) rotateX(-92deg);filter:brightness(.4)}70%{transform:perspective(300px) rotateX(12deg)}100%{transform:none;filter:none}}
+.dk-stamp .stamp,.xray .stamp{animation:thunk .42s cubic-bezier(.3,1.4,.5,1) .25s both}
+@keyframes thunk{0%{opacity:0;transform:rotate(-12deg) scale(1.7)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
+.xray::after{animation:sweep 2.2s cubic-bezier(.45,0,.55,1) .2s 1 both}
+@keyframes sweep{0%{opacity:1;transform:translateX(-100px)}88%{opacity:1}100%{opacity:0;transform:translateX(640px)}}
+.blk{animation:blk .3s ease-out both;animation-delay:calc(var(--d,0) * 18ms + 300ms)}@keyframes blk{from{opacity:0;transform:scaleY(.2)}}}
 """
 
 THEME_JS = (
@@ -282,39 +455,57 @@ def _page(cfg: SiteConfig, *, title: str, description: str, body: str, depth: in
         f"<meta property='og:description' content='{e(description)}'><meta property='og:type' content='website'><meta property='og:url' content='{e(canonical)}'>"
         "<meta name='color-scheme' content='light dark'><meta name='referrer' content='no-referrer'>"
         f"<style>{CSS}</style></head><body><a class='skip' href='#main'>Skip to content</a>"
-        f"<header class='nav'><div class='wrap'><a class='brand' href='{root}'><i>W</i>{e(cfg.name)}</a>{nav}"
+        f"<header class='bay'><div class='wrap'><a class='brand' href='{root}'><i aria-hidden='true'>W</i>{e(cfg.name)}</a>{nav}"
         f"<a class='l' href='{e(cfg.repo_url)}'>GitHub</a><button class='tt' type='button' aria-label='Switch colour theme'>theme</button></div></header>"
+        "<div class='hz' aria-hidden='true'></div>"
         f"<main id='main'>{body}</main>"
         f"<footer><div class='wrap'><div><p><b>{e(cfg.name)}</b> {e(__version__)}. MIT licensed.</p>"
         "<p>This site makes no third-party requests: no analytics, no web fonts, no trackers.</p></div>"
-        f"<div><p><a href='{root}docs/#disclosure'>Disclosure policy</a> · <a href='{root}docs/#method'>How the registry works</a> · "
-        f"<a href='{root}api/v1/index.json'>JSON API</a></p><p><a href='{e(cfg.security_url)}'>Report a problem with a listing</a></p></div></div></footer>"
+        f"<div><p><a href='{root}docs/#disclosure'>Disclosure policy</a> · <a href='{root}docs/#method'>How the registry works</a></p>"
+        f"<p><a href='{root}api/v1/index.json'>JSON API</a> · <a href='{e(cfg.security_url)}'>Report a problem with a listing</a></p></div></div></footer>"
         f"<script>{THEME_JS}{SITE_JS}{script}</script></body></html>"
     )
 
 
-def _status_tag(view: dict[str, Any]) -> str:
+
+
+def _stamp(view: dict[str, Any], size: str = "", score: bool = True) -> str:
+    """A rubber stamp for a registry view. No verdict means no clearance stamp: only a dashed 'not yet reviewed' mark."""
+    cls = f"stamp {size}".strip()
     if view["verdict"] is None:
-        return "<span class='tag muted'>not yet reviewed</span>"
+        return f"<span class='{cls} muted'>Not yet reviewed</span>"
     v = view["verdict"]
-    return f"<span class='tag {e(v['level'])}'>{e(v['label'])}</span>"
+    word = STAMPS.get(v["level"], v["label"])
+    sub = e(v["label"]) + (f" · {e(v['score'])}/100" if score else "")
+    if word == v["label"]:
+        sub = f"risk score {e(v['score'])}/100" if score else ""
+    return f"<span class='{cls} {e(v['level'])}'>{e(word)}" + (f"<small>{sub}</small>" if sub else "") + "</span>"
+
+
+def _status_tag(view: dict[str, Any]) -> str:
+    return _stamp(view, "sm", score=False)
 
 
 def _entry_href(view: dict[str, Any]) -> str:
     return f"r/{view['source']}/"
 
 
+def _num(n: int) -> str:
+    return f"<td class='num{' z' if not n else ''}'"
+
+
 def _reg_rows(views: list[dict[str, Any]], root: str) -> str:
     rows = []
     for v in views:
         desc = f"<span class='d'>{e(str(v['description'])[:140])}</span>" if v.get("description") else ""
+        a, p, h = len(v["auto_runs"]), len(v["processes"]), len(v["hosts"])
         rows.append(
             f"<tr data-t='{e((v['source'] + ' ' + str(v.get('description') or '')).lower())}' data-k='{e(v['kind'])}' data-s='{e(v['state'])}'>"
-            f"<td data-l='Repository' data-v='{e(v['source'])}'><a class='repo mono' href='{root}{e(_entry_href(v))}'>{e(v['source'])}</a>{desc}</td>"
-            f"<td data-l='Kind'>{e(v['kind_label'])}</td><td data-l='Status'>{_status_tag(v)}</td>"
-            f"<td class='num' data-l='Runs on its own'>{len(v['auto_runs'])}</td><td class='num' data-l='Processes'>{len(v['processes'])}</td>"
-            f"<td class='num' data-l='Hosts'>{len(v['hosts'])}</td><td class='num' data-l='Stars'>{_n(v.get('stars'))}</td>"
-            f"<td data-l='Scanned' class='mono' style='font-size:.82rem;white-space:nowrap'>{e(_date(v['scanned_at']))}</td></tr>")
+            f"<td data-l='Repository' data-v='{e(v['source'])}'><a class='repo' href='{root}{e(_entry_href(v))}'>{e(v['source'])}</a>{desc}</td>"
+            f"<td data-l='Kind' class='kind'>{e(v['kind_label'])}</td><td data-l='Status'>{_status_tag(v)}</td>"
+            f"{_num(a)} data-l='Runs on its own'>{a}</td>{_num(p)} data-l='Processes'>{p}</td>"
+            f"{_num(h)} data-l='Hosts'>{h}</td><td class='num' data-l='Stars'>{_n(v.get('stars'))}</td>"
+            f"<td data-l='Scanned' class='when'>{e(_date(v['scanned_at']))}</td></tr>")
     return "".join(rows)
 
 
@@ -327,6 +518,43 @@ def _reg_head(sortable: bool = False) -> str:
 
 
 REG_HEAD = _reg_head()
+
+
+# ------------------------------------------------------------------------ x-ray
+# Hook events grouped into the moment of a Claude Code session they fire in. Servers declared in a plugin start with the session.
+PHASES = [("start", "Session start"), ("prompt", "Each prompt"), ("tool", "Around tool calls"), ("stop", "Stop and session end"), ("other", "Other events")]
+
+
+def _phase(when: str) -> str:
+    w = str(when).lower().replace(" ", "")
+    if w.startswith(("sessionstart", "setup")):
+        return "start"
+    if w.startswith("userprompt"):
+        return "prompt"
+    if w.startswith(("pretooluse", "posttool", "permissionrequest")):
+        return "tool"
+    if w.startswith(("stop", "subagentstop", "sessionend")):
+        return "stop"
+    return "other"
+
+
+def _xtype(kind: str) -> str:
+    k = str(kind).lower()
+    return "hook" if "hook" in k else "mcp" if "mcp" in k else "lsp" if "lsp" in k else "other"
+
+
+def _by_phase(runs: list[dict[str, Any]]) -> list[tuple[str, str, list[dict[str, Any]]]]:
+    groups: dict[str, list[dict[str, Any]]] = {k: [] for k, _ in PHASES}
+    for a in runs:
+        groups[_phase(a.get("when", ""))].append(a)
+    return [(k, label, groups[k]) for k, label in PHASES if groups[k]]
+
+
+def _legend(runs: list[dict[str, Any]]) -> str:
+    present = {_xtype(a.get("type", "")) for a in runs}
+    names = [("hook", "Hook"), ("mcp", "MCP server"), ("lsp", "LSP server"), ("other", "Other")]
+    return ("<ul class='legend' aria-label='Colour key'>"
+            + "".join(f"<li><i class='blk {k}' aria-hidden='true'></i>{label}</li>" for k, label in names if k in present) + "</ul>")
 
 
 def _totals(views: list[dict[str, Any]]) -> dict[str, int]:
@@ -407,46 +635,64 @@ _WALK_PROVE = """evidence pack (folder and zip)
 
 
 # ------------------------------------------------------------------------ pages
+def _flap(n: int, start: int = 0) -> str:
+    """A number on split-flap tiles. The tiles are decoration; screen readers get the plain number."""
+    tiles = "".join(f"<i style='--d:{start + i}'>{e(c)}</i>" for i, c in enumerate(f"{n}"))
+    return f"<span class='fl' aria-hidden='true'>{tiles}</span><span class='vh'>{n}</span>"
+
+
+def _xray_card(sample: dict[str, Any]) -> str:
+    runs = sample["auto_runs"]
+    lanes, k = [], 0
+    for _key, label, items in _by_phase(runs):
+        blocks = []
+        for a in items[:80]:
+            blocks.append(f"<i class='blk {_xtype(a.get('type', ''))}' style='--d:{k}'></i>")
+            k += 1
+        lanes.append(f"<div class='lane'><dt><b>{len(items)}</b>{e(label)}</dt><dd aria-hidden='true'>{''.join(blocks)}</dd></div>")
+    items = "".join(f"<li><b>{e(str(a.get('when', ''))[:28])}</b><code>{e(str(a.get('what', ''))[:110])}</code></li>" for a in runs[:4])
+    more = len(runs) - 4
+    return (f"<aside class='xray' aria-label='Example registry entry: what runs on its own, and when'>"
+            f"<div class='xh'><div><b>X-ray</b><strong>{e(sample['source'])}</strong><span>@ {e(str(sample['commit'])[:12])} · scanned {e(_date(sample['scanned_at']))}</span></div></div>"
+            f"{_stamp(sample)}<dl class='lanes'>{''.join(lanes)}</dl>{_legend(runs)}<ol class='xitems'>{items}</ol>"
+            "<div class='foot'>" + (f"And {more} more. " if more > 0 else "")
+            + f"<a href='{e(_entry_href(sample))}'>Open the full docket</a></div></aside>")
+
+
 def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
     t = _totals(views)
-    # The slip shows a real entry: the one with the most automatic entry points.
+    # The x-ray shows a real entry: the one with the most automatic entry points.
     sample = max(views, key=lambda v: (len(v["auto_runs"]), v.get("stars") or 0), default=None)
-    slip = ""
-    if sample and sample["auto_runs"]:
-        items = "".join(f"<li><b>{e(a.get('when', ''))[:28]}</b><code>{e(str(a.get('what', ''))[:110])}</code></li>" for a in sample["auto_runs"][:4])
-        more = len(sample["auto_runs"]) - 4
-        slip = (f"<aside class='slip' aria-label='Example registry entry'><span class='stamp'>runs on its own</span>"
-                f"<h3>{e(sample['source'])}</h3><div class='sub'>@ {e(str(sample['commit'])[:12])} · scanned {e(_date(sample['scanned_at']))}</div>"
-                f"<ol>{items}</ol><div class='foot'>" + (f"and {more} more. " if more > 0 else "")
-                + f"<a href='{e(_entry_href(sample))}'>Open the full entry</a></div></aside>")
+    xray = _xray_card(sample) if sample and sample["auto_runs"] else ""
     top = sorted(views, key=lambda v: -(v.get("stars") or 0))[:8]
     idx = json.dumps(sorted(v["source"] for v in views)).replace("<", "\\u003c")
     hero = (
-        "<section class='hero'><div class='wrap'><div><div class='eyebrow'>Supply-chain security for AI coding agents</div>"
+        "<section class='hero'><div class='wrap'><div><div class='kicker'>Supply-chain security for AI coding agents</div>"
         "<h1>Know what a plugin will run before your team installs it.</h1>"
-        "<p class='lede' style='margin-top:18px'>Claude Code plugins and MCP servers run with your full user access, outside the permission system. "
+        "<p class='lede'>Claude Code plugins and MCP servers run with your full user access, outside the permission system. "
         "Plugin Warden reads the code first and shows what runs and when.</p>"
         "<form class='check' id='chk' action='registry/' method='get' role='search'><label for='repo'>Check a repository</label>"
         "<div class='row'><input id='repo' name='q' type='text' placeholder='owner/repo' autocomplete='off' autocapitalize='none' spellcheck='false' aria-describedby='chkout'>"
         "<button class='btn p' type='submit'>Check</button></div><div class='out' id='chkout' aria-live='polite'></div></form>"
         f"<script type='application/json' id='idx'>{idx}</script>"
-        f"<p class='alt'>Or <a href='docs/#start'>install the CLI</a> and scan anything yourself.</p></div>{slip}</div></section>"
+        f"<p class='alt'>Or <a href='docs/#start'>install the CLI</a> and scan anything yourself.</p></div>{xray}</div></section>"
     )
     stats = (
-        "<section class='band' style='padding-top:0;border:0'><div class='wrap'><div class='stats'>"
-        f"<div><b>{t['repos']}</b><span>public plugin and MCP server repos tracked</span></div>"
-        f"<div><b>{t['auto_runs']}</b><span>components that run on their own, across {t['with_auto']} of them</span></div>"
-        f"<div><b>{t['processes']}</b><span>background processes started at session start</span></div>"
-        f"<div><b>{_checks()}</b><span>built-in checks on every scan</span></div></div></div></section>"
+        "<section style='padding-bottom:72px'><div class='wrap'><div class='flaps'>"
+        "<div class='fh'><span>Registry totals</span><a href='registry/'>Full board</a></div><div class='fg'>"
+        f"<div class='fc'>{_flap(t['repos'], 0)}<span>public plugin and MCP server repos tracked</span></div>"
+        f"<div class='fc'>{_flap(t['auto_runs'], 3)}<span>components that run on their own, across {t['with_auto']} of them</span></div>"
+        f"<div class='fc'>{_flap(t['processes'], 6)}<span>background processes started at session start</span></div>"
+        f"<div class='fc'>{_flap(_checks(), 9)}<span>built-in checks on every scan</span></div></div></div></div></section>"
     )
     why = (
-        "<section class='band w'><div class='wrap'><h2>The install prompt does not show you this.</h2><div class='cols'>"
-        "<div><h3>Hooks run outside the sandbox</h3><p>A hook fires on session start or on every tool call. It is a shell command with your access. "
-        "Permission rules and the Bash sandbox govern Claude's own tools, not hooks.</p></div>"
-        "<div><h3>Servers start in the background</h3><p>MCP and LSP servers launch as processes when a session starts. Many are fetched fresh from a package registry "
-        "each time, with no version pin.</p></div>"
-        "<div><h3>Approved today, different tomorrow</h3><p>A plugin that was clean when you reviewed it updates itself. Nobody on the team re-reads it. "
-        "That is how a trusted dependency turns into an incident.</p></div></div></div></section>"
+        "<section class='band w'><div class='wrap'><h2>The install prompt does not show you this.</h2><ol class='hidden'>"
+        "<li><h3>Hooks run outside the sandbox</h3><p>A hook fires on session start or on every tool call. It is a shell command with your access. "
+        "Permission rules and the Bash sandbox govern Claude's own tools, not hooks.</p></li>"
+        "<li><h3>Servers start in the background</h3><p>MCP and LSP servers launch as processes when a session starts. Many are fetched fresh from a package registry "
+        "each time, with no version pin.</p></li>"
+        "<li><h3>Approved today, different tomorrow</h3><p>A plugin that was clean when you reviewed it updates itself. Nobody on the team re-reads it. "
+        "That is how a trusted dependency turns into an incident.</p></li></ol></div></section>"
     )
     steps = [
         ("scan", "Scan", "Read it before you run it",
@@ -464,23 +710,24 @@ def _landing(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
          "Policy, decisions, the scan behind each one and a hashed manifest. Evidence that third-party agent software is reviewed before it runs.",
          "warden evidence . --period 2026-Q4", "What a pack holds, from the README", _WALK_PROVE),
     ]
-    tabs = "".join(f"<button class='tab' type='button' role='tab' id='t-{k}' aria-controls='p-{k}' aria-selected='{'true' if n == 0 else 'false'}'>{label}</button>"
-                   for n, (k, label, *_rest) in enumerate(steps))
+    tabs = "".join(f"<button class='tab' type='button' role='tab' id='t-{k}' aria-controls='p-{k}' aria-selected='{'true' if n == 0 else 'false'}'>"
+                   f"<small>Lane {n + 1}</small>{label}</button>" for n, (k, label, *_rest) in enumerate(steps))
     panels = "".join(
         f"<div class='panel' role='tabpanel' id='p-{k}' aria-labelledby='t-{k}'><div><h3>{title}</h3><p>{text}</p><pre><code>{e(cmd)}</code></pre></div>"
-        f"<div><p class='cap'>{cap}</p><pre tabindex='0'><code>{e(sample)}</code></pre></div></div>" for k, _label, title, text, cmd, cap, sample in steps)
+        f"<div><p class='cap'>{cap}</p><pre class='tape' tabindex='0'><code>{e(sample)}</code></pre></div></div>" for k, _label, title, text, cmd, cap, sample in steps)
     jobs = (f"<section class='band'><div class='wrap'><h2>Four jobs, one tool.</h2><div class='tabs' role='tablist' aria-label='What Plugin Warden does'>{tabs}</div>{panels}</div></section>")
     reg = (
         "<section class='band w'><div class='wrap'><div class='head'>"
         f"<h2>{t['repos']} repositories, scanned in the open.</h2><a class='btn' href='registry/'>See all {t['repos']}</a></div>"
         "<p class='lede'>What each one runs on your machine, which processes it starts and which hosts its code names. "
         f"{t['reviewed']} {'has' if t['reviewed'] == 1 else 'have'} a completed agent review and a verdict. The rest show facts only, with no verdict, until they are reviewed.</p>"
-        f"<div class='tw' style='margin-top:20px'><table class='stack'>{REG_HEAD}<tbody>{_reg_rows(top, '')}</tbody></table></div></div></section>"
+        "<div class='board' style='margin-top:26px'><div class='bh'><span>Arrivals</span><span>Most-starred 8</span></div>"
+        f"<div class='tw'><table class='stack'>{REG_HEAD}<tbody>{_reg_rows(top, '')}</tbody></table></div></div></div></section>"
     )
     more = "<a class='btn' href='services/'>Other services</a>" if cfg.extra.get("has_services") else "<a class='btn' href='docs/#teams'>Set it up in ten minutes</a>"
     teams = (
         "<section class='band'><div class='wrap'><h2>Free to run yourself. Paid when you want it reviewed for you.</h2>"
-        "<p class='lede'>The CLI, the policy gate, the nightly watch and the evidence packs are open source and run in your own CI. "
+        "<p class='lede' style='margin-top:14px'>The CLI, the policy gate, the nightly watch and the evidence packs are open source and run in your own CI. "
         "The paid plans are a pilot. They add an agent review plus a human second read on every plugin your team approves.</p>"
         f"<div class='cta'><a class='btn p' href='pricing/'>See plans</a>{more}</div></div></section>"
     )
@@ -499,19 +746,36 @@ def _registry_page(cfg: SiteConfig, views: list[dict[str, Any]]) -> str:
     states = [("", "Any"), ("reviewed", "Agent-reviewed"), ("static-only", "Not yet reviewed")]
     ordered = sorted(views, key=lambda v: (-(v.get("stars") or 0), v["source"]))
     return (
-        "<div class='wrap'><div class='crumb'>registry</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>The registry</h1>"
-        f"<p class='lede' style='margin-top:12px'>{t['repos']} public Claude Code plugin, skill and MCP server repositories. "
+        "<div class='wrap'><div class='crumb'>registry</div><h1>The registry</h1>"
+        f"<p class='lede' style='margin-top:16px'>{t['repos']} public Claude Code plugin, skill and MCP server repositories. "
         f"Across them: {t['auto_runs']} components that run on their own, {t['processes']} background processes and {t['hosts']} distinct network hosts named in code.</p>"
         "<div class='note'><p><b>How to read this.</b> A verdict appears only after a completed agent review. "
         f"\"Not yet reviewed\" means the static scan ran and its {t['matches']} rule matches are waiting for review. Rule matches are leads, not findings, "
         "so they are counted here and not shown. <a href='../docs/#method'>How the registry works</a>.</p></div>"
         "<div class='tools'><label class='skip' for='q'>Search</label><input id='q' type='search' placeholder='Search by repository or description' autocomplete='off'></div>"
-        f"{chips('k', 'Kind', kinds)}{chips('s', 'Status', states)}<p class='count' id='count' aria-live='polite' style='margin-top:14px'></p>"
+        f"{chips('k', 'Kind', kinds)}{chips('s', 'Status', states)}<p class='count' id='count' aria-live='polite' style='margin-top:18px'></p>"
+        f"<div class='board'><div class='bh'><span>Arrivals board</span><span>Sorted by GitHub stars</span></div>"
         f"<div class='tw'><table class='stack' id='reg'>{_reg_head(sortable=True)}<tbody>{_reg_rows(ordered, '../')}</tbody></table>"
-        "<p class='none' id='none' hidden>No repository matches. Clear the search or pick another filter.</p></div>"
-        "<p style='margin:24px 0 56px;color:var(--soft)'>Missing a repository? Add it to <code>registry/targets.toml</code> in a pull request. "
+        "<p class='none' id='none' hidden>No repository matches. Clear the search or pick another filter.</p></div></div>"
+        "<p style='margin:28px 0 64px;color:var(--soft)'>Missing a repository? Add it to <code>registry/targets.toml</code> in a pull request. "
         "Maintainer of one listed here? See the <a href='../docs/#disclosure'>disclosure policy</a>.</p></div>"
     )
+
+
+def _scan_html(runs: list[dict[str, Any]], cap: int = 60) -> str:
+    """The docket x-ray: everything that starts on its own, grouped by the moment in a session it fires."""
+    shown, phases = 0, []
+    for _key, label, items in _by_phase(runs):
+        rows = []
+        for a in items:
+            if shown >= cap:
+                break
+            shown += 1
+            rows.append(f"<li><span class='ty'><i class='{_xtype(a.get('type', ''))}' aria-hidden='true'></i>{e(a.get('type', ''))}</span>"
+                        f"<div><code>{e(a.get('what', ''))}</code><span class='wh'><b>{e(a.get('when', ''))}</b> · declared in {e(a.get('file', ''))}</span></div></li>")
+        if rows:
+            phases.append(f"<section class='phase'><h3>{e(label)}<span>{len(items)} {'item' if len(items) == 1 else 'items'}</span></h3><ol>{''.join(rows)}</ol></section>")
+    return "".join(phases)
 
 
 def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
@@ -519,14 +783,18 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
     src = v["source"]
     parts: list[str] = []
     parts.append(f"<div class='wrap'><div class='crumb'><a href='{root}registry/'>registry</a> / {e(src)}</div>")
-    parts.append(f"<div class='title'><div><h1 class='mono'>{e(src)}</h1>"
-                 + (f"<p class='lede' style='margin-top:10px'>{e(str(v['description'])[:240])}</p>" if v.get("description") else "")
-                 + f"</div><div>{_status_tag(v)}</div></div>")
-    meta = [f"{e(v['kind_label'])}", f"commit <code>{e(str(v['commit'])[:12])}</code>", f"scanned {e(_date(v['scanned_at']))}",
-            f"Plugin Warden {e(v['tool_version'])}"]
+    fields = [("Kind", e(v["kind_label"])), ("Commit", f"<code>{e(str(v['commit'])[:12])}</code>"), ("Scanned", e(_date(v["scanned_at"]))),
+              ("Plugin Warden", e(v["tool_version"]))]
     if v.get("license"):
-        meta.append(f"license {e(v['license'])}")
-    parts.append(f"<p class='mono' style='font-size:.85rem;color:var(--mute);max-width:none'>{' · '.join(meta)} · <a href='{e(v['url'])}'>source</a></p>")
+        fields.append(("License", e(v["license"])))
+    fields.append(("Source", f"<a href='{e(v['url'])}'>source</a>"))
+    parts.append(
+        "<section class='docket' aria-label='Inspection docket'><div class='dk-top'><span>Inspection docket</span>"
+        f"<span>{'Agent-reviewed' if v['state'] == 'reviewed' else 'Static scan only'}</span></div>"
+        f"<div class='dk-body'><div><h1>{e(src)}</h1>"
+        + (f"<p class='lede'>{e(str(v['description'])[:240])}</p>" if v.get("description") else "")
+        + f"</div><div class='dk-stamp'>{_stamp(v)}</div></div>"
+        "<dl class='fields'>" + "".join(f"<div><dt>{k}</dt><dd>{val}</dd></div>" for k, val in fields) + "</dl></section>")
 
     if v["state"] != "reviewed":
         parts.append(
@@ -547,17 +815,13 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
         f"<div><b>{len(v['hosts'])}</b><span>network hosts in code</span></div><div><b>{_n(v.get('files'))}</b><span>files read</span></div>"
         f"<div><b>{e(v['plugins'])}</b><span>plugin roots</span></div><div><b>{_n(v.get('stars'))}</b><span>GitHub stars</span></div></div>")
 
-    parts.append("<div class='sec'><h2>What runs on its own</h2>")
+    parts.append("<div class='sec'><span class='lab'>X-ray</span><h2>What runs on its own</h2>")
     if v["auto_runs"]:
-        rows = "".join(
-            f"<tr><td data-l='When'>{e(a.get('when', ''))}</td><td data-l='Type'>{e(a.get('type', ''))}</td>"
-            f"<td data-l='What runs'><code>{e(a.get('what', ''))}</code></td><td data-l='Declared in'><code>{e(a.get('file', ''))}</code></td></tr>"
-            for a in v["auto_runs"][:60])
-        more = f"<p class='count' style='margin-top:8px'>Showing 60 of {len(v['auto_runs'])}.</p>" if len(v["auto_runs"]) > 60 else ""
+        more = f"<p class='count' style='margin-top:10px'>Showing 60 of {len(v['auto_runs'])}.</p>" if len(v["auto_runs"]) > 60 else ""
         parts.append("<p>These start without anyone asking, with the access of the person running Claude Code. Permission rules and the Bash sandbox do not apply to them.</p>"
-                     f"<div class='tw'><table class='stack'><thead><tr><th>When</th><th>Type</th><th>What runs</th><th>Declared in</th></tr></thead><tbody>{rows}</tbody></table></div>{more}")
+                     f"<div class='scan'><div class='sh'><span>When it runs</span>{_legend(v['auto_runs'])}</div>{_scan_html(v['auto_runs'])}</div>{more}")
     else:
-        parts.append("<p>Nothing. No hooks, monitors, status lines, MCP or LSP servers were found in this repository's plugin config.</p>")
+        parts.append("<div class='scan'><p class='empty'>Nothing. No hooks, monitors, status lines, MCP or LSP servers were found in this repository's plugin config.</p></div>")
     parts.append("</div>")
 
     if v["processes"]:
@@ -607,9 +871,9 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
         if not v["findings"] and not v["withheld"]:
             parts.append("<p>No findings survived review.</p>")
         for f in v["findings"]:
-            parts.append(f"<article class='find {e(f['severity'])}'><h3>{e(f['title'])}</h3>"
-                         f"<div class='m'>{e(f['severity'])} · {e(f['location'])} · {e(f['rule_id'])} · {e(f['category_label'])}</div>"
-                         f"<p>{e(f['why'])}</p><p><b>Where to fix.</b> {e(f['fix'])}</p></article>")
+            parts.append(f"<article class='find {e(f['severity'])}'><div class='sv'>{e(f['severity'])}</div><div class='fb'><h3>{e(f['title'])}</h3>"
+                         f"<div class='m'>{e(f['location'])} · {e(f['rule_id'])} · {e(f['category_label'])}</div>"
+                         f"<p>{e(f['why'])}</p><p><b>Where to fix.</b> {e(f['fix'])}</p></div></article>")
     parts.append("</div>")
 
     hist = "".join(f"<tr><td data-l='Commit'><code>{e(str(h.get('commit'))[:12])}</code></td><td data-l='Scanned'>{e(_date(h.get('scanned_at')))}</td>"
@@ -626,7 +890,7 @@ def _entry_page(cfg: SiteConfig, v: dict[str, Any]) -> str:
                  f"<p>Machine-readable: <a href='{root}api/v1/r/{e(src)}.json'>api/v1/r/{e(src)}.json</a></p>"
                  f"<p style='color:var(--soft)'>Maintainer of this repository and something here is wrong? <a href='{e(cfg.security_url)}'>Tell us</a> and it gets fixed or removed. "
                  f"<a href='{root}docs/#disclosure'>Disclosure policy</a>.</p></div>")
-    parts.append("<div style='height:56px'></div></div>")
+    parts.append("<div style='height:64px'></div></div>")
     return "".join(parts)
 
 
@@ -634,29 +898,36 @@ def _pricing_page(cfg: SiteConfig) -> str:
     def cta(url: str, label: str) -> str:
         return f"<a class='btn p' href='{e(url or cfg.contact_url)}'>{e(label if url else 'Request a pilot')}</a>"
 
+    def tier(plan: str, name: str, price: str, who: str, items: list[str], button: str) -> str:
+        return (f"<div class='tier' data-plan='{plan}'><div class='th'><span class='lab'>Plan</span><h3>{name}</h3></div>"
+                f"<div class='fee'><span class='lab'>Fee</span><div class='price'>{price}</div></div><p class='who'>{who}</p>"
+                f"<span class='vh'>Includes:</span><ul>{''.join(f'<li>{i}</li>' for i in items)}</ul><div class='go'>{button}</div></div>")
+
     return (
-        "<div class='wrap'><div class='crumb'>pricing</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>Free to run. Paid to have it reviewed.</h1>"
-        "<p class='lede' style='margin-top:12px'>Everything that runs on your machines is open source. The paid plans are a review service on top: "
+        "<div class='wrap'><div class='crumb'>pricing</div><h1>Free to run. Paid to have it reviewed.</h1>"
+        "<p class='lede' style='margin-top:16px'>Everything that runs on your machines is open source. The paid plans are a review service on top: "
         "we read the plugins your team wants, and we respond when one of them changes.</p>"
+        "<div class='form'><div class='fh'><span>Declaration</span><span>Which plan fits</span></div>"
         "<div class='chooser'><div><label for='devs'>Developers using Claude Code</label><input id='devs' type='number' min='1' max='5000' value='20' inputmode='numeric'></div>"
         "<div><label for='revs'>Plugins to review a month</label><input id='revs' type='number' min='0' max='500' value='10' inputmode='numeric'></div>"
-        "<output id='pick' for='devs revs' aria-live='polite'>Enter your team size to see which plan fits.</output></div>"
+        "<output id='pick' for='devs revs' aria-live='polite'>Enter your team size to see which plan fits.</output></div></div>"
         "<div class='tiers'>"
-        "<div class='tier' data-plan='community'><h3>Community</h3><div class='price'>$0</div><p style='color:var(--soft)'>For individuals and any team that wants to run it themselves.</p><ul>"
-        f"<li>The full CLI, MIT licensed, {_checks()} checks</li><li>Agent review with your own Anthropic API key</li>"
-        "<li>Policy file, CI gate and SARIF output</li><li>Nightly watch and update diffs</li><li>Audit evidence packs</li><li>Public registry, badges and JSON API</li></ul>"
-        f"<a class='btn' href='{e(cfg.repo_url)}'>Get it on GitHub</a></div>"
-        f"<div class='tier' data-plan='team'><h3>Team</h3><div class='price'>${cfg.team_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 25 developers. Pilot pricing.</p><ul>"
-        "<li>Everything in Community</li><li>Reviewed approvals: agent review plus a human second read, 15 plugins a month</li>"
-        "<li>Update reviews within one business day when an approved plugin gains reach</li><li>Private reports that never enter the public registry</li>"
-        "<li>Policy and CI set up in your GitHub organisation</li><li>Email support</li></ul>"
-        f"{cta(cfg.team_checkout_url, 'Start Team')}</div>"
-        f"<div class='tier' data-plan='business'><h3>Business</h3><div class='price'>${cfg.business_price}<small> / month</small></div><p style='color:var(--soft)'>Up to 150 developers. Pilot pricing.</p><ul>"
-        "<li>Everything in Team</li><li>50 reviewed approvals a month</li><li>Custom rules for your internal marketplace</li>"
-        "<li>Quarterly evidence pack with a walkthrough for your auditor</li><li>Shared channel for questions and alerts</li></ul>"
-        f"{cta(cfg.business_checkout_url, 'Start Business')}</div></div>"
-        f"<p style='margin-top:20px;color:var(--soft)'>Larger than 150 developers, or need on-premises review? <a href='{e(cfg.contact_url)}'>Talk to us</a>.</p>"
-        "<div class='sec faq'><h2>Questions</h2>"
+        + tier("community", "Community", "$0", "For individuals and any team that wants to run it themselves.",
+               [f"The full CLI, MIT licensed, {_checks()} checks", "Agent review with your own Anthropic API key", "Policy file, CI gate and SARIF output",
+                "Nightly watch and update diffs", "Audit evidence packs", "Public registry, badges and JSON API"],
+               f"<a class='btn' href='{e(cfg.repo_url)}'>Get it on GitHub</a>")
+        + tier("team", "Team", f"${cfg.team_price}<small>/ month</small>", "Up to 25 developers. Pilot pricing.",
+               ["Everything in Community", "Reviewed approvals: agent review plus a human second read, 15 plugins a month",
+                "Update reviews within one business day when an approved plugin gains reach", "Private reports that never enter the public registry",
+                "Policy and CI set up in your GitHub organisation", "Email support"],
+               cta(cfg.team_checkout_url, "Start Team"))
+        + tier("business", "Business", f"${cfg.business_price}<small>/ month</small>", "Up to 150 developers. Pilot pricing.",
+               ["Everything in Team", "50 reviewed approvals a month", "Custom rules for your internal marketplace",
+                "Quarterly evidence pack with a walkthrough for your auditor", "Shared channel for questions and alerts"],
+               cta(cfg.business_checkout_url, "Start Business"))
+        + "</div>"
+        f"<p style='margin-top:22px;color:var(--soft)'>Larger than 150 developers, or need on-premises review? <a href='{e(cfg.contact_url)}'>Talk to us</a>.</p>"
+        "<div class='faq'><h2>Questions</h2>"
         "<details><summary>What do I get from a paid plan that the free CLI does not do?</summary><p>People and a response time. The CLI gives you a scan and a gate. "
         "A reviewed approval means the agent review was run for you, a person read the result and the code behind every confirmed finding, and you got a written recommendation "
         "you can paste into the policy file as the approval reason.</p></details>"
@@ -667,7 +938,7 @@ def _pricing_page(cfg: SiteConfig) -> str:
         "<details><summary>Is a clean scan a guarantee?</summary><p>No, and nobody honest will tell you otherwise. Static analysis reads code and does not run it. "
         "A clean result means the checks that ran found nothing and a reviewer agreed. The watch exists because the code can change after that.</p></details>"
         "<details><summary>Do you support tools other than Claude Code?</summary><p>MCP servers are scanned wherever they are used. "
-        "The plugin, hook and skill checks are written for Claude Code's formats today.</p></details></div><div style='height:56px'></div></div>"
+        "The plugin, hook and skill checks are written for Claude Code's formats today.</p></details></div><div style='height:72px'></div></div>"
     )
 
 
@@ -691,11 +962,13 @@ uv run warden rules                        # list every check</code></pre>
 
 <h2 id='verdicts'>Verdicts</h2>
 <p>The verdict is computed from the findings, never from a model's opinion. Critical findings score 40, high 15, medium 5, low 1 (lows capped at 10 in total).</p>
-<div class='tw'><table><thead><tr><th>Verdict</th><th>When</th></tr></thead><tbody>
-<tr><td><span class='tag low'>Low risk</span></td><td>Nothing of medium severity or above, score under 10</td></tr>
-<tr><td><span class='tag caution'>Install with precautions</span></td><td>A medium finding, or score 10 or more</td></tr>
-<tr><td><span class='tag review'>Review before installing</span></td><td>Any high finding, or score 40 or more</td></tr>
-<tr><td><span class='tag block'>Do not install</span></td><td>Any critical finding</td></tr></tbody></table></div>
+<p>Each verdict is printed as a stamp. The stamp word is shorthand. The verdict itself is what the policy file and the API use.</p>
+<div class='tw'><table class='stack'><thead><tr><th>Stamp</th><th>Verdict</th><th>When</th></tr></thead><tbody>
+<tr><td data-l='Stamp'><span class='stamp sm low'>Cleared</span></td><td data-l='Verdict'><b>Low risk</b></td><td data-l='When'>Nothing of medium severity or above, score under 10</td></tr>
+<tr><td data-l='Stamp'><span class='stamp sm caution'>Conditions apply</span></td><td data-l='Verdict'><b>Install with precautions</b></td><td data-l='When'>A medium finding, or score 10 or more</td></tr>
+<tr><td data-l='Stamp'><span class='stamp sm review'>Hold</span></td><td data-l='Verdict'><b>Review before installing</b></td><td data-l='When'>Any high finding, or score 40 or more</td></tr>
+<tr><td data-l='Stamp'><span class='stamp sm block'>Do not install</span></td><td data-l='Verdict'><b>Do not install</b></td><td data-l='When'>Any critical finding</td></tr>
+<tr><td data-l='Stamp'><span class='stamp sm muted'>Not yet reviewed</span></td><td data-l='Verdict'><b>None</b></td><td data-l='When'>Static scan only. The registry gives no verdict without a completed agent review.</td></tr></tbody></table></div>
 <p>If the repository contains text aimed at a model, the agent's dismissals of high and critical findings are ignored in the score.
 A model that may have been steered cannot talk the verdict down.</p>
 
@@ -799,8 +1072,8 @@ So without a completed agent review, an entry shows what the code does (what run
 <li>No scanner checks for everything. <a href='{repo}/blob/main/docs/coverage.md'>The coverage document</a> lists what the rules look for, the benchmark results,
 six evasions they are known to miss and ten kinds of thing they cannot catch.</li></ul>
 """
-    return (f"<div class='wrap'><div class='doc'><nav class='toc' aria-label='On this page'>{nav}</nav><div><div class='crumb' style='margin-top:0'>docs</div>"
-            f"<h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem);margin-bottom:28px'>Documentation</h1>{body}</div></div></div>")
+    return (f"<div class='wrap'><div class='doc'><nav class='toc' aria-label='On this page'><span class='lab'>Manifest</span>{nav}</nav><div><div class='crumb' style='margin-top:0'>docs</div>"
+            f"<h1 style='margin-bottom:36px'>Documentation</h1>{body}</div></div></div>")
 
 
 def load_services(path: Path) -> dict[str, Any] | None:
@@ -831,25 +1104,25 @@ def _services_page(cfg: SiteConfig, data: dict[str, Any]) -> str:
         price = f"<p class='price'>{e(sv['price'])}</p>" if sv.get("price") else ""
         needs = ("<h3>What we need from you</h3><ul>" + "".join(f"<li>{e(x)}</li>" for x in sv["needs"]) + "</ul>") if sv.get("needs") else ""
         blocks.append(
-            f"<section class='svc' id='{e(sv['id'])}'><div><h2>{e(sv['name'])}</h2>"
-            + (f"<p><span class='tag caution'>{'paid pilot' if pilot else e(sv['status'])}</span></p>")
-            + f"<p>{e(sv['summary'])}</p>"
+            f"<section class='svc' id='{e(sv['id'])}'><div><span class='lab'>Service</span><h2>{e(sv['name'])}</h2>"
+            f"<span class='stamp sm'>{'paid pilot' if pilot else e(sv['status'])}</span>"
+            f"<p>{e(sv['summary'])}</p>"
             f"<p class='facts'>Delivered with <a href='{e(sv['source_url'])}'>{e(sv['tool'])}</a> · {e(sv['tests'])} {e(sv.get('tests_note') or 'tests')} passed on {e(data['checked'])} · "
             f"<a href='{e(sv['source_url'])}'>source</a></p>{price}"
             f"<a class='btn' href='{e(cfg.contact_url)}'>Request a pilot</a></div>"
             "<div><h3>What you get</h3><ul>" + "".join(f"<li>{e(x)}</li>" for x in sv["delivers"]) + "</ul>"
             "<h3>Limits</h3><ul class='lim'>" + "".join(f"<li>{e(x)}</li>" for x in sv["limits"]) + f"</ul>{needs}</div></section>")
     return (
-        "<div class='wrap'><div class='crumb'>services</div><h1 style='font-size:clamp(1.9rem,4.4vw,2.9rem)'>Services</h1>"
-        f"<p class='lede' style='margin-top:12px'>{len(data['services'])} services, each delivered with an open-source tool you can read and run yourself. "
+        "<div class='wrap'><div class='crumb'>services</div><h1>Services</h1>"
+        f"<p class='lede' style='margin-top:16px'>{len(data['services'])} services, each delivered with an open-source tool you can read and run yourself. "
         "One person does the work, and every limit is written down before you start.</p>"
         "<div class='note'><p><b>These are pilots.</b> There are no paying customers yet, so there are no case studies or testimonials here. "
         f"A service is listed only if its tool's test suite was re-run and passed. That was last done on {e(data['checked'])}.</p></div>"
-        + "".join(blocks) + "<div style='height:56px'></div></div>")
+        + "".join(blocks) + "<div style='height:72px'></div></div>")
 
 
 # ----------------------------------------------------------------------- assets
-_BADGE_COLOURS = {"low": "#2c6a4b", "caution": "#8f5a00", "review": "#b3261e", "block": "#7a1410", "muted": "#6a6558"}
+_BADGE_COLOURS = {"low": "#1d6a43", "caution": "#875400", "review": "#b3261e", "block": "#7a1410", "muted": "#596067"}
 
 
 def badge_svg(view: dict[str, Any]) -> str:
@@ -859,7 +1132,7 @@ def badge_svg(view: dict[str, Any]) -> str:
     w = round(lw + mw)
     return (
         f"<svg xmlns='http://www.w3.org/2000/svg' width='{w}' height='20' role='img' aria-label='{e(label)}: {e(message)}'>"
-        f"<title>{e(label)}: {e(message)}</title><rect width='{w}' height='20' rx='3' fill='#1a1814'/>"
+        f"<title>{e(label)}: {e(message)}</title><rect width='{w}' height='20' rx='3' fill='#17191b'/>"
         f"<rect x='{round(lw)}' width='{round(mw)}' height='20' rx='3' fill='{_BADGE_COLOURS[key]}'/>"
         f"<rect x='{round(lw)}' width='4' height='20' fill='{_BADGE_COLOURS[key]}'/>"
         "<g fill='#fff' font-family='Verdana,DejaVu Sans,sans-serif' font-size='11'>"
@@ -904,7 +1177,7 @@ def build(entries: list[Entry], disclosures: dict[str, Disclosure], out: Path, c
     write("docs/index.html", _page(cfg, title=f"Documentation | {cfg.name}", description="Install the CLI, write a policy, gate pull requests, watch approved plugins and build audit evidence.",
                                    body=_docs_page(cfg), depth=1, active="docs", path="docs/"))
     write("404.html", _page(cfg, title=f"Not found | {cfg.name}", description="Page not found.",
-                            body=f"<div class='wrap' style='padding:80px 20px'><h1>Nothing here.</h1><p class='lede' style='margin-top:14px'>Try the <a href='{e(cfg.base_url)}/registry/'>registry</a>.</p></div>",
+                            body=f"<div class='wrap lost'><span class='stamp muted'>No such consignment</span><h1>Nothing here.</h1><p class='lede' style='margin-top:18px'>Try the <a href='{e(cfg.base_url)}/registry/'>registry</a>.</p></div>",
                             depth=0, path="404.html"))
     pages += 5
     if services:

@@ -22,6 +22,10 @@ LEVELS = [
     ("low", "Low risk"),
 ]
 
+# The word printed on the rubber stamp for each level in the HTML report and on the registry site.
+# The level's label always prints with it, so the stamp is shorthand and never replaces the verdict.
+STAMPS = {"low": "Cleared", "caution": "Conditions apply", "review": "Hold", "block": "Do not install"}
+
 
 def injection_suspected(findings: list[Finding]) -> bool:
     return any(f.rule_id in INJECTION_RULES and f.severity >= Severity.MEDIUM and f.source == "static" for f in findings)

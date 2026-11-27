@@ -13,6 +13,7 @@ from collections import defaultdict
 from . import hardening
 from .models import CATEGORIES, Finding
 from .report import SEVERITY_ORDER, Report
+from .verdict import STAMPS
 
 VERDICT_BLURB = {
     "block": "Serious risk found. Don't install this unless you can explain every critical finding below.",
@@ -184,40 +185,48 @@ def _md_cell(s: str) -> str:
 
 
 # ------------------------------------------------------------------------- HTML
-CSS = """
-:root{--bg:#f6f5f1;--panel:#ffffff;--ink:#16181d;--muted:#5d6370;--line:#dedad0;--code:#f0eee8;
---crit:#b3261e;--high:#c2410c;--med:#a16207;--low:#2f6f4f;--info:#52607a;--accent:#1d4ed8;--chip:#ecebe6}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1013;--panel:#15181d;--ink:#e7e9ee;--muted:#9aa3b2;--line:#262b33;--code:#1b1f26;
---crit:#ff6b5e;--high:#ff9a4d;--med:#f2c94c;--low:#6fd39b;--info:#93a4c3;--accent:#7aa2ff;--chip:#1f242c}}
-:root[data-theme="dark"]{--bg:#0e1013;--panel:#15181d;--ink:#e7e9ee;--muted:#9aa3b2;--line:#262b33;--code:#1b1f26;
---crit:#ff6b5e;--high:#ff9a4d;--med:#f2c94c;--low:#6fd39b;--info:#93a4c3;--accent:#7aa2ff;--chip:#1f242c}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Inter,sans-serif}
+CSS = r"""
+/* Inspection docket. Same system as the registry site: square surfaces, signal amber as the one accent, stamp inks for verdicts only. */
+:root{--bg:#e6e9e2;--panel:#f5f6f1;--ink:#15181b;--muted:#545b61;--line:#c2c7bd;--code:#eceee7;--wash:#dcdfd6;--signal:#f2b200;--board:#17191b;
+--crit:#b3261e;--high:#b3261e;--med:#875400;--low:#1d6a43;--info:#4f5a6e;--accent:#15181b;--chip:#eceee7;--refuse-ink:#fff6f3;
+--display:"DIN Condensed","Bahnschrift","D-DIN Condensed","Roboto Condensed","Arial Narrow",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101214;--panel:#171a1d;--ink:#e4e7e1;--muted:#a3aaa3;--line:#2d3236;--code:#1c1f22;--wash:#1c1f22;--board:#0a0b0c;
+--crit:#ff6a5c;--high:#ff7468;--med:#f0b54a;--low:#62d394;--info:#9fb0cc;--accent:#e4e7e1;--chip:#1c1f22;--refuse-ink:#1a0806}}
+:root[data-theme="dark"]{--bg:#101214;--panel:#171a1d;--ink:#e4e7e1;--muted:#a3aaa3;--line:#2d3236;--code:#1c1f22;--wash:#1c1f22;--board:#0a0b0c;
+--crit:#ff6a5c;--high:#ff7468;--med:#f0b54a;--low:#62d394;--info:#9fb0cc;--accent:#e4e7e1;--chip:#1c1f22;--refuse-ink:#1a0806}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;border-top:10px solid transparent;
+border-image:repeating-linear-gradient(-45deg,var(--signal) 0 14px,#17191b 14px 28px) 10 0 0 0}
 main{max-width:1060px;margin:0 auto;padding:28px 16px 64px}
-code,pre,.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-h1{font-size:26px;margin:0 0 4px;letter-spacing:-.01em}h2{font-size:18px;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-h3{font-size:15px;margin:0}.muted{color:var(--muted)}a{color:var(--accent)}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+code,pre,.mono{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace}
+h1{font:700 clamp(1.5rem,3.6vw,2.3rem)/1.15 ui-monospace,"SF Mono",Menlo,monospace;margin:0 0 6px;letter-spacing:-.02em}
+h2{font:700 clamp(1.5rem,3vw,2rem)/1 var(--display);font-stretch:condensed;text-transform:uppercase;letter-spacing:.02em;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+h3{font-size:15px;margin:0}.muted{color:var(--muted)}a{color:var(--accent);text-decoration-color:var(--signal);text-decoration-thickness:2px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--panel);border:2px solid var(--ink);padding:44px 22px 22px;position:relative}
+.dkt{position:absolute;left:0;right:0;top:0;padding:7px 22px;background:var(--ink);color:var(--bg);font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase}
 .hero>div,.card,.finding{min-width:0}h1,h3,.mono,.meta,code{overflow-wrap:anywhere}
-.verdict{font-size:22px;font-weight:700}.v-block{color:var(--crit)}.v-review{color:var(--high)}.v-caution{color:var(--med)}.v-low{color:var(--low)}
-.score{text-align:center;min-width:120px}.score b{display:block;font-size:40px;line-height:1}
-.meter{height:8px;border-radius:99px;background:var(--chip);overflow:hidden;margin-top:8px}.meter i{display:block;height:100%}
-.counts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.pill{padding:2px 10px;border-radius:99px;background:var(--chip);font-size:13px}
+.verdict{display:inline-block;margin:14px 0 10px;padding:8px 16px 6px;border:3px solid currentColor;border-radius:3px;box-shadow:inset 0 0 0 2px var(--panel),inset 0 0 0 4px currentColor;
+font:700 1.7rem/1 var(--display);font-stretch:condensed;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-3deg);transform-origin:left center}
+.v-block{color:var(--refuse-ink);background:var(--crit);border-color:var(--crit);box-shadow:inset 0 0 0 2px var(--crit),inset 0 0 0 4px var(--refuse-ink)}.v-review{color:var(--high)}.v-caution{color:var(--med)}.v-low{color:var(--low)}
+.score{text-align:center;min-width:130px;border:2px solid var(--ink);padding:14px 16px;background:var(--bg)}
+.score span{font:700 10.5px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}.score b{display:block;font:700 3.6rem/1 var(--display);font-stretch:condensed;margin:6px 0 2px}
+.counts{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.pill{padding:3px 9px;border:1px solid var(--line);background:var(--chip);font:12px ui-monospace,Menlo,monospace}
 .sev-critical{color:var(--crit)}.sev-high{color:var(--high)}.sev-medium{color:var(--med)}.sev-low{color:var(--low)}.sev-info{color:var(--info)}
-.bar-block{background:var(--crit)}.bar-review{background:var(--high)}.bar-caution{background:var(--med)}.bar-low{background:var(--low)}
-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:2px solid var(--ink)}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}th{font:700 10.5px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
 td code{word-break:break-all}.tablewrap{overflow-x:auto}
-.finding{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--info);border-radius:10px;margin:12px 0;padding:14px 16px}
+.finding{background:var(--panel);border:2px solid var(--ink);border-left:10px solid var(--info);margin:12px 0;padding:14px 16px}
 .finding.critical{border-left-color:var(--crit)}.finding.high{border-left-color:var(--high)}.finding.medium{border-left-color:var(--med)}.finding.low{border-left-color:var(--low)}
 .fhead{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}.fid{font-weight:700}.meta{font-size:12.5px;color:var(--muted);margin:4px 0 8px}
-pre{background:var(--code);border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:12.5px;white-space:pre-wrap;word-break:break-word;margin:8px 0}
-.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-size:12px;padding:1px 8px;border-radius:6px;background:var(--chip)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.note{background:var(--chip);border-radius:10px;padding:10px 14px;font-size:13.5px}
-details summary{cursor:pointer;color:var(--muted)}
-.toggle{position:fixed;top:12px;right:12px;font-size:12px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:4px 8px;cursor:pointer}
-@media (max-width:640px){.hero{grid-template-columns:minmax(0,1fr)}.score{text-align:left}.stack table,.stack tbody,.stack tr,.stack td{display:block;width:100%}.stack tr:first-child{display:none}.stack tr{border-bottom:1px solid var(--line);padding:6px 0}.stack td{border:0;padding:3px 10px}.stack td[data-label]::before{content:attr(data-label);display:block;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}}
+pre{background:var(--code);border-left:3px solid var(--ink);padding:10px 12px;overflow-x:auto;font-size:12.5px;white-space:pre-wrap;word-break:break-word;margin:8px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font:12px ui-monospace,Menlo,monospace;padding:2px 8px;background:var(--chip);border:1px solid var(--line)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0;border:2px solid var(--ink);background:var(--panel)}
+.card{background:var(--panel);border:0;box-shadow:0 0 0 1px var(--line);padding:14px 16px}.card h3{font:700 10.5px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.note{position:relative;background:var(--panel);border:2px solid var(--ink);padding:12px 14px 12px 30px;font-size:13.5px}
+.note::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:repeating-linear-gradient(-45deg,var(--signal) 0 8px,#17191b 8px 16px)}
+details summary{cursor:pointer;color:var(--muted);font:700 12px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;margin:16px 0 8px}
+.toggle{position:fixed;top:18px;right:12px;font:700 10.5px ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;background:var(--panel);color:var(--ink);border:2px solid var(--ink);padding:6px 9px;cursor:pointer}
+@media (max-width:640px){.hero{grid-template-columns:minmax(0,1fr)}.score{text-align:left}.stack table,.stack tbody,.stack tr,.stack td{display:block;width:100%}.stack tr:first-child{display:none}.stack tr{border-bottom:1px solid var(--line);padding:6px 0}.stack td{border:0;padding:3px 10px}.stack td[data-label]::before{content:attr(data-label);display:block;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.toggle{position:static;margin:12px 16px 0}}
 """
 
 
@@ -252,7 +261,6 @@ def to_html(r: Report) -> str:
     dismissed: list[Finding] = []
     for f in r.findings:
         (dismissed if f.verdict == "false_positive" else groups[f.effective_severity.label]).append(f)
-    bars = f"<i class='bar-{_e(v['level'])}' style='width:{max(2, int(v['score']))}%'></i>"
     pills = "".join(f"<span class='pill sev-{k}'>{n} {k}</span>" for k, n in v["counts"].items() if n)
     agent = ""
     if r.agent:
@@ -260,12 +268,12 @@ def to_html(r: Report) -> str:
         agent = f" · agent {_e(a.get('model'))}, {_e(a.get('turns'))} turns, ${float(a.get('cost_usd') or 0):.2f}"
     parts: list[str] = []
     parts.append(
-        f"<section class='hero'><div><div class='muted mono'>Plugin Warden report</div><h1>{_e(t['display'])}</h1>"
-        f"<div class='verdict v-{_e(v['level'])}'>{_e(v['label'])}</div><p>{_e(VERDICT_BLURB[v['level']])}</p>"
+        f"<section class='hero'><div class='dkt'>Plugin Warden report: inspection docket</div><div><h1>{_e(t['display'])}</h1>"
+        f"<div class='verdict v-{_e(v['level'])}'>{_e(STAMPS[v['level']])}</div><p><b>{_e(v['label'])}.</b> {_e(VERDICT_BLURB[v['level']])}</p>"
         f"<div class='counts'>{pills or '<span class=pill>no findings</span>'}</div>"
         f"<p class='muted mono' style='font-size:12.5px'>{_e(t.get('url') or t['raw'])}" + (f" @ {_e(t['commit'][:12])}" if t.get("commit") else "")
         + f" · {r.stats['files']} files · {_e(r.generated_at)}{agent}</p></div>"
-        f"<div class='score'><span class='muted'>risk score</span><b>{v['score']}</b><span class='muted'>/ 100</span><div class='meter'>{bars}</div></div></section>"
+        f"<div class='score'><span class='muted'>risk score</span><b>{v['score']}</b><span class='muted'>of 100</span></div></section>"
     )
     if v.get("injection_guard"):
         parts.append("<p class='note'><b>Prompt-injection text was found in this repository.</b> The agent read that text, so its dismissals of high or critical findings are ignored in the score.</p>")
