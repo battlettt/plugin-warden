@@ -6,14 +6,14 @@
   "url": "https://github.com/oraios/serena",
   "ref": null,
   "subdir": null,
-  "commit": "b8f4c665773f96701be6cabfb197d0db26011699",
+  "commit": "46f5dca7a0847be965bee988b4efa3ca14cedb3b",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-23T16:23:54+00:00",
+ "generated_at": "2026-11-28T14:28:47+00:00",
  "plugins": [
   {
-   "name": "oraios__serena@b8f4c665773f",
+   "name": "oraios__serena@46f5dca7a084",
    "path": ".",
    "source": "fallback",
    "version": null,
@@ -27,9 +27,9 @@
  "components": [
   {
    "kind": "manifest",
-   "name": "oraios__serena@b8f4c665773f",
+   "name": "oraios__serena@46f5dca7a084",
    "path": ".",
-   "plugin": "oraios__serena@b8f4c665773f",
+   "plugin": "oraios__serena@46f5dca7a084",
    "trigger": "",
    "details": {
     "source": "fallback"
@@ -148,7 +148,7 @@
  ],
  "stats": {
   "files": 1217,
-  "bytes": 9664937,
+  "bytes": 9667054,
   "by_kind": {
    "binary": 23,
    "code": 55,
@@ -628,12 +628,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 31639,
-  "forks": 2156,
-  "open_issues": 150,
+  "stars": 31778,
+  "forks": 2175,
+  "open_issues": 153,
   "contributors": "100+",
   "created_at": "2025-03-23T22:35:24Z",
-  "pushed_at": "2026-11-23T15:11:36Z",
+  "pushed_at": "2026-11-27T15:52:21Z",
   "license": "NOASSERTION",
   "archived": false,
   "owner_type": "Organization",

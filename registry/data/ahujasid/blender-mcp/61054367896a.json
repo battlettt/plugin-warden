@@ -6,17 +6,17 @@
   "url": "https://github.com/ahujasid/blender-mcp",
   "ref": null,
   "subdir": null,
-  "commit": "a5a8acf2c6ae44a73670e0caf34663f16456d645",
+  "commit": "61054367896ada03694f71591fdbacedb05a5e76",
   "marketplace": null
  },
  "root": "",
- "generated_at": "2026-11-18T14:36:40+00:00",
+ "generated_at": "2026-11-28T14:33:24+00:00",
  "plugins": [
   {
    "name": "mcp-for-blender",
    "path": "integrations/claude/mcp-for-blender",
    "source": "manifest",
-   "version": "2.3.1",
+   "version": "2.3.4",
    "description": "Community open-source Blender integration: build and edit 3D scenes in your running Blender (not affiliated with the Blender Foundation)."
   }
  ],
@@ -35,7 +35,7 @@
    "trigger": "",
    "details": {
     "source": "manifest",
-    "version": "2.3.1",
+    "version": "2.3.4",
     "description": "Community open-source Blender integration: build and edit 3D scenes in your running Blender (not affiliated with the Blender Foundation).",
     "author": {
      "name": "Siddharth Ahuja",
@@ -55,7 +55,7 @@
     "command": "uvx",
     "args": [
      "--from",
-     "${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.1-py3-none-any.whl",
+     "${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.4-py3-none-any.whl",
      "mcp-for-blender"
     ]
    }
@@ -92,14 +92,14 @@
   }
  ],
  "stats": {
-  "files": 90,
-  "bytes": 2928309,
+  "files": 95,
+  "bytes": 2964011,
   "by_kind": {
    "binary": 7,
-   "config": 7,
+   "config": 8,
    "markdown": 10,
    "other": 10,
-   "python": 54,
+   "python": 58,
    "shell": 2
   },
   "vendored_files": 0,
@@ -174,7 +174,7 @@
    "category": "supply-chain",
    "path": "",
    "line": null,
-   "snippet": "fp:c3bd38927ca10e53",
+   "snippet": "fp:3da1323662668110",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -254,7 +254,7 @@
    "category": "integrity",
    "path": "",
    "line": null,
-   "snippet": "fp:9dce8e144cf09292",
+   "snippet": "fp:6d11376c88f0c78e",
    "message": "",
    "fix": "",
    "precautions": [],
@@ -632,7 +632,7 @@
   "auto_runs": [
    {
     "when": "session start",
-    "what": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.1-py3-none-any.whl mcp-for-blender",
+    "what": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.4-py3-none-any.whl mcp-for-blender",
     "type": "MCP server",
     "plugin": "mcp-for-blender",
     "file": "integrations/claude/mcp-for-blender/.mcp.json"
@@ -642,7 +642,7 @@
    {
     "name": "blender",
     "kind": "MCP server",
-    "launch": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.1-py3-none-any.whl mcp-for-blender",
+    "launch": "uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/mcp_for_blender-2.3.4-py3-none-any.whl mcp-for-blender",
     "file": "integrations/claude/mcp-for-blender/.mcp.json"
    }
   ],
@@ -787,12 +787,12 @@
  },
  "notes": [],
  "metadata": {
-  "stars": 34902,
-  "forks": 3187,
-  "open_issues": 65,
-  "contributors": "46",
+  "stars": 36111,
+  "forks": 3326,
+  "open_issues": 61,
+  "contributors": "50",
   "created_at": "2025-03-07T09:58:58Z",
-  "pushed_at": "2026-11-18T10:27:07Z",
+  "pushed_at": "2026-11-28T14:08:17Z",
   "license": "MIT",
   "archived": false,
   "owner_type": "User",
